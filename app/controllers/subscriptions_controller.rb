@@ -90,7 +90,7 @@ class SubscriptionsController < ApplicationController
     @subscription.save
 
     respond_to do |format|
-      format.html { redirect_to(subscriptions_path(), :notice => 'Full subscription added.') }
+      format.html { redirect_to(group_manage_path(), :notice => 'Full subscription added.') }
       format.xml  { render :xml => @subscription }
     end
 
