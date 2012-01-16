@@ -1,10 +1,22 @@
 
 - if !true
 
-.debug{:style=>"width:512px;background-color:black;margin:0 auto;height:128px;"}
+.container{:style=>"width:480px;"}
+  %strong
+    = "Debugger"
+  .clear
 
-  .heading
-    = "Debugs"
+  .left
+
+    - if @subscription
+      %span{:style=>"color:green"}
+        = "Subscription active: #{@subscription.name}"
+    - else
+      %span{:style=>"color:red"}
+        = "no active sub"
+        = link_to "List subscriptions", subscriptions_path
+  .clear
+
 
   .left{:style=>"font-size:10px;"}
     - ua = request.env['HTTP_USER_AGENT'].downcase

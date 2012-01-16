@@ -177,7 +177,7 @@ class HeadersController < ApplicationController
   def watermark
     @group = current_group
     @header = Header.find(params[:id])
-    @header.header = @header.header.process!(:watermark,:mark => 'public/images/logos/buffys_icon.png')
+    @header.header = @header.header.process!(:watermark,:mark => 'public/images/mofaq/mofaq-faq-logo-watermark.png')
     @header.save
 
     respond_to do |format|

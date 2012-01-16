@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   helper :items
   helper :channels
+  before_filter :find_subscription
 
   tabs :default => :welcome
   subtabs :index => [[:fresh, "created_at desc"], [:heat, "hotness desc, views_count desc"], [:relevance, "votes_average desc"], [:activity, "activity_at desc"], [:expert, "created_at desc"]]
@@ -23,11 +24,11 @@ class WelcomeController < ApplicationController
 
     @items = current_group.items #.merge(conditions)
 
-    current_group.subscriptions.each do |subscription|
-      if subscription.is_active?
-        @subscription = subscription
-      end
-    end
+    #current_group.subscriptions.each do |subscription|
+      #if subscription.is_active?
+        #@subscription = subscription
+      #end
+    #end
     
     
    # @doctype = doctype
@@ -177,6 +178,24 @@ class WelcomeController < ApplicationController
 
 
   protected
+
+ def find_subscription
+    current_group.subscriptions.each do |subscription|
+
+      if subscription.ends_at < Time.now
+        subscription.is_active = false
+        subscription.save
+        @subscription = nil
+      else
+        subscription.is_active = true
+        subscription.save
+        @subscription = subscription
+      end
+      
+
+    end
+    @subscription
+  end
 
   def placeholder
   end

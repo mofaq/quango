@@ -186,7 +186,7 @@ class GroupsController < ApplicationController
     #@group = current_group
 
     @subscription = Subscription.new
-    @subscription.name = @group.name + "subscription"
+    @subscription.name = "Trial subscription"
     @subscription.group = @group
     @subscription.user = @user
     @subscription.starts_at = Time.now
@@ -203,7 +203,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         @group.add_member(current_user, "owner")
-        @group.add_member(current_user, "agent")
+        #@group.add_member(current_user, "agent")
         flash[:notice] = I18n.t("groups.create.flash_notice")
 
         if @group.group_type == "mobile"

@@ -19,7 +19,7 @@
             = "end"
           %th
             = "actions"
-        - @subscriptions.each do |subscription|
+        - @subscriptions.reverse.each do |subscription|
           %tr
             %td
               = subscription.name

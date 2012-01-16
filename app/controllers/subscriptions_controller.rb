@@ -58,6 +58,44 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def add_trial
+    @user = current_user
+    @group = current_group
+    @subscription = Subscription.new
+    @subscription.name = "Free Trial Subscription (1 min)"
+    @subscription.group = @group
+    @subscription.user = @user
+    @subscription.starts_at = Time.zone.now
+    @subscription.ends_at = Time.zone.now + 1.minutes
+
+    @subscription.save
+
+    respond_to do |format|
+      format.html { redirect_to(group_manage_path(), :notice => 'Trial subscription added.') }
+      format.xml  { render :xml => @subscription }
+    end
+
+  end
+
+  def add_full
+    @user = current_user
+    @group = current_group
+    @subscription = Subscription.new
+    @subscription.name = "Full Subscription (2 mins)"
+    @subscription.group = @group
+    @subscription.user = @user
+    @subscription.starts_at = Time.zone.now
+    @subscription.ends_at = Time.zone.now + 2.minutes
+
+    @subscription.save
+
+    respond_to do |format|
+      format.html { redirect_to(subscriptions_path(), :notice => 'Full subscription added.') }
+      format.xml  { render :xml => @subscription }
+    end
+
+  end
+
   # GET /subscriptions/1/edit
   def edit
     @subscription = Subscription.find(params[:id])

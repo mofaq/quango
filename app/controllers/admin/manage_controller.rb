@@ -1,6 +1,9 @@
 class Admin::ManageController < ApplicationController
   before_filter :login_required
   before_filter :check_permissions
+  before_filter :find_subscription
+
+
   layout "manage"
   tabs :dashboard => :dashboard,
        :properties => :properties,
@@ -59,6 +62,26 @@ class Admin::ManageController < ApplicationController
   end
 
   protected
+
+  def find_subscription
+    current_group.subscriptions.each do |subscription|
+
+      if subscription.ends_at < Time.now
+        subscription.is_active = false
+        subscription.save
+        @subscription = nil
+      else
+        subscription.is_active = true
+        subscription.save
+        @subscription = subscription
+      end
+      
+
+    end
+    @subscription
+  end
+
+
   def check_permissions
     @group = current_group
 

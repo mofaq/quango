@@ -27,14 +27,15 @@
 
 
 
-      .entry.right{:style => "line-height:28px;text-shadow:-1px -1px 2px black"}
+      .entry.right{:style => "line-height:28px;text-shadow:-1px -1px 2px black; margin-right:8px;"}
         - if current_user.display_name?
           - real_name = "#{current_user.display_name}"
         - else
           - real_name = "#{current_user.first_name} #{current_user.last_name}"
 
         %strong
-          = link_to real_name, "/members/#{current_user.slug}", :style => "font-size:1em;font-weight:bold;color:white;text-decoration:none"
+          -# #{current_user.slug}
+          = link_to real_name, "#", :style => "font-size:1em;font-weight:bold;color:white;text-decoration:none"
     
 
 

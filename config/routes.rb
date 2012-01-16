@@ -157,7 +157,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sponsored_links, :member => {:image => :get,:move => :post}, :path_prefix => "/manage"
 
   map.resources :transactions
-  map.resources :subscriptions
+  map.resources :subscriptions, :member => {:add_trial => :get, :add_full => :get}
   map.resources :headers, :member => {:crop => :get,
                                               :pull => :get, 
                                               :set_default_header => :get, 

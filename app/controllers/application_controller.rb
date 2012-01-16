@@ -42,6 +42,9 @@ class ApplicationController < ActionController::Base
   before_filter :check_group_access
   before_filter :set_locale
   before_filter :find_languages
+
+  before_filter :find_subscription
+
   layout :set_layout
 
   helper_method :recaptcha_tag
@@ -130,6 +133,30 @@ class ApplicationController < ActionController::Base
   def subscriptions
     @subscriptions = current_group.subscriptions
   end
+
+  def subscription
+    @subscription
+  end
+
+  def find_subscription
+    current_group.subscriptions.each do |subscription|
+
+      if subscription.ends_at < Time.now
+        subscription.is_active = false
+        subscription.save
+        @subscription = nil
+      else
+        subscription.is_active = true
+        subscription.save
+        @subscription = subscription
+      end
+      
+
+    end
+    @subscription
+  end
+
+
 
   def current_item
     @item

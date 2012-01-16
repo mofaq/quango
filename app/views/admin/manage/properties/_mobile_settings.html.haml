@@ -1,7 +1,20 @@
 
+-# simply test for @subscription , if there is an active subscription it will return
+
+
+
+
+
 .container{:style=>"width:480px;"}
+
+
+  - if @subscription
+    = "Subscription active: #{@subscription.name}"
+  - else
+    = "no active sub - user cannot access seetings"
+
   .heading
-    = "Mobile FAQ Settings"
+    = "Mobile FAQ Settingsz"
   %ul.mobile
     %li
       = image_tag "/images/icons/settings.png"
