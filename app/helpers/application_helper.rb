@@ -1,8 +1,12 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-
-
+  def has_subscription?(group)
+    group.subscriptions.each do |sub|
+      return true if sub.is_active
+    end
+    return false
+  end
 
   def with_facebook?
     return true if current_group.share.fb_active
