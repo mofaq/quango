@@ -51,11 +51,25 @@
     -if true
       -content_for :after_form do
         .container
+
+          - @user = current_user
+          - @group = current_group
+          - subscription = Subscription.new
+          - subscription.name = "Paypal Subscription (1 mins)"
+          - subscription.group = @group
+          - subscription.user = @user
+          - subscription.starts_at = Time.zone.now
+          - subscription.ends_at = Time.zone.now + 1.second
+          - subscription.save
+
           -#="<img src=\"https://www.paypal.com/en_AU/AU/i/btn/btn_xpressCheckout.gif\" align=\"left\" style=\"margin-right:7px;\">"
 
-          ="<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\">"
+          ="<form action=\"https://www.sandbox.paypal.com/cgi-bin/webscr\" method=\"post\">"
+          ="<input type=\"hidden\" value=\"#{current_group}\" name=\"invoice\">"
+          ="<input type=\"hidden\" value=\"#{subscription.id}\" name=\"subscription_id\">"
+          ="<input type=\"hidden\" name=\"return\" value=\"http://#{current_group.domain}#{activate_subscription_path(subscription.id)}\">"
           ="<input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\">"
-          ="<input type=\"hidden\" name=\"hosted_button_id\" value=\"FMMVPEA2S87FG\">"
+          ="<input type=\"hidden\" name=\"hosted_button_id\" value=\"UQPQPX57XLPF4\">"
           ="<input type=\"image\" src=\"https://www.paypalobjects.com/en_AU/i/btn/btn_buynowCC_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal — The safer, easier way to pay online.\">"
           ="<img border=\"0\" src=\"https://www.paypalobjects.com/en_AU/i/scr/pixel.gif\" width=\"1\" height=\"1\">"
           ="</form>"

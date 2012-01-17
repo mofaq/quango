@@ -146,6 +146,10 @@ class ApplicationController < ActionController::Base
         subscription.save
         @subscription = nil
       else
+        # test transaction status
+
+
+
         subscription.is_active = true
         subscription.save
         @subscription = subscription

@@ -77,6 +77,20 @@ class SubscriptionsController < ApplicationController
 
   end
 
+  def activate
+    @subscription = Subscription.find(params[:id])
+    @subscription.name = "Active Subscription (1 min)"
+    @subscription.starts_at = Time.zone.now
+    @subscription.ends_at = Time.zone.now + 1.minutes    
+    @subscription.save
+  
+    respond_to do |format|
+      format.html { redirect_to(manage_properties_path, :notice => 'Full subscription added.') }
+      format.xml  { render :xml => @subscription }
+    end
+
+  end
+
   def add_full
     @user = current_user
     @group = current_group
