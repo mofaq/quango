@@ -71,7 +71,7 @@ class SubscriptionsController < ApplicationController
     @subscription.save
 
     respond_to do |format|
-      format.html { redirect_to(group_manage_path(), :notice => 'Trial subscription added.') }
+      format.html { redirect_to(manage_properties_path, :notice => 'Trial subscription added.') }
       format.xml  { render :xml => @subscription }
     end
 
@@ -90,7 +90,7 @@ class SubscriptionsController < ApplicationController
     @subscription.save
 
     respond_to do |format|
-      format.html { redirect_to(manage_properties_path(), :notice => 'Full subscription added.') }
+      format.html { redirect_to(manage_properties_path, :notice => 'Full subscription added.') }
       format.xml  { render :xml => @subscription }
     end
 
