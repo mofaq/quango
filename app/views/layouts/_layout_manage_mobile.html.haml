@@ -8,6 +8,7 @@
     = "<meta http-equiv=\"cache-control\" content=\"public\" />"
     = "<meta http-equiv=\"content-language\" content=\"en\" />"
     = render :partial => "layouts/ua"
+    = render :partial => "layouts/geo"
 
     %title
       &= page_title
@@ -36,9 +37,20 @@
       .container
         = show_flash_messages(:class => "flash", :markdown => true)
 
-    #footer{:style=>"position:relative;bottom:0px;left:0px;"}
+    #footer
       = render :partial => "layouts/footer_mobile"
 
-    - if debug
-      #debug
-        = render :partial => "layouts/debug"
+    #info
+      = render :partial => "layouts/footer_info"
+
+    -#if debug
+    #debug
+      = render :partial => "layouts/debug"
+
+
+
+
+
+
+
+
