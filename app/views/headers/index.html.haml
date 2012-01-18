@@ -16,15 +16,15 @@
 
 
   #fold
-    .container{:style=>"width:480px;background:#{current_group.primary_dark};border-bottom:4px solid #{current_group.primary_dark}"}
+    .container{:style=>"height:60px;width:480px;border-bottom:8px solid #{current_group.primary_dark}"}
       -form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
         = f.error_messages
         - source = headers_path
         = hidden_field_tag :source, source
 
-        %table{:style=>"width:480px;"}
+        %table{:style=>"width:480px;margin-top:8px;"}
           %tr
-            %td{:style=>"width:33%;"}
+            %td{:style=>"width:30%;"}
               - if current_group.logo_only?
                 .check_box.checked
                   = f.label :logo_only, "Hide image"
@@ -33,7 +33,7 @@
                 .check_box.unchecked
                   = f.label :logo_only, "Show image"
                   = f.check_box :logo_only
-            %td{:style=>"width:33%;"}
+            %td{:style=>"width:30%;"}
               - if current_group.text_only?
                 .check_box.checked
                   = f.label :text_only, "Hide text"
@@ -42,7 +42,7 @@
                 .check_box.unchecked
                   = f.label :text_only, "Show Text"
                   = f.check_box :text_only
-            %td{:style=>"width:33%;"}
+            %td{:style=>"width:30%;"}
               - if current_group.has_strapline?
                 .check_box.checked
                   = f.label :has_strapline, "Hide strapline"

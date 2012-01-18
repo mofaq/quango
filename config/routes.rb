@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :dummies
+
+  map.resources :purchases
+
   #map.resources :images
 
   map.oauth_authorize '/oauth/start', :controller => 'oauth', :action => 'start'
@@ -34,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
   map.tos '/tos', :controller => 'doc', :action => 'tos'
   map.privacy '/privacy', :controller => 'doc', :action => 'privacy'
 
+  map.handler '/handler', :controller => 'subscriptions', :action => 'handler'
 
   map.resources :avatars, :member => { :crop => :get, :pull => :get, :set_default => :get,  :set_profile => :get }, :as => "profile-images"
 

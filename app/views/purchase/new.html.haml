@@ -1,0 +1,12 @@
+-content_for :main do
+
+  %h1
+    = "Purchase an eBook"
+
+  = content_tag('div', "There was an error processing your payment: #{@paypal_error}", :class => 'error') if @paypal_error
+
+
+
+  -form_tag :action => 'express' do
+    %input{:type=>"submit",:value=>"kshjd kjsd hexpress"}
+

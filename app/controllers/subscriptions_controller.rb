@@ -62,11 +62,11 @@ class SubscriptionsController < ApplicationController
     @user = current_user
     @group = current_group
     @subscription = Subscription.new
-    @subscription.name = "Free Trial Subscription (1 min)"
+    @subscription.name = "Free Trial Subscription (5 mins)"
     @subscription.group = @group
     @subscription.user = @user
     @subscription.starts_at = Time.zone.now
-    @subscription.ends_at = Time.zone.now + 1.minutes
+    @subscription.ends_at = Time.zone.now + 5.minutes
 
     @subscription.save
 
@@ -91,6 +91,19 @@ class SubscriptionsController < ApplicationController
 
   end
 
+  def handler
+  
+
+
+   respond_to do |format|
+      format.html #
+      format.xml  { render :xml => @subscription }
+    end
+
+  end
+
+
+
   def add_full
     @user = current_user
     @group = current_group
@@ -104,7 +117,7 @@ class SubscriptionsController < ApplicationController
     @subscription.save
 
     respond_to do |format|
-      format.html { redirect_to(manage_properties_path, :notice => 'Full subscription added.') }
+      format.html 
       format.xml  { render :xml => @subscription }
     end
 

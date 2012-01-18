@@ -14,5 +14,6 @@ config/shapado.yml
 config/environments/development.rb
 data/*.dat
 config/database.yml
+config/paypal.yml
 base_packaged.*
 .directory
