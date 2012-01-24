@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :dummies
 
-  map.resources :purchases
+  map.resources :purchases, :member => { :express => :get }
+  map.resources :orders, :new => { :express => :get }
 
   #map.resources :images
 
@@ -161,7 +162,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sponsored_links, :member => {:image => :get,:move => :post}, :path_prefix => "/manage"
 
   map.resources :transactions
-  map.resources :subscriptions, :member => {:add_trial => :get, :add_full => :get, :activate => :get}
+  map.resources :subscriptions, :member => {:add_trial => :get, :add_full => :get, :activate => :get, :remote => :post}
   map.resources :headers, :member => {:crop => :get,
                                               :pull => :get, 
                                               :set_default_header => :get, 
@@ -196,3 +197,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
+
+
+
+
+
+

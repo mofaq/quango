@@ -1,4 +1,9 @@
 # See: https://github.com/Shopify/active_merchant/issuesearch?state=open&q=rails+3#issue/30
+
+require "activemerchant"
+
+
+
 ActiveMerchant::Validateable.module_eval do
   def errors
     @errors ||= ActiveModel::Errors.new(self)

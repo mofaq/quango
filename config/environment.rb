@@ -39,7 +39,7 @@ Rails::Initializer.run do |config|
   config.gem "twitter_oauth", :version => "0.4.3"
   config.gem "sanitize", :version => "1.2.1"
   #config.gem "rack-recaptcha", :lib => "rack/recaptcha"
-  config.gem "tabs_on_rails", :version => "1.3.2"
+  #config.gem "tabs_on_rails", :version => "1.3.2"
   #config.gem 'rmagick',    :lib => 'RMagick'
   config.gem 'rack-cache', :lib => 'rack/cache'
   config.gem 'dragonfly', :version => "0.8.5"#,  :lib => 'dragonfly'
@@ -52,6 +52,13 @@ Rails::Initializer.run do |config|
   config.gem "term-extract"
   config.gem "semantic_extraction"
   config.gem "unidecode"
+  config.gem "money"
+  config.gem "activemerchant", :lib=>"active_merchant", :version => '1.20.2' 
+
+  config.gem "rake", :version => '0.8.7'
+
+
+
   #config.gem "activesupport",:version => "3.0.3"
   #config.gem "paypal-recurring"
   #config.gem "paypal-express",:version => "0.3.1"
@@ -88,3 +95,7 @@ Rails::Initializer.run do |config|
 end
 
 require "smtp_tls"
+
+
+
+

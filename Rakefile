@@ -3,6 +3,9 @@
 
 require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 
+#include Rake::DSL
+
+#require 'rake/dsl_definition'
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'

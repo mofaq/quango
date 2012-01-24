@@ -12,6 +12,7 @@ public/system/
 public/stylesheets/compiled/
 config/shapado.yml
 config/environments/development.rb
+config/paypal/*.pem
 data/*.dat
 config/database.yml
 config/paypal.yml

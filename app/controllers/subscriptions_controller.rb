@@ -91,14 +91,11 @@ class SubscriptionsController < ApplicationController
 
   end
 
-  def handler
+  def remote
   
+    @subscription = Subscription.new
 
 
-   respond_to do |format|
-      format.html #
-      format.xml  { render :xml => @subscription }
-    end
 
   end
 

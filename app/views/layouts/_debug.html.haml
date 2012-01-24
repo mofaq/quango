@@ -1,50 +1,50 @@
 
 - if !true
 
-.container{:style=>"width:480px;"}
-  %strong
-    = "Debugger"
-  .clear
+  .container{:style=>"width:480px;"}
+    %strong
+      = "Debugger"
+    .clear
 
-  .left
+    .left
 
-    - if @subscription
-      %span{:style=>"color:green"}
-        = "Subscription active: #{@subscription.name}"
-    - else
-      %span{:style=>"color:red"}
-        = "no active sub"
-        = link_to "List subscriptions", subscriptions_path
-  .clear
+      - if @subscription
+        %span{:style=>"color:green"}
+          = "Subscription active: #{@subscription.name}"
+      - else
+        %span{:style=>"color:red"}
+          = "no active sub"
+          = link_to "List subscriptions", subscriptions_path
+    .clear
 
 
-  .left{:style=>"font-size:10px;"}
-    - ua = request.env['HTTP_USER_AGENT'].downcase
-    = "#{ua}"
-  .clear
+    .left{:style=>"font-size:10px;"}
+      - ua = request.env['HTTP_USER_AGENT'].downcase
+      = "#{ua}"
+    .clear
 
-  .left
-    = "Group: #{current_group.id} / #{current_group.name}"
-  .clear
+    .left
+      = "Group: #{current_group.id} / #{current_group.name}"
+    .clear
 
-  .left
-    - parent = Group.find(current_group.parent_id)
-    = "Parent:"
-    = "#{current_group.parent_id} / # {parent.name}"
-  .clear
+    .left
+      - parent = Group.find(current_group.parent_id)
+      = "Parent:"
+      = "#{current_group.parent_id} / # {parent.name}"
+    .clear
 
-  .left
-    - if current_group.agent_id?
-      - agent = current_group.agent_id.id
-      = "Agent:"
-      = "#{current_group.agent_id} / #{agent.id}"
+    .left
+      - if current_group.agent_id?
+        - agent = current_group.agent_id.id
+        = "Agent:"
+        = "#{current_group.agent_id} / #{agent.id}"
 
-  .clear
-  .left
-    - if current_group.owner_id?
-      - owner = User.find(current_group.owner_id)
-      = "Owner:"
-      = "#{current_group.owner_id.id} / # {owner.login}"
+    .clear
+    .left
+      - if current_group.owner_id?
+        - owner = User.find(current_group.owner_id)
+        = "Owner:"
+        = "#{current_group.owner_id.id} / # {owner.login}"
 
 
 

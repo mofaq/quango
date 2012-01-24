@@ -1,92 +1,97 @@
 
-
-.container{:style=>"width:480px"}
-  .heading
-    = "Mobile FAQ Settings"
-
+.conatiner
 
   - if @subscription
-    = "Subscription active: #{@subscription.name}"
+    -content_for :after_form do
+      .container{:style=>"width:442px"}
+        .subs-innder{:style=>"background:#{current_group.primary};width:442px;padding:16px; margin:16px 0;border-radius:8px;-webkit-box-shadow:inset 0 0 4px black,0 0 4px white;"}
+          .heading
+            = "Mobile FAQ Settings"
+          %ul.mobile
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "General FAQ Settings", "?tab=group_location",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/icons/cog.png", :height => "32px", :width => "32px",:style=>"float:left;"
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Choose images for header", "/headers",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/icons/cog.png", :height => "32px", :width => "32px",:style=>"float:left;"
 
-    %ul.mobile
-      %li
-        = image_tag "/images/icons/settings.png"
-        = link_to "Colours", "?tab=colour_wheel"
-      %li
-        = image_tag "/images/icons/settings.png"
-        = link_to "Map settings", "?tab=group_map"
-      %li
-        = image_tag "/images/icons/settings.png"
-        = link_to "Physical Location", "?tab=group_location"
-      %li
-        = image_tag "/images/icons/settings.png"
-        = link_to "Contact Numbers", "?tab=group_contacts"
-      %li.locked
-        = image_tag "/images/icons/settings.png"
-        = link_to "Header & Logo", "/headers"
-      %li
-        = image_tag "/images/icons/settings.png"
-        = link_to "Contact details", "?tab=colour_wheel"
-      %li
-        = image_tag "/images/icons/settings.png"
-        = link_to "Location", "?tab=transactions"
-      %li
-        = image_tag "/images/icons/settings.png"
-        = link_to "Domain", "?tab=mobile_domain"
-        %span{:style=>"font-size:0.7em;"}
-          = "Use your own domain or subdomain eg. <b>http://m.mybusiness.com</b>"
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Background Colours", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/icons/cog.png", :height => "32px", :width => "32px",:style=>"float:left;"
+
+
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Contact Address", "?tab=group_location",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/icons/cog.png", :height => "32px", :width => "32px",:style=>"float:left;"
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Other contact ", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/icons/cog.png", :height => "32px", :width => "32px",:style=>"float:left;"
+
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Domain name", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/icons/cog.png", :height => "32px", :width => "32px",:style=>"float:left;"
+
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "More >", "?tab=more",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/icons/cog.png", :height => "32px", :width => "32px",:style=>"float:left;"
+
+          .clear
 
   - else
-    .subs{:style=>"margin-bottom:32px;"}
+    .container{:style=>"margin-top:16px;"}
       .free-trial{:style=>"height:60px;width:480px;background:#{current_group.secondary};border-radius:8px;-webkit-box-shadow:inset 0 0 4px black,0 0 4px white;"}
         .label{:style=>"margin:16px 16px 0;float:left; width:210px;font-size:0.8em;font-weight:bold;line-height:30px;"}
           = "Gain access for a few minutes >>"
         %button.inner-button{:style=>"float:right;width:168px;font-size:0.8em;margin:12px 16px 0 ;"}
           = link_to 'Free access', add_trial_subscription_path(@group), :style=>"color:#{current_group.text_colour}"
       .clear
-      .or{:style=>"margin:8px 0;"}
+
+      .dor{:style=>"height:3em;line-height:3em;"}
         = "<b>Or simply...</b>"
 
-      .buy-subscription{:style=>"background:#{current_group.tertiary};border-radius:8px;padding:8px;-webkit-box-shadow:inset 0 0 4px black,0 0 4px white;"}
-        .subs-inner{:style=>"padding:16px;border-radius:8px;"}
-          %button.submit-button{:style=>"text-transform:none"}
-            = link_to 'Buy subscription', "/purchase/new", :style=>"color:#{current_group.text_colour};"
-          .note{:style=>"margin:16px 0;"}
-            = "Your annual subscription gives you unlimited access to the settings and removes the \"expired\" watermark from your headers. Please have your payment details ready."
-          .paypal{:style=>"background:white;border-radius:4px;-webkit-box-shadow:0 0 8px black;"}
-            = image_tag "/images/mofaq/paypal-protection.png"
-          .note{:style=>"font-size:0.7em;color:#{current_group.primary};"}
-            = "You are about to purchase a MOFAQ Annual Subscription, this will appear on your statement as \"<b>moFAQ(On Software Pty Ltd)</b>\""
-          .note{:style=>"font-size:0.7em;color:#{current_group.primary};"}
-            = "For your security and convenience we accept only paypal and credit cards, paypal is used to process credit card transactions however you do not need a paypal account"
-          .note{:style=>"font-size:0.7em;color:#{current_group.primary};"}
-            = "Hang on, <a href=\"#\"><b style=\"border-bottom:1px solid inherit;\">why do I need to buy this?</b></a>"
 
-    -if true
       -content_for :after_form do
         .container
+          .buy-subscription{:style=>"margin-bottom:16px;background:#{current_group.tertiary};border-radius:8px;padding:8px;-webkit-box-shadow:inset 0 0 4px black,0 0 4px white;"}
+            .subs-inner{:style=>"padding:16px;border-radius:8px;"}
 
-          - @user = current_user
-          - @group = current_group
-          - subscription = Subscription.new
-          - subscription.name = "Paypal Subscription (1 mins)"
-          - subscription.group = @group
-          - subscription.user = @user
-          - subscription.starts_at = Time.zone.now
-          - subscription.ends_at = Time.zone.now + 1.second
-          - subscription.save
+              - form_tag "http://0.0.0.0:3003/purchase/buy" do
+                -#= error_messages
+                -# source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
+                - return_url = "#{domain_url(:custom => @group.domain)}/subscriptions/activate"
+                - cancel_url = "#{domain_url(:custom => @group.domain)}/subscriptions/cancel"
 
-          -#="<img src=\"https://www.paypal.com/en_AU/AU/i/btn/btn_xpressCheckout.gif\" align=\"left\" style=\"margin-right:7px;\">"
+                = hidden_field_tag :currency_code, "aud"
+                = hidden_field_tag :return_url, return_url
+                = hidden_field_tag :cancel_url, cancel_url
+                = hidden_field_tag :description, "Elephant beans"
+                = hidden_field_tag :custom, "user=#{current_user.id}"
+                = hidden_field_tag :group, current_group.id
+                %button.submit-button{:style=>"text-transform:none;width:442px;", :action => :submit}
+                  = " Buy subscription"
 
-          ="<form action=\"https://www.sandbox.paypal.com/cgi-bin/webscr\" method=\"post\">"
-          ="<input type=\"hidden\" value=\"#{current_group}\" name=\"invoice\">"
-          ="<input type=\"hidden\" value=\"#{subscription.id}\" name=\"subscription_id\">"
-          ="<input type=\"hidden\" name=\"return\" value=\"http://#{current_group.domain}#{activate_subscription_path(subscription.id)}\">"
-          ="<input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\">"
-          ="<input type=\"hidden\" name=\"hosted_button_id\" value=\"UQPQPX57XLPF4\">"
-          ="<input type=\"image\" src=\"https://www.paypalobjects.com/en_AU/i/btn/btn_buynowCC_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal — The safer, easier way to pay online.\">"
-          ="<img border=\"0\" src=\"https://www.paypalobjects.com/en_AU/i/scr/pixel.gif\" width=\"1\" height=\"1\">"
-          ="</form>"
+
+              .note{:style=>"margin:16px 0;"}
+
+                = "Your annual subscription gives you unlimited access to the settings and removes the \"expired\" watermark from your headers. Please have your payment details ready. <b>You will be redirected to our secure payment system</b>"
+              .paypal{:style=>"background:white;border-radius:4px;-webkit-box-shadow:0 0 8px black;"}
+                = image_tag "/images/mofaq/paypal-protection.png"
+              .note{:style=>"font-size:0.7em;color:#{current_group.primary};"}
+                = "You are about to purchase a MOFAQ Annual Subscription, this will appear on your statement as \"<b>moFAQ(On Software Pty Ltd)</b>\""
+              .note{:style=>"font-size:0.7em;color:#{current_group.primary};"}
+                = "For your security and convenience we accept only paypal and credit cards, paypal is used to process credit card transactions however you do not need a paypal account"
+              .note{:style=>"font-size:0.7em;color:#{current_group.primary};"}
+                = "Hang on, <a href=\"#\"><b style=\"border-bottom:1px solid inherit;\">why do I need to buy this?</b></a>"
+
+
+
 
 
 

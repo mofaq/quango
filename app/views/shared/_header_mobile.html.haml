@@ -36,13 +36,19 @@
           
           -if current_group.has_strapline?
             .clear
-            .strapline{:style => "font-size:1em;font-weight:bold;text-shadow:-1px -1px 2px black,1px 1px 2px #{current_group.tertiary};color:#{current_group.text_colour};float:left; margin-left:16px;line-height:1em;"}
-              ="#{current_group.strapline}"  
+            .strapline{:style => "bottom:0;background-image:url(/images/black_25_bg.pndg);width:496px;font-size:1em;font-weight:bold;text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};float:left;line-height:2em;height:2em;padding-left:16px;"}
+              ="#{current_group.strapline}" 
 
       - elsif current_group.logo_only? && !current_group.text_only?
 
         #toolbar-alt{:style=>"background-image:url(/images/black_25_bg.png)"}
           = render :partial => "shared/toolbar_mobile_alt"
+
+
+        -if current_group.has_strapline?
+
+          .strapline{:style => "background-image:url(/images/black_25_bg.pndg);width:496px;font-size:1em;font-weight:bold;text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};float:left;line-height:2em;height:2em;padding-left:16px;"}
+            ="#{current_group.strapline}" 
 
 
     .clear

@@ -1,0 +1,20 @@
+-content_for :main do
+
+  %h1
+    = "Purchase an eBook"
+
+  = content_tag('div', "There was an error processing your payment: #{@paypal_error}", :class => 'error') if @paypal_error
+
+  - form_for @order do |f|
+    = f.error_messages
+    - if @order.express_token.blank?
+      = "blank"
+    - else
+      = f.hidden_field :express_token
+      = "Name:"
+      =@order.first_name
+      =@order.last_name
+
+    = f.submit "Complete Order"
+
+
