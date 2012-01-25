@@ -3,7 +3,7 @@
 
 -if current_user
   -if current_user.owner_of?(current_group)
-    .footer-mobile{:style=>"width:480px;padding:16px;margin:0 16px 8px 0;font-size:0.8em;border-top:0px solid #{current_group.secondary};border-bottom:8px solid #{current_group.primary_dark}"}
+    .footer-mobile{:style=>"width:480px;padding:16px;margin:0 16px 1px 0;font-size:0.8em;border-top:0px solid #{current_group.secondary};border-bottom:1px solid #{current_group.primary_dark}"}
       .footer
         .left{:style=>"width:50%; font-weight:bold;line-height:40px;letter-spacing:-1px;"}
           = "Choose this button to modify mobile FAQ >"

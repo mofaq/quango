@@ -3,13 +3,6 @@
   = yield :custom_header
 - else
 
-
-
-
-
-
-
-
   - if current_group.logo_only?
 
     - if current_group.default_header
@@ -56,9 +49,9 @@
 
   - else
 
-    #header{:style=>"height:136px", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
-      #toolbar
-        = render :partial => "shared/toolbar_mobile"
+    #header.light-down{:style=>"height:134px", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
+      #toolbar-alt
+        = render :partial => "shared/toolbar_mobile_alt"
 
       #logo
         = render :partial => "shared/logo_mobile"

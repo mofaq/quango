@@ -30,15 +30,15 @@
       = yield :main
     .clear
 
-    #flash
-      .container
-        = show_flash_messages(:class => "flash", :markdown => true)
-
     #footer
       = render :partial => "layouts/footer_mobile"
 
     #info
       = render :partial => "layouts/footer_info"
+
+    #flash
+      .container
+        = show_flash_messages(:class => "flash", :markdown => true)
 
     - if debug
       #debug

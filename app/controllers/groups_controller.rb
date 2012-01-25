@@ -254,7 +254,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         if @group.group_type != "mobile"
-          flash[:notice] = 'Group was successfully updated.' # TODO: i18n
+          flash[:notice] = 'your MOFAQ was successfully updated.' # TODO: i18n
           format.html { redirect_to(params[:source] ? params[:source] : group_path(@group)) }
           format.json  { head :ok }
         end

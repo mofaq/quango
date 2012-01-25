@@ -3,7 +3,12 @@
 
 #accordion
 
+  %h3.fold-header
+    = link_to "About us","#",:style=>"color:#{current_group.text_colour};line-height:56px;",:class=>"container"
 
+  %div
+    .container{:style=>"width:480px;padding:0;"}
+      = render :partial => "shared/quick_create_mobile"
 
 
   %h3.fold-header

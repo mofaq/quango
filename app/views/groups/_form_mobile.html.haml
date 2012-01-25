@@ -21,7 +21,7 @@
 %div{:style => "float:left"}
   .group{:style => "width:312px;float:left"}
     = form.label :name, h('Unique group name'), :class => "label"
-    = form.text_field :name, :class => "text_field", :value => params[:name]
+    = form.text_field_mobile :name, :class => "text_field", :value => params[:name]
 
   .group{:style => "width:312px;float:right"}
     = form.label :name_link, h('Group link'), :class => "label"

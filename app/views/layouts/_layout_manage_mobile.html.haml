@@ -22,26 +22,21 @@
 
   %body{:style=>"background:#{current_group.primary_dark};font-family:sans-serif;color:#{current_group.text_colour};margin:0;"}
     = render :partial => "shared/analytics"
-
-
-
     = render :partial => "shared/header_mobile"
-
     = render :partial => "shared/title_mobile"
-
 
     #body
       = yield
-
-    #flash
-      .container
-        = show_flash_messages(:class => "flash", :markdown => true)
 
     #footer
       = render :partial => "layouts/footer_mobile"
 
     #info
       = render :partial => "layouts/footer_info"
+
+    #flash
+      .container
+        = show_flash_messages(:class => "flash", :markdown => true)
 
     -#if debug
     #debug

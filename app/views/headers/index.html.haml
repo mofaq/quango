@@ -15,14 +15,14 @@
 
 
 
-  #fold
-    .container{:style=>"height:60px;width:480px;border-bottom:8px solid #{current_group.primary_dark}"}
+  #body
+    .container{:style=>"height:64px;width:480px;border-bottom:1px solid #{current_group.primary_dark};padding-top:12px;"}
       -form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
         = f.error_messages
         - source = headers_path
         = hidden_field_tag :source, source
 
-        %table{:style=>"width:480px;margin-top:8px;"}
+        %table{:style=>"width:480px;"}
           %tr
             %td{:style=>"width:30%;"}
               - if current_group.logo_only?
@@ -53,17 +53,16 @@
                   = f.check_box :has_strapline
 
 
-    .clear
-    #fold
-      .container{:style=>"height:2em"}
-        .heading.left{:style=>"height:2em;line-height:2em"}
-          = "My Headers"
-        -#%button.inner-button.right
-          -#= link_to 'Add a new image', new_header_path, :class => "inner-button", :style => "float:right"
-        .right{:style=>"margin:8px 0"}
 
-          %button.inner-submit.right{:onclick=>"window.location=\'#{new_header_path}\'", :style=>"/**/"}
-            = "Add a new header"
+    .container
+      .heading.left{:style=>"height:2em;line-height:2em"}
+        = "My Headers"
+      -#%button.inner-button.right
+        -#= link_to 'Add a new image', new_header_path, :class => "inner-button", :style => "float:right"
+      .right{:style=>"margin:8px 0"}
+
+        %button.inner-submit.right{:onclick=>"window.location=\'#{new_header_path}\'", :style=>"/**/"}
+          = "Add a new header"
 
 
 

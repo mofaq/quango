@@ -1,52 +1,54 @@
 
 -content_for :main do
 
-  .container
-    .heading
-      = "Login to your account..."
 
-    -form_for :user, resource, :url => session_path(resource_name), :html => {:class => "form"} do |f|
-      .form
-        .group
-          = "Email"
-          = f.text_field :email, :class => "text_field_mobile"
-        .clear
+  .container{:style=>"margin-top:16px;margin-bottom:16px"}
+    .light{:style=>"width:450px;border-radius:8px;border-color:#{current_group.primary};-webkit-box-shadow:inset 0 0 1px white,0 0 1px #{current_group.primary};padding:16px;"}
+      .heading
+        = "Login to your account..."
 
-        .group
-          = "Password"
-          = f.password_field :password, :class => "text_field_mobile"
-        .clear
+      -form_for :user, resource, :url => session_path(resource_name), :html => {:class => "form"} do |f|
+        .form
+          .group{:style=>"font-weight:bold;"}
+            = "Email"
+            = f.text_field :email, :class => "text_field_mobile"
+          .clear
 
-        -if devise_mapping.rememberable?
-          .group
-            .remember{:style=>"height:24px;line-height:24px;width:312px;float:right;color:white"}
-              =f.check_box :remember_me, :style=>"font-size:14px;padding:2px"
-              =f.label :remember_me, "Remember me?"
+          .group{:style=>"font-weight:bold;"}
+            = "Password"
+            = f.password_field :password, :class => "text_field_mobile"
+          .clear
 
-
-        .group
-          %button.submit-button
-            = "Login"
-
-        .devise
-          = render :partial => "shared/devise_links"
-
-        .clear
+          -if devise_mapping.rememberable?
+            .group
+              .remember{:style=>"height:24px;line-height:24px;float:left;color:white"}
+                =f.check_box :remember_me, :style=>"font-size:14px;padding:2px"
+                =f.label :remember_me, "Remember me?"
 
 
+          .group{:style=>"font-weight:bold;"}
+            %button.submit-button
+              = "Login"
 
-      .after_form
-        .heading{:style=>"margin-top:8px;margin-bottom:8px;background:0;border:0"}
-          = "Don't have a login yet?"
-        .center
-          %button.inner-button{:href=>"/members/new"}
-            = "Become a member"
-        .note{:style=>"margin-top:8px;width:200px;color:white; font-size:12px; line-height:12px;float:left "}
-          = "Members can add answers and/or comments. Membership is free."
-        .clear
+          .devise
+            = render :partial => "shared/devise_links"
+
+          .clear
 
 
 
+        .after_form
+          .heading{:style=>"margin-top:8px;margin-bottom:8px;background:0;border:0"}
+            = "Don't have an account yet?"
+          .center
+            %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+              = link_to "Create y<u>our</u> account now...", "/users/new",:style=>"color:white;margin-right:16px;"
+          .note{:style=>"margin-top:8px;width:200px;color:white; font-size:12px; line-height:12px;float:left "}
+            = "Creating an account is free."
+          .clear
+
+      .clear
+    .clear
 
 
 
