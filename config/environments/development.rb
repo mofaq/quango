@@ -26,13 +26,3 @@ config.action_mailer.raise_delivery_errors = false
 
 #config.threadsafe!
 
-config.after_initialize do
-  ActiveMerchant::Billing::Base.mode = :test
-  paypal_options = {
-    :login => "sp_1326772914_biz_api1.mofaq.com",
-    :password => "1326772936",
-    :signature => "AM9dWbGZVPYN0-6B38JEaI9XyINnATHqNjNRRVVn1k6UWV7CSM2EzYz9"
-  }
-  ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal_options)
-  ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
-end
