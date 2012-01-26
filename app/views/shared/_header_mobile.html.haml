@@ -20,7 +20,7 @@
 
       - if current_group.logo_only? && current_group.text_only?
 
-        #toolbar-alt{:style=>"background-image:url(/images/black_25_bg.png)"}
+        #toolbar-alt{:style=>"background-image:url(/images/black_25_bg.pxng)"}
           = render :partial => "shared/toolbar_mobile_alt"
         .container{:style => "padding:0;height:80px;width:512px; float:left;z-index:2;position:absolute;top:28px;left:0px;"}
           .logo-mobile{:style => "width:512px"}
@@ -34,7 +34,7 @@
 
       - elsif current_group.logo_only? && !current_group.text_only?
 
-        #toolbar-alt{:style=>"background-image:url(/images/black_25_bg.png)"}
+        #toolbar-alt{:style=>"background-image:url(/images/black_25_bg.pxng)"}
           = render :partial => "shared/toolbar_mobile_alt"
 
 

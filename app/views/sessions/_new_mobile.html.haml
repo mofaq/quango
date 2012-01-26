@@ -1,11 +1,15 @@
 
 -content_for :main do
 
+  .container{:style=>"border-top:1px solid #{current_group.primary};"}
+    .heading{:style=>"height:32px;line-height:32px;padding:16px 0 16px;"}
+      = "Login to your MOFAQ account"
 
-  .container{:style=>"margin-top:16px;margin-bottom:16px"}
-    .light{:style=>"width:450px;border-radius:8px;border-color:#{current_group.primary};-webkit-box-shadow:inset 0 0 1px white,0 0 1px #{current_group.primary};padding:16px;"}
-      .heading
-        = "Login to your account..."
+  .container{:style=>"padding-bottom:16px;"}
+
+
+    .light{:style=>"width:450px;border-radius:8px;border-color:#{current_group.primary};-webkit-box-shadow:inset 0 0 1px white,0 0 1px #{current_group.primary_dark};padding:16px;"}
+
 
       -form_for :user, resource, :url => session_path(resource_name), :html => {:class => "form"} do |f|
         .form

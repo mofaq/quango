@@ -1,5 +1,5 @@
-.container
-  .heading
+.container{:style=>"border-top:1px solid #{current_group.primary};"}
+  .heading{:style=>"height:32px;line-height:32px;padding:16px 0 0;"}
     = "MOFAQ Settings"
 
 - if @subscription
@@ -59,8 +59,8 @@
 
 
     -content_for :after_form do
-      .container
-        .buy-subscription{:style=>"margin-bottom:16px;background:#{current_group.tertiary};border-radius:8px;padding:8px 8px 16px 8px;-webkit-box-shadow:inset 0 0 1px #{current_group.text_colour},0 0 1px #{current_group.primary_dark};"}
+      .container{:style=>"padding-bottom:16px;"}
+        .buy-subscription{:style=>"background:#{current_group.tertiary};border-radius:8px;padding:8px 8px 16px 8px;-webkit-box-shadow:inset 0 0 1px #{current_group.text_colour},0 0 1px #{current_group.primary_dark};"}
           .subs-inner{:style=>"padding:16px;border-radius:8px;"}
 
             - form_tag "http://0.0.0.0:3003/purchase/buy" do
@@ -92,9 +92,6 @@
               = "Hang on, <a href=\"#\"><b style=\"border-bottom:1px solid inherit;\">why do I need to buy this?</b></a>"
 
         .clear
-
-
-
 
 
 
