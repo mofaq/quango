@@ -52,8 +52,6 @@ Rails::Initializer.run do |config|
   config.gem "term-extract"
   config.gem "semantic_extraction"
   config.gem "unidecode"
-  config.gem "money"
-  #config.gem "activemerchant", :lib=>"active_merchant", :version => '1.20.2' 
 
   config.gem "rake", :version => '0.8.7'
 
