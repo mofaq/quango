@@ -13,91 +13,86 @@
  
 - content_for :main do
 
+  .container{:style=>"background-color:#{current_group.primary};height:64px;width:480px;padding-top:12px;"}
+    -form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
+      = f.error_messages
+      - source = headers_path
+      = hidden_field_tag :source, source
 
-
-  #body
-    .container{:style=>"height:64px;width:480px;border-bottom:1px solid #{current_group.primary_dark};padding-top:12px;"}
-      -form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
-        = f.error_messages
-        - source = headers_path
-        = hidden_field_tag :source, source
-
-        %table{:style=>"width:480px;"}
-          %tr
-            %td{:style=>"width:30%;"}
-              - if current_group.logo_only?
-                .check_box.checked
-                  = f.label :logo_only, "Hide image"
-                  = f.check_box :logo_only
-              - else
-                .check_box.unchecked
-                  = f.label :logo_only, "Show image"
-                  = f.check_box :logo_only
-            %td{:style=>"width:30%;"}
-              - if current_group.text_only?
-                .check_box.checked
-                  = f.label :text_only, "Hide text"
-                  = f.check_box :text_only
-              - else
-                .check_box.unchecked
-                  = f.label :text_only, "Show Text"
-                  = f.check_box :text_only
-            %td{:style=>"width:30%;"}
-              - if current_group.has_strapline?
-                .check_box.checked
-                  = f.label :has_strapline, "Hide strapline"
-                  = f.check_box :has_strapline
-              - else
-                .check_box.unchecked
-                  = f.label :has_strapline, "Show strapline"
-                  = f.check_box :has_strapline
+      %table{:style=>"width:480px;"}
+        %tr
+          %td{:style=>"width:28%;"}
+            - if current_group.logo_only?
+              .check_box.checked
+                = f.label :logo_only, "Hide image"
+                = f.check_box :logo_only
+            - else
+              .check_box.unchecked
+                = f.label :logo_only, "Show image"
+                = f.check_box :logo_only
+          %td{:style=>"width:28%;padding:0 4px"}
+            - if current_group.text_only?
+              .check_box.checked
+                = f.label :text_only, "Hide text"
+                = f.check_box :text_only
+            - else
+              .check_box.unchecked
+                = f.label :text_only, "Show Text"
+                = f.check_box :text_only
+          %td{:style=>"width:28%;"}
+            - if current_group.has_strapline?
+              .check_box.checked
+                = f.label :has_strapline, "Hide strapline"
+                = f.check_box :has_strapline
+            - else
+              .check_box.unchecked
+                = f.label :has_strapline, "Show strapline"
+                = f.check_box :has_strapline
 
 
 
-    .container
-      .heading.left{:style=>"height:2em;line-height:2em"}
-        = "My Headers"
-      -#%button.inner-button.right
-        -#= link_to 'Add a new image', new_header_path, :class => "inner-button", :style => "float:right"
-      .right{:style=>"margin:8px 0"}
+  .container.light-down{:style=>"height:80px;line-height:64px;border-top:1px solid #{current_group.primary_dark};"}
+    .heading.left
+      = "My Headers"
 
-        %button.inner-submit.right{:onclick=>"window.location=\'#{new_header_path}\'", :style=>"/**/"}
-          = "Add a new header"
+    .right{:style=>"margin-top:16px;"}
+      %button.inner-submit.right{:onclick=>"window.location=\'#{new_header_path}\'", :style=>"/**/"}
+        = "Add a new header"
 
 
 
-      %table{:class => "header-table", :style=>"width:512px",:cellspacing=>"0"}
+  %table{:class => "header-table", :style=>"width:512px;border-collapse:inherit;",:cellspacing=>"0"}
 
-        - if true
-          - if !@group.headers.empty?
-            - @group.headers.each do |header|
-              %tr#fold
-                %td{:style=>"padding:0 16px;"}
-                  -if @group.default_header == header.id
-                    = image_tag("/images/buttons/radio_button_on.png" , :title => "selected")
-                    -#%input{:type => "radio", :name => "default_avatar", :style => "height:20px; width:20px", :checked => true}
-                  -else         
-                    = link_to "Use", set_default_header_header_path(header)
-                    -#%input{:type => "radio", :name => "default_avatar"}
+    - if true
+      - if !@group.headers.empty?
+        - @group.headers.each do |header|
+          %tr{:style=>"height:80px;background-color:#{current_group.secondary};"}
+            %td{:style=>"padding:0 20px;border-top:1px solid #{current_group.primary_dark};"}
+              -if @group.default_header == header.id
+                = image_tag("/images/buttons/radio_button_on.png" , :title => "selected")
+                -#%input{:type => "radio", :name => "default_avatar", :style => "height:20px; width:20px", :checked => true}
+              -else         
+                = link_to "Use", set_default_header_header_path(header)
+                -#%input{:type => "radio", :name => "default_avatar"}
 
-                %td
-                  - cropped_header = header.header.process(:thumb,header.header_cropping)
+            %td{:style=>"border-top:1px solid #{current_group.primary_dark};"}
+              - cropped_header = header.header.process(:thumb,header.header_cropping)
 
-                  -if @group.default_header == header.id
-                    = image_tag cropped_header.process(:thumb,"240x").url, :alt => header.name, :title => header.name, :style=>"border: 2px inset #{current_group.text_colour}; margin:4px;-webkit-box-shadow: 0 0 8px #{current_group.text_colour};"
-                  -else         
-                    = link_to (image_tag cropped_header.process(:thumb,"240x").url, :alt => header.name, :title => header.name, :style=>"border: 2px outset #{current_group.text_colour}; margin:4px;"), set_default_header_header_path(header)
+              -if @group.default_header == header.id
+                = image_tag cropped_header.process(:thumb,"200x").url, :alt => header.name, :title => header.name, :style=>"border: 2px inset #{current_group.text_colour}; margin:4px;-webkit-box-shadow: 0 0 8px #{current_group.text_colour};"
+              -else         
+                = link_to (image_tag cropped_header.process(:thumb,"200x").url, :alt => header.name, :title => header.name, :style=>"border: 2px outset #{current_group.text_colour}; margin:4px;"), set_default_header_header_path(header)
 
 
-                %td{:style=>"padding:0 16px;"}
+            %td{:style=>"padding:0 16px;border-top:1px solid #{current_group.primary_dark};"}
 
-                  %button.inner-button.right{:onclick=>"window.location=\'#{crop_header_path(header)}\'"}
-                    = "Modify"
-                  %button.inner-button.right
-                    = link_to '<img src=\'/images/icons/delete.png\' style=\'height:1em; width:1em;\' />', header_path(header), :confirm => 'Are you sure?', :method => :delete
+              %button.inner-button.right{:onclick=>"window.location=\'#{crop_header_path(header)}\'"}
+                = "Modify"
+              %button.inner-button.right{:style=>"margin-right:4px;"}
+                = link_to '<img src=\'/images/icons/delete.png\' style=\'height:1em; width:1em;\' />', header_path(header), :confirm => 'Are you sure?', :method => :delete
 
-          - else
-            = "none"
+      - else
+        = "none"
 
 
 
