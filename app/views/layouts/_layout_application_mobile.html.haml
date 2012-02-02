@@ -22,14 +22,13 @@
 
   %body
 
-    #toolbar-alt
-      = render :partial => "shared/toolbar_mobile_alt"
+    #toolbar
+      = render :partial => "layouts/toolbar_mobile"
 
     = render :partial => "shared/header_mobile"
 
     #body
       = yield :main
-
 
     #footer
       = render :partial => "layouts/footer_mobile"

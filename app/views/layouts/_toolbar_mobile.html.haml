@@ -1,0 +1,40 @@
+
+.container{:style=>"height:28px; width:480px;"}
+
+  .left{:style=>"height:28px;width:40px;"}
+    %a{:href=>"http://mofaq.com", :title => "moFAQ: Every business needs a mobile FAQ"}
+      = image_tag("/images/mofaq/mobile-faq-logo.png",:height=>"28",:width=>"45",  :style => "border:0", :title => "moFaq: Every business needs a mobile FAQ")
+
+
+  .right{:style=>"height:28px;"}
+    -if !logged_in?
+      .entry
+        %span{:style=>"font-size:11px;height:28px;line-height:28px;"}
+          = link_to "LOGIN", new_user_session_path, :style => "font-weight:bold;color:white;text-decoration:none", :title => "You do not need to login just to ask a question"
+
+
+    -if logged_in?
+
+      .entry.right
+        %span{:style=>"font-size:11px;height:28px;line-height:28px;"}        
+          =link_to "LOGOUT", destroy_user_session_path, :style => "font-weight:bold;color:white;text-decoration:none", :title => "You do not need to login just to ask a question", :confirm => 'Are you sure you want to log out of Mofaq??'
+
+      .entry.right
+        - if current_user.display_name?
+          - real_name = "#{current_user.display_name}"
+        - else
+          - real_name = "#{current_user.first_name} #{current_user.last_name}"
+
+        %span{:style=>"font-size:11px;height:28px;line-height:28px;"}    
+          = link_to real_name.upcase, "#", :style => "font-weight:bold;color:white;text-decoration:none; margin-right:8px; padding-right:8px;border-right:1px solid white;"
+      -if false
+        -if current_user.owner_of?(current_group)
+          .entry.right{:style=>"cursor:pointer;",:onclick=>"window.location.href=\'#{manage_properties_path}\'"}
+            =link_to "<img src=\'/images/icons/settings.png\' />", manage_properties_path, :class => "manage_link", :style => "height:28px;width:28px;"
+
+
+
+
+
+
+

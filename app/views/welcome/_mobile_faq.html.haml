@@ -1,0 +1,25 @@
+- expanded = local_assigns[:expanded]
+
+.about
+  .light-down{:style=>"padding:8px;border-radius:8px;"}
+    .container{:style=>"width:480px;padding:0;"}
+
+      %ul.features
+        -if current_group.items.empty?
+          %li.highlight
+            = t(".empty")
+        -else
+          - @items.reverse[0..5].each do |item|
+            %li
+              = render :partial => "/items/single_list_mobile", :locals => {:item => item, :sort=>"hot"}
+
+
+    .container{:style=>"width:480px;padding:0;"}
+      = render :partial => "shared/quick_create_mobile"
+
+
+.clear
+
+
+
+

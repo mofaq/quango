@@ -477,6 +477,8 @@ $.widget( "ui.accordion", {
 			} else {
 				toHide.hide();
 				toShow.show();
+
+
 			}
 
 			complete( true );

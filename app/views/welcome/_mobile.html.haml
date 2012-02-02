@@ -1,49 +1,22 @@
 
-
-
 #accordion
-
   .fold-header
     .container{:style=>"width:480px"}
-      = link_to "About us","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:8px 0 0 0;",:class=>"inner-button"
-
+      = link_to "About us","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
   %div
     .container{:style=>"width:480px;padding:0;"}
       = render :partial => "mobile_about"
 
-
   .fold-header
     .container{:style=>"width:480px;"}
-      = link_to "How can we help?","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:8px 0 0 0;",:class=>"inner-button"
-
-  -#%div
-    -#.container{:style=>"width:480px;padding:0;"}
-      -#= render :partial => "shared/quick_create_mobile"
-
-
-  -#.fold-header
-    -#.container{:style=>"width:480px;"}
-      -#= link_to "Frequently asked....","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:8px 0 0 0;", :class => "inner-button"
+      = link_to "How can we help?","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
   %div
     .container{:style=>"width:480px;padding:0;"}
-
-      %ul.features
-        -if current_group.items.empty?
-          %li.highlight
-            = t(".empty")
-        -else
-          - @items.reverse[0..5].each do |item|
-            %li
-              = render :partial => "/items/single_list_mobile", :locals => {:item => item, :sort=>"hot"}
-    .container{:style=>"width:480px;padding:0;"}
-      = render :partial => "shared/quick_create_mobile"
-
-
+      = render :partial => "mobile_faq"
 
   .fold-header
     .container{:style=>"width:480px;"}
-      = link_to "Contact","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:8px 0 0 0;", :class => "inner-button"
-
+      = link_to "Contact","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;", :class => "inner-button"
   %div
     .container{:style=>"width:480px;padding:0;"}
       = render :partial => "mobile_quick_contact", :locals => {:expanded => false}
