@@ -3,24 +3,27 @@
 
 #accordion
 
-  %h3.fold-header
-    = link_to "About us","#",:style=>"color:#{current_group.text_colour};line-height:56px;",:class=>"container"
+  .fold-header
+    .container{:style=>"width:480px"}
+      = link_to "About us","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:8px 0 0 0;",:class=>"inner-button"
 
   %div
     .container{:style=>"width:480px;padding:0;"}
-      = render :partial => "shared/quick_create_mobile"
+      = render :partial => "mobile_about"
 
 
-  %h3.fold-header
-    = link_to "How can we help?","#",:style=>"color:#{current_group.text_colour};line-height:56px;",:class=>"container"
+  .fold-header
+    .container{:style=>"width:480px;"}
+      = link_to "How can we help?","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:8px 0 0 0;",:class=>"inner-button"
 
-  %div
-    .container{:style=>"width:480px;padding:0;"}
-      = render :partial => "shared/quick_create_mobile"
+  -#%div
+    -#.container{:style=>"width:480px;padding:0;"}
+      -#= render :partial => "shared/quick_create_mobile"
 
 
-  %h3.fold-header
-    = link_to "Frequently asked....","#",:style=>"color:#{current_group.text_colour};line-height:56px;" 
+  -#.fold-header
+    -#.container{:style=>"width:480px;"}
+      -#= link_to "Frequently asked....","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:8px 0 0 0;", :class => "inner-button"
   %div
     .container{:style=>"width:480px;padding:0;"}
 
@@ -32,9 +35,14 @@
           - @items.reverse[0..5].each do |item|
             %li
               = render :partial => "/items/single_list_mobile", :locals => {:item => item, :sort=>"hot"}
+    .container{:style=>"width:480px;padding:0;"}
+      = render :partial => "shared/quick_create_mobile"
 
-  %h3.fold-header
-    = link_to "Contact","#",:style=>"color:#{current_group.text_colour};line-height:56px;" 
+
+
+  .fold-header
+    .container{:style=>"width:480px;"}
+      = link_to "Contact","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:8px 0 0 0;", :class => "inner-button"
 
   %div
     .container{:style=>"width:480px;padding:0;"}

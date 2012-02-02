@@ -65,7 +65,7 @@
 
     - if true
       - if !@group.headers.empty?
-        - @group.headers.each do |header|
+        - @group.headers.reverse.each do |header|
           %tr{:style=>"height:80px;background-color:#{current_group.secondary};"}
             %td{:style=>"padding:0 20px;border-top:1px solid #{current_group.primary_dark};"}
               -if @group.default_header == header.id

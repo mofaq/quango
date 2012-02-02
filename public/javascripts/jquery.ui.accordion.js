@@ -374,14 +374,20 @@ $.widget( "ui.accordion", {
 			.addClass( "ui-state-default ui-corner-all" )
 			.children( ".ui-icon" )
 				.removeClass( options.icons.headerSelected )
-				.addClass( options.icons.header );
+				.addClass( options.icons.header )
+        .siblings( ".container" )
+          .children("a.inner-button")
+            .removeClass( "depressed" );
 		if ( !clickedIsActive ) {
 			clicked
 				.removeClass( "ui-state-default ui-corner-all" )
-				.addClass( "ui-state-active ui-corner-top" )
+				.addClass( "ui-state-active ui-corner-top depressed" )
 				.children( ".ui-icon" )
 					.removeClass( options.icons.header )
-					.addClass( options.icons.headerSelected );
+					.addClass( options.icons.headerSelected )
+        .siblings( ".container" )
+          .children("a.inner-button")
+            .addClass( "depressed" );
 			clicked
 				.next()
 				.addClass( "ui-accordion-content-active" );
