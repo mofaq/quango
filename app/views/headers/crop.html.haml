@@ -94,7 +94,7 @@
     = image_tag (cropped_header.url, :width => "256px", :id => 'preview')
 
   .toolbar-alt{:style=>"background-image:url(/images/black_25_bg.png);height:28px;width:512px; float:left;z-index:3;position:absolute;top:0px;left:0px;"}
-    = render :partial => "shared/toolbar_mobile_alt"
+    = render :partial => "layouts/toolbar_mobile"
   .container{:style => "padding:0;height:136px;width:512px;"}
     .logo-mobile{:style => "height:80px;width:512px; float:left;z-index:2;position:absolute;top:56px;left:0px;"}
       = link_to h(current_group.name), "#{domain_url(:custom => current_group.domain)}", :style=>"font-size:2em;font-weight:bold;line-height:80px;text-shadow:-1px -1px 2px black;color:white;text-decoration:none;margin-left:16px;"
