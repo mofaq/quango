@@ -17,6 +17,8 @@
     = javascript_include_merged :mobile
     = yield :custom_javascript
     = yield :js
+    %script{:type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyAlzkt8p7MDY0igloVFWD1-kQ2wYynxLgs&sensor=false"}
+    %script{:type => "text/javascript", :src => "/javascripts/modules/google_maps.js"}
 
     = current_group.head_tag
 
