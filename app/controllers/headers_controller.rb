@@ -212,7 +212,8 @@ class HeadersController < ApplicationController
   def rotate_right
     @group = current_group
     @header = Header.find(params[:id])
-    @header.header = @header.header.process(:rotate, 5, :background_colour => 'white')
+    @header.header = @header.header.process(:rotate, 90)
+    @header.header.process(:thumb,"512x")
     @header.save
     respond_to do |format|
       format.html { redirect_to(crop_header_path, :notice => 'Header was successfully flopped so it claims.') }
@@ -222,7 +223,7 @@ class HeadersController < ApplicationController
   def rotate_left
     @group = current_group
     @header = Header.find(params[:id])
-    @header.header = @header.header.process(:rotate, -5, :background_colour => 'white')
+    @header.header = @header.header.process(:rotate, -90)
     @header.save
     respond_to do |format|
       format.html { redirect_to(crop_header_path, :notice => 'Header was successfully flopped so it claims.') }
