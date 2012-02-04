@@ -1,35 +1,10 @@
 - expanded = local_assigns[:expanded]
 
-.contact
-  .container{:style=>"height:280px;"}
+.location
 
-    .left{:style=>"width:160px;"}
-      .heading{:style=>"font-size:100%;"}
-        = "#{current_group.name}"
-      .group
-        = "#{current_group.group_address_i}"
-      .group
-        = "#{current_group.group_address_ii}"
-      .group
-        = "#{current_group.group_city}"
-      .group
-        = "#{current_group.group_state}"
-      .group
-        = "#{current_group.group_postcode}"
-      .group{:style=>"size:1em;text-transform:uppercase;color:#{current_group.tertiary}"}
-        = "#{current_group.group_region}"
+  .map-holder{:style=>"width:464px; height:464px"}
 
-      -if current_group.group_phone
-        .group
-          = "TEL: #{current_group.group_phone}"
-      -if current_group.group_phone
-        .group
-          = "FAX: #{current_group.group_fax}"
-
-
-    .right{:style=>"width:280px;"}
-      .map-holder{:style=>"padding:8px; -webkit-box-shadow:inset 0 0 4px black,0 0 4px white; width:464px; height:464px"}
-        .map{:id => "map_canvas", :style=>"width:464px; height:464px"}
+    .map{:id => "map_canvas", :style=>"width:464px; height:464px"}
 
 .clear
 
