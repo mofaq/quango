@@ -38,8 +38,9 @@ class Group
   key :group_postcode, String, :default => "3012"
   key :group_phone, String, :default => "555-12341234"
   key :group_fax, String
-  key :group_longitude
-  key :group_latitude
+  key :group_longitude, Float
+  key :group_latitude, Float
+  key :group_place_reference, String
 
 
   key :other_groups_facebook, String, :default => "http://www.facebook.com"

@@ -250,6 +250,7 @@ class GroupsController < ApplicationController
     @group.safe_update(%w[isolate show_group_create domain private has_custom_analytics has_custom_html has_custom_js], params[:group]) #if current_user.admin?
     @group.safe_update(%w[analytics_id analytics_vendor], params[:group]) if @group.has_custom_analytics
     @group.custom_html.update_attributes(params[:group][:custom_html] || {}) if @group.has_custom_html
+    google_maps if current_group.group_address_ii != @group.group_address_ii
 
     respond_to do |format|
       if @group.save
@@ -409,7 +410,63 @@ class GroupsController < ApplicationController
   protected
 
 
-  
+  def google_maps
+    address = [@group.group_address_i, @group.group_address_ii, @group.group_city, @group.group_state, @group.group_region].join(', ')
+    address = CGI::escape(address)
+    uri = "http://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false"
+    response = http_request(uri,"GET")
+    if(response['status'] == "OK")
+      geo = response['results'][0]['geometry']['location']
+      @group.group_latitude = geo['lat']
+      @group.group_longitude = geo['lng']
+
+      api_key = "AIzaSyAlzkt8p7MDY0igloVFWD1-kQ2wYynxLgs"
+      location = @group.group_latitude.to_s+","+@group.group_longitude.to_s
+      name = CGI::escape(@group.name)
+      uri = "https://maps.googleapis.com/maps/api/place/search/json?location="+location+"&radius=50&name="+name+"&sensor=false&key="+api_key
+      response = http_request(uri,"GET",true)
+
+      if response['status'] == "ZERO_RESULTS"
+        place = {
+          'location' => {
+            'lat' => @group.group_latitude,
+            'lng' => @group.group_longitude
+          },
+          'accuracy' => 50,
+          'name' => @group.name,
+          'types' => ["establishment"],
+          'language' => "en-AU"
+        }.to_json
+        uri =  "https://maps.googleapis.com/maps/api/place/add/json?sensor=false&key="+api_key
+        response = http_request(uri,"POST",true,place)
+        @group.place_reference = response['reference'] if response['status'] == "OK"
+      end
+
+    end
+
+  end
+
+  def http_request(uri, type, use_ssl = false, payload = nil)
+    uri = URI(uri)
+    http = Net::HTTP.new(uri.host,uri.port)
+
+    if use_ssl
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    end
+
+    if type == "GET"
+      request = Net::HTTP::Get.new(uri.request_uri)
+    elsif type == "POST" && payload != nil
+      request = Net::HTTP::Post.new(uri.request_uri)
+      request.body = payload
+      request.content_type = "application/json"
+    end
+
+    response = http.request(request)
+    return JSON.parse(response.body)
+    
+  end  
 
 
   def check_permissions
