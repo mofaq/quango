@@ -227,7 +227,7 @@ class GroupsController < ApplicationController
   def update
     @group.safe_update(%w[group_type name name_highlight name_link name_highlight_link disable_signups
                           other_groups_facebook other_groups_linkedin other_groups_twitter other_groups_google
-                          group_address_i group_address_ii group_city group_state group_region group_postcode group_phone group_fax
+                          group_address_i group_address_ii group_city group_state group_region group_postcode group_phone group_fax group_place_reference
                           display_name_i display_name_i_link display_name_ii display_name_ii_link
                           has_strapline strapline legend has_welcome_features has_product_gallery has_video_on_homepage above_the_fold below_the_fold
                           description has_custom_channels custom_channels custom_channel_content default_tags subdomain 
@@ -439,7 +439,7 @@ class GroupsController < ApplicationController
         }.to_json
         uri =  "https://maps.googleapis.com/maps/api/place/add/json?sensor=false&key="+api_key
         response = http_request(uri,"POST",true,place)
-        @group.place_reference = response['reference'] if response['status'] == "OK"
+        @group.group_place_reference = response['reference'] if response['status'] == "OK"
       end
 
     end
