@@ -2,24 +2,25 @@
 -membership = member.config_for(@group)
 -can_modify_member = logged_in? && (current_user.admin? || current_user != member ) && current_user.owner_of?(@group)
 
-%li.item
+%li{:style=>"border:2px solid white;"}
   / Member Stats
-  .stats
-    .box.votes
-      .counter{:class => class_for_number(member.items.count) }
-        =format_number(member.items.count)
-      .text
-        = t(:items, :scope => "activerecord.models")
-    .box.answers
-      .counter
-        =format_number(member.answers.count)
-      .text
-        = t(:answers, :scope => "activerecord.models")
-    .box.views
-      .counter{:class => class_for_number(member.reputation_on(current_group)) }
-        =format_number(member.reputation_on(current_group))
-      .text
-        = t(:reputation, :scope => "activerecord.attributes.user")
+  - if false
+    .stats
+      .box.votes
+        .counter{:class => class_for_number(member.items.count) }
+          =format_number(member.items.count)
+        .text
+          = t(:items, :scope => "activerecord.models")
+      .box.answers
+        .counter
+          =format_number(member.answers.count)
+        .text
+          = t(:answers, :scope => "activerecord.models")
+      .box.views
+        .counter{:class => class_for_number(member.reputation_on(current_group)) }
+          =format_number(member.reputation_on(current_group))
+        .text
+          = t(:reputation, :scope => "activerecord.attributes.user")
   / Member Summary
   .summary
     %h3
@@ -33,8 +34,9 @@
           = submit_tag t("scaffold.update")
       -else
         &= membership.role
-    .owner-data
-      %strong
-        = "registered"
-        -#= t("time.ago", :time => time_ago_in_words(member.created_at))
+    - if false
+      .owner-data
+        %strong
+          = "registered"
+          -#= t("time.ago", :time => time_ago_in_words(member.created_at))
   .clear

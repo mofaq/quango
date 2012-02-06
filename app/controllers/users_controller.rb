@@ -11,6 +11,8 @@ class UsersController < ApplicationController
                      [:oldest, "created_at asc"],
                      [:name, "login asc"]]
 
+
+
   def index
     @active_section = "Thinking is free"
     set_page_title(t("users.index.title"))
@@ -52,11 +54,17 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user.timezone = AppConfig.default_timezone
+
   end
+
+  def new_owner
+  end
+
 
   def create
     @user = User.new
-    @user.safe_update(%w[login email first_name last_name display_name password_confirmation password terms preferred_languages website language timezone identity_url bio hide_country], params[:user])
+    
+    @user.safe_update(%w[login email first_name last_name display_name password_confirmation password terms preferred_languages website language timezone identity_url bio hide_country role], params[:user])
 
 
     first_name = params[:user][:first_name]
@@ -77,16 +85,33 @@ class UsersController < ApplicationController
     if params[:user]["birthday(1i)"]
       @user.birthday = build_date(params[:user], "birthday")
     end
+
+
+    @group = current_group
+    @group.add_member(@user, params[:user][:role])
+
+
     success = @user && @user.save
     if success && @user.errors.empty?
       # Protects against session fixation attacks, causes request forgery
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
-      # reset session
+
+      if params[:user][:role] == "owner"
+
+      
+      #reset session
+      end
+
       sweep_new_users(current_group)
       @user.localize(request.remote_ip)
       flash[:notice] = t("flash_notice", :scope => "users.create")
-      sign_in_and_redirect(:user, @user) # !! now logged in
+
+
+      sign_in_and_redirect(:user, @user)
+
+
+      #sign_in_and_redirect(:user, @user) # !! now logged in / should presumably go to a wlecome page or porperties page
     else
       flash[:error]  = t("flash_error", :scope => "users.create")
       render :action => 'new'

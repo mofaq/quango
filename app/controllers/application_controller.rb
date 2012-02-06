@@ -138,6 +138,8 @@ class ApplicationController < ActionController::Base
     @subscription
   end
 
+
+
   def find_subscription
     current_group.subscriptions.each do |subscription|
 

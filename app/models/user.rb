@@ -9,7 +9,7 @@ class User
   devise :database_authenticatable, :http_authenticatable, :recoverable, :registerable, :rememberable,
          :lockable, :token_authenticatable
 
-  ROLES = %w[user editor moderator admin agent]
+  ROLES = %w[user editor moderator admin agent owner]
   LANGUAGE_FILTERS = %w[any user] + AVAILABLE_LANGUAGES
   LOGGED_OUT_LANGUAGE_FILTERS = %w[any] + AVAILABLE_LANGUAGES
 

@@ -5,6 +5,11 @@
 
 .container{:style=>"padding-bottom:16px;"}
 
+  - if logged_in?
+    - if current_user.owner_of?(current_group)
+      = "You are about to add a new owner to this account, only account owners are permitted to create free trials, change settings and buy subscriptions"
+      = f.hidden_field :role, :class => "text_field_mobile", :value=>"owner"
+
 
   .dark{:style=>"width:450px;border-radius:8px;border-color:#{current_group.primary};-webkit-box-shadow:inset 0 0 1px white,0 0 1px #{current_group.primary_dark};padding:16px;"}
 
@@ -46,13 +51,13 @@
         = f.label :name, t(:name, :scope => "activerecord.attributes.user"), :class => "label left"
         = f.text_field :name, :class => "text_field_mobile"
 
-      .group{:style => "margin-bottom:4px; border: 0; float: right; width: 300px"}
+      .group{:style => "margin-bottom:4px; border: 0; float:left;"}
         = f.check_box :terms
         = f.label :terms, "I agree to your <a href='/about/legal'>terms and conditions</a>", :class => "label right", :style => "font-size:12px;margin-top:10px;color:white"
 
       .group
         %button.submit-button{:style=>"margin:0 0 32px;"}
-          = "Login"
+          = "Create Account"
 
 
 

@@ -9,7 +9,7 @@
       = @item.doctype.create_label
 
 
-    -if logged_in?
+    -#if logged_in?
     .form-for-content
       - form_for(@item, :html=>{:class => "form mainAnswerForm", :id => "ask_item"}) do |f|
         = f.hidden_field :doctype_id, :value => @item.doctype.id
@@ -31,19 +31,11 @@
 
     .related-item
       %ul.items#related_items
-
-
-
-
-
-
         -#=render :partial => "form_mobile", :locals => {:f => f, :doctype => @doctype}
 
 
 
 
-      .related-item
-        %ul.items#related_items
 
 
 

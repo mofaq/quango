@@ -44,7 +44,8 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.resources :users, :member => { :change_preferred_tags => :any,
-                                     :follow => :any, :unfollow => :any},
+                                     :follow => :any, :unfollow => :any,
+                                     :new_owner => :any},
                         :collection => {:autocomplete_for_user_login => :get},
                         :as => "members"
 

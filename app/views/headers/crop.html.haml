@@ -3,7 +3,15 @@
 - content_for :custom_javascript do
 
   = javascript_include_tag 'jquery.jcrop.min'
+
+
+
+  %script{:type=>"text/javascript"}
+
+    = "$(document).ready(function() {$(\"#accordion\").accordion();});"
+
   = stylesheet_link_tag 'jquery-jcrop'
+
 
 - content_for :main do
 
@@ -84,11 +92,15 @@
 
 
     .clear
-    %p
-      = image_tag cropped_header.url, :width => "#{Header::CROP_W}px", :id => 'cropbox'
+    .crop-container{:style=>"border-top:8px solid #{current_group.primary_dark};border-bottom:8px solid #{current_group.secondary};"}
+      .crop
+        = image_tag cropped_header.url, :width => "#{Header::CROP_W}px", :id => 'cropbox'
 
+    #accordion
+      .fold-header
+        .container{:style=>"width:480px"}
+          = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
 
-    .container
       %div.right
         %button.inner-button
           = link_to "Desat", desat_header_path(@header), :class => "inner-button"

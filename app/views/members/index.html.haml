@@ -8,28 +8,32 @@
 
 - content_for :list_members do
 
-  ok
 
 
-  #manage_members
-    -form_tag(members_path, :class => "form", :method => :post) do
-      =render :partial => "form"
-      .group.navform
-        = submit_tag t('scaffold.add', :model => "member")
+  .container
+    - if false
+      #manage_members
+        -form_tag(members_path, :class => "form", :method => :post) do
+          =render :partial => "form"
+          .group.navform
+            = submit_tag t('scaffold.add', :model => "member")
 
-  %ul.items#members
-    -@members.each do |member|
-      %li
-        = member.email.to_s
-        = render :partial => "member", :object => member
+    .members{:style=>"float:left"}
+      = "Members"
+      %ul.items#members
+        -@members.each do |member|
 
-  %ul.members-list-index#users
-    -@users.each do |user|
-      -#if user.login != "admin"
-      = render :partial => "member", :object => user
+          = render :partial => "member", :object => member
+          .clear
+
+    .users{:style=>"float:right"}
+      = "Users"
+      %ul.members-list-index#users
+        -@users.each do |user|
+          = render :partial => "member", :object => user
 
 
-  =will_paginate @members
+    =will_paginate @members
 
 
 

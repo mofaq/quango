@@ -3,9 +3,14 @@
 
 
 .about
-  .light-down{:style=>"padding:8px;border-radius:8px;"}
-    = current_group.description
-    .left{:style=>"width:160px;"}
+  .light-down{:style=>"padding:8px;border-radius:8px;margin-top:4px;"}
+    .left{:style=>"width:50%;"}
+      .subheading
+        = "About"
+      = current_group.description
+    .right{:style=>"width:50%;"}
+      .subheading
+        = "Contact"
       .heading{:style=>"font-size:100%;"}
         = "#{current_group.name}"
       .group
@@ -28,7 +33,7 @@
         .group
           = "FAX: #{current_group.group_fax}"
 
-.clear
+    .clear
 
 
 
