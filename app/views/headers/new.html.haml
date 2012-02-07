@@ -49,11 +49,11 @@
       = "<input type=\"text\" id=\"callbackURL_value\" value=\"#{callbackURL}\"/>"
 
 
-      = "<textarea id=\"scratch_url\" style=\"width:480px;height:64px;\">fileupload://new?callbackURL=#{callbackURL}&amp;debug=true</textarea>"
+      = "<textarea id=\"scratch_url\" style=\"width:480px;height:64px;\">fileupload://new?callbackURL=#{callbackURL}&debug=true</textarea>"
 
       -#= "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
 
-      = "<input type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(scratch_url.value);return false;\" value=\"View Photo\" />"
+      = "<input type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(callbackURL_value.value);return false;\" value=\"View Photo\" />"
 
       %hr
       .note
