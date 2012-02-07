@@ -44,6 +44,7 @@ class HeadersController < ApplicationController
     @header.group = @group
 
 
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @header }
@@ -64,6 +65,10 @@ class HeadersController < ApplicationController
     @group = current_group
     @header.group = @group
     #@header.name = @header.to_s
+
+
+
+
     @header.header = @header.header.process(:resize, '962>')
 
    
@@ -139,13 +144,41 @@ class HeadersController < ApplicationController
   def callback
     #@header = Header.find(params[:id])
 
-    @callback = params[:callback]
+    @remoteu = params[:remoteImageURL]
+      puts "Remote URL present"
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @header }
+    if @remoteu
+      @header = Header.new
+      @group = current_group
+      @header.group = @group
+
+      @header.header = open(@remoteu).read
+
+     
+
+      respond_to do |format|
+        if @header.save
+
+            format.html { redirect_to(crop_header_path(@header))}
+            #format.html { redirect_to(headers_path)}
+            #render :action => 'crop'
+          
+        end
+      end
+ 
+
+
+
+
+
+
+    else
+      respond_to do |format|
+        
+        format.html # new.html.erb
+        format.xml  { render :xml => @header }
+      end
     end
-
 
   end
 

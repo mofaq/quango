@@ -6,7 +6,7 @@
 
     $(document).ready(function() {
 
-      var passthrough = "/headers/new?" + $.param.fragment();
+      var passthrough = "/headers/callback?" + $.param.fragment();
       document.location.href=passthrough;
  
     });
@@ -25,7 +25,7 @@
     
 
     #output
-      = @callback.to_s
+      = @remoteu.to_s
 
 
     %hr
