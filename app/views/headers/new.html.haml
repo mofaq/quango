@@ -22,40 +22,46 @@
             .group
               .note
                 = "Locate your file:"
-              -# if request.user_agent.include?("iPhone") then
+              - if !request.user_agent.include?("iPhone") then
 
-              .something
-                - callbackURL = domain_url(:custom => current_group.domain) + header_callback_path
-              
-                = "You are using an iphone - you need a program called picup - its free in the istore</br>"
-                = "Callback path: #{header_callback_path}</br>"
-
-                = "<input type=hidden id=scratch_action value=new/>"
-                = "<textarea id=\"scratch_url\" style=\"width:480px;height:64px;\">fileupload://new?callbackURL=#{callbackURL}&amp;debug=true</textarea>"
-
-                = "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
-
-                = "<input type=\"button\" id=\"file_view_input\" style=\"display:none;\" onclick=\"viewScratchURL();return false;\" value=\"View Photo\" />"
-
-                %hr
-                .note
-                  = "You will require a program called Picup availavbel from istore"
-
-
-
-              -# else
-                %hr
                 = f.file_field :header, :value => @header.header, :class => "text_field_mobile", :style=>"padding:;"
 
 
-              = f.hidden_field :name, :value => @header.name, :class => "text_field"
-              .description{:style => "margin-left:140px;float:left;"}
-                = "Browse your computer to find the header"
-              .clear
+                = f.hidden_field :name, :value => @header.name, :class => "text_field"
+                .description{:style => "margin-left:140px;float:left;"}
+                  = "Browse your computer to find the header"
+                .clear
 
-            .group{:style=>"margin-bottom:32px;margin-left:140px;"}
-              = f.submit 'Add this header to post', :class=>"submit-button", :style=>"width:312px; height:32px"
-              = link_to 'cancel', headers_path(@header)
+                .group{:style=>"margin-bottom:32px;margin-left:140px;"}
+                  = f.submit 'Add this header to post', :class=>"submit-button", :style=>"width:312px; height:32px"
+                  = link_to 'cancel', headers_path(@header)
+
+
+  %hr
+  %hr
+
+
+  .container
+    .dark.inset
+      - callbackURL = domain_url(:custom => current_group.domain) + header_callback_path
+
+      = "You are using an iphone - you need a program called picup - its free in the istore</br>"
+      = "Callback path: #{header_callback_path}</br>"
+
+      = "<input type=hidden id=scratch_action value=new/>"
+      = "<textarea id=\"scratch_url\" style=\"width:480px;height:64px;\">fileupload://new?callbackURL=#{callbackURL}&amp;debug=true</textarea>"
+
+      = "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
+
+      = "<input type=\"button\" id=\"file_view_input\" style=\"display:none;\" onclick=\"viewScratchURL();return false;\" value=\"View Photo\" />"
+
+      %hr
+      .note
+        = "You will require a program called Picup availavbel from istore"
+
+
+
+
 
 
 

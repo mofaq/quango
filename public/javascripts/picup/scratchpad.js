@@ -27,6 +27,10 @@ function updateParamsForAction(){
 	        $('file_view_input').show();	        
         }
 	}
+
+
+
+
 	
 	currentParams = {};
 	
