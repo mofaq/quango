@@ -164,7 +164,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :transactions
   map.resources :subscriptions, :member => {:add_trial => :get, :add_full => :get, :activate => :get, :remote => :post}
-  map.resources :headers, :member => {:callback => :any,:crop => :get,
+
+  map.header_callback '/headers/callback', :controller => 'headers', :action => 'callback'
+
+  map.resources :headers, :member => {:callback => :get,:crop => :get,
                                               :pull => :get, 
                                               :set_default_header => :get, 
                                               :flip => :get, :flop => :get,

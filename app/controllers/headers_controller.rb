@@ -136,6 +136,15 @@ class HeadersController < ApplicationController
     redirect_to group_images_path
   end
 
+  def callback
+    #@header = Header.find(params[:id])
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @header }
+    end
+
+
+  end
 
   def crop
 
