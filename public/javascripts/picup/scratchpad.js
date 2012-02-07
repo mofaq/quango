@@ -98,7 +98,7 @@ document.observe('dom:loaded', function(){
 		});
 	});
 
-	updateParamsForAction();
+	/*updateParamsForAction();
 
     // Set some starter params	
     currentParams = {
@@ -109,6 +109,6 @@ document.observe('dom:loaded', function(){
     	'debug' 			: 'true'
     };
 		
-	updateScratchWithCurrentParams();
+	//updateScratchWithCurrentParams();*/
 
 });
