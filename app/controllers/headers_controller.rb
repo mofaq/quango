@@ -138,6 +138,9 @@ class HeadersController < ApplicationController
 
   def callback
     #@header = Header.find(params[:id])
+
+    @callback = params[:callback]
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @header }
