@@ -315,13 +315,7 @@ background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 
 
 \button.create-button:hover{border: 2px outset #{stop4};cursor:pointer;}
 
-\.inner-button-link{
-height:56px;
-line-height:56px;
-font-size:30px;
-color:#{stop5};
-font-weight:bold;
-}
+
 
 \.button-group{
 padding:8px;
@@ -329,22 +323,15 @@ float:left;
 -#border:1px solid #{stop5};
 }
 
-\.map-holder{
-margin-top:12px;
-font-size:1.2em;
-padding:8px;
-border-radius: 8px;
-color:white;
+\.inner-button-link{
+height:56px;
+width:56px;
+-#line-height:56px;
+font-size:30px;
+color:#{stop5};
 font-weight:bold;
-\-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
-\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
-
-border-top: 1px solid #{stop1};
-border-left: 1px solid #{stop1};
-border-bottom: 1px solid #{stop2};
-border-right: 1px solid #{stop2};
+margin:0 auto;
 }
-
 
 \.inner-button{
 cursor:pointer;
@@ -377,6 +364,27 @@ background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{sto
 background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', endColorstr='#{stop1}',GradientType=0 ); /* IE6-9 */
 }
+
+\.inner-button.left-nested{
+float:left;
+border-right:2px solid #{stop1};
+border-radius: 8px 0 0 8px;
+height:48px;
+width:48px;
+padding:4px;
+line-height:48px;
+}
+\.inner-button.right-nested{
+float:right;
+border-left:2px solid #{stop4};
+border-radius: 0 8px 8px 0;
+height:48px;
+width:48px;
+padding:4px;
+line-height:48px;
+}
+
+
 
 \.inner-button.depressed{
 text-shadow:-1px -1px 1px #{stop1},1px 1px 1px #{stop2};
@@ -412,7 +420,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 
 \.submit-button{border-radius:8px;text-transform:uppercase;letter-spacing:-1px;width:428px;max-width:428px;height:56px;font-weight:bold;font-size:2em;margin-top:8px;margin-bottom:4px;line-height:32px;color:white; font-weight:bold; text-shadow:-1px -1px 0px #{alt1},2px 2px 1px #{alt2};}
 
-\button.submit-button{
+\.submit-button{
 border-top: 1px solid #{stop1};
 border-left: 1px solid #{stop1};
 border-bottom: 1px solid #{stop2};
@@ -652,7 +660,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 
 }
 
+\.map-holder{
+margin-top:12px;
+font-size:1.2em;
+padding:8px;
+border-radius: 8px;
+color:white;
+font-weight:bold;
+\-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
+\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
 
+border-top: 1px solid #{stop1};
+border-left: 1px solid #{stop1};
+border-bottom: 1px solid #{stop2};
+border-right: 1px solid #{stop2};
+}
 
 
 \/*General styles*/

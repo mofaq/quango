@@ -64,24 +64,24 @@
       .button-group
         = "Flip"
         .buttons
-          %div.inner-button.left{:style=>"height:56px;"}
+          %div.inner-button.right-nested
             = link_to "↕", flip_header_path(@header), :class => "inner-button-link"
-          %div.inner-button.left
+          %div.inner-button.left-nested
             = link_to "↔", flop_header_path(@header), :class => "inner-button-link"
 
       .button-group
         = "Rotate"
         .buttons
-          %div.inner-button.left
+          %div.inner-button.right-nested
             = link_to "↺", rotate_left_header_path(@header), :class => "inner-button-link"
-          %div.inner-button.left
+          %div.inner-button.left-nested
             = link_to "↻", rotate_right_header_path(@header), :class => "inner-button-link"
       .button-group
         = "Zoom"
         .buttons
-          %div.inner-button.left
+          %div.inner-button.right-nested
             = link_to "-", rotate_left_header_path(@header), :class => "inner-button-link"
-          %div.inner-button.left
+          %div.inner-button.left-nested
             = link_to "+", rotate_right_header_path(@header), :class => "inner-button-link"
 
       .button-group

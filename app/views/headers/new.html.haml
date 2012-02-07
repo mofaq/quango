@@ -7,47 +7,52 @@
 
 -content_for :main do
 
-  .container{:style=>"width:480px;"}
-
-    %h4
-      = "Add a new header"
-
-
-    - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
-      = f.error_messages
-      .answer-form-holder
-        .answer-form
-          .group
-            .label{:style => "width:140px;float:left;"}
-              = "Image file"
-            - if request.user_agent.include?("iPhone") then
-
-              - callbackURL = ""
+  .container{:style=>"width:480px;padding:16px;"}
+    .dark.inset{:style=>""}
+      .heading
+        = "Add a header"
+      .note
+        = "First we upload your chosen image, then you will have the option to edit the header"
 
 
+      - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
+        = f.error_messages
+        .answer-form-holder
+          .answer-form
+            .group
+              .note
+                = "Locate your file:"
+              - if request.user_agent.include?("iPhone") then
 
-            
-              = "You are using an iphone - you need a program called picup - its free in the istore"
-              = "<input type=hidden id=scratch_action value=new/>"
-              = "<textarea id=\"scratch_url\">fileupload://new?callbackURL=http://picupapp.com/done.html&amp;debug=true</textarea>"
+                - callbackURL = ""
+              
+                = "You are using an iphone - you need a program called picup - its free in the istore"
+                = "<input type=hidden id=scratch_action value=new/>"
+                = "<textarea id=\"scratch_url\">fileupload://new?callbackURL=http://picupapp.com/done.html&amp;debug=true</textarea>"
 
-              = "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
+                = "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
 
-              = "<input type=\"button\" id=\"file_view_input\" style=\"display:none;\" onclick=\"viewScratchURL();return false;\" value=\"View Photo\" />"
+                = "<input type=\"button\" id=\"file_view_input\" style=\"display:none;\" onclick=\"viewScratchURL();return false;\" value=\"View Photo\" />"
 
-            - else
-              %hr
-              = f.file_field :header, :value => @header.header, :style => "width:312px; max-width:312px;"
+                %hr
+                .note
+                  = "If you have a joiborken iphone/ipad you may be able to upload direct as follwos"
+                = f.file_field :header, :value => @header.header, :class => "text_field_mobile", :style=>"padding:;"
 
 
-            = f.hidden_field :name, :value => @header.name, :class => "text_field"
-            .description{:style => "margin-left:140px;float:left;"}
-              = "Browse your computer to find the header"
-            .clear
+              - else
+                %hr
+                = f.file_field :header, :value => @header.header, :class => "text_field_mobile", :style=>"padding:;"
 
-          .group{:style=>"margin-bottom:32px;margin-left:140px;"}
-            = f.submit 'Add this header to post', :class=>"submit-button", :style=>"width:312px; height:32px"
-            = link_to 'cancel', headers_path(@header)
+
+              = f.hidden_field :name, :value => @header.name, :class => "text_field"
+              .description{:style => "margin-left:140px;float:left;"}
+                = "Browse your computer to find the header"
+              .clear
+
+            .group{:style=>"margin-bottom:32px;margin-left:140px;"}
+              = f.submit 'Add this header to post', :class=>"submit-button", :style=>"width:312px; height:32px"
+              = link_to 'cancel', headers_path(@header)
 
 
 
