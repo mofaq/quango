@@ -1,0 +1,10 @@
+-content_for :main do
+
+  = "callback params"
+
+  %hr
+  - params.each do |key,value|
+    .item
+      = "#{key}:"
+      %b
+        = "#{value}"

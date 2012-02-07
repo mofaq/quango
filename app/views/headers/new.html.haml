@@ -24,11 +24,11 @@
                 = "Locate your file:"
               - if request.user_agent.include?("iPhone") then
 
-                - callbackURL = ""
+                - callbackURL = header_callback_path
               
                 = "You are using an iphone - you need a program called picup - its free in the istore"
                 = "<input type=hidden id=scratch_action value=new/>"
-                = "<textarea id=\"scratch_url\">fileupload://new?callbackURL=http://picupapp.com/done.html&amp;debug=true</textarea>"
+                = "<textarea id=\"scratch_url\">fileupload://new?callbackURL=#{callbackURL}&amp;debug=true</textarea>"
 
                 = "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
 
@@ -36,8 +36,8 @@
 
                 %hr
                 .note
-                  = "If you have a joiborken iphone/ipad you may be able to upload direct as follwos"
-                = f.file_field :header, :value => @header.header, :class => "text_field_mobile", :style=>"padding:;"
+                  = "You will require a program called Picup availavbel from istore"
+
 
 
               - else
