@@ -1,6 +1,7 @@
 -content_for :main do
 
   = "callback params"
+  - params = CGI.parse(request.query_string)
 
   %hr
   - params.each do |key,value|
