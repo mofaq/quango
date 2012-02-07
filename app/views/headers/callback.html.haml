@@ -6,64 +6,33 @@
 
     $(document).ready(function() {
 
-      // Values are not coerced.
-      var params = $.deparam.fragment();
-      var deparams = JSON.stringify( params );
       var passthrough = "/headers/new?" + $.param.fragment();
-
-
-
-      //debug.log( 'not coerced', params );
-      $('#deparam_string').text(deparams);
-
-      // Values are coerced.
-      params = $.deparam.fragment( true );
-
-      //debug.log( 'coerced', params );
-      $('#deparam_coerced').text(passthrough);
-
-      /*
-
-      $.ajax({
-          type: "GET",
-          url: "/headers/callback",    // be sure to set this in your routes.rb
-          dataType: JSON,
-          data: deparams,
-          success: function(data) {          
-              console.log("success. data:");
-              console.log(data);
-          }
-      });
-
-      */
-
       document.location.href=passthrough;
  
-
     });
 
   
 
+-if false
+  -content_for :main do
 
--content_for :main do
+    = "callback params"
 
-  = "callback params"
+    #deparam_coerced{:style=>"border:2px solid red;"}
+    #deparam_string{:style=>"border:2px solid green;"}
+    %hr
 
-  #deparam_coerced{:style=>"border:2px solid red;"}
-  #deparam_string{:style=>"border:2px solid green;"}
-  %hr
+    
 
-  
-
-  #output
-    = @callback.to_s
+    #output
+      = @callback.to_s
 
 
-  %hr
-  - params.each do |key,value|
-    .item
-      = "#{key}:"
-      %b
-        = "#{value}"
+    %hr
+    - params.each do |key,value|
+      .item
+        = "#{key}:"
+        %b
+          = "#{value}"
 
 

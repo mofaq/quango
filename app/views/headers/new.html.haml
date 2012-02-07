@@ -13,6 +13,11 @@
       = "#{key}:"
       %b
         = "#{value}"
+    -if key == "remoteImageURL"
+      = "Remote image"
+      = image_tag value
+
+
 
   %hr
 
