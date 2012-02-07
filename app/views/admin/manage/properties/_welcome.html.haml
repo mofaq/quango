@@ -27,29 +27,23 @@
     #accordion
       .fold-header
         .container{:style=>"width:480px"}
-          = link_to "Basic Settings","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-
-      .general-settings
-        .dark{:style=>"width:450px;border-radius:8px;border-color:#{current_group.primary};-webkit-box-shadow:inset 0 0 1px white,0 0 1px #{current_group.primary};padding:16px 16px 8px 16px"}
+          = link_to "Appearance Settings","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
+      .container
+        .dark.inset
           %ul.mobile
-
             %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
                 = link_to "Choose images for header", "/headers",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-
             %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
                 = link_to "Background Colours", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
                 = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
       .fold-header
         .container{:style=>"width:480px"}
-          = link_to "Business Details","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-
-
-      .general-settings
-        .dark{:style=>"width:450px;border-radius:8px;border-color:#{current_group.primary};-webkit-box-shadow:inset 0 0 1px white,0 0 1px #{current_group.primary};padding:16px 16px 8px 16px"}
+          = link_to "Company Details","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
+      .container
+        .dark.inset
           %ul.mobile
 
             %li
@@ -61,12 +55,39 @@
                 = link_to "Company statement ", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
                 = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
+      .fold-header
+        .container{:style=>"width:480px"}
+          = link_to "Account holder","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
+
+      .container
+        .dark.inset
+          %ul.mobile
+
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Contact Address", "?tab=group_location",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Company statement ", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
+            %li
+              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
+                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
 
       .fold-header
         .container{:style=>"width:480px"}
           = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-      .advanced-settings
-        .dark{:style=>"width:450px;border-radius:8px;border-color:#{current_group.primary};-webkit-box-shadow:inset 0 0 1px white,0 0 1px #{current_group.primary};padding:16px 16px 8px 16px"}
+      .container
+        .dark.inset
           %ul.mobile
             %li
               %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}

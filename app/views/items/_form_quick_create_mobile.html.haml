@@ -15,38 +15,37 @@
 
 -#= javascript_include_merged :show
 
-.quick-create-form
+.container
 
-  .quick-create-inner
+  .note
+    = "Can't find what you are looking for?"
 
-    .group
-      = f.text_area :title, :class => "text_field_mobile",:value=>"Please touch here to start typing your question...",:onclick=>"this.value='';",:style=>"padding:0px 8px;line-height:28px;"
+  .group
+    = f.text_area :title, :class => "text_field_mobile",:value=>"Simply touch here to start typing your question",:onclick=>"this.value='';",:style=>"padding:2px 8px 0 8px;line-height:24px;font-size:1.3em;"
 
-    .related-item
-      %ul.items#related_items
-
-
-    .clear
-
+  .group
+    %button.submit-button{:style=>"margin:0 0 16px;width:416px;"}
+      = "#{current_group.quick_create_label}"
 
 
-    - if !logged_in?
-      .group
-        = f.hidden_field :anonymous, :value => "true"
-        -#= "Please provide your name or nickname"
-        = f.hidden_field :anonymous_display_name,:value=>"Please provide your name or nickname",:onclick=>"this.value='';",:style=>"width:256px;border:2px inset #{current_group.supplementary};font-weight:bold;color:#{current_group.supplementary};margin:16px"
-
-      .group
-        -#= "Please provide your email address so we can notify you when your question is answered"
-        = f.hidden_field :anonymous_email,:value=>"me@mycompany.com",:onclick=>"this.value='';",:style=>"width:256px;border:2px inset #{current_group.supplementary};font-weight:bold;color:#{current_group.supplementary};margin:16px"
-
-    .group
-      %button.submit-button{:style=>"margin:0 0 32px;"}
-        = "#{current_group.quick_create_label}"
-    .clear
-    -#.note{:style=>"font-size:11px;font-weight:bold;text-align:center;margin:16px"}
-      -#= "We will not share your private information"
   .clear
+
+
+
+- if !logged_in?
+  .group
+    = f.hidden_field :anonymous, :value => "true"
+    -#= "Please provide your name or nickname"
+    = f.hidden_field :anonymous_display_name,:value=>"Please provide your name or nickname",:onclick=>"this.value='';",:style=>"width:256px;border:2px inset #{current_group.supplementary};font-weight:bold;color:#{current_group.supplementary};margin:16px"
+
+  .group
+    -#= "Please provide your email address so we can notify you when your question is answered"
+    = f.hidden_field :anonymous_email,:value=>"me@mycompany.com",:onclick=>"this.value='';",:style=>"width:256px;border:2px inset #{current_group.supplementary};font-weight:bold;color:#{current_group.supplementary};margin:16px"
+
+
 .clear
+-#.note{:style=>"font-size:11px;font-weight:bold;text-align:center;margin:16px"}
+  -#= "We will not share your private information"
+
 
 

@@ -8,7 +8,7 @@
       .subheading
         = "About"
       = current_group.description
-    .right{:style=>"width:50%;"}
+    .about.dark-down.right{:style=>"width:40%;padding:8px;border-radius:8px;margin-top:4px;"}
       .subheading
         = "Contact"
       .heading{:style=>"font-size:100%;"}
@@ -32,6 +32,10 @@
       -if current_group.group_phone
         .group
           = "FAX: #{current_group.group_fax}"
+
+      .group
+        .inner-submit-button
+          = "Map"
 
     .clear
 
