@@ -19,10 +19,10 @@
     = yield :custom_javascript
     = yield :js
 
-    -#script{:type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyAlzkt8p7MDY0igloVFWD1-kQ2wYynxLgs&sensor=false"}
-    -#script{:type => "text/javascript", :src => "/javascripts/modules/google_maps.js"}
-
     = current_group.head_tag
+    = render :partial => "shared/layout/analytics"
+
+
 
   %body
 
@@ -43,6 +43,8 @@
     #flash
       .container
         = show_flash_messages(:class => "flash", :markdown => true)
+
+    = yield :javascript_init
 
     - if debug
       #debug

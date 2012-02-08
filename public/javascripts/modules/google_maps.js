@@ -3,7 +3,7 @@ function createMap(geo,address) {
     center: geo,
     zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    zoomControl: false,
+    zoomControl: true,
     panControl: false,
     streetViewControl: false,
     mapTypeControl: false

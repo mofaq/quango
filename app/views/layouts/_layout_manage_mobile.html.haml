@@ -19,7 +19,7 @@
     = yield :js
 
     = current_group.head_tag
-    = render :partial => "shared/analytics"
+    = render :partial => "shared/layout/analytics"
 
   %body{:style=>"background:#{current_group.primary_dark};font-family:sans-serif;color:#{current_group.text_colour};margin:0;"}
 
@@ -44,6 +44,8 @@
     #flash
       .container
         = show_flash_messages(:class => "flash", :markdown => true)
+
+    = yield :javascript_init
 
     - if debug
       #debug

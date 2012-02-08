@@ -2,100 +2,99 @@
 
 - if @subscription
   -content_for :after_form do
+
+    .heading{:style=>"height:32px;line-height:32px;padding:16px 0 0;"}
+      = "MOFAQ Settings"
+
     .container{:style=>"padding-bottom:16px;border-top:1px solid #{current_group.primary};background:#{current_group.secondary};"}
 
       -# TODO: This is a bit of a hack really, will figure out a more elegant way later
       -if current_group.users.count.to_i < 2
-        .create-owner
-          = "Only one member ( #{current_group.users.count.to_i} )  - lets create a new onwer  <.br>"
-
-        .create-owner
-          = link_to "Create owner",new_user_path(:owner=>true),:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-
-      - else
-
-
-      .heading{:style=>"height:32px;line-height:32px;padding:16px 0 0;"}
-        = "MOFAQ Settings"
-
-
-
+        .dark.inset
+          .create-owner
+            = "This site does not yet have an account holder..."
+          .submit-button
+            = link_to "Add account holder",new_user_path(:owner=>true),:class=>"inner-button-link"
 
 
 
 
     #accordion
-      .fold-header
-        .container{:style=>"width:480px"}
-          = link_to "Appearance Settings","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-      .container
-        .dark.inset
-          %ul.mobile
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                = link_to "Choose images for header", "/headers",:style=>"color:white;margin-right:16px;"
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                = link_to "Background Colours", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+      %dl.accordian#slider
 
-      .fold-header
-        .container{:style=>"width:480px"}
-          = link_to "Company Details","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-      .container
-        .dark.inset
-          %ul.mobile
+        %a{:name=>"1"}
+        %dt.container{:style=>"width:480px;padding:8px 0;"}
+          .inner-button
+            = link_to "Appearance Settings","#1",:class=>"inner-button-link"
+        %dd.container{:style=>"width:480px;padding:0;"}
+          .dark.inset{:style=>"margin-bottom:16px"}
+            %ul.mobile
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Choose images for header", "/headers",:style=>"color:white;margin-right:16px;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Background Colours", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                = link_to "Contact Address", "?tab=group_location",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                = link_to "Company statement ", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+        %a{:name=>"2"}
+        %dt.container{:style=>"width:480px;padding:8px 0;"}
+          .inner-button
+            = link_to "Company Details","#2",:class=>"inner-button-link"
+        %dd.container{:style=>"width:480px;"}
+          .dark.inset
+            %ul.mobile
 
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Contact Address", "?tab=group_location",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Company statement ", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
-      .fold-header
-        .container{:style=>"width:480px"}
-          = link_to "Account holder","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
-      .container
-        .dark.inset
-          %ul.mobile
+        %a{:name=>"3"}
+        %dt.container{:style=>"width:480px;padding:8px 0;"}
+          .inner-button
+            = link_to "Account holder","#3",:class=>"inner-button-link"
+        %dd.container{:style=>"width:480px;"}
+          .dark.inset
+            %ul.mobile
 
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                = link_to "Contact Address", "?tab=group_location",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                = link_to "Company statement ", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Contact Address", "?tab=group_location",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Company statement ", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
-
-      .fold-header
-        .container{:style=>"width:480px"}
-          = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-      .container
-        .dark.inset
-          %ul.mobile
-            %li
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                = link_to "Domain name", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                = link_to "Google analytics", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
-                = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+        %a{:name=>"4"}
+        %dt.container{:style=>"width:480px;padding:8px 0;"}
+          .inner-button
+            = link_to "Advanced","#4",:class=>"inner-button-link"
+        %dd.container{:style=>"width:480px;"}
+          .dark.inset
+            %ul.mobile
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Domain name", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Google analytics", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
 
 - else
@@ -148,8 +147,9 @@
 
         .clear
 
-- content_for :custom_javascript do
+-content_for :javascript_init do
 
-  %script{:type=>"text/javascript"}
-    = "$(document).ready(function() {$(\"#accordion\").accordion();});"
+  :javascript
+    var slider1=new accordion.slider("slider1");
+    slider1.init("slider");
 

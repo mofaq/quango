@@ -10,18 +10,11 @@
 
 -content_for :custom_javascript do
 
-  %script{:type=>"text/javascript"}
-  :javascript
-    $(document).ready(function() {
+  %script{:type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyAlzkt8p7MDY0igloVFWD1-kQ2wYynxLgs&sensor=false"}
+  %script{:type => "text/javascript", :src => "/javascripts/modules/google_maps.js"}
 
-      /*
-      $('#accordion h3').click(function() {
-        $(this).next().slideDown();
-        return false;
-      }).next().hide();
-      var animated = $(\"#accordion\" ).accordion(\"option\", \"animated\" );
-      */
-      
+  :javascript
+
       var map = null;
       var geo = new google.maps.LatLng(#{current_group.group_latitude},#{current_group.group_longitude})
       var address = [
@@ -31,25 +24,15 @@
         "#{current_group.group_state}"
       ];
 
-      $("#accordion").accordion();
+      /*
       $("#accordion").bind('accordionchange',function(event,ui) {
         if (ui.newContent.attr('id') == 'map_tab' && !map){
           map = createMap(geo,address);
         }
       });
-
-      /*
-      $('#accordion').accordion({ animated: 'bounceslide' });
-      $("#accordion").accordion({
-        animated: 'bounceslide',
-        autoHeight: false, 
-        collapsible: true, 
-        event: 'click', 
-        active: 0
-      });
       */
 
-    });
+
 
 
 
