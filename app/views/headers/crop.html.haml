@@ -59,7 +59,6 @@
   #main
 
     .container{:style => "width:480px"}
-      ="<b>^ Preview</b></br>"
 
       .button-group
         = "Flip"
@@ -88,7 +87,7 @@
         %div.left
           - form_for @header, :url => header_path(@header), :html => {:multipart => true} do |f|
             = f.hidden_field :header_cropping, :id => 'header_cropping'
-            = f.submit "Crop!", :class => "inner-button"
+            = f.submit "Crop!", :class => "submit-button", :style=>"height:40px;width:80px;font-size:1.2em;padding:4px 16px;margin:0;"
 
 
     .clear

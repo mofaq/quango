@@ -5,6 +5,6 @@ var currentParams = {}
 
 
 function viewScratchURL(callbackURL){
-    alert(callbackURL);
+    //alert(callbackURL);
     window.open(Picup.urlForOptions('new', {'callbackURL':escape(callbackURL)}), Picup.windowname);
 }

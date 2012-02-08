@@ -1,73 +1,77 @@
 -content_for :custom_javascript do
 
+  %script{:type=>"text/javascript"}
+
+    = "$(document).ready(function() {$(\"#accordion\").accordion();});"
+
   - if request.user_agent.include?("iPhone") || request.user_agent.include?("iPad") then
-    ="<script src=\"/javascripts/picup/prototype.js\"></script>"
+    -#="<script src=\"/javascripts/picup/prototype.js\"></script>"
     ="<script src=\"/javascripts/picup/picup.js\"></script>"
     ="<script src=\"/javascripts/picup/scratchpad.js\"></script>"
 
 
 -content_for :main do
-
-  .container{:style=>"width:480px;padding:16px;"}
-    .dark.inset{:style=>""}
-      .heading
-        = "Add a new header"
-      .note
-        = "First we upload your chosen image, then you will have the option to edit the image to make the header"
-
-      - if !request.user_agent.include?("iPhone") then
-        - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
-          = f.error_messages
-          .answer-form-holder
-            .answer-form
-              .group
-                .note
-                  = "Locate your file:"
+  .container{:style=>"padding-bottom:16px;border-top:1px solid #{current_group.primary};background:#{current_group.secondary};"}
+    .heading{:style=>"height:32px;line-height:32px;padding:16px 0 0;"}
+      = "Add a new image"
 
 
-                  = f.file_field :header, :value => @header.header, :class => "text_field_mobile", :style=>"padding:;"
+  #accordion
+    .fold-header
+      .container{:style=>"width:480px"}
+        = link_to "Standard Upload","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
 
+    .container{:style=>"width:480px;padding:0 16px;"}
+      .dark.inset{:style=>""}
+        .note
+          = "First choose an image, then you will have the option to edit the image to make the header"
 
+        - if !request.user_agent.include?("iPhone") then
+
+          .container{:style=>"padding:0px;"}
+            .light-down.inset{:style=>""}
+              - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
+                = f.error_messages
+                .group
+                  .note
+                    = "Browse your devise to find the image:"
+                .group
+                  = f.file_field :header, :value => @header.header, :class => "file_field_mobile", :style=>"padding:;"
                   = f.hidden_field :name, :value => @header.name, :class => "text_field"
-                  .description{:style => "margin-left:140px;float:left;"}
-                    = "Browse your computer to find the header"
-                  .clear
+                .group
+                  = f.submit 'Upload & Process', :class=>"submit-button", :style=>""
+                  = link_to 'cancel', headers_path(@header)
 
-                  .group{:style=>"margin-bottom:32px;margin-left:140px;"}
-                    = f.submit 'Add this header to post', :class=>"submit-button", :style=>"width:312px; height:32px"
-                    = link_to 'cancel', headers_path(@header)
+        - elsif request.user_agent.include?("iPhone") || request.user_agent.include?("iPad") then
 
-      - elsif request.user_agent.include?("iPhone") || request.user_agent.include?("iPad") then
+          .container{:style=>"padding:0px;"}
+            .dark.inset
+              - callbackURL = domain_url(:custom => current_group.domain) + header_callback_path
 
-        .container
-          .dark.inset
-            - callbackURL = domain_url(:custom => current_group.domain) + header_callback_path
+              = "You are using an iphone - you need a program called picup - its free in the istore</br>"
+              = "Callback path: #{header_callback_path}</br>"
 
-            = "You are using an iphone - you need a program called picup - its free in the istore</br>"
-            = "Callback path: #{header_callback_path}</br>"
+              = "<input type=hidden id=scratch_action value=new/>"
+              = "<input type=\"hidden\" id=\"callbackURL_value\" value=\"#{callbackURL}?\"/>"
+              = "<input class=\"submit-button\" type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(callbackURL_value.value);return false;\" value=\"Upload & Process\" />"
 
-            = "<input type=hidden id=scratch_action value=new/>"
-            = "<input type=\"text\" id=\"callbackURL_value\" value=\"#{callbackURL}?\"/>"
-
-
-            = "<textarea id=\"scratch_url\" style=\"width:480px;height:64px;\">fileupload://new?callbackURL=#{callbackURL}&debug=true</textarea>"
-
-            -#= "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
-
-            = "<input type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(callbackURL_value.value);return false;\" value=\"View Photo\" />"
-
-            %hr
-            .note
-              = "You will require a program called Picup availavbel from istore"
+        %hr
+        .note{:style=>"font-weight:bold"}
+          = "Remember: You can also access MOFAQ from any computer, so if you already have images you would like to use simply browse to MOFAQ"
 
 
 
-    #accordion
-      .fold-header
-        .container{:style=>"width:480px"}
-          = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-      .advanced
-        = "Advanced options"
+
+    .fold-header
+      .container{:style=>"width:480px"}
+        = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
+    .container  
+      .dark.inset
+        = "You can alternatively use an existing image on the internet if you know the exact URL:"
+        %form{:action=>"/headers/callback",:method=>"post"}
+          %input{:type=>"text",:name=>"remoteImageURL",:class=>"text_field_mobile"}
+          %input{:type=>"submit",:class=>"submit-button"}
+      
 
 
 

@@ -57,7 +57,7 @@
 
     .right{:style=>"margin-top:16px;"}
       %button.inner-submit.right{:onclick=>"window.location=\'#{new_header_path}\'", :style=>"/**/"}
-        = "Add a new header"
+        = "Add another image"
 
 
 
@@ -92,7 +92,8 @@
                 = link_to '<img src=\'/images/icons/delete.png\' style=\'height:1em; width:1em;\' />', header_path(header), :confirm => 'Are you sure?', :method => :delete
 
       - else
-        = "none"
+        .container
+          = "No images have been uploaded yet..."
 
 
 
