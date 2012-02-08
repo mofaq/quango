@@ -8,8 +8,10 @@
     = "input[type=\'checkbox\']{display:none}"
     = ".check_box{text-align:center;}"
 
-- content_for :custom_javascript do
-  %script{:src=>"/javascripts/modules/depressed.js",:type=>"text/javascript"}
+-content_for :custom_javascript do
+
+  = javascript_include_tag 'jquery.min'
+  = javascript_include_tag '/modules/depressed'
  
 - content_for :main do
 
