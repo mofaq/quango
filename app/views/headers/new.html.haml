@@ -1,14 +1,36 @@
+
+- ua = request.user_agent.downcase
+
+
 -content_for :custom_javascript do
 
   %script{:type=>"text/javascript"}
 
     = "$(document).ready(function() {$(\"#accordion\").accordion();});"
 
-  - if request.user_agent.include?("iPhone") || request.user_agent.include?("iPad") then
+  - if ua.include?("iphone") then
+    -#="<script src=\"/javascripts/picup/prototype.js\"></script>"
+    ="<!--iphone//-->"
+    ="<script src=\"/javascripts/picup/picup.js\"></script>"
+    ="<script src=\"/javascripts/picup/scratchpad.js\"></script>"
+
+  - if ua.include?("ipad") then
+    ="<!--ipad//-->"
     -#="<script src=\"/javascripts/picup/prototype.js\"></script>"
     ="<script src=\"/javascripts/picup/picup.js\"></script>"
     ="<script src=\"/javascripts/picup/scratchpad.js\"></script>"
 
+
+-content_for :apple do
+  .container{:style=>"padding:0px;"}
+    .dark.inset
+      - callbackURL = domain_url(:custom => current_group.domain) + header_callback_path
+
+      = "You are using an Apple mobile device - you need a program called picup - its free in the istore</br>"
+
+      = "<input type=hidden id=scratch_action value=new/>"
+      = "<input type=\"hidden\" id=\"callbackURL_value\" value=\"#{callbackURL}?\"/>"
+      = "<input class=\"submit-button\" type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(callbackURL_value.value);return false;\" value=\"Upload & Process\" />"
 
 -content_for :main do
   .container{:style=>"padding-bottom:16px;border-top:1px solid #{current_group.primary};background:#{current_group.secondary};"}
@@ -26,8 +48,11 @@
         .note
           = "First choose an image, then you will have the option to edit the image to make the header"
 
-        - if !request.user_agent.include?("iPhone") then
-
+        - if ua.include?("iphone") then
+          = yield :apple
+        - elsif ua.include?("ipad") then
+          = yield :apple
+        - else
           .container{:style=>"padding:0px;"}
             .light-down.inset{:style=>""}
               - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
@@ -41,19 +66,6 @@
                 .group
                   = f.submit 'Upload & Process', :class=>"submit-button", :style=>""
                   = link_to 'cancel', headers_path(@header)
-
-        - elsif request.user_agent.include?("iPhone") || request.user_agent.include?("iPad") then
-
-          .container{:style=>"padding:0px;"}
-            .dark.inset
-              - callbackURL = domain_url(:custom => current_group.domain) + header_callback_path
-
-              = "You are using an iphone - you need a program called picup - its free in the istore</br>"
-              = "Callback path: #{header_callback_path}</br>"
-
-              = "<input type=hidden id=scratch_action value=new/>"
-              = "<input type=\"hidden\" id=\"callbackURL_value\" value=\"#{callbackURL}?\"/>"
-              = "<input class=\"submit-button\" type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(callbackURL_value.value);return false;\" value=\"Upload & Process\" />"
 
         %hr
         .note{:style=>"font-weight:bold"}

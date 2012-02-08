@@ -45,9 +45,9 @@
       .container
         = show_flash_messages(:class => "flash", :markdown => true)
 
-    -#if debug
-    #debug
-      = render :partial => "layouts/debug"
+    - if debug
+      #debug
+        = render :partial => "layouts/debug"
 
 
 
