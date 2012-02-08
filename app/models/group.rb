@@ -125,8 +125,8 @@ class Group
   key :show_beta_links, Boolean, :default => true
 
   #email notifications
-  key :notification_from, String, :default => "Your Community"
-  key :notification_email, String, :default => "no-reply@yourcommunity.com"
+  key :notification_from, String, :default => "MOFAQ Accounts"
+  key :notification_email, String, :default => "accounts@mofaq.com"
 
   #api
 

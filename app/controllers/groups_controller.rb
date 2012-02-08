@@ -205,7 +205,7 @@ class GroupsController < ApplicationController
         @group.add_member(current_user, "owner")
         #@group.add_member(current_user, "agent")
         flash[:notice] = I18n.t("groups.create.flash_notice")
-
+        Notifier.deliver_new_account(@group, current_user)
         if @group.group_type == "mobile"
           #format.html { redirect_to(domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties") << "?tab=colour_wheel") }
           format.html { redirect_to(domain_url(:custom => @group.domain))}

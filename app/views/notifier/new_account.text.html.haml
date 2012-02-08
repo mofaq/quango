@@ -1,0 +1,7 @@
+- group = @group
+
+
+%p
+  = "A new group was created with the name #{group}"
+  -#= link_to h(group.name), url_for(:host => @group.domain)
+

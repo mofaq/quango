@@ -56,13 +56,26 @@ class Notifier < ActionMailer::Base
     recipients user.email
     template_for user do
       from "#{group.notification_from} <#{group.notification_email}>"
-      subject t("mailers.notifications.new_comment.subject", :login => comment.user.display_name, :group => group.name)
+      subject t("mailers.notifications.new_comment.subject", :group => group.name)
       sent_on Time.now
       content_type    "multipart/alternative"
 
       body :user => user, :comment => comment, :item => item, :group => group
     end
   end
+
+  def new_account(group, user)
+    recipients "accounts@mofaq.com"
+    template_for group do
+      from "#{group.notification_from} <#{group.notification_email}>"
+      subject "New MOFAQ created: #{group.name} "
+      sent_on Time.now
+      content_type    "multipart/alternative"
+
+      body :group => group
+    end
+  end
+
 
   def new_feedback(user, subject, content, email, ip)
     recipients AppConfig.exception_notification["exception_recipients"]
