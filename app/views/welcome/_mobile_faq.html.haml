@@ -1,8 +1,8 @@
 - expanded = local_assigns[:expanded]
 
 .about
-  .light-down{:style=>"padding:8px;border-radius:8px;margin-top:4px;"}
-    .quick-create.dark-down{:style=>"padding:8px;border-radius:8px;margin-top:4px;margin-bottom:4px;"}
+  .light-down{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
+    .quick-create.dark-down{:style=>"padding:8px;border-radius:8px;margin-top:4px;margin-bottom:8px;font-size:1.2em;"}
 
       .note
         = "Here are some of our most frequently asked questions"
@@ -13,15 +13,19 @@
             = t(".empty")
         -else
           - @items.reverse[0..5].each do |item|
-            %li
-              = render :partial => "/items/single_list_mobile", :locals => {:item => item, :sort=>"hot"}
+            %li{:style=>"overflow:hidden"}
+              %p
+                = render :partial => "shared/activity_markers", :locals => {:item => item}
+                = link_to item.title, "#{item_path(item.doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88), :style => "color:#{current_group.tertiary};font-weight:bold;"
+
+              -#= render :partial => "/items/single_list_mobile", :locals => {:item => item, :sort=>"hot"}
 
 
 
 
     .clear
 
-    .quick-create.dark{:style=>"padding:8px;border-radius:8px;margin-top:4px;"}
+    .quick-create.dark{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
       = render :partial => "shared/quick_create_mobile"
 
 

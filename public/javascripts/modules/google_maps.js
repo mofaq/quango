@@ -8,7 +8,7 @@ function createMap(geo,address) {
     streetViewControl: false,
     mapTypeControl: false
   };
-  var canvas = $("#map_canvas")[0];
+  var canvas = document.getElementById('map_canvas');
   var map =  new google.maps.Map(canvas,options);
   map.panBy(0,-50);
 

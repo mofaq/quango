@@ -125,7 +125,7 @@ class GroupsController < ApplicationController
     #Create initial doctype
 
     doctypes = Array.new
-    doctypes << Doctype.new(:name => "q", :doctype => "standard", :create_label => "Ask a question", :created_label => "asked a question", :group_id => @group.id)
+    doctypes << Doctype.new(:name => "faq", :doctype => "standard", :create_label => "Ask a question", :created_label => "asked a question", :group_id => @group.id)
     #doctypes << Doctype.new(:name => "something ...
 
     doctypes.each do |doctype| 

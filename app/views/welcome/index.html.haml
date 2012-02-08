@@ -10,21 +10,22 @@
   #accordion
     %dl.accordian#slider
 
-      %dt.container{:style=>"width:480px;padding:0 0 16px 0;"}
+      %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
         .inner-button
           = link_to "Our details","#",:class=>"inner-button-link"
       %dd.container{:style=>"width:480px;padding:0;"}
         = render :partial => "mobile_about"
+        .clear
 
-      %dt.container{:style=>"width:480px;padding:0 0 16px 0;"}
+      %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
         .inner-button
           = link_to "How can we help?","#",:class=>"inner-button-link"
       %dd.container{:style=>"width:480px;padding:0;"}
         = render :partial => "mobile_faq"
 
-      %dt.container{:style=>"width:480px;padding:0 0 16px 0;"}
-        .inner-button
-          = link_to "Location","#",:class => "inner-button-link"
+      %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
+        .inner-button{:onclick=>"initMap()"}
+          = link_to "Location","javascript:initMap()",:class => "inner-button-link"
       %dd.container{:style=>"width:480px;padding:0;"}
         = render :partial => "mobile_map", :locals => {:expanded => false}
 

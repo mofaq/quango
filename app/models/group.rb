@@ -63,7 +63,7 @@ class Group
   key :subdomain, String
   key :domain, String
   key :legend, String, :default => "Every business needs a mobile FAQ"
-  key :description, :default => "This mobile FAQ allows customers to ask questions and get answers about a business directly from their mobile phone or tablet."
+  key :description, :default => "MOFAQ allows customers to quickly get information and answers about your business directly from their mobile phone or tablet. Unlike traditional websites, MOFAQ is simple and highly optimised for mobile access."
 
   key :group_categories, Array
   key :show_category_navigation, Boolean, :default => false
