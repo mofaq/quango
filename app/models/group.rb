@@ -118,7 +118,7 @@ class Group
   key :private, Boolean, :default => false
   key :hidden, Boolean, :default => false
   key :real_names, Boolean, :default => true
-  key :theme, String, :default => "ping"
+  key :theme, String, :default => "vanilla"
 
   key :has_bunnies, Boolean, :default => false
   key :show_group_create, Boolean, :default => true

@@ -12,7 +12,7 @@ class Subscription
   key :starts_at, Timestamp, :required => true
   key :ends_at, Timestamp, :required => true
   key :is_active, Boolean, :default => true
-  
+
 
   timestamps!
 

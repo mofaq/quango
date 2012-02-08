@@ -11,47 +11,8 @@
 -content_for :custom_javascript do
 
   - if is_mobile || current_group.group_type == "mobile"
-
-    %script{:type=>"text/javascript"}
     :javascript
-      $(document).ready(function() {
-
-        /*
-        $('#accordion h3').click(function() {
-          $(this).next().slideDown();
-          return false;
-        }).next().hide();
-        var animated = $(\"#accordion\" ).accordion(\"option\", \"animated\" );
-        */
-        
-        var map = null;
-        var geo = new google.maps.LatLng(#{current_group.group_latitude},#{current_group.group_longitude})
-        var address = [
-          "#{current_group.group_address_i}",
-          "#{current_group.group_address_ii}",
-          "#{current_group.group_city}",
-          "#{current_group.group_state}"
-        ];
-
-        $("#accordion").accordion();
-        $("#accordion").bind('accordionchange',function(event,ui) {
-          if (ui.newContent.attr('id') == 'map_tab' && !map){
-            map = createMap(geo,address);
-          }
-        });
-
-        /*
-        $('#accordion').accordion({ animated: 'bounceslide' });
-        $("#accordion").accordion({
-          animated: 'bounceslide',
-          autoHeight: false, 
-          collapsible: true, 
-          event: 'click', 
-          active: 0
-        });
-        */
-
-      });
+      /*Placeholder*/
 
   - else
     = javascript_include_merged :welcome

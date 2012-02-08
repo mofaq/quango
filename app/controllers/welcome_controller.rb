@@ -187,8 +187,8 @@ class WelcomeController < ApplicationController
         subscription.save
         @subscription = nil
       else
-        subscription.is_active = true
-        subscription.save
+        #subscription.is_active = true
+        #subscription.save
         @subscription = subscription
       end
       

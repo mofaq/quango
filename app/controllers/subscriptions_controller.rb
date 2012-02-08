@@ -91,11 +91,25 @@ class SubscriptionsController < ApplicationController
 
   end
 
-  def remote
+  def activate_trial
   
-    @subscription = Subscription.new
+    activate = params[:activate]
 
+    if activate == "true"
+      #@subscription = Subscription.new
+      #@subscription.name = "Active Subscription (1 min)"
+      #@subscription.starts_at = Time.zone.now
+      #@subscription.ends_at = Time.zone.now + 1.minutes    
+      #@subscription.save
+      @message = "trial activated"
+    else
+      @message = "trial not activated"
+    end
 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @subscription }
+    end
 
   end
 

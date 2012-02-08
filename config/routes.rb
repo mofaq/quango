@@ -163,7 +163,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sponsored_links, :member => {:image => :get,:move => :post}, :path_prefix => "/manage"
 
   map.resources :transactions
+
+  map.activate_trial '/subscriptions/activate_trial', :controller => 'subscriptions', :action => 'activate_trial', :method => :post
   map.resources :subscriptions, :member => {:add_trial => :get, :add_full => :get, :activate => :get, :remote => :post}
+
+
 
   map.header_callback '/headers/callback', :controller => 'headers', :action => 'callback', :method => :post
 

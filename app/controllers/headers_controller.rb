@@ -287,15 +287,19 @@ class HeadersController < ApplicationController
 
   def set_default_header
     @group = current_group
-    @header = Header.find_by_slug_or_id(params[:id])
+    
+    @header = Header.find(params[:id])
 
     @group.default_header = @header.id
 
 
     if @group.save
-      redirect_to headers_path 
+     redirect_to headers_path
+    else
+     redirect_to headers_path 
     end
 
+    
 
   end
 

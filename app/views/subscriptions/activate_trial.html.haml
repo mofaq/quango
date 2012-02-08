@@ -1,0 +1,11 @@
+-content_for :main do
+
+
+  = "trial activated maybe ( #{@message.to_s} ) "
+
+  %hr
+  - params.each do |key,value|
+    .item
+      = "#{key}:"
+      %b
+        = "#{value}"

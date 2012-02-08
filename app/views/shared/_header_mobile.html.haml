@@ -7,16 +7,16 @@
 
     - if current_group.default_header
       - header = Header.find(current_group.default_header)
-      - base_header = header.header.process!(:thumb,header.header_cropping)
-      - base_header4 = base_header.process!(:thumb,"x512")
+      - base_header = header.header.process(:thumb,header.header_cropping)
+      - base_header1 = base_header.process(:thumb,"512x")
 
     - if @subscription || !current_group.default_header
-      - header_image = base_header4.url
+      - header_image = base_header1.url
     - else
-      - expired_header = base_header4.process(:watermark,:mark => 'public/images/mofaq/expired.png')
+      - expired_header = base_header1.process!(:watermark,:mark => 'public/images/mofaq/expired.png')
       - header_image = expired_header.url
 
-    #header{:style=>"height:136px; background-image:url(#{header_image});background-size:512px 136px;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
+    #header{:style=>"height:136px; background-image:url(#{header_image});/*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
       - if current_group.logo_only? && current_group.text_only?
 
