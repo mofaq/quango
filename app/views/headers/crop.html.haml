@@ -131,6 +131,11 @@
 
 
 - content_for :custom_ua do
-  = "<meta name=\"sausages\" />"
+  - if request.user_agent.include?("iPhone") then
+    = "<meta name=\"viewport\" content=\"width=device-width, initial-scale=0.625, user-scalable=no\" />"
+  - elsif request.user_agent.include?("iPad") then
+    = "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.25, user-scalable=no\" />"
+  - else
+    = "<meta name=\"viewport\" content=\"width=512, initial-scale=1, user-scalable=yes\" />"
 
 

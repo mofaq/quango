@@ -1,83 +1,73 @@
 -content_for :custom_javascript do
 
-  ="<script src=\"/javascripts/picup/prototype.js\"></script>"
-  ="<script src=\"/javascripts/picup/picup.js\"></script>"
-  ="<script src=\"/javascripts/picup/scratchpad.js\"></script>"
+  - if request.user_agent.include?("iPhone") || request.user_agent.include?("iPad") then
+    ="<script src=\"/javascripts/picup/prototype.js\"></script>"
+    ="<script src=\"/javascripts/picup/picup.js\"></script>"
+    ="<script src=\"/javascripts/picup/scratchpad.js\"></script>"
 
 
 -content_for :main do
 
-  %hr
-  - params.each do |key,value|
-    .item
-      = "#{key}:"
-      %b
-        = "#{value}"
-    -if key == "remoteImageURL"
-      = "Remote image"
-      = image_tag value
-
-    -if key == "picID"
-      = "Local image"
-      = "<input type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"Picup.urlForOptions('view', { 'picID' : '#{value}' });\" value=\"View Photo\" />"
-
-  %hr
-
   .container{:style=>"width:480px;padding:16px;"}
     .dark.inset{:style=>""}
       .heading
-        = "Add a header"
+        = "Add a new header"
       .note
-        = "First we upload your chosen image, then you will have the option to edit the header"
+        = "First we upload your chosen image, then you will have the option to edit the image to make the header"
+
+      - if !request.user_agent.include?("iPhone") then
+        - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
+          = f.error_messages
+          .answer-form-holder
+            .answer-form
+              .group
+                .note
+                  = "Locate your file:"
 
 
-      - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
-        = f.error_messages
-        .answer-form-holder
-          .answer-form
-            .group
-              .note
-                = "Locate your file:"
-              - if !request.user_agent.include?("iPhone") then
-
-                = f.file_field :header, :value => @header.header, :class => "text_field_mobile", :style=>"padding:;"
+                  = f.file_field :header, :value => @header.header, :class => "text_field_mobile", :style=>"padding:;"
 
 
-                = f.hidden_field :name, :value => @header.name, :class => "text_field"
-                .description{:style => "margin-left:140px;float:left;"}
-                  = "Browse your computer to find the header"
-                .clear
+                  = f.hidden_field :name, :value => @header.name, :class => "text_field"
+                  .description{:style => "margin-left:140px;float:left;"}
+                    = "Browse your computer to find the header"
+                  .clear
 
-                .group{:style=>"margin-bottom:32px;margin-left:140px;"}
-                  = f.submit 'Add this header to post', :class=>"submit-button", :style=>"width:312px; height:32px"
-                  = link_to 'cancel', headers_path(@header)
+                  .group{:style=>"margin-bottom:32px;margin-left:140px;"}
+                    = f.submit 'Add this header to post', :class=>"submit-button", :style=>"width:312px; height:32px"
+                    = link_to 'cancel', headers_path(@header)
+
+      - elsif request.user_agent.include?("iPhone") || request.user_agent.include?("iPad") then
+
+        .container
+          .dark.inset
+            - callbackURL = domain_url(:custom => current_group.domain) + header_callback_path
+
+            = "You are using an iphone - you need a program called picup - its free in the istore</br>"
+            = "Callback path: #{header_callback_path}</br>"
+
+            = "<input type=hidden id=scratch_action value=new/>"
+            = "<input type=\"text\" id=\"callbackURL_value\" value=\"#{callbackURL}?\"/>"
 
 
+            = "<textarea id=\"scratch_url\" style=\"width:480px;height:64px;\">fileupload://new?callbackURL=#{callbackURL}&debug=true</textarea>"
 
-  .container
-    .dark.inset
-      - callbackURL = domain_url(:custom => current_group.domain) + header_callback_path
+            -#= "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
 
-      = "You are using an iphone - you need a program called picup - its free in the istore</br>"
-      = "Callback path: #{header_callback_path}</br>"
+            = "<input type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(callbackURL_value.value);return false;\" value=\"View Photo\" />"
 
-      = "<input type=hidden id=scratch_action value=new/>"
-      = "<input type=\"text\" id=\"callbackURL_value\" value=\"#{callbackURL}?\"/>"
-
-
-      = "<textarea id=\"scratch_url\" style=\"width:480px;height:64px;\">fileupload://new?callbackURL=#{callbackURL}&debug=true</textarea>"
-
-      -#= "<input type=\"file\" name=\"filedata\" id=\"file_upload_input\" />"
-
-      = "<input type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(callbackURL_value.value);return false;\" value=\"View Photo\" />"
-
-      %hr
-      .note
-        = "You will require a program called Picup availavbel from istore"
+            %hr
+            .note
+              = "You will require a program called Picup availavbel from istore"
 
 
 
-
+    #accordion
+      .fold-header
+        .container{:style=>"width:480px"}
+          = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
+      .advanced
+        = "Advanced options"
 
 
 
