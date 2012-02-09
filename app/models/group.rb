@@ -30,18 +30,18 @@ class Group
   slug_key :title, :unique => false, :min_length => 4
   key :slugs, Array, :index => true
 
-  key :group_address_i, String, :default => "My unit"
-  key :group_address_ii, String, :default => "123 Mystreet"
-  key :group_city, String, :default => "Kingsville"
+  key :group_address_i, String, :default => "Level 1"
+  key :group_address_ii, String, :default => "530 Lonsdale Street"
+  key :group_city, String, :default => "Melbourne"
   key :group_state, String, :default => "VIC"
   key :group_region, String, :default => "Australia"
-  key :group_postcode, String, :default => "3012"
+  key :group_postcode, String, :default => "3000"
   key :group_phone, String, :default => "555-12341234"
   key :group_fax, String
-  key :group_longitude, Float, :default=>"42"
-  key :group_latitude, Float, :default=>"42"
+  key :group_longitude, Float, :default=>"144.956478"
+  key :group_latitude, Float, :default=>"-37.813555"
   key :group_place_reference, String
-
+  key :group_place_type, String, :default=>"geocode"
 
   key :other_groups_facebook, String, :default => "http://www.facebook.com"
   key :other_groups_linkedin, String, :default => "http://www.linkedin.com"

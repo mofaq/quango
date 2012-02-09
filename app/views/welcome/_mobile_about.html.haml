@@ -12,7 +12,7 @@
       .subheading
         = "Contact"
       .heading{:style=>"font-size:100%;"}
-        = "#{current_group.name}"
+        = "#{current_group.display_name_i}"
       .group
         = "#{current_group.group_address_i}"
       .group
@@ -20,22 +20,23 @@
       .group
         = "#{current_group.group_city}"
       .group
-        = "#{current_group.group_state}"
-      .group
+        = "#{current_group.group_state} "
         = "#{current_group.group_postcode}"
-      .group{:style=>"size:1em;text-transform:uppercase;color:#{current_group.tertiary}"}
+
+      .group{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
         = "#{current_group.group_region}"
 
       -if current_group.group_phone
-        .group
-          = "TEL: #{current_group.group_phone}"
-      -if current_group.group_phone
+        %hr{:style=>"margin-top:8px"} 
+        .subheading{:style=>"padding:8px 0;"}
+          = "Tel:"
+          = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
+      -if current_group.group_fax
         .group
           = "FAX: #{current_group.group_fax}"
 
-      .group
-        .inner-submit-button
-          = "Map"
+ 
+
 
     .clear
 

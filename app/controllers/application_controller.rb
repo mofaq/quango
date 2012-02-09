@@ -308,7 +308,7 @@ class ApplicationController < ActionController::Base
         "#{@page_title} - #{current_group.name.capitalize} #{current_group.name_highlight}"
       else
         if current_group.isolate
-          "#{@page_title} - #{current_group.display_name_i} #{current_group.display_name_ii} - #{current_group.legend}"
+          "#{@page_title} - #{current_group.display_name_i} - #{current_group.group_city} - #{current_group.legend}"
         else
           "#{@page_title} - #{current_group.display_name_i} #{current_group.display_name_ii} - #{current_group.legend}"
         end
@@ -318,9 +318,9 @@ class ApplicationController < ActionController::Base
         "#{current_group.display_name_i} #{current_group.display_name_ii} - #{current_group.legend}"
       else
         if current_group.isolate
-          "#{current_group.display_name_i} #{current_group.display_name_ii} - #{current_group.legend}"
+          "#{current_group.display_name_i} - #{current_group.group_city} - #{current_group.strapline}"
         else
-          "#{current_group.display_name_i} #{current_group.display_name_ii}  - #{current_group.legend}"
+          "#{current_group.display_name_i} - #{current_group.group_city} - #{current_group.strapline}"
         end
       end
     end
