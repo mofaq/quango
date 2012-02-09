@@ -7,7 +7,7 @@ class Subscription
 
   key :_id, String
   key :_type, String
-  key :status, String, :default => "active"
+  key :status, String
   key :name, String
   key :starts_at, Timestamp, :required => true
   key :ends_at, Timestamp, :required => true
@@ -31,7 +31,11 @@ class Subscription
 
   def check_expiry
 
-    if self.ends_at < Time.now
+    if self[:status] == "pending"
+
+        self[:is_active] = false
+
+    elsif self.ends_at < Time.now
         self[:is_active] = false
         self[:status] = "expired"
     end  

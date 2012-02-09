@@ -91,6 +91,28 @@ class SubscriptionsController < ApplicationController
 
   end
 
+  def add_pending
+    @user = current_user
+    @group = current_group
+    @subscription = Subscription.new
+    @subscription.name = "pending"
+    @subscription.status = "pending"
+    @subscription.group = @group
+    @subscription.user = @user
+    @subscription.starts_at = Time.zone.now
+    @subscription.ends_at = Time.zone.now + 3.seconds
+    @subscription.is_active = false
+
+    @subscription.save
+
+    respond_to do |format|
+      format.html
+      #format.html { redirect_to("http://0.0.0.0:3001/purchase/test") }
+      format.json  { render :json => @subscription }
+    end
+
+  end
+
   def activate_trial
   
     activate = params[:activate]
@@ -113,6 +135,8 @@ class SubscriptionsController < ApplicationController
 
   end
 
+  def cancel
+  end
 
 
   def add_full

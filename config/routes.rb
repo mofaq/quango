@@ -164,8 +164,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :transactions
 
+  map.cancel '/subscriptions/cancel', :controller => 'subscriptions', :action => 'cancel', :method => :post
+  map.add_pending '/subscriptions/add_pending', :controller => 'subscriptions', :action => 'add_pending', :method => :post
   map.activate_trial '/subscriptions/activate_trial', :controller => 'subscriptions', :action => 'activate_trial', :method => :post
-  map.resources :subscriptions, :member => {:add_trial => :get, :add_full => :get, :activate => :get, :remote => :post}
+  map.resources :subscriptions, :member => {:add_trial => :get, :add_full => :get, :add_pending => :get, :activate => :get, :remote => :post}
 
 
 

@@ -1,0 +1,57 @@
+
+-content_for :main do
+  .container{:style=>"padding:32px"}
+    .frame.inset{:style=>"padding:8px;margin:0 auto; width:80px;height:80px;"}
+      = image_tag "/images/throbber.gif"
+
+
+
+  .container
+    - form_tag "http://0.0.0.0:3001/purchase/test",:name=>"subscribe",:method=>:post do
+      -#= error_messages
+      -# source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
+      - return_url = "#{domain_url(:custom => @group.domain)}/subscriptions/activate_trial"
+      - cancel_url = "#{domain_url(:custom => @group.domain)}/subscriptions/cancel"
+    
+      = hidden_field_tag :amount, 19900
+      = hidden_field_tag :subscription, @subscription.id
+      = hidden_field_tag :user, current_user.id
+      = hidden_field_tag :return_url, return_url
+      = hidden_field_tag :cancel_url, cancel_url
+      = hidden_field_tag :description, "MOFAQ Testy Subscription"
+      = hidden_field_tag :group, current_group.id
+
+      %button.submit-button{:style=>"text-transform:none;", :action => :submit}
+        = "Continue"
+
+  - if current_user.admin?
+    .container
+      - form_tag "http://0.0.0.0:3001/purchase/test",:name=>"subscribe",:method=>:post do
+        -#= error_messages
+        -# source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
+        - return_url = "#{domain_url(:custom => @group.domain)}/subscriptions/activate_trial"
+        - cancel_url = "#{domain_url(:custom => @group.domain)}/subscriptions/cancel"
+      
+        = hidden_field_tag :amount, 999
+        = hidden_field_tag :subscription, @subscription.id
+        = hidden_field_tag :user, current_user.id
+        = hidden_field_tag :return_url, return_url
+        = hidden_field_tag :cancel_url, cancel_url
+        = hidden_field_tag :description, "MOFAQ Testy Subscription"
+        = hidden_field_tag :group, current_group.id
+
+        %input{:type => :submit,:value=>"test"}
+
+
+-if false
+  = "trial activated maybe ( #{@message.to_s} ) "
+  %hr
+
+  = @subscription.inspect
+
+  %hr
+  - params.each do |key,value|
+    .item
+      = "#{key}:"
+      %b
+        = "#{value}"

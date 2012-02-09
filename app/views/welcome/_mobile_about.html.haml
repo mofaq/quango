@@ -2,17 +2,23 @@
 
 
 
-.about
+.frame
   .light-down{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
     .left{:style=>"width:50%;"}
       .subheading
         = "About"
       = current_group.description
-    .about.dark-down.right{:style=>"width:40%;padding:8px;border-radius:8px;margin-top:4px;"}
+
+      .inner-button{:onclick=>"window.location=\'#{current_group.group_website}\'",:style=>"width:200px;"}
+        = "Visit our website"    
+
+
+
+    .frame.dark-down.right{:style=>"width:40%;padding:8px;border-radius:8px;"}
       .subheading
         = "Contact"
       .heading{:style=>"font-size:100%;"}
-        = "#{current_group.display_name_i}"
+        = "#{current_group.display_name}"
       .group
         = "#{current_group.group_address_i}"
       .group

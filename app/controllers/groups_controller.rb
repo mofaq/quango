@@ -116,7 +116,7 @@ class GroupsController < ApplicationController
 
     slug = @group.name
     @group.subdomain = @group.name
-    @group.display_name_i = @group.name.capitalize
+    @group.display_name = @group.name.capitalize
 
     #@group.subdomain = slug
 

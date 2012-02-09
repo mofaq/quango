@@ -12,6 +12,12 @@
     });
 
   
+-content_for :main do
+  .container
+    .frame.inset{:style=>"padding:32px 0;margin:0 auto; width:80px;height:80px;"}
+      = image_tag "/images/throbber.gif"
+
+
 
 -if false
   -content_for :main do

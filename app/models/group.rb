@@ -6,11 +6,7 @@ class Group
 
   timestamps!
 
-  BLACKLIST_GROUP_NAME = ["agent", "agents", "demo", "nigger", "wank", "cunt", "fuck", "www", "net", "org", "admin", "ftp", "mail", "test", "blog",
-                 "bug", "bugs", "dev", "ftp", "forum", "community", "mail", "email",
-                 "webmail", "pop", "pop3", "imap", "secure", "smtp", "stage", "stats", "status",
-                 "support", "survey", "download", "downloads", "faqs", "wiki",
-                 "assets1", "assets2", "assets3", "assets4", "staging"]
+  BLACKLIST_GROUP_NAME = ["www","admin","ftp","mail","ftp","forum","mail","pop3","imap","secure","smtp"]
 
   key :_id, String
   key :parent_id, String #this will be used for groups hierarchies
@@ -38,6 +34,7 @@ class Group
   key :group_postcode, String, :default => "3000"
   key :group_phone, String, :default => "555-12341234"
   key :group_fax, String
+  key :group_website, String
   key :group_longitude, Float, :default=>"144.956478"
   key :group_latitude, Float, :default=>"-37.813555"
   key :group_place_reference, String
@@ -48,14 +45,7 @@ class Group
   key :other_groups_twitter, String, :default => "http://www.twitter.com"
   key :other_groups_google, String, :default => "http://www.google.com"
 
-  key :display_name_i, String, :default => "moFAQ"
-  key :display_name_i_link, String, :default => "/"
-
-  key :display_name_ii, String
-  key :display_name_ii_link, String, :default => "/"
-
-  key :name_highlight, String, :default => "daily"
-  key :name_highlight_link, String, :default => "http://thinkingdaily.com.au"
+  key :display_name, String, :default => "moFAQ"
 
   key :has_strapline, Boolean, :default => true
   key :strapline, String, :default => "Every business needs a mobile FAQ"
@@ -63,7 +53,7 @@ class Group
   key :subdomain, String
   key :domain, String
   key :legend, String, :default => "Every business needs a mobile FAQ"
-  key :description, :default => "MOFAQ allows customers to quickly get information and answers about your business directly from their mobile phone or tablet. Unlike traditional websites, MOFAQ is simple and highly optimised for mobile access."
+  key :description, :default => "MOFAQ allows customers to quickly get information and answers about your business directly from their mobile phone or tablet./n Unlike traditional websites, MOFAQ is simple to use and highly optimised for mobile access."
 
   key :group_categories, Array
   key :show_category_navigation, Boolean, :default => false
@@ -75,41 +65,11 @@ class Group
 
   key :disable_signups, Boolean, :default => false
 
-  #layouts
-  key :has_leaderboard, Boolean, :default => false
-  key :leaderboard_content, String
-
-  key :has_bumper, Boolean, :default => false
-  key :bumper_content, String
-
-  key :has_custom_leaderboard, Boolean, :default => false
-  key :custom_leaderboard_content, String
-
-  key :has_medium_rectangle, Boolean, :default => false
-  key :medium_rectangle_content, String
-
-  key :has_threeone_rectangle, Boolean, :default => false
-  key :threeone_rectangle_content, String
-
-  key :standard_leaderboard, Boolean, :default => false
-  key :standard_leaderboard_content, String
-
-  key :welcome_layout, String, :default => "homepage_content_single"
-  key :above_the_fold, Boolean, :default => false
-  key :below_the_fold, Boolean, :default => true
-
   key :has_quick_create, Boolean, :default => false
   key :quick_create, String
   key :quick_create_heading, String, :default => "How can we help?"
   key :quick_create_label, String, :default => "Ask your question" #submit button
 
-  key :has_welcome_features, Boolean, :default => false
-  key :has_product_gallery, Boolean, :default => false
-  key :has_video_on_homepage, Boolean, :default => false
-
-
-  key :has_slideshow, Boolean,  :default => false
-  key :slideshow_content, String,  :default => "articles"
 
   key :default_tags, Array
   key :has_custom_ads, Boolean, :default => true
