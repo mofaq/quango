@@ -52,12 +52,17 @@
                   =find_and_preserve(shapado_auto_link(@item.close_reason.comment))
           .debug{:style => "display:none"}
             = "This item's doctype: #{@item.doctype_id}"
-
-
+          .clear
+          .empty{:style=>"height:16px;background:#{current_group.secondary};"}
+          .frame{:style=>"border-radius:8px;"}
+            .dark-down.inset{:style=>"border-radius:8px;height:48px;line-height:48px;padding:0 16px;margin:0 0 16px 0;"}
+                                            
+              .subheading.left{:style=>"border-radius:8px;"}
+                ="Question"
 
           .entry{:style=>"float:left"}
             .entry-details
-              %h1.entry-title
+              %h1.entry-title{:style=>"padding-bottom:16px;"}
                 = @item.title
                 - if @item.closed
                   =" [#{t("closed", :scope => "activerecord.attributes.item").upcase}]"
@@ -91,31 +96,36 @@
 
             %a{:name=>"answers"}
             #answers
+              .dark-down.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:16px 0;"}
+                .light                              
+                  .subheading.left
+                    ="Answers"
 
 
+                .options.right
 
-              .answers
-
-                .entry-details
-                  .label.left
-                    = "Sort by: "
-                  %ul.right{:style=>"list-style-type:none; display:inline;"}
-                    %li{:style=>"display:inline"}
-                      = link_to "Fresh", item_path(@item.doctype_id, @item, :sort=>"fresh", :anchor => "answers"),:rel => "nofollow", :class => "a.submit-button"
-                    %li{:style=>"display:inline"}
-                      = link_to "Hot", item_path(@item.doctype_id, @item, :sort=>"hot", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
-                    %li{:style=>"display:inline"}
-                      = link_to "Historical", item_path(@item.doctype_id, @item, :sort=>"sweaty", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
+                  .entry-details
+                    .label.left
+                      = "Sort by: "
+                    %ul.right{:style=>"list-style-type:none; display:inline;"}
+                      %li{:style=>"display:inline"}
+                        = link_to "Fresh", item_path(@item.doctype_id, @item, :sort=>"fresh", :anchor => "answers"),:rel => "nofollow", :class => "a.submit-button"
+                      %li{:style=>"display:inline"}
+                        = link_to "Hot", item_path(@item.doctype_id, @item, :sort=>"hot", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
+                      %li{:style=>"display:inline"}
+                        = link_to "Historical", item_path(@item.doctype_id, @item, :sort=>"sweaty", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
 
               .clear
 
               .block
                 - if @item.accepted
                   -solution = @item.answer
-                  =render :partial=> "answer", :locals=> {:item => @item, :answer => solution} unless solution.nil?
+                  =render :partial=> "answer_mobile", :locals=> {:item => @item, :answer => solution} unless solution.nil?
+                  %hr   
                 .hentry
                   -@answers.each do |answer|
                     =render :partial=> "answer_mobile", :locals=> {:item => @item, :answer => answer}
+                    %hr
                 =will_paginate(@answers)
 
               -unless @item.closed

@@ -43,8 +43,7 @@
         .forms
       .clear
 
-  .member
-    = "#{@item.user_id}"
+
   .body-col
     .markdown.entry-content
       =find_and_preserve(shapado_auto_link(markdown(answer.body), :link_users => true))
