@@ -164,6 +164,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :transactions
 
+  map.ipn '/purchase/ipn', :controller => 'subscriptions', :action => 'ipn', :method => :post
   map.cancel '/subscriptions/cancel', :controller => 'subscriptions', :action => 'cancel', :method => :post
   map.add_pending '/subscriptions/add_pending', :controller => 'subscriptions', :action => 'add_pending', :method => :post
   map.activate '/subscriptions/activate', :controller => 'subscriptions', :action => 'activate', :method => :post

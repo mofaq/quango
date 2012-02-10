@@ -99,6 +99,13 @@ class SubscriptionsController < ApplicationController
 
   end
 
+  def ipn
+
+    #TODO: Capture IPN
+
+  end
+
+
   def add_pending
 
     @user = current_user
