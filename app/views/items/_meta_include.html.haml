@@ -14,7 +14,7 @@
 
 = "<meta name=\"author\" content=\"#{@item.meta_author}\" />"
 
-= "<meta name=\"copyright\" content=\"Unless indicated http://creativecommons.org/licenses/by/3.0/ #{current_group.display_name_i} #{current_group.display_name_ii}\" />"
+= "<meta name=\"copyright\" content=\"Unless indicated http://creativecommons.org/licenses/by/3.0/ #{current_group.display_name} #{current_group.display_name}\" />"
 = "<!-- -->"
 
 = "<meta name=\"classification\" content=\"#{@item.tags.first}\" />"
@@ -59,7 +59,7 @@
 = "<meta property=\"og:url\" content=\"#{item_url(@item.doctype_id, @item)}\" />"
 
 = "<meta property=\"og:description\" content=\"#{@item.meta_description}\" />"
-= "<meta property=\"og:site_name\" content=\"#{current_group.display_name_i} #{current_group.display_name_ii}\" />"
+= "<meta property=\"og:site_name\" content=\"#{current_group.display_name}\" />"
 
 = "<meta property=\"og:author\" content=\"#{@item.meta_author}\" />"
 = "<meta property=\"og:publisher\" content=\"#{@item.meta_publisher}\" />"
