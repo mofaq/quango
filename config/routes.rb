@@ -133,7 +133,7 @@ ActionController::Routing::Routes.draw do |map|
 
   
 
-
+  map.clients '/clients', :controller => 'groups', :action => 'index', :method => :post
 
   map.resources :groups, :member => {:accept => :get,
                                      :close => :get,
@@ -166,7 +166,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.cancel '/subscriptions/cancel', :controller => 'subscriptions', :action => 'cancel', :method => :post
   map.add_pending '/subscriptions/add_pending', :controller => 'subscriptions', :action => 'add_pending', :method => :post
-  map.activate_trial '/subscriptions/activate_trial', :controller => 'subscriptions', :action => 'activate_trial', :method => :post
+  map.activate '/subscriptions/activate', :controller => 'subscriptions', :action => 'activate', :method => :post
   map.resources :subscriptions, :member => {:add_trial => :get, :add_full => :get, :add_pending => :get, :activate => :get, :remote => :post}
 
 

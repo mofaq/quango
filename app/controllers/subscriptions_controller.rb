@@ -78,20 +78,29 @@ class SubscriptionsController < ApplicationController
   end
 
   def activate
-    @subscription = Subscription.find(params[:id])
-    @subscription.name = "Active Subscription (1 min)"
+
+    @subscription = Subscription.find(params[:sid])
+    @subscription.name = "MOFAQ Annual Subscription"
     @subscription.starts_at = Time.zone.now
-    @subscription.ends_at = Time.zone.now + 1.minutes    
+    @subscription.ends_at = Time.zone.now + 1.year
+    @subscription.status = "active"    
+    @subscription.is_active = "true"
     @subscription.save
-  
+
     respond_to do |format|
-      format.html { redirect_to(manage_properties_path, :notice => 'Full subscription added.') }
-      format.xml  { render :xml => @subscription }
+      if @subscription.save 
+        format.html { redirect_to(subscription_path(@subscription), :notice => 'Subscription was successfully created so it claims.') }
+        format.xml  { render :xml => @subscription, :status => :created, :location => @subscription }
+      else
+        @error = "Didn't work"
+        format.html
+      end
     end
 
   end
 
   def add_pending
+
     @user = current_user
     @group = current_group
     @subscription = Subscription.new
@@ -115,18 +124,7 @@ class SubscriptionsController < ApplicationController
 
   def activate_trial
   
-    activate = params[:activate]
 
-    if activate == "true"
-      #@subscription = Subscription.new
-      #@subscription.name = "Active Subscription (1 min)"
-      #@subscription.starts_at = Time.zone.now
-      #@subscription.ends_at = Time.zone.now + 1.minutes    
-      #@subscription.save
-      @message = "trial activated"
-    else
-      @message = "trial not activated"
-    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,0 +1,15 @@
+-content_for :main do
+
+
+  = "Your MOFAQ subscription has been activated"
+
+  -if @error
+    = "There was an error"
+
+
+  %hr
+  - params.each do |key,value|
+    .item
+      = "#{key}:"
+      %b
+        = "#{value}"
