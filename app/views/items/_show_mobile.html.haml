@@ -34,112 +34,110 @@
  
 - content_for :main do
 
-  #mobile-index{:style=>"margin:0 auto;padding:0"}
-    .content{:style=>"width:512px;margin:0 auto;padding:0"}
+  .empty
 
 
 
 
-      #item-body-col.commentable.markdown{:style=>"width:480px;margin:0 16px"}
-        %a{:name => @item.id}
-        #body
-          - if @item.closed && @item.close_reason
-            #close_reason
-              = t(".close_reason")
-              = t(@item.close_reason.reason, :scope=>"close_requests.form")
-              - if !@item.close_reason.comment.empty?
-                .comment
-                  =find_and_preserve(shapado_auto_link(@item.close_reason.comment))
-          .debug{:style => "display:none"}
-            = "This item's doctype: #{@item.doctype_id}"
+    #item-body-col.commentable.markdown
+      %a{:name => @item.id}
+
+      - if @item.closed && @item.close_reason
+        #close_reason
+          = t(".close_reason")
+          = t(@item.close_reason.reason, :scope=>"close_requests.form")
+          - if !@item.close_reason.comment.empty?
+            .comment
+              =find_and_preserve(shapado_auto_link(@item.close_reason.comment))
+      .debug{:style => "display:none"}
+        = "This item's doctype: #{@item.doctype_id}"
+      .clear
+      .container{:style=>"height:48px;width:480px;padding:16px;"}
+        .dark-down.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}
+          .light                              
+            .subheading.left
+              ="Question"
+
+      .container
+        .entry-details
+          %h1.entry-title{:style=>"padding-bottom:16px;"}
+            = @item.title
+            - if @item.closed
+              =" [#{t("closed", :scope => "activerecord.attributes.item").upcase}]"
+
+
+        -#if @item.description?
+          -#.description
+            -#= "description"
+
+        .entry-content
+          - if @item.doctype.has_links
+
+            = "<span style='font-weight:bold;color:#{current_group.primary}'>#{@item.article_link_publisher}</span> reports;"
+
+        -if item_body != @item.title
+
+          = item_body
+
+
+        .clear
+
+        -if @item.article_link?
+          .article_link
+            = "Follow this link to read more..."
+            %p            
+              = link_to "#{@item.title}",@item.article_link.to_s
+
+
+
+
+
+        %a{:name=>"answers"}
+        #answers
+          .light.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:16px 0;"}
+            .dark-down                            
+              .subheading.left
+                ="Answers"
+
+
+            .options.right
+
+              .entry-details
+                .label.left
+                  = "Sort by: "
+                %ul.right{:style=>"list-style-type:none; display:inline;"}
+                  %li{:style=>"display:inline"}
+                    = link_to "Fresh", item_path(@item.doctype_id, @item, :sort=>"fresh", :anchor => "answers"),:rel => "nofollow", :class => "a.submit-button"
+                  %li{:style=>"display:inline"}
+                    = link_to "Hot", item_path(@item.doctype_id, @item, :sort=>"hot", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
+                  %li{:style=>"display:inline"}
+                    = link_to "Historical", item_path(@item.doctype_id, @item, :sort=>"sweaty", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
+
           .clear
-          .empty{:style=>"height:16px;background:#{current_group.secondary};"}
-          .frame{:style=>"border-radius:8px;"}
-            .dark-down.inset{:style=>"border-radius:8px;height:48px;line-height:48px;padding:0 16px;margin:0 0 16px 0;"}
-                                            
-              .subheading.left{:style=>"border-radius:8px;"}
-                ="Question"
 
-          .entry{:style=>"float:left"}
-            .entry-details
-              %h1.entry-title{:style=>"padding-bottom:16px;"}
-                = @item.title
-                - if @item.closed
-                  =" [#{t("closed", :scope => "activerecord.attributes.item").upcase}]"
+          .block
+            - if @item.accepted
+              -solution = @item.answer
+              =render :partial=> "answer_mobile", :locals=> {:item => @item, :answer => solution} unless solution.nil?
+              %hr   
+            .hentry
+              -@answers.each do |answer|
+                =render :partial=> "answer_mobile", :locals=> {:item => @item, :answer => answer}
+                %hr
+            =will_paginate(@answers)
 
-
-            -#if @item.description?
-              -#.description
-                -#= "description"
-
-            .entry-content
-              - if @item.doctype.has_links
-
-                = "<span style='font-weight:bold;color:#{current_group.primary}'>#{@item.article_link_publisher}</span> reports;"
-
-
-
-              = item_body
-
-
+          -unless @item.closed
+            %a{:name=>"to_answer"}
+            -form_for @answer, :url => item_answers_path(@item.doctype_id, @item), :html => {:class => "form mainAnswerForm", :style=>"width:480px"} do |f|
+              = render :partial => "answers/form_mobile", :locals => {:f => f, :markdown => true, :mode => "item"}
             .clear
 
-            -if @item.article_link?
-              .article_link
-                = "Follow this link to read more..."
-                %p            
-                  = link_to "#{@item.title}",@item.article_link.to_s
+    .clear
 
-
-
-
-
-            %a{:name=>"answers"}
-            #answers
-              .dark-down.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:16px 0;"}
-                .light                              
-                  .subheading.left
-                    ="Answers"
-
-
-                .options.right
-
-                  .entry-details
-                    .label.left
-                      = "Sort by: "
-                    %ul.right{:style=>"list-style-type:none; display:inline;"}
-                      %li{:style=>"display:inline"}
-                        = link_to "Fresh", item_path(@item.doctype_id, @item, :sort=>"fresh", :anchor => "answers"),:rel => "nofollow", :class => "a.submit-button"
-                      %li{:style=>"display:inline"}
-                        = link_to "Hot", item_path(@item.doctype_id, @item, :sort=>"hot", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
-                      %li{:style=>"display:inline"}
-                        = link_to "Historical", item_path(@item.doctype_id, @item, :sort=>"sweaty", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
-
-              .clear
-
-              .block
-                - if @item.accepted
-                  -solution = @item.answer
-                  =render :partial=> "answer_mobile", :locals=> {:item => @item, :answer => solution} unless solution.nil?
-                  %hr   
-                .hentry
-                  -@answers.each do |answer|
-                    =render :partial=> "answer_mobile", :locals=> {:item => @item, :answer => answer}
-                    %hr
-                =will_paginate(@answers)
-
-              -unless @item.closed
-                %a{:name=>"to_answer"}
-                -form_for @answer, :url => item_answers_path(@item.doctype_id, @item), :html => {:class => "form mainAnswerForm", :style=>"width:480px"} do |f|
-                  = render :partial => "answers/form_mobile", :locals => {:f => f, :markdown => true, :mode => "item"}
-                .clear
-
-
-
-      -if logged_in?
-        -if current_user.owner_of?(current_group)
-          %div
-            = render :partial => "controls", :object=>@item
+    -if logged_in?
+      -if current_user.owner_of?(current_group)
+        %div
+          = render :partial => "controls", :object=>@item
 
 
 
