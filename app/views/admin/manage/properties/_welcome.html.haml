@@ -41,10 +41,9 @@
         %dt.container{:style=>"width:480px;padding:8px 0;"}
           .inner-button
             = link_to "Company Details","#2",:class=>"inner-button-link"
-        %dd.container{:style=>"width:480px;"}
-          .dark.inset
+        %dd.container{:style=>"width:480px;padding:0;"}
+          .dark.inset{:style=>"margin-bottom:16px"}
             %ul.mobile
-
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
                   = link_to "Company description ", "?tab=group_description",:style=>"color:white;margin-right:16px;"
@@ -69,10 +68,9 @@
         %dt.container{:style=>"width:480px;padding:8px 0;"}
           .inner-button
             = link_to "Account holder","#3",:class=>"inner-button-link"
-        %dd.container{:style=>"width:480px;"}
-          .dark.inset
+        %dd.container{:style=>"width:480px;padding:0;"}
+          .dark.inset{:style=>"margin-bottom:16px"}
             %ul.mobile
-
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
                   = link_to "Contact Address", "?tab=group_location",:style=>"color:white;margin-right:16px;"
@@ -91,8 +89,8 @@
         %dt.container{:style=>"width:480px;padding:8px 0;"}
           .inner-button
             = link_to "Advanced","#4",:class=>"inner-button-link"
-        %dd.container{:style=>"width:480px;"}
-          .dark.inset
+        %dd.container{:style=>"width:480px;padding:0;"}
+          .dark.inset{:style=>"margin-bottom:16px"}
             %ul.mobile
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
@@ -122,15 +120,12 @@
         .light.inset{:style=>"padding:8px 8px 16px 8px;"}
           .dark{:style=>"padding:16px;border-radius:8px;"}
 
-            .new{:style=>"border:4px solid green"}
-              = "form"
+            .new{:style=>""}
+
               - form_tag "/subscriptions/add_pending" do
 
                 %button.submit-button{:style=>"text-transform:none;width:442px;", :action => :submit}
                   = " Buy subscription"
-
-
-
 
 
             .note{:style=>"margin:16px 0;"}
