@@ -7,7 +7,7 @@
 
 
   .container
-    - form_tag "http://secure.nofaq.com:4000/purchase/test",:name=>"subscribe",:method=>:post do
+    - form_tag "http://secure.mofaq.com:4000/purchase/test",:name=>"subscribe",:method=>:post do
       -#= error_messages
       -# source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
       - return_url = "#{domain_url(:custom => @group.domain)}/subscriptions/activate"
@@ -26,7 +26,7 @@
 
   - if current_user.admin?
     .container
-      - form_tag "http://0.0.0.0:3001/purchase/test",:name=>"subscribe",:method=>:post do
+      - form_tag "http://secure.mofaq.com:4000/purchase/test",:name=>"subscribe",:method=>:post do
         -#= error_messages
         -# source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
         - return_url = "#{domain_url(:custom => @group.domain)}/subscriptions/activate"
