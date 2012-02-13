@@ -18,7 +18,6 @@ var accordion=function(){
 	function su(c,f){c.tm=setInterval(function(){sl(c,f)},0)}
 	function sl(c,f){
 		var h=c.offsetHeight, m=c.mh, d=f==1?m-h:h; c.style.height=h+(Math.ceil(d/sp)*f)+'px';
-		c.style.opacity=h/m; c.style.filter='alpha(opacity='+h*100/m+')';
 		if(f==1&&h>=m){clearInterval()}else if(f!=1){c.style.display='none'; clearInterval()}
 	}
 	return{slider:slider}
