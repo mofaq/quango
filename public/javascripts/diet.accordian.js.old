@@ -19,7 +19,7 @@ var accordion=function(){
 	function sl(c,f){
 		var h=c.offsetHeight, m=c.mh, d=f==1?m-h:h; c.style.height=h+(Math.ceil(d/sp)*f)+'px';
 		c.style.opacity=h/m; c.style.filter='alpha(opacity='+h*100/m+')';
-		if(f==1&&h>=m){clearInterval()}else if(f!=1){c.style.display='none'; clearInterval()}
+		if(f==1&&h>=m){clearInterval(c.tm)}else if(f!=1&&h==1){c.style.display='none'; clearInterval(c.tm)}
 	}
 	return{slider:slider}
 }();
