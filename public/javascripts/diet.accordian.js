@@ -1,5 +1,5 @@
 var accordion=function(){
-	var tm=sp=2;
+	var tm=sp=10;
 	function slider(n){this.nm=n; this.arr=[]}
 	slider.prototype.init=function(t,c,k){
 		var a,h,s,l,i; a=document.getElementById(t); this.sl=k?k:'';
@@ -15,9 +15,9 @@ var accordion=function(){
 			else if(s.style.display==''){su(s,-1); h.className=''}
 		}
 	}
-	function su(c,f){c.tm=setInterval(function(){sl(c,f)},0)}
+	function su(c,f){c.tm=sl(c,f)}
 	function sl(c,f){
-		var h=c.offsetHeight, m=c.mh, d=f==1?m-h:h; c.style.height=h+(Math.ceil(d/sp)*f)+'px';
+		var h=c.offsetHeight, m=c.mh, d=f==1?m-h:h; c.style.height=h+(Math.ceil(d)*f)+'px';
 		if(f==1&&h>=m){clearInterval()}else if(f!=1){c.style.display='none'; clearInterval()}
 	}
 	return{slider:slider}

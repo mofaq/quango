@@ -22,12 +22,14 @@
           = link_to "How can we help?","#",:class=>"inner-button-link"
       %dd.container{:style=>"width:480px;padding:0;"}
         = render :partial => "mobile_faq"
+        .clear
 
       %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
         .inner-button{:onclick=>"initMap()"}
           = link_to "Location","javascript:initMap()",:class => "inner-button-link"
       %dd.container{:style=>"width:480px;padding:0;"}
         = render :partial => "mobile_map", :locals => {:expanded => false}
+        .clear
 
 -content_for :javascript_init do
 
