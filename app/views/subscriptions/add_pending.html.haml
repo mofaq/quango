@@ -29,7 +29,7 @@
   - if current_user.admin?
     .container
       - form_tag "http://secure.mofaq.com:4000/purchase/express",:name=>"subscribe",:method=>:post do
-      -# form_tag "http://localhost.lan:4000/purchase/test",:name=>"subscribe",:method=>:post do
+        -# form_tag "http://localhost.lan:4000/purchase/test",:name=>"subscribe",:method=>:post do
         -#= error_messages
         -# source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
         - return_url = "#{domain_url(:custom => @group.domain)}/subscriptions/activate"
