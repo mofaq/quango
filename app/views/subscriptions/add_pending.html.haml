@@ -7,13 +7,15 @@
 
 
   .container
-    - form_tag "http://secure.mofaq.com:4000/purchase/test",:name=>"subscribe",:method=>:post do
+    - form_tag "http://secure.mofaq.com:4000/purchase/express",:name=>"subscribe",:method=>:post do
+
       -#= error_messages
       -# source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
       - return_url = "#{domain_url(:custom => @group.domain)}/subscriptions/activate"
       - cancel_url = "#{domain_url(:custom => @group.domain)}/subscriptions/cancel"
     
       = hidden_field_tag :amount, 19900
+      = hidden_field_tag :currency_code, "AUD"
       = hidden_field_tag :subscription, @subscription.id
       = hidden_field_tag :user, current_user.id
       = hidden_field_tag :return_url, return_url
@@ -26,13 +28,15 @@
 
   - if current_user.admin?
     .container
-      - form_tag "http://secure.mofaq.com:4000/purchase/test",:name=>"subscribe",:method=>:post do
+      - form_tag "http://secure.mofaq.com:4000/purchase/express",:name=>"subscribe",:method=>:post do
+      -# form_tag "http://localhost.lan:4000/purchase/test",:name=>"subscribe",:method=>:post do
         -#= error_messages
         -# source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
         - return_url = "#{domain_url(:custom => @group.domain)}/subscriptions/activate"
         - cancel_url = "#{domain_url(:custom => @group.domain)}/subscriptions/cancel"
       
         = hidden_field_tag :amount, 199
+        = hidden_field_tag :currency_code, "AUD"
         = hidden_field_tag :subscription, @subscription.id
         = hidden_field_tag :user, current_user.id
         = hidden_field_tag :return_url, return_url
