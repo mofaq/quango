@@ -66,7 +66,9 @@ class SubscriptionsController < ApplicationController
     @subscription.group = @group
     @subscription.user = @user
     @subscription.starts_at = Time.zone.now
-    @subscription.ends_at = Time.zone.now + 15.minutes
+    @subscription.ends_at = Time.zone.now + 2.minutes
+    @subscription.status = "active"    
+    @subscription.is_active = "true"
 
     @subscription.save
 
@@ -89,6 +91,9 @@ class SubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @subscription.save 
+
+
+
         format.html { redirect_to(subscription_path(@subscription), :notice => 'Subscription was successfully created so it claims.') }
         format.xml  { render :xml => @subscription, :status => :created, :location => @subscription }
       else

@@ -1,0 +1,29 @@
+.container
+  .heading
+    = "Business Type"
+  .note
+    = "You can add up to five categories for your business, the first must comply with the Google business type guidelines however the remainder can be free-form"
+
+
+  -# Just do Australia for now - internationalize later
+  .about
+    .dark.inset
+      .mobile-form{:style=>"padding:0px"}
+
+
+        .group
+          .note
+            = "Business type"
+          =render :partial => "admin/manage/properties/group_place_types"
+          -#= f.text_field :group_place_type, :class=> "text_area_mobile", :style => "width: 100%"
+
+        .group
+          %button.submit-button.left{:style=>"margin:0 0 32px;"}
+            = "Save"
+
+      .clear
+
+  .tips
+    %ul
+      %li
+        = "How to write a great company statement"

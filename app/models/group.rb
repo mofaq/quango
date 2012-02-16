@@ -250,6 +250,7 @@ class Group
   has_many :sponsored_links, :dependent => :destroy
   has_many :announcements, :dependent => :destroy
   has_many :subscriptions, :dependent => :destroy
+  has_many :categories, :dependent => :destroy
 
   belongs_to :owner, :class_name => "User"
 

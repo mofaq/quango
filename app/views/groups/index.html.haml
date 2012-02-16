@@ -7,8 +7,12 @@
     -if @groups
       == (#{format_number(@groups.total_entries)})  
   .toolbox{:class => @active_subtab.to_s}
-    .navlabel.left
-      = "Sort"
+    %form
+      %select{:onchange=>"window.location.href(this.options[this.selectedIndex].value,'_top')"}
+        %option{:value => groups_path(:tab=>"newest")}
+          = "Newest"
+        %option{:value => groups_path(:tab=>"oldest")}
+          = "Oldest"
     .navcontrols.right
       %ul
         -if logged_in? && current_user.admin?
