@@ -1,0 +1,37 @@
+.container
+  .heading
+    = "Custom Stylesheets"
+  .note
+    = "Override inbuilt styles here. Use at own risk!"
+
+
+  -# Just do Australia for now - internationalize later
+  .about
+    .dark-down.inset
+      .mobile-form{:style=>"padding:0px"}
+        .group
+
+          -@group.has_custom_css? ? custom_css = @group.custom_css.read : custom_css = ""
+          = f.text_area :custom_css, :value => custom_css, :class=> "text_field_mobile", :style => "height:128px;font-size:1em"
+
+        .group
+          %button.submit-button.left{:style=>"margin:0 0 32px;"}
+            = "Save"
+
+      .clear
+
+  .tips
+    %ul
+      %li
+        = "How to modify and target styles in MOFAQ"
+
+
+
+
+
+
+
+
+
+
+

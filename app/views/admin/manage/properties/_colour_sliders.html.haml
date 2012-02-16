@@ -1,0 +1,51 @@
+-require_js "jquery.min"
+-require_js "modules/colour_wheel"
+-require_js "modules/farbtastic"
+-require_js "jquery.ui.touch"
+-require_css "farbtastic"
+
+-content_for :inner_title do
+  -#title
+    -#.content
+      -#.heading{:style=>"font-weight:bold;padding:2px"}
+        -#= "Choose a colour"
+
+
+.container{:style=>"width:512px;padding:0;"}
+
+  #palette{:style=>"width:480px;height:56px;margin:5px 16px;float:left"}
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :primary_dark, :class => "colorwell colorwell-selected",:style => "color: #{current_group.primary_dark};background: #{current_group.primary_dark}"
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :primary, :class => "colorwell",:style => "color: #{current_group.primary};background: #{current_group.primary}"
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :secondary, :class => "colorwell",:style => "color: #{current_group.secondary};background: #{current_group.secondary}"
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :tertiary, :class => "colorwell",:style => "color: #{current_group.tertiary};background: #{current_group.tertiary}"
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :text_colour, :class => "colorwell",:style => "color: #{current_group.text_colour};background: #{current_group.text_colour}"
+
+  #colour-wheel{:style=>"width:422px;height:422px;background:url(/images/wheel_BG.png);background-repeat:no-repeat;margin:0;float:right;"}
+    .wheel{:style=>"height:390px;width:390px;padding:16px;"}
+      #picker
+
+
+
+
+  .clear
+
+  #palette-indicator{:style=>"width:512px;height:64px;margin:0;border-radius:8px;"}
+    .container
+      %button{:class=>"inner-button",:style=>"float:left;width:32%;margin-right:2%;"}
+        = "Reset"
+      %button{:class=>"inner-button",:style=>"float:left;width:32%;"}
+        = "Invert"
+      %button{:class=>"inner-button",:style=>"float:right;width:33%;",:type=>"button",:id=>"auto-colours"}
+        = "Auto"
+
+  #submit{:style=>"width:512px;height:72px;margin:0;border-radius:8px;"}
+    .container
+      %button{:class => "submit-button",:style=>"width:66%;float:left"}
+        = "Preview"
+      %button{:class => "submit-button",:style=>"width:33%;float:right"}
+        = "Save"
