@@ -59,7 +59,7 @@
 
     .right{:style=>"margin-top:16px;"}
       %button.inner-submit.right{:onclick=>"window.location=\'#{new_header_path}\'", :style=>"/**/"}
-        = "Add another image"
+        = "ADD IMAGE"
 
 
 
@@ -99,7 +99,11 @@
 
 
 
+-content_for :javascript_init do
 
+  :javascript
+    var slider1=new accordion.slider("slider1");
+    slider1.init("slider");
 
 
 

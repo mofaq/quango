@@ -33,60 +33,66 @@
       = "<input class=\"submit-button\" type=\"button\" id=\"file_view_input\" style=\"display:true;\" onclick=\"viewScratchURL(callbackURL_value.value);return false;\" value=\"Upload & Process\" />"
 
 -content_for :main do
-  .container{:style=>"padding-bottom:16px;border-top:1px solid #{current_group.primary};background:#{current_group.secondary};"}
+  .container{:style=>"background:#{current_group.secondary};"}
     .heading{:style=>"height:32px;line-height:32px;padding:16px 0 0;"}
       = "Add a new image"
-
+    .note
+      = "First choose an image, then you will have the option to edit the image to make the header"
 
   #accordion
-    .fold-header
-      .container{:style=>"width:480px"}
-        = link_to "Standard Upload","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
+    %dl.accordian#slider
 
-    .container{:style=>"width:480px;padding:0 16px;"}
-      .dark.inset{:style=>""}
-        .note
-          = "First choose an image, then you will have the option to edit the image to make the header"
+      %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
+        .inner-button
+          = link_to "Standard Upload","#",:class=>"inner-button-link"
 
-        - if ua.include?("iphone") then
-          = yield :apple
-        - elsif ua.include?("ipad") then
-          = yield :apple
-        - else
-          .container{:style=>"padding:0px;"}
-            .light-down.inset{:style=>""}
-              - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
-                = f.error_messages
-                .group
-                  .note
-                    = "Browse your devise to find the image:"
-                .group
-                  = f.file_field :header, :value => @header.header, :class => "file_field_mobile", :style=>"padding:;"
-                  = f.hidden_field :name, :value => @header.name, :class => "text_field"
-                .group
-                  = f.submit 'Upload & Process', :class=>"submit-button", :style=>""
-                  = link_to 'cancel', headers_path(@header)
-
-        %hr
-        .note{:style=>"font-weight:bold"}
-          = "Remember: You can also access MOFAQ from any computer, so if you already have images you would like to use simply browse to MOFAQ"
+      %dd.container{:style=>"width:480px;padding:0;"}
+        .container{:style=>"width:480px;padding:0;margin:16px 0"}
+          .dark.inset{:style=>""}
 
 
+            - if ua.include?("iphone") then
+              = yield :apple
+            - elsif ua.include?("ipad") then
+              = yield :apple
+            - else
+              .container{:style=>"padding:0px;"}
+                .light-down.inset{:style=>""}
+                  - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
+                    = f.error_messages
+                    .group
+                      .note
+                        = "Browse your devise to find the image:"
+                    .group
+                      = f.file_field :header, :value => @header.header, :class => "file_field_mobile", :style=>"font-size:2em;"
+                      = f.hidden_field :name, :value => @header.name, :class => "text_field"
+                    .group
+                      = f.submit 'Add this image', :class=>"submit-button", :style=>""
+                      = link_to 'cancel', headers_path(@header)
 
+            %hr
+            .note{:style=>"font-weight:bold"}
+              = "Remember: You can also access MOFAQ from any computer, so if you already have images you would like to use simply browse to MOFAQ"
 
-    .fold-header
-      .container{:style=>"width:480px"}
-        = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
-    .container  
-      .dark.inset
-        = "You can alternatively use an existing image on the internet if you know the exact URL:"
-        %form{:action=>"/headers/callback",:method=>"post"}
-          %input{:type=>"text",:name=>"remoteImageURL",:class=>"text_field_mobile"}
-          %input{:type=>"submit",:class=>"submit-button"}
+      %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
+        .inner-button
+          = link_to "Advanced","#",:class=>"inner-button-link"
+
+      %dd.container{:style=>"width:480px;padding:0;margin:16px 0"}
+
+        .dark.inset
+          = "You can alternatively use an existing image on the internet if you know the exact URL:"
+          %form{:action=>"/headers/callback",:method=>"post"}
+            %input{:type=>"text",:name=>"remoteImageURL",:class=>"text_field_mobile"}
+            %input{:type=>"submit",:class=>"submit-button"}
       
 
 
+-content_for :javascript_init do
 
+  :javascript
+    var slider1=new accordion.slider("slider1");
+    slider1.init("slider");
 
 
 
