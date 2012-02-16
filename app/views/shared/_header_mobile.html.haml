@@ -29,13 +29,13 @@
           
           -if current_group.has_strapline?
             .clear
-            .strapline{:style => "bottom:0;width:496px;font-size:1em;font-weight:bold;text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};float:left;line-height:2em;height:2em;padding-left:16px;"}
+            .strapline{:style => "text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};"}
               ="#{current_group.strapline}" 
 
       - elsif current_group.logo_only? && !current_group.text_only?
         -if current_group.has_strapline?
 
-          .strapline{:style => "width:496px;font-size:1em;font-weight:bold;text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};float:left;line-height:2em;height:2em;padding-left:16px;"}
+          .strapline{:style => "text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};"}
             ="#{current_group.strapline}" 
 
 
@@ -53,7 +53,7 @@
         
         -if current_group.has_strapline?
           .clear
-          .strapline{:style => "bottom:0;width:496px;font-size:1em;font-weight:bold;text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};float:left;line-height:2em;height:2em;padding-left:16px;"}
+          .strapline{:style => "text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};"}
             ="#{current_group.strapline}" 
 
 
