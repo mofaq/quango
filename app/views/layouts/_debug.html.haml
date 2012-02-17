@@ -5,6 +5,11 @@
     %strong
       = "Debugger"
     .clear
+    .left
+      - if @render_start
+        - rendering_stop = Time.now
+        - rendering_time = rendering_stop - @render_start
+        = "Rendering time : #{rendering_time}"
 
     .left
 

@@ -4,12 +4,9 @@
     .left{:style=>"width:40%"}
       = link_to "MOFAQ", "#{AppConfig.site.to_s}", :title => "Every business needs a mobile FAQ", :style=>"font-weight:bold;letter-spacing:-1px;"
       = " v" + AppConfig.version.to_s
-      - if @render_start
-        - rendering_stop = Time.now
-        - rendering_time = rendering_stop - @render_start
-        = "#{rendering_time}"
+
       = "<a style='border-radius:2px;background-color: #{current_group.secondary};color:white;padding:0 4px;letter-spacing:-1px;font-size:10px;font-weight:normal;'>BETA</a></br>"
-      = "Resellers <a>click here</a>"
+
   .clear
 .clear
 
