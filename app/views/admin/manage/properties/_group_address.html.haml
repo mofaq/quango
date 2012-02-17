@@ -8,42 +8,42 @@
   -# Just do Australia for now - internationalize later
   .about
     .dark-down.inset
-      .mobile-form{:style=>"padding:16px"}
+      .group
+        .note
+          = "Address line 1"
+        = f.text_field :group_address_i, :class=> "text_field_mobile"
 
-        .group
-          .note
-            = "Address line 1"
-          = f.text_field :group_address_i, :class=> "text_field_mobile", :style => "width: 100%"
+      .group
+        .note
+          = "Address line 2"
+        = f.text_field :group_address_ii, :class=> "text_field_mobile"
 
-        .group
-          .note
-            = "Address line 2"
-          = f.text_field :group_address_ii, :class=> "text_field_mobile", :style => "width: 100%"
+      .group
+        .note
+          = "Town"
+        = f.text_field :group_city, :class=> "text_field_mobile"
 
-        .group
-          .note
-            = "Town"
-          = f.text_field :group_city, :class=> "text_field_mobile", :style => "width: 100%"
+      .group
+        .note
+          = "State"
+        = f.text_field :group_state, :class=> "text_field_mobile"
 
-        .group
-          .note
-            = "State"
-          = f.text_field :group_state, :class=> "text_field_mobile", :style => "width: 100%"
+      .group
+        .note
+          = "Postal Code"
+        = f.text_field :group_postcode, :class=> "text_field_mobile"
 
-        .group
-          .note
-            = "Postal Code"
-          = f.text_field :group_postcode, :class=> "text_field_mobile", :style => "width: 100%"
-
-        .group.center
-          %span.description
-            =request.protocol
-          = f.text_field :group_region, :class=> "text_field", :style => "width: 100%"
+      .group.center
+        .note
+          = "Country"
+        = f.text_field :group_region, :class=> "text_field_mobile"
 
 
-        .group
-          %button.submit-button.left{:style=>"margin:0 0 32px;"}
-            = "Save"
+      .group
+        %button.submit-button.left{:style=>"margin:0 0 32px;"}
+          = "Save"
+      .clear
+
 
   .tips
     %ul
