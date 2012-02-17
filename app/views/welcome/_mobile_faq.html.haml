@@ -3,27 +3,26 @@
 .frame
   .light-down{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
     .inset
-      .note
+      .note{:style=>"padding:8px 0 0;font-weight:bold;"}
         = "Here are some of our most frequently asked questions"
 
-      %ul.features
+      %table.faq{:style=>"padding:8px 0 16px 0;"}
         -if current_group.items.empty?
           %li.highlight
             = t(".empty")
         -else
           - @items.reverse[0..5].each do |item|
-            %li{:style=>"overflow:hidden; height:24px;margin:2px 0"}
-
-              .question-bullet
+            %tr
+              %td.question-bullet{:style=>"margin:4px 0"}
                 = "?"
-              .question-title
+              %td.question-title{:style=>"margin:4px 8px 4px 0"}
                 = link_to item.title, "#{item_path(item.doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88)
-
 
     .clear
 
-    .quick-create.dark{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
-      = render :partial => "shared/quick_create_mobile"
+    - if current_group.has_quick_create
+      .quick-create.dark{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
+        = render :partial => "shared/quick_create_mobile"
 
 
 .clear

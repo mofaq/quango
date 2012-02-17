@@ -1,0 +1,38 @@
+.container
+  .heading
+    = "FAQ Configuration"
+  .note
+    = "These settings control the FAQ section of your MOFAQ homepage"
+
+
+  -# Just do Australia for now - internationalize later
+  .about
+    .dark-down.inset
+      .mobile-form{:style=>"padding:0px"}
+
+        .group
+          .note
+            = "Allow questions from visitors?"
+          = f.check_box :has_quick_create, :class => "checkbox"
+
+        .group
+          .note
+            = "Button label on homepage "
+          = f.text_field :quick_create_heading, :class=> "text_field_mobile"
+
+        .group
+          .note
+            = "Notification email"
+
+
+
+
+        .group
+          %button.submit-button.left{:style=>"margin:0 0 32px;"}
+            = "Save"
+        .clear
+
+  .tips
+    %ul
+      %li
+        = "What if my business has multiple phone numbers?"
