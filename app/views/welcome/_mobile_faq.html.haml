@@ -2,8 +2,7 @@
 
 .frame
   .light-down{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
-    .quick-create.dark-down{:style=>"padding:8px;border-radius:8px;margin-top:4px;margin-bottom:8px;font-size:1.2em;"}
-
+    .inset
       .note
         = "Here are some of our most frequently asked questions"
 
@@ -13,14 +12,12 @@
             = t(".empty")
         -else
           - @items.reverse[0..5].each do |item|
-            %li{:style=>"overflow:hidden"}
-              %p
-                = render :partial => "shared/activity_markers", :locals => {:item => item}
-                = link_to item.title, "#{item_path(item.doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88), :style => "color:#{current_group.tertiary};font-weight:bold;"
+            %li{:style=>"overflow:hidden; height:24px;margin:2px 0"}
 
-              -#= render :partial => "/items/single_list_mobile", :locals => {:item => item, :sort=>"hot"}
-
-
+              .question-bullet
+                = "?"
+              .question-title
+                = link_to item.title, "#{item_path(item.doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88)
 
 
     .clear

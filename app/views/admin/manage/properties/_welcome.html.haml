@@ -13,8 +13,9 @@
         .dark.inset
           .create-owner
             = "This site does not yet have an account holder..."
-          .submit-button
-            = link_to "Add account holder",new_user_path(:owner=>true),:class=>"inner-button-link"
+          .centered
+            .submit-button{:style=>"text-align:center;"}
+              = link_to "Add account holder",new_user_path(:owner=>true),:class=>"inner-button-link"
 
 
 
@@ -22,25 +23,12 @@
     #accordion
       %dl.accordian#slider
 
+
+
         %a{:name=>"1"}
         %dt.container{:style=>"width:480px;padding:8px 0;"}
           .inner-button
-            = link_to "Appearance Settings","#1",:class=>"inner-button-link"
-        %dd.container{:style=>"width:480px;padding:0;"}
-          .dark.inset{:style=>"margin-bottom:16px"}
-            %ul.mobile
-              %li
-                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "Choose images for header", "/headers",:style=>"color:white;margin-right:16px;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "Background Colours", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-
-        %a{:name=>"2"}
-        %dt.container{:style=>"width:480px;padding:8px 0;"}
-          .inner-button
-            = link_to "Company Details","#2",:class=>"inner-button-link"
+            = link_to "Company Details","#1",:class=>"inner-button-link"
         %dd.container{:style=>"width:480px;padding:0;"}
           .dark.inset{:style=>"margin-bottom:16px"}
             %ul.mobile
@@ -65,6 +53,25 @@
                   = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
+        %a{:name=>"2"}
+        %dt.container{:style=>"width:480px;padding:8px 0;"}
+          .inner-button
+            = link_to "MOFAQ Settings","#2",:class=>"inner-button-link"
+
+        %dd.container{:style=>"width:480px;padding:0;"}
+          .dark.inset{:style=>"margin-bottom:16px"}
+            %ul.mobile
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Choose images for header", "/headers",:style=>"color:white;margin-right:16px;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Background Colours", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "FAQ Configuration", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
         %a{:name=>"3"}
         %dt.container{:style=>"width:480px;padding:8px 0;"}
