@@ -1,0 +1,41 @@
+.container
+  .heading
+    = "Contact Information"
+  .note
+    = "These details appear on your MOFAQ homepage - just leave blank if you dont want that information to appear"
+
+
+  -# Just do Australia for now - internationalize later
+  .about
+    .dark-down.inset
+      .mobile-form{:style=>"padding:0px"}
+        .group
+
+          .note
+            = "Phone "
+          = f.text_field :group_phone, :class=> "text_field_mobile"
+
+        .group
+          .note
+            = "Fax"
+          = f.text_field :group_fax, :class=> "text_field_mobile"
+
+        .group
+          .note
+            = "Website"
+          = f.text_field :group_website, :class=> "text_field_mobile"
+
+        .group
+          .note
+            = "Generic Email"
+          = f.text_field :group_generic_email, :class=> "text_field_mobile"
+
+        .group
+          %button.submit-button.left{:style=>"margin:0 0 32px;"}
+            = "Save"
+        .clear
+
+  .tips
+    %ul
+      %li
+        = "What if my business has multiple phone numbers?"

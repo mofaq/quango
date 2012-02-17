@@ -3,18 +3,13 @@
 
 
 .frame
-  .light-down{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
+  .dark-down.inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
     .left{:style=>"width:50%;"}
       .subheading
         = "About"
       = current_group.description
 
-      .inner-button{:onclick=>"window.location=\'#{current_group.group_website}\'",:style=>"width:200px;"}
-        = "Visit our website"    
-
-
-
-    .frame.dark-down.right{:style=>"width:40%;padding:8px;border-radius:8px;"}
+    .frame.inset.right{:style=>"width:40%;padding:8px;border-radius:8px;background:#{current_group.primary}"}
       .subheading
         = "Contact"
       .heading{:style=>"font-size:100%;"}
@@ -39,9 +34,13 @@
           = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
       -if current_group.group_fax
         .group
-          = "FAX: #{current_group.group_fax}"
+          = "Fax: #{current_group.group_fax}"
 
- 
+    -if current_group.group_website
+      .clear
+      .group{:style=>"padding:16px 0 8px;"}
+        .inner-button{:onclick=>"window.location=\'http://#{current_group.group_website}\'",:style=>"text-align:center"}
+          = "Visit our main website"    
 
 
     .clear

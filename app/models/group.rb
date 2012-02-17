@@ -35,6 +35,7 @@ class Group
   key :group_phone, String, :default => "555-12341234"
   key :group_fax, String
   key :group_website, String
+  key :group_generic_email, String
   key :group_longitude, Float, :default=>"144.956478"
   key :group_latitude, Float, :default=>"-37.813555"
   key :group_place_reference, String
@@ -53,7 +54,7 @@ class Group
   key :subdomain, String
   key :domain, String
   key :legend, String, :default => "Every business needs a mobile FAQ"
-  key :description, :default => "MOFAQ allows customers to quickly get information and answers about your business directly from their mobile phone or tablet./n Unlike traditional websites, MOFAQ is simple to use and highly optimised for mobile access."
+  key :description, :default => "MOFAQ enables customers to quickly get information and answers about YOUR business directly from THEIR mobile phone or tablet. Unlike traditional websites, MOFAQ is simple to use and highly optimised for mobile access."
 
   key :group_categories, Array
   key :show_category_navigation, Boolean, :default => false

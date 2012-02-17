@@ -46,11 +46,15 @@
             %ul.mobile
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Company description ", "?tab=group_description",:style=>"color:white;margin-right:16px;"
+                  = link_to "Name & Description ", "?tab=group_description",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Business Type ", "?tab=group_type",:style=>"color:white;margin-right:16px;"
+                  = link_to "Business Classification ", "?tab=group_type",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Contact Information", "?tab=group_information",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
@@ -58,14 +62,9 @@
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Contact Phone", "?tab=group_phone",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-
-
-              %li
-                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
                   = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
 
         %a{:name=>"3"}
         %dt.container{:style=>"width:480px;padding:8px 0;"}
