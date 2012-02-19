@@ -4,14 +4,13 @@
 
 .frame
   .inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
-    .left{:style=>"width:50%;"}
+    .left{:style=>"width:55%;"}
       .subheading
-        = "About"
+        = "About us"
       = current_group.description
 
     .frame.inset.right{:style=>"width:40%;padding:8px;border-radius:8px;background:#{current_group.primary}"}
-      .subheading
-        = "Contact"
+
       .heading{:style=>"font-size:100%;"}
         = "#{current_group.display_name}"
       .group
@@ -32,14 +31,14 @@
         .subheading{:style=>"padding:8px 0;"}
           = "Tel:"
           = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
-      -if current_group.group_fax
+      -if !current_group.group_fax.nil?
         .group
           = "Fax: #{current_group.group_fax}"
 
     -if current_group.group_website
       .clear
       .group{:style=>"padding:16px 0 8px;"}
-        .inner-button{:onclick=>"window.location=\'http://#{current_group.group_website}\'",:style=>"text-align:center"}
+        .inner-button{:onclick=>"window.location=\'http://#{current_group.group_website}\'",:style=>"text-align:center;line-height:48px;"}
           = "Visit our main website"    
 
 

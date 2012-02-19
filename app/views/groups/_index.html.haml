@@ -1,8 +1,7 @@
 -content_for :list do
+
   .supplementary-navigation
-    = t("groups.index.title")
-    -if @groups
-      == (#{format_number(@groups.total_entries)})  
+    = "Clients" 
   .toolbox{:class => @active_subtab.to_s}
     .navlabel.left
       = "Sort"
@@ -10,17 +9,16 @@
       %ul
         -if logged_in? && current_user.admin?
           %li.active
-            = link_to t(".actives"), groups_path(:tab=>"actives"), :class => "standard-button"
+            = link_to t(".actives"), groups_path(:tab=>"actives"), :class => "inner-button"
           %li.pending
-            = link_to t(".pendings"), groups_path(:tab=>"pendings"), :class => "standard-button"
+            = link_to t(".pendings"), groups_path(:tab=>"pendings"), :class => "inner-button"
         %li.newest
-          = link_to t(".newest", :default => :"items.index.newest"), groups_path(:tab=>"newest"), :class => "standard-button"
+          = link_to t(".newest", :default => :"items.index.newest"), groups_path(:tab=>"newest"), :class => "inner-button"
         %li.oldest
-          = link_to t(".oldest", :default => :"items.index.oldest"), groups_path(:tab=>"oldest"), :class => "standard-button"
+          = link_to t(".oldest", :default => :"items.index.oldest"), groups_path(:tab=>"oldest"), :class => "inner-button"
         %li.name
-          = link_to t(".name", :default => :"items.index.name"), groups_path(:tab=>"name"), :class => "standard-button"
-        %li.most_active
-          = link_to t(".most_active"), groups_path(:tab=>"most_active"), :class => "standard-button"
+          = link_to t(".name", :default => :"items.index.name"), groups_path(:tab=>"name"), :class => "inner-button"
+
 
 
 
@@ -31,8 +29,7 @@
   =will_paginate @groups
   .clear
 
-= link_to t(".request_group"), new_group_path, :class => "request_group"
-.clear
+
 
 -content_for :sidebar_inner do
   #sidebar-inner

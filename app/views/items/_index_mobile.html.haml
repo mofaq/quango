@@ -5,72 +5,63 @@
   %link{:rel=>"alternate", :type=>"application/atom+xml", :title => "atom", :href=> url_for(:format => "atom")}
 
 -content_for :secondary_navigation do
-  .secondary-navigation 
-    -#%h3
-      -#= h(@active_section.name.capitalize << " Listing")
+  .container{:style=>"height:48px;width:480px;padding:16px;"}
+    .dark-down.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}
+      .light 
+        .subheading.left
+          ="Question List"
 
-    .navcontrols
-      %ul{:style=>"display:inline"}
-        %li.label
-          = "Sort by:&nbsp;"
-        %li.freshness
-          = link_to t("items.index.fresh"), "?sort=fresh", :title => t("items.index.newest_tooltip"),:class=>"standard-button"
-        %li.hot
-          = link_to t("items.index.hot"), "?sort=hot", :title => t("items.index.hot_tooltip"),:class=>"standard-button", :rel => "nofollow"
-        %li.activity
-          = link_to t("items.index.activity"), "?sort=activity", :title => t("items.index.active_tooltip"),:class=>"standard-button", :rel => "nofollow"
-        %li.relevance
-          = link_to t("items.index.relevance"), "?sort=relevance", :title => t("items.index.active_tooltip"),:class=>"standard-button", :rel => "nofollow"
-  .clear
+        .subheading.right
+          %ul.right{:style=>"list-style-type:none; display:inline;"}
+            %li.freshness
+              = link_to t("items.index.fresh"), "?sort=fresh", :title => t("items.index.newest_tooltip"),:class=>"inner-button"
+            %li.hot
+              = link_to t("items.index.hot"), "?sort=hot", :title => t("items.index.hot_tooltip"),:class=>"inner-button", :rel => "nofollow"
+            %li.activity
+              = link_to t("items.index.activity"), "?sort=activity", :title => t("items.index.active_tooltip"),:class=>"inner-button", :rel => "nofollow"
+            %li.relevance
+              = link_to t("items.index.relevance"), "?sort=relevance", :title => t("items.index.active_tooltip"),:class=>"inner-button", :rel => "nofollow"
+      .clear
 
 
 /Items
 -content_for :main do
 
-  - if !@doctype
-    = "doctype not set #{@active_section}"
-    = "doctype #{@item.doctype_id}"
+
+  = yield :secondary_navigation
+
+  -#index
+
+   
+
+  .container{:style=>"height:48px;width:480px;padding:16px;"}
+    = @lang_conds.to_s
 
 
+    - index_array = Array.new
 
-  #index
+    - @items.reverse.each do |item|
 
-    .container
+      -# if item.doctype_id == @doctype
+      - index_array << item
 
-      = yield :secondary_navigation
-
-      -if logged_in? && current_user.owner_of?(current_group)
-
-        .debug{:style=>"color:red;font-weight:bold; display:none"}
-          -#= "doctype:"
-          -#= "#{@doctype.id.to_s} / #{@doctype.name}"
-  
-      .inner
-        = @lang_conds.to_s
-        %ul.items#items
-          -if @items.empty?
-            %li.highlight
-              = t(".empty")
-
-          - index_array = Array.new
-
-          - @items.reverse.each do |item|
-
-            -# if item.doctype_id == @doctype
-            - index_array << item
+    %table.faq{:style=>"padding:8px 0 16px 0;"}
+      - index_array.each do |item|
 
 
-          - index_array.each do |item|
-            .summary-list-text
-              -#= "Page Id: #{item.title}, Group Id: #{item.group_id.to_s}, doctpe: #{item.doctype_id.to_s} </br>"
-              = render :partial => "item_mobile", :locals => {:item => item, :sort=>"hot"}
+        -if index_array.empty?
+          %li.highlight
+            = t(".empty")
+        -else
+
+          = render :partial => "item_mobile", :locals => {:item => item, :sort=>"hot"}
+
+  .clear
+
+    -#additional_info
+      -#=will_paginate @items
 
 
-
-        #additional_info
-          -#=will_paginate @items
-
-          .clear
 
 
 

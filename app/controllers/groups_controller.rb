@@ -140,7 +140,7 @@ class GroupsController < ApplicationController
      doctype.save!
     end
 
-    @group.has_quick_create = true
+    @group.has_quick_create = false
     @group.quick_create = doctypes.first.id
 
     #Create standard pages
@@ -332,12 +332,12 @@ class GroupsController < ApplicationController
   end
 
   def background
-    @group = Group.find_by_slug_or_id(params[:id], :select => [:file_list])
-    if @group && @group.has_background?
-      send_data(@group.background.try(:read), :filename => "background.#{@group.background.extension}", :type => @group.background.content_type,  :disposition => 'inline')
-    else
-      render :text => "nada"
-    end
+    #@group = Group.find_by_slug_or_id(params[:id], :select => [:file_list])
+    #if @group && @group.has_background?
+    #  send_data(@group.background.try(:read), :filename => "background.#{@group.background.extension}", :type => @group.background.content_type,  :disposition => 'inline')
+    #else
+    #  render :text => "nada"
+    #end
   end
 
   def css

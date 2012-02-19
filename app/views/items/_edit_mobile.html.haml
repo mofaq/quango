@@ -1,0 +1,32 @@
+
+- is_mobile = params[:mobile]
+- is_classic = params[:classic]
+
+- content_for :custom_header do
+  = render :partial => "shared/custom_header", :locals => {:heading => "Edit"}
+
+- content_for :main do
+  .container{:style=>"padding:16px;"}
+    .dark-down.inset
+
+      -if logged_in?
+        -if current_user.owner_of?(current_group) | current_user.mod_of?(current_group)
+          %div
+            = render :partial => "controls", :object=>@item
+
+      - form_for(@item, :url => item_path(@doctype, @item), :html => {:class => "form"}) do |f|
+        =render :partial => "form_mobile_edit", :locals => {:f => f}
+
+
+
+      .clear
+    .clear
+  .clear
+
+
+
+
+
+
+
+

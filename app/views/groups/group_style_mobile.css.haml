@@ -9,6 +9,7 @@
 - alt2 = grp.supplementary
 - alt3 = grp.supplementary_lite
 
+\.note{font-weight:bold;font-size:0.8em;}
 
 
 \#body{height:auto;background-color:red;}
@@ -133,9 +134,24 @@ font-weight: bold;
 \#title .content{width:100%;margin:0 auto;text-align:center}
 
 
-\.text_field{width:442px;height:1.5em;border-radius:16px;border: 4px solid silver;font-size:2em;font-family:"Arial Black";font-weight:bold;padding:4px 16px;margin:16px 0 16px 0; background: -webkit-gradient(linear,left left,right right,from(#dcdcdc),to(#ffffff))}
+\.text_field{width:442px;height:1.2em;border-radius:16px;border: 4px solid silver;font-size:1.2em;font-family:"Arial Black";font-weight:bold;padding:4px 16px;margin:16px 0 16px 0; background: -webkit-gradient(linear,left left,right right,from(#dcdcdc),to(#ffffff))}
 
-\.text_field_mobile{padding:0 16px;font-family:"Arial Black",Gadget,sans-serif;border-radius:8px;font-size:1.5em;font-weight:bold;width:400px;margin:8px 16px 8px 0; height:56px; overflow:hidden;
+\.text_field_mobile{padding:0 16px;font-family:"Arial Black",Gadget,sans-serif;border-radius:8px;font-size:1.5em;font-weight:bold;width:416px;margin:8px 16px 8px 0; height:56px; overflow:hidden;
+\-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};border:1px inset #{stop5}; 
+\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};border:1px inset #{stop5};
+background:-webkit-gradient(linear,left top,left bottom,from(#{stop4}),to(#{stop5}));
+background: -moz-linear-gradient(top, #{stop4} 0%, #{stop5} 100%); 
+}
+
+\.text_field_mobile_edit{padding:4px 8px;font-family:sans-serif;border-radius:4px;font-size:1em;font-weight:bold;width:416px;margin:8px 16px 8px 0; height:1.5em; overflow:hidden;
+\-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};border:1px inset #{stop5}; 
+\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};border:1px inset #{stop5};
+background:-webkit-gradient(linear,left top,left bottom,from(#{stop4}),to(#{stop5}));
+background: -moz-linear-gradient(top, #{stop4} 0%, #{stop5} 100%); 
+}
+
+
+\.text_area_mobile_edit{padding:4px 8px;font-family:"Arial",Gadget,sans-serif;border-radius:4px;font-size:1em;font-weight:bold;width:416px;max-width:416px;margin:8px 16px 8px 0;height:152px; overflow:visible;
 \-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};border:1px inset #{stop5}; 
 \-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};border:1px inset #{stop5};
 background:-webkit-gradient(linear,left top,left bottom,from(#{stop4}),to(#{stop5}));
@@ -308,6 +324,39 @@ margin:0 auto;
 color:#{stop5};
 }
 
+\.markdown_toolbar li{
+cursor:pointer;
+text-shadow:-1px -1px 1px #{stop1},1px 1px 1px #{stop2};
+font-size:1.2em;
+margin:0;
+border-radius: 8px;
+color:white;
+font-weight:bold;
+\-webkit-box-shadow:1px 1px 2px #{stop4}, -1px -1px 1px #{stop2};
+\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
+
+border-top: 1px solid #{stop1};
+border-left: 1px solid #{stop1};
+border-bottom: 1px solid #{stop2};
+border-right: 1px solid #{stop2};
+
+height:48px;
+line-height:48px;
+
+padding:8px 12px;
+background: #{stop1}; /* Old browsers */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop3}), color-stop(51%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
+
+background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop3} 49%,#{stop2} 51%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 49%, #{stop2} 51%, #{stop1} 100%); /* FF3.6+ */
+
+background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
+background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', endColorstr='#{stop1}',GradientType=0 ); /* IE6-9 */
+}
+
+
 \.inner-button-link:active{
 color:#{stop5};
 }
@@ -396,17 +445,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 }
 
 
-
-\.submit-button{border-radius:8px;text-transform:uppercase;letter-spacing:-1px;width:428px;max-width:428px;height:56px;font-weight:bold;font-size:2em;margin-top:8px;margin-bottom:4px;line-height:32px;color:white; font-weight:bold; text-shadow:-1px -1px 0px #{alt1},2px 2px 1px #{alt2};}
-
-\.submit-button{
-border-top: 1px solid #{stop1};
-border-left: 1px solid #{stop1};
-border-bottom: 1px solid #{stop2};
-border-right: 1px solid #{stop2};
-
-\-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
-
+\.submit{
+width:66%;
+float:right;
+font-size:1.5em;
+text-shadow:-1px -1px 1px #{alt1},1px 1px 1px #{alt3};
 background: #{alt1}; /* Old browsers */
 background: -moz-linear-gradient(top, #{alt1} 0%, #{alt2} 50%, #{alt3} 60%, #{alt1} 100%); /* FF3.6+ */
 
@@ -425,6 +468,7 @@ cursor:pointer;
 
 
 }
+
 
 
 \.subs-inner{

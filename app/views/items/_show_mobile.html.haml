@@ -1,36 +1,9 @@
+
 - is_mobile = params[:mobile]
-
-
--content_for :custom_javascript do
-
-  = javascript_include_merged :show
-
-- show_close_request_form = !@item.closed && logged_in? && @item.can_be_requested_to_close_by?(current_user)
-- show_open_request_form = @item.closed && logged_in? && @item.can_be_requested_to_open_by?(current_user)
-
-- if logged_in?
-  - if current_user.mod_of?(current_group) && @item.closed
-    -# show_close_request_form = (@item.close_reason.user == current_user.id)
-    = "closed"
-  - @flag = current_user.has_flagged?(@item) || Flag.new
-
-- @flag ||= Flag.new
-
-- if show_open_request_form
-  - @open_request = current_user.has_requested_to_open?(@item) || OpenRequest.new
-
-- if show_close_request_form
-  - @close_request = @item.close_requests.detect{ |rq| rq.user_id == current_user.id } || CloseRequest.new(:reason => "dupe")
-
 - item_body = find_and_preserve(shapado_auto_link(markdown(@item.body.present? ? @item.body : @item.title)))
 
 - content_for :head do
   = render :partial => "meta_include", :locals => {:item => @item}
-
--# source = item_path(@doctype, @item)
-= error_messages_for 'answer'
-
-
  
 - content_for :main do
 
@@ -42,21 +15,24 @@
     #item-body-col.commentable.markdown
       %a{:name => @item.id}
 
-      - if @item.closed && @item.close_reason
-        #close_reason
-          = t(".close_reason")
-          = t(@item.close_reason.reason, :scope=>"close_requests.form")
-          - if !@item.close_reason.comment.empty?
-            .comment
-              =find_and_preserve(shapado_auto_link(@item.close_reason.comment))
-      .debug{:style => "display:none"}
-        = "This item's doctype: #{@item.doctype_id}"
+
       .clear
       .container{:style=>"height:48px;width:480px;padding:16px;"}
         .dark-down.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}
           .light                              
             .subheading.left
               ="Question"
+
+            - if logged_in?
+              - if current_user.mod_of?(current_group)
+                .subheading.right
+                  %ul.right{:style=>"list-style-type:none; display:inline;"}
+                    %li{:style=>"display:inline"}
+                      = link_to "Delete", item_path(@item.doctype_id, @item.id), :confirm => "Are you sure?", :method => :delete
+                    %li{:style=>"display:inline"}
+                      = link_to "Edit", edit_item_path(@item.doctype_id, @item), :class => "inner-button"
+
+
 
       .container
         .entry-details
@@ -100,18 +76,18 @@
                 ="Answers"
 
 
-            .options.right
 
-              .entry-details
-                .label.left
-                  = "Sort by: "
-                %ul.right{:style=>"list-style-type:none; display:inline;"}
-                  %li{:style=>"display:inline"}
-                    = link_to "Fresh", item_path(@item.doctype_id, @item, :sort=>"fresh", :anchor => "answers"),:rel => "nofollow", :class => "a.submit-button"
-                  %li{:style=>"display:inline"}
-                    = link_to "Hot", item_path(@item.doctype_id, @item, :sort=>"hot", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
-                  %li{:style=>"display:inline"}
-                    = link_to "Historical", item_path(@item.doctype_id, @item, :sort=>"sweaty", :anchor => "answers"),:rel => "nofollow", :class => "standard-button"
+              -if false
+                .subheading.right
+                  .label.left
+                    = "Sort by: "
+                  %ul.right{:style=>"list-style-type:none; display:inline;"}
+                    %li{:style=>"display:inline"}
+                      = link_to "Fresh", item_path(@item.doctype_id, @item, :sort=>"fresh", :anchor => "answers"),:rel => "nofollow", :class => "inner-button"
+                    %li{:style=>"display:inline"}
+                      = link_to "Hot", item_path(@item.doctype_id, @item, :sort=>"hot", :anchor => "answers"),:rel => "nofollow", :class => "inner-button"
+                    %li{:style=>"display:inline"}
+                      = link_to "Historical", item_path(@item.doctype_id, @item, :sort=>"sweaty", :anchor => "answers"),:rel => "nofollow", :class => "inner-button"
 
           .clear
 

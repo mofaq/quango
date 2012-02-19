@@ -4,7 +4,7 @@
 
 -content_for :custom_javascript do
 
-  = javascript_include_merged :show
+  -#= javascript_include_merged :show
 
 - show_close_request_form = !@item.closed && logged_in? && @item.can_be_requested_to_close_by?(current_user)
 - show_open_request_form = @item.closed && logged_in? && @item.can_be_requested_to_open_by?(current_user)
@@ -25,8 +25,6 @@
 
 - item_body = find_and_preserve(shapado_auto_link(markdown(@item.body.present? ? @item.body : @item.title)))
 
-- content_for :head do
-  = render :partial => "meta_include", :locals => {:item => @item}
 
 -# source = item_path(@doctype, @item)
 = error_messages_for 'answer'

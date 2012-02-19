@@ -443,6 +443,7 @@ class ItemsController < ApplicationController
 
     @doctypes = current_group.doctypes
     @doctype = @doctypes.find_by_slug_or_id(params[:doctype_id])
+    @custom_header = true
 
   end
 

@@ -1,0 +1,73 @@
+= local_assigns[f]
+= f.error_messages
+= error_messages_for(:user)
+
+
+- content_for :custom_javascript do
+  -require_js "jquery.min"
+  -require_js "jquery.textarea"
+  -require_js "showdown"
+  -require_js "modules/editor"
+
+- content_for :css do
+  -require_css "editor"
+
+
+-# @doctype = current_group.doctypes.find(params[:doctype_id])
+
+
+-#= javascript_include_merged :show
+
+
+
+.container
+
+  = f.hidden_field :doctype_id, :value => @doctype.id
+  = f.hidden_field :anonymous, :value => params[:anonymous]
+  = f.hidden_field :anonymous_display_name, :value => params[:anonymous_display_name]
+  = f.hidden_field :anonymous_email, :value => params[:anonymous_email]
+
+  -# else
+
+  .answer-form
+    .note
+      = "Title"
+
+    .group
+      = f.text_field :title, :class => "text_field_mobile_edit"
+
+    .clear
+
+    .note
+      = "Editor"
+
+    .group
+      = f.text_area :body, :class => "text_area_mobile_edit", :id => "markdown_editor"
+
+    .clear
+
+    -if current_group.language.nil? && AppConfig.enable_i18n
+      .group
+        = f.label :language, t(:language, :scope => "activerecord.attributes.item"), :class => "label"
+        = language_select(f, @item)
+        .description
+          = t(".language_tip")
+    -else
+      = f.hidden_field :language, :value => (current_group.language || AppConfig.default_language)
+
+
+
+
+
+    .answer-actions{:style => "padding:8px 0 32px 0;"}
+      = submit_tag "Save changes", :class => "inner-button submit"
+      = link_to t('scaffold.cancel'), items_path, :class => "inner-button cancel"
+
+
+
+
+
+
+
+
+

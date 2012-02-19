@@ -33,6 +33,11 @@
       = "header file format, size"
     .clear
 
+    .left
+      = "Counter:"
+      -if @groups
+        == (#{format_number(@groups.total_entries)}) 
+      
 
     .left
       = "Group: #{current_group.id} / #{current_group.name}"

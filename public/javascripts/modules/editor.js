@@ -89,7 +89,7 @@ function setupEditor() {
     id: 'markdown_link_button'
   });
 
-  toolbar.addButton('Image',function(){
+/*  toolbar.addButton('Image',function(){
     var selection = this.getSelection();
     var response = prompt('Enter Image URL','');
     if(response == null)
@@ -98,6 +98,7 @@ function setupEditor() {
   },{
     id: 'markdown_image_button'
   });
+*/
 
   toolbar.addButton('Heading',function(){
     var selection = this.getSelection();
@@ -116,7 +117,7 @@ function setupEditor() {
     id: 'markdown_unordered_list_button'
   });
 
-  toolbar.addButton('Ordered List',function(event){
+/*  toolbar.addButton('Ordered List',function(event){
     var i = 0;
     this.collectFromEachSelectedLine(function(line){
         if(!line.match(/^\s+$/)){
@@ -126,7 +127,7 @@ function setupEditor() {
     });
   },{
     id: 'markdown_ordered_list_button'
-  });
+  }); */
 
   toolbar.addButton('Block Quote',function(event){
     this.collectFromEachSelectedLine(function(line){
@@ -136,7 +137,7 @@ function setupEditor() {
     id: 'markdown_quote_button'
   });
 
-  toolbar.addButton('Code Block',function(event){
+/*  toolbar.addButton('Code Block',function(event){
     this.collectFromEachSelectedLine(function(line){
         return event.shiftKey ? line.replace(/    /,'') : '    ' + line;
     });
@@ -144,16 +145,11 @@ function setupEditor() {
     id: 'markdown_code_button'
   });
 
-  toolbar.addButton('Latex', function(event) {
-    this.wrapSelection('$$','$$');
-  }, {
-    id: 'markdown_latex_button'
-  });
 
   toolbar.addButton('Help',function(){
     window.open('http://daringfireball.net/projects/markdown/dingus');
   },{
     id: 'markdown_help_button'
-  });
+  }); */
 
 }

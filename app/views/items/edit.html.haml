@@ -1,39 +1,16 @@
--content_for :main do
-  = javascript_include_merged :show
-  #main-index{:style=>"width:728px;float:left;"}
-    .supplementary-navigation{:class => @active_subtab.to_s, :style => "color:#{current_group.primary};background-color:#ffffff;height:35px; line-height:35px; padding:0 8px 0 8px"}
-      = "<img src=\'/images/icons/pencil.png\' style='height:16px, width:16px; border:0;' >"
-      = "EDIT: <b style=\'color:#7a7a7a\'>" + @item.title + "</b>"  
-   
-      = link_to "Cancel", item_path(@item.doctype, @item), :style => "color:red"
 
-    .toolbox{:style=>"border-bottom:4px solid #b6b6b6"}
-      = render :partial => "toolbox_edit", :locals => {:page => "edit"}
-    -if logged_in?
-      -if current_user.owner_of?(current_group) | current_user.mod_of?(current_group)
-        %div
-          = render :partial => "controls", :object=>@item
-
-    - form_for(@item, :url => item_path(@doctype, @item), :html => {:class => "form"}) do |f|
-      =render :partial => "form", :locals => {:f => f}
+- is_mobile = params[:mobile]
+- is_classic = params[:classic]
 
 
--content_for :sidebar_inner do
-  #sidebar-inner{:style=>"width:300px;float:right"}
-    .supplementary-navigation{:class => @active_subtab.to_s, :style => "color:#{current_group.primary};background-color:#ffffff;height:35px; line-height:35px; padding:0 8px 0 8px"}
-      = "Tips"
+- content_for :main do
 
 
-    -if !current_group.item_help.empty?
-      .help
-        %h4
-          = t(".how_to_ask")
-        =current_group.item_help
-    %h4
-      = "Similar"
+  - if is_mobile || current_group.group_type == "mobile"
+    = render :partial => "edit_mobile", :locals=> {:item => @item, :doctype => @doctype}
 
-    .related-item
-      %ul.items#related_items
+  - else is_classic || current_group.group_type == "classic"
+    = render :partial => "edit_classic", :locals=> {:item => @item, :doctype => @doctype}
 
 
 
