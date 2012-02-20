@@ -7,48 +7,61 @@
 
 .answer.commentable{:class => "post-#{answer.id} #{solution ? "solution" : ""}" }
   %a{:name=>answer.id}
-  .toolbox-container
-    .toolbox{:style => "display:none"}
-      =vote_box_inline(answer, item_path(@item.doctype_id, @item), item.closed)
-      .controls
-        .actions
-          = link_to "direct link", item_answer_path(@item.doctype_id, @item.id, answer.id), :class => "button"
-          - if logged_in? && @aflag.new? && current_user != answer.user
-            = link_to t(".flag"), new_item_answer_flag_path(@item.doctype, @item,answer), :class => "flag-link button", :rel => 'nofollow'
 
-          -if logged_in?
-            -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
-              -unless @item.accepted
-                = link_to t(".pick_answer"), solve_item_path(@item.doctype_id, @item, :answer_id => answer), :class=>"button"
-              -if solution
-                = link_to t(".unset_answer"),  unsolve_item_path(@item.doctype_id, @item), :class=>"button"
-            -if answer.wiki || current_user.can_edit_others_posts_on?(answer.group) || current_user.can_modify?(answer)
-              = link_to t("scaffold.edit"), edit_item_answer_path(@item.doctype_id, @item, answer), :class=>"button"
-            -if current_user.can_modify?(answer)
-              = link_to t("scaffold.destroy"), item_answer_path(@item.doctype_id, @item, answer), :confirm => t("scaffold.sure", :model => "answer"), :method => :delete, :class =>"button"
-            -if !@aflag.new?
-              .flagged
-                = "#{t('items.show.flagged_as')} #{t(@aflag.reason, :scope=>'flags.form')}"
-                =link_to t("scaffold.edit"), edit_item_answer_flag_path(@item.doctype_id, @item,answer,@aflag), :class => "flag-link button", :id => "edit_answer_flag_link", :rel => 'nofollow'
-                =link_to t("scaffold.destroy"), item_answer_flag_path(@item.doctype_id, @item,answer,@aflag), :id => "destroy_answer_flag_link", :rel => 'nofollow', :confirm => "are you sure?", :method => :delete
 
-          -if answer.versions.count > 0
-            = link_to t(".history", :default => "history"), history_item_answer_path(@item.doctype_id, @item, answer), :class=>"button"
-          -if logged_in?
-            -if(current_user.can_modify?(@item) || current_user.mod_of?(@item.group))
-              = link_to t("scaffold.destroy"), item_answer_path(@item.doctype_id, @item.id, answer.id), :confirm => "are you sure?", :method => :delete, :class=>"button"
-            -if current_user.mod_of?(@item.group)
-              = link_to "ban", ban_path(:answer_ids => [answer.id]), :confirm => "are you sure?", :class=>"button"
+
+
+
+
+  .answer{:style=>"margin:16px 0;"}
+
+    .container{:style=>"padding:0"}
+      .inset.right{:style=>"border-radius:4px;margin-top:8px; background:#{current_group.primary}"}
+        .markdown.entry-content{:style=>"width:456px;"}
+          =find_and_preserve(shapado_auto_link(markdown(answer.body), :link_users => true))
+      .dark-down.outset.right{:style=>"border-radius:16px;margin:16px 0 0 0;height:16px;width:16px;"}
+
+    -if logged_in?
+      -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
+        .container{:style=>"padding:0"}
+          .inset.right{:style=>"border-radius:4px;margin-top:8px;height:22px;width:8px; background:#{current_group.primary_dark}"}
+          -#=vote_box_inline(answer, item_path(@item.doctype_id, @item), item.closed)
+
+            .note.left
+              = "Submitted by #{answer.user.name}"
+            .inset.left{:style=>"border-radius:4px;margin-top:8px;height:22px;width:400px; background:#{current_group.primary_dark}"}
+            .controls.left
+              .actions{:style=>"width:100px;height:24px;"}
+                -#= link_to "direct link", item_answer_path(@item.doctype_id, @item.id, answer.id), :class => "button"
+                - if logged_in? && @aflag.new? && current_user != answer.user
+                  = link_to t(".flag"), new_item_answer_flag_path(@item.doctype, @item,answer), :class => "flag-link button", :rel => 'nofollow'
+
+                -if logged_in?
+                  -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
+                    -unless @item.accepted
+                      -#= link_to t(".pick_answer"), solve_item_path(@item.doctype_id, @item, :answer_id => answer), :class=>"button"
+                    -if solution
+                      -#= link_to t(".unset_answer"),  unsolve_item_path(@item.doctype_id, @item), :class=>"button"
+                  -if current_user.can_edit_others_posts_on?(answer.group) || current_user.can_modify?(answer)
+                    = link_to "[x]", item_answer_path(@item.doctype_id, @item, answer), :confirm => t("scaffold.sure", :model => "answer"), :method => :delete, :class =>"right"
+                    = link_to t("scaffold.edit"), edit_item_answer_path(@item.doctype_id, @item, answer), :class=>"inner-button left", :style=>"height:1.2em;line-height:1.2em;"
+
+                  -if !@aflag.new?
+                    .flagged
+                      = "#{t('items.show.flagged_as')} #{t(@aflag.reason, :scope=>'flags.form')}"
+                      =link_to t("scaffold.edit"), edit_item_answer_flag_path(@item.doctype_id, @item,answer,@aflag), :class => "flag-link button", :id => "edit_answer_flag_link", :rel => 'nofollow'
+                      =link_to t("scaffold.destroy"), item_answer_flag_path(@item.doctype_id, @item,answer,@aflag), :id => "destroy_answer_flag_link", :rel => 'nofollow', :confirm => "are you sure?", :method => :delete
+
+                -if answer.versions.count > 0
+                  -#= link_to t(".history", :default => "history"), history_item_answer_path(@item.doctype_id, @item, answer), :class=>"button"
+
+          .clear
+          .forms
         .clear
-        .forms
-      .clear
-
-
-  .body-col
-    .markdown.entry-content
-      =find_and_preserve(shapado_auto_link(markdown(answer.body), :link_users => true))
-
-
+    -else
+      .container{:style=>"padding:0"}
+        .dark-down.outset.right{:style=>"border-radius:16px;margin:16px 0 0 0;height:16px;width:16px;"}
+        -#.inset.left{:style=>"border-radius:8px;margin:16px 0;height:16px;width:400px;"}
 
     .clear
     / Nested Answers

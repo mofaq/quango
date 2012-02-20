@@ -18,7 +18,7 @@
 
       .clear
       .container{:style=>"height:48px;width:480px;padding:16px;"}
-        .dark-down.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}
+        .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}
           .light                              
             .subheading.left
               ="Question"
@@ -70,10 +70,10 @@
 
         %a{:name=>"answers"}
         #answers
-          .light.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:16px 0;"}
-            .dark-down                            
-              .subheading.left
-                ="Answers"
+          .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:16px 0;"}
+                           
+            .subheading.left
+              ="Answers"
 
 
 
@@ -99,7 +99,7 @@
             .hentry
               -@answers.each do |answer|
                 =render :partial=> "answer_mobile", :locals=> {:item => @item, :answer => answer}
-                %hr
+                
             =will_paginate(@answers)
 
           -unless @item.closed
