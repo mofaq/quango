@@ -136,11 +136,11 @@
 
               - form_tag "/subscriptions/add_pending" do
 
-                %button.submit-button{:style=>"text-transform:none;width:442px;", :action => :submit}
+                %button.inner-button.submit{:style=>"text-transform:none;width:436px;height:56px;", :action => :submit}
                   = " Buy subscription"
 
 
-            .note{:style=>"margin:16px 0;"}
+            .note{:style=>"padding:16px 0;margin-top:16px;"}
 
               = "Your annual subscription gives you unlimited access to the settings and removes the \"expired\" watermark from your headers. "
             .paypal{:style=>"background:white;border-radius:4px;-webkit-box-shadow:0 0 8px black;"}

@@ -31,10 +31,11 @@
 
 
           .group{:style=>"font-weight:bold;"}
-            %button.submit-button
+            %button.inner-button.submit
               = "Login"
 
-          .devise
+            .clear
+          .container.left
             = render :partial => "shared/devise_links"
 
           .clear

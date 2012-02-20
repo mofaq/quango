@@ -26,16 +26,16 @@
 .markdown_toolbar li span {display: none}
 .markdown_toolbar li a#markdown_help_button {position: absolute; top: 0; rightright: 0; border-left-color: #d7d7d7; border-right-color: white}
 .markdown_toolbar li a#markdown_help_button:hover {border-left-color: #990000; border-right-color: #990000}
-#markdown_italics_button {background-image: url(/images/markdown/text_italic.png); background-repeat: no-repeat; background-position: 4px 1px}
-#markdown_bold_button {background-image: url(/images/markdown/text_bold.png); background-repeat: no-repeat; background-position: 4px 1px}
-#markdown_link_button {background-image: url(/images/markdown/text_link.png); background-repeat: no-repeat; background-position: 4px 1px}
+#markdown_italics_button {background-image: url(/images/markdown/markdown_italic.png); background-repeat: no-repeat; background-position: 2px 0px 6px 0}
+#markdown_bold_button {background-image: url(/images/markdown/markdown_bold.png); background-repeat: no-repeat; background-position: 2px 0px 6px 0}
+#markdown_link_button {background-image: url(/images/markdown/markdown_link.png); background-repeat: no-repeat; background-position: 2px 0px 6px 0}
 #markdown_image_button {background-image: url(/images/markdown/text_image.png); background-repeat: no-repeat; background-position: 4px 1px}
-#markdown_unordered_list_button {background-image: url(/images/markdown/text_list_bullets.png); background-repeat: no-repeat; background-position: 4px 1px}
+#markdown_unordered_list_button {background-image: url(/images/markdown/markdown_bullets.png); background-repeat: no-repeat; background-position: 2px 0px 6px 0}
 #markdown_ordered_list_button {background-image: url(/images/markdown/text_list_numbers.png); background-repeat: no-repeat; background-position: 4px 1px}
-#markdown_quote_button {background-image: url(/images/markdown/text_quote.png); background-repeat: no-repeat; background-position: 4px 1px}
+#markdown_quote_button {background-image: url(/images/markdown/markdown_quote.png); background-repeat: no-repeat; background-position:2px 0px 6px 0}
 #markdown_code_button {background-image: url(/images/markdown/text_code.png); background-repeat: no-repeat; background-position: 4px 1px}
 #markdown_help_button {background-image: url(/images/markdown/information.png); background-repeat: no-repeat; background-position: 4px 1px}
-#markdown_heading_button {background-image: url(/images/markdown/text_heading.png); background-repeat: no-repeat; background-position: 4px 1px}
+#markdown_heading_button {background-image: url(/images/markdown/markdown_heading.png); background-repeat: no-repeat; background-position: 2px 0px 6px 0}
 #markdown_latex_button {background-position: 0 -306px; visibility: hidden; background-position: 4px 1px}
 .resizeHandle {overflow: hidden; width: 22px; height: 5px; margin-left: auto; margin-right: auto; background-image: url(/images/handle.png); cursor: n-resize}
 #markdown_footer {height: 64px; padding: 4px 8px 4px 8px; margin: 0 auto; color: white; text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.25); font-size: 12px; font-weight: bold; width: 520px; filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#dcdcdc',endColorstr='#bbbbbb'); background: -webkit-gradient(linear, left top, left bottom, from(#dcdcdc), to(#bbbbbb)); background: -moz-linear-gradient(top, #dcdcdc, #bbbbbb); -moz-border-radius: 0px 0px 8px 8px; -webkit-border-radius: 0px 0px 8px 8px; -khtml-border-radius: 0px 0px 8px 8px; border-radius: 0px 0px 8px 8px; border-bottom: 2px solid gainsboro; border-left: 2px solid white; border-right: 2px solid gainsboro}

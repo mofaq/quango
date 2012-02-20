@@ -30,16 +30,11 @@
   -# else
 
   .answer-form
-    .note
-      = "Title"
 
     .group
       = f.text_field :title, :class => "text_field_mobile_edit"
 
     .clear
-
-    .note
-      = "Editor"
 
     .group
       = f.text_area :body, :class => "text_area_mobile_edit", :id => "markdown_editor"
