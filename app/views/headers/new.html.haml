@@ -35,8 +35,7 @@
   .container{:style=>"background:#{current_group.secondary};"}
     .heading{:style=>"height:32px;line-height:32px;padding:16px 0 0;"}
       = "Add a new image"
-    .note
-      = "First choose an image, then you will have the option to edit the image to make the header"
+
 
   #accordion
     %dl.accordian#slider
@@ -56,22 +55,24 @@
               = yield :apple
             - else
               .container{:style=>"padding:0px;"}
-                .light-down.inset{:style=>""}
+                .div
                   - form_for @header, :url => headers_path, :html => {:multipart => true, :class => "form mainAnswerForm"} do |f|
                     = f.error_messages
                     .group
-                      .note
-                        = "Browse your devise to find the image:"
+                      .note{:style=>"padding:0 0 8px 0;"}
+                        = "Choose an image to upload:"
+                      .clear
                     .group
-                      = f.file_field :header, :value => @header.header, :class => "file_field_mobile", :style=>"font-size:2em;"
+                      = f.file_field :header, :value => @header.header, :class => "inset", :style=>"font-size:2em;width:446px;"
                       = f.hidden_field :name, :value => @header.name, :class => "text_field"
-                    .group
-                      = f.submit 'Add this image', :class=>"submit-button", :style=>""
-                      = link_to 'cancel', headers_path(@header)
-
-            %hr
-            .note{:style=>"font-weight:bold"}
-              = "Remember: You can also access MOFAQ from any computer, so if you already have images you would like to use simply browse to MOFAQ"
+                      .clear
+                    .group{:style=>"padding:16px 0;"}
+                      = f.submit 'Add this image', :class=>"inner-button submit", :style=>""
+                      = link_to 'cancel', headers_path(@header),:class => "inner-button"
+                      .clear
+                    %hr{:style=>"border-width:1px;border-color:#{current_group.tertiary};"}
+                    .note{:style=>"font-weight:bold"}
+                      = "Remember: You can also access MOFAQ from any computer, so if you already have images you would like to use simply browse to MOFAQ on a regular computer"
 
       %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
         .inner-button
@@ -82,8 +83,9 @@
         .dark.inset
           = "You can alternatively use an existing image on the internet if you know the exact URL:"
           %form{:action=>"/headers/callback",:method=>"post"}
-            %input{:type=>"text",:name=>"remoteImageURL",:class=>"text_field_mobile"}
-            %input{:type=>"submit",:class=>"submit-button"}
+            %input{:type=>"text",:name=>"remoteImageURL",:class=>"text_field_mobile_edit"}
+            %input{:type=>"submit",:class=>"inner-button submit"}
+          .clear
       
 
 

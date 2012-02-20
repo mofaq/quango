@@ -1,7 +1,7 @@
 - expanded = local_assigns[:expanded]
 
 .frame
-  .inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
+  .inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;background:#{current_group.primary};"}
     .note{:style=>"padding:8px 0 0;font-weight:bold;"}
       = "Here are some of our most frequently asked questions"
 
@@ -18,6 +18,11 @@
               = link_to item.title, "#{item_path(item.doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88)
 
     .clear
+
+    .more
+      = link_to "See more common questions", items_path(@doctype), :class=>"inner-button submit"
+
+
 
 - if current_group.has_quick_create
 

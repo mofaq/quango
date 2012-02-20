@@ -52,10 +52,11 @@
   .clear
   #main
 
-    .container{:style => "width:480px"}
+    .container{:style => "width:480px;height:64px;padding:0 16px 32px 16px"}
 
       .button-group
-        = "Flip"
+        .note
+          = "Flip"
         .buttons
           %div.inner-button.right-nested
             = link_to "↕", flip_header_path(@header), :class => "inner-button-link"
@@ -63,14 +64,16 @@
             = link_to "↔", flop_header_path(@header), :class => "inner-button-link"
 
       .button-group
-        = "Rotate"
+        .note
+          = "Rotate"
         .buttons
           %div.inner-button.right-nested
             = link_to "↺", rotate_left_header_path(@header), :class => "inner-button-link"
           %div.inner-button.left-nested
             = link_to "↻", rotate_right_header_path(@header), :class => "inner-button-link"
       .button-group
-        = "Zoom"
+        .note
+          = "Zoom"
         .buttons
           %div.inner-button.right-nested
             = link_to "-", rotate_left_header_path(@header), :class => "inner-button-link"
@@ -78,47 +81,44 @@
             = link_to "+", rotate_right_header_path(@header), :class => "inner-button-link"
 
       .button-group
-        %div.left
+        %div.left{:style=>"padding-top:16px;"}
           - form_for @header, :url => header_path(@header), :html => {:multipart => true} do |f|
             = f.hidden_field :header_cropping, :id => 'header_cropping'
-            = f.submit "Crop!", :class => "submit-button", :style=>"height:40px;width:80px;font-size:1.2em;padding:4px 16px;margin:0;"
+            = f.submit "Crop", :class => "inner-button submit", :style=>"height:48px;width:104px;padding:4px 16px;margin:0;"
 
 
     .clear
-    .crop-container{:style=>"border-top:8px solid #{current_group.primary_dark};border-bottom:8px solid #{current_group.secondary};"}
+    .crop-container
       .crop
         = image_tag cropped_header.url, :width => "#{Header::CROP_W}px", :id => 'cropbox'
 
     #accordion
-      .fold-header
-        .container{:style=>"width:480px"}
-          = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;",:class=>"inner-button"
+      %dl.accordian#slider
 
-      %div.right
-        %button.inner-button
-          = link_to "Desat", desat_header_path(@header), :class => "inner-button"
-        %button.inner-button
-          = link_to "Negate", negate_header_path(@header), :class => "inner-button"
-        %button.inner-button
-          = link_to "Watermark", watermark_header_path(@header), :class => "inner-button"
-
+        %a{:name=>"1"}
+        %dt.container{:style=>"width:480px;padding:8px 0;"}
+          .inner-button
+            = link_to "Advanced","#",:style=>"color:#{current_group.text_colour};line-height:48px;height:48px;width:424px;margin:12px 0 0 0;"
+        %dd.container{:style=>"width:480px;padding:0;"}
+          .dark.inset{:style=>"margin-bottom:16px"}
+            %div.right
+              %button.inner-button
+                = link_to "Desat", desat_header_path(@header), :class => "inner-button"
+              %button.inner-button
+                = link_to "Negate", negate_header_path(@header), :class => "inner-button"
+              %button.inner-button
+                = link_to "Watermark", watermark_header_path(@header), :class => "inner-button"
+          .clear
 
 
 
 - content_for :custom_header do
   - cropped_header = @header.header.process(:thumb, 'x512')
-  %div{:style => "width:#{Header::THUMB_W}px;height:#{Header::THUMB_H}px;overflow:hidden;position:absolute;top:28px;left:0px;"}
+  %div{:style => "width:512px;height:136px;overflow:hidden;position:absolute;top:28px;left:0px;z-index:11;"}
     = image_tag (cropped_header.url, :width => "256px", :id => 'preview')
 
-
-  .container{:style => "padding:0;height:136px;width:512px;"}
-    .logo-mobile{:style => "height:80px;width:512px; float:left;z-index:2;position:absolute;top:56px;left:0px;"}
-      = link_to h(current_group.name), "#{domain_url(:custom => current_group.domain)}", :style=>"font-size:2em;font-weight:bold;line-height:80px;text-shadow:-1px -1px 2px black;color:white;text-decoration:none;margin-left:16px;"
-    -#.logo-mobile{:style => "height:80px;width:512px; float:left;z-index:1;position:absolute;top:56px;left:0px;"}
-      -#= link_to image_tag(base_header.url, :width => "512px", :height => "136px",  :style => "/**/"), "#{domain_url(:custom => current_group.domain)}", :style=>"color:#{current_group.text_colour};margin:0px;height:80px;width:512px;", :alt => "Home"
-      -if current_group.strapline
-        .strapline{:style => "height:80px;line-height:80px;color:white;float:left; border-left:1px solid color:white; margin-left:8px;padding-left:8px;"}
-          ="#{current_group.strapline}"  
+  .container{:style=>"margin:16px;border:1px solid yellow;height:104px;z-index:11;"}
+    = "Keep within yellow guide"
 
 
 
@@ -131,4 +131,11 @@
   - else
     = "<meta name=\"viewport\" content=\"width=512, initial-scale=1, user-scalable=yes\" />"
 
+
+
+-content_for :javascript_init do
+
+  :javascript
+    var slider1=new accordion.slider("slider1");
+    slider1.init("slider");
 

@@ -98,6 +98,7 @@ class HeadersController < ApplicationController
     if @group.default_header.blank?
         
         @group.default_header = params[:id]
+        @group.logo_only = true
         @group.save
     end 
 

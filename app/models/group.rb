@@ -138,6 +138,8 @@ class Group
   key :logo_path, String, :default => "/images/logos/default-logo.png"
   key :logo_info, Hash, :default => {"width" => 64, "height" => 64}
 
+
+  # TODO: this doesn't make sense in the headers
   key :logo_only, Boolean, :default => false
   key :text_only, Boolean, :default => true
 
