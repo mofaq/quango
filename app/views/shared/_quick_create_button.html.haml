@@ -1,17 +1,17 @@
 
--if current_group.has_quick_create
 
 
-  .form
 
-    - quick_create = current_group.quick_create
-    - doctype = current_group.doctypes.find(quick_create)
-    - item = Item.new 
-    - form_for(item, :url => new_item_path(doctype), :html => {:class => "form",:method => "get"}) do |f|
-      = render :partial => "items/form_quick_create_button", :locals => {:f => f, :doctype => doctype}
+.form
 
-  .clear
+  - quick_create = current_group.quick_create
+  - doctype = current_group.doctypes.find(quick_create)
+  - item = Item.new 
+  - form_for(item, :url => new_item_path(doctype), :html => {:class => "form",:method => "get"}) do |f|
+    = render :partial => "items/form_quick_create_button", :locals => {:f => f, :doctype => doctype}
 
-  .debug{:style=>"display:none"}
-    = "QC: #{quick_create} </br>"
-    = "IDT: #{doctype.id}"
+.clear
+
+.debug{:style=>"display:none"}
+  = "QC: #{quick_create} </br>"
+  = "IDT: #{doctype.id}"

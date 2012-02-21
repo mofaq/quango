@@ -20,12 +20,14 @@
         .markdown.entry-content{:style=>"width:364px;min-height:108px;"}
           =find_and_preserve(shapado_auto_link(markdown(answer.body), :link_users => true))
       .right{:style=>"width:84px;min-height:108px;padding:4px 0 0 0"}
+ 
+        .inset.right{:style=>"border-radius:16px 0 16px 0px;margin:0;width:64px;height:32px;background:#{current_group.primary_dark}"}
+
         -if logged_in?
           -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
-            = link_to t("scaffold.edit"), edit_item_answer_path(@item.doctype_id, @item, answer), :class=>"inner-button left", :style=>"margin:0 16px 0 4px;height:1.1em;line-height:1.1em;width:40px;"
+            = link_to t("scaffold.edit"), edit_item_answer_path(@item.doctype_id, @item, answer), :class=>"inner-button left", :style=>"margin:8px 16px 0 4px;height:1.1em;line-height:1.1em;width:48px;"
             .clear
 
-        .outset.right{:style=>"border-radius:32px;margin:12px 16px 0 16px;width:32px;height:32px;background:#{current_group.primary}"}
 
         -if logged_in?
           -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
