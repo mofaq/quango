@@ -18,13 +18,13 @@
 .container
 
   .note
-    = "Can't find what you are looking for? You can see more by touching <a>here</a>, alternatively:"
+    = "Can't find what you are looking for?"
 
   .group
     = f.text_area :title, :class => "text_field_mobile",:value=>"Simply touch here to start typing your question",:onclick=>"this.value='';",:style=>"padding:2px 8px 0 8px;line-height:24px;font-size:1.3em;"
 
   .group
-    %button.submit-button{:style=>"margin:0 0 16px;width:416px;"}
+    %button.inner-button.submit{:style=>"margin:0 0 16px;width:416px;"}
       = "#{current_group.quick_create_label}"
 
 

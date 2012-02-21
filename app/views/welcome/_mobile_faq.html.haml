@@ -2,7 +2,7 @@
 
 .frame
   .inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;background:#{current_group.primary};"}
-    .note{:style=>"padding:8px 0 0;font-weight:bold;"}
+    .note{:style=>"padding:8px;font-weight:bold;"}
       = "Here are some of our most frequently asked questions"
 
     %table.faq{:style=>"padding:8px 0 16px 0;"}
@@ -12,15 +12,17 @@
       -else
         - @items.reverse[0..5].each do |item|
           %tr
-            %td.question-bullet{:style=>"margin:4px 0"}
-              = "?"
-            %td.question-title{:style=>"margin:4px 8px 4px 0"}
-              = link_to item.title, "#{item_path(item.doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88)
+            %td
+              .inner-button.submit.inset{:style=>"text-align:center;font-family:\"Arial Black\";font-weight:normal;margin:8px 0 4px 0;height:56px;line-height:56px;border-radius:32px;width:32px;"}
+                = "?"
+            %td
+              .question-title{:style=>"margin:8px 8px 4px 8px"}
+                = link_to item.title, "#{item_path(item.doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88), :style=>""
 
     .clear
 
     .more
-      = link_to "See more common questions", items_path(@doctype), :class=>"inner-button submit"
+      = link_to "See more common questions", items_path(@doctype), :class=>"inner-button submit",:style=>"text-align:center;font-size:1.2em;line-height:2.4em;margin:8px;"
     .clear
 
 
