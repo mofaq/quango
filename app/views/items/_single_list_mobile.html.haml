@@ -21,8 +21,8 @@
 
 
 
-  %p
-    .question-bullet
+ .inset
+    .inner-button.submit.inset{:style=>"text-align:center;font-weight:bold;margin:8px 0 4px 0;height:56px;line-height:56px;border-radius:32px;width:32px;"}
       = "?"
     = link_to title, "#{item_path(doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88), :style => "color:#{current_group.tertiary};font-weight:bold;"
 

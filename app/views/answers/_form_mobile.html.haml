@@ -10,27 +10,28 @@
 
 -if logged_in?
 
-  .inset{:style=>"margin:8px 0 16px 0;"}
-    .entry-title{:style=>"width:100%;height:32px; line-height:32px; margin-bottom:4px;"}
-      = "Please answer this question..."
+  .container{:style=>"padding:0"}
+
     .form
 
       = f.hidden_field :mode, :value=> local_assigns[:mode]
 
-      -opts = {:class => "text_area_mobile_edit", :id => "markdown_editor", :style=>"width:480px;"}
+      -opts = {:class => "text_area_mobile_edit", :id => "markdown_editor", :style=>"width:364px;"}
 
-      = f.text_area :body, opts
+      .left{:style=>"width:364px;"}   
+        = f.text_area :body, opts
 
       -if logged_in?
 
+        .right{:style=>"border-radius:4px;width:72px;min-height:152px;padding:4px 0 0 0;margin:80px 0 0 0;"}
 
-        .answer-actions{:style => "line-height:32px; height: 32px; width: 100%; margin: 0 0 16px 0; padding 4px"}
-          = submit_tag "Save", :class => "inner-button submit", :style => "width:256px; height:32px; float:right;font-size:1.5em;"
-          .openedit{:style => "float:right; margin-right: 16px; display:none"}
-            = f.label :wiki, "Anybody can edit? ", :class => "radio"
-            = check_box :wiki, :class => "checkbox right"
-          .clear
-      .clear
+          .answer-actions{:style => ""}
+            = submit_tag "Save", :class => "inner-button submit", :style => "width:72px; height:64px; float:right;font-size:1.1em;"
+            .openedit{:style => "float:right; margin-right: 16px; display:none"}
+              = f.label :wiki, "Anybody can edit? ", :class => "radio"
+              = check_box :wiki, :class => "checkbox right"
+            .clear
+        .clear
 
       -if !local_assigns[:markdown] && !current_group.wysiwyg_editor
         %label.label

@@ -13,7 +13,7 @@
         - @items.reverse[0..5].each do |item|
           %tr
             %td
-              .inner-button.submit.inset{:style=>"text-align:center;font-family:\"Arial Black\";font-weight:normal;margin:8px 0 4px 0;height:56px;line-height:56px;border-radius:32px;width:32px;"}
+              .inner-button.submit.inset{:style=>"text-align:center;font-weight:bold;margin:8px 0 4px 0;height:56px;line-height:56px;border-radius:32px;width:32px;"}
                 = "?"
             %td
               .question-title{:style=>"margin:8px 8px 4px 8px"}
@@ -28,7 +28,7 @@
 
 - if current_group.has_quick_create
 
-  .quick-create.dark-down{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
+  .quick-create.inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
     = render :partial => "shared/quick_create_mobile"
 
 

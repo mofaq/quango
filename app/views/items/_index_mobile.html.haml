@@ -5,61 +5,61 @@
   %link{:rel=>"alternate", :type=>"application/atom+xml", :title => "atom", :href=> url_for(:format => "atom")}
 
 -content_for :secondary_navigation do
-  .container{:style=>"height:48px;width:480px;padding:16px;"}
-    .dark-down.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}
-      .light 
-        .subheading.left
-          ="Question List"
 
-        .subheading.right
-          %ul.right{:style=>"list-style-type:none; display:inline;"}
-            %li.freshness
-              = link_to t("items.index.fresh"), "?sort=fresh", :title => t("items.index.newest_tooltip"),:class=>"inner-button"
-            %li.hot
-              = link_to t("items.index.hot"), "?sort=hot", :title => t("items.index.hot_tooltip"),:class=>"inner-button", :rel => "nofollow"
-            %li.activity
-              = link_to t("items.index.activity"), "?sort=activity", :title => t("items.index.active_tooltip"),:class=>"inner-button", :rel => "nofollow"
-            %li.relevance
-              = link_to t("items.index.relevance"), "?sort=relevance", :title => t("items.index.active_tooltip"),:class=>"inner-button", :rel => "nofollow"
-      .clear
+
+  .subheading.right
+    %ul.right{:style=>"list-style-type:none; display:inline;"}
+      %li.freshness
+        = link_to t("items.index.fresh"), "?sort=fresh", :title => t("items.index.newest_tooltip"),:class=>"inner-button"
+      %li.hot
+        = link_to t("items.index.hot"), "?sort=hot", :title => t("items.index.hot_tooltip"),:class=>"inner-button", :rel => "nofollow"
+      %li.activity
+        = link_to t("items.index.activity"), "?sort=activity", :title => t("items.index.active_tooltip"),:class=>"inner-button", :rel => "nofollow"
+      %li.relevance
+        = link_to t("items.index.relevance"), "?sort=relevance", :title => t("items.index.active_tooltip"),:class=>"inner-button", :rel => "nofollow"
+  .clear
 
 
 /Items
 -content_for :main do
 
 
-  = yield :secondary_navigation
 
-  -#index
+  .container{:style=>"width:480px;padding:16px 0 32px 0;margin:0 16px"}
 
+    .dark-down.inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0 0 16px 0;"}
+      .light 
+        .subheading.left
+          ="Question List"
+        -#= yield :secondary_navigation
    
 
-  .container{:style=>"height:48px;width:480px;padding:16px;"}
-    = @lang_conds.to_s
+    .container.inset
+      = @lang_conds.to_s
 
 
-    - index_array = Array.new
+      - index_array = Array.new
 
-    - @items.reverse.each do |item|
+      - @items.reverse.each do |item|
 
-      -# if item.doctype_id == @doctype
-      - index_array << item
+        -# if item.doctype_id == @doctype
+        - index_array << item
 
-    %table.faq{:style=>"padding:8px 0 16px 0;"}
-      - index_array.each do |item|
+      %table.faq{:style=>"padding:8px 0 16px 0;"}
+        - index_array.each do |item|
 
 
-        -if index_array.empty?
-          %li.highlight
-            = t(".empty")
-        -else
+          -if index_array.empty?
+            %li.highlight
+              = t(".empty")
+          -else
 
-          = render :partial => "item_mobile", :locals => {:item => item, :sort=>"hot"}
+            = render :partial => "item_mobile", :locals => {:item => item, :sort=>"hot"}
 
-  .clear
+    .clear
 
-    -#additional_info
-      -#=will_paginate @items
+      -#additional_info
+        -#=will_paginate @items
 
 
 

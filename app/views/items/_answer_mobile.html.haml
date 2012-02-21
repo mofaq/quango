@@ -16,22 +16,22 @@
   .answer{:style=>"margin:16px 0;"}
 
     .container{:style=>"padding:0"}
-      .inset.right{:style=>"border-radius:4px;margin-top:8px; background:#{current_group.primary}"}
-        .markdown.entry-content{:style=>"width:456px;"}
+      .inset.left{:style=>"border-radius:4px;margin:4px 0 0 0; background:#{current_group.primary}"}
+        .markdown.entry-content{:style=>"width:364px;min-height:108px;"}
           =find_and_preserve(shapado_auto_link(markdown(answer.body), :link_users => true))
-      .dark-down.outset.right{:style=>"border-radius:16px;margin:16px 0 0 0;height:16px;width:16px;"}
+      .right{:style=>"width:84px;min-height:108px;padding:4px 0 0 0"}
+        -if logged_in?
+          -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
+            = link_to t("scaffold.edit"), edit_item_answer_path(@item.doctype_id, @item, answer), :class=>"inner-button left", :style=>"margin:0 16px 0 4px;height:1.1em;line-height:1.1em;width:40px;"
+            .clear
 
-    -if logged_in?
-      -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
-        .container{:style=>"padding:0"}
-          .inset.right{:style=>"border-radius:4px;margin-top:8px;height:22px;width:8px; background:#{current_group.primary_dark}"}
-          -#=vote_box_inline(answer, item_path(@item.doctype_id, @item), item.closed)
+        .outset.right{:style=>"border-radius:32px;margin:12px 16px 0 16px;width:32px;height:32px;background:#{current_group.primary}"}
 
-            .note.left
-              = "Submitted by #{answer.user.name}"
-            .inset.left{:style=>"border-radius:4px;margin-top:8px;height:22px;width:400px; background:#{current_group.primary_dark}"}
-            .controls.left
-              .actions{:style=>"width:100px;height:24px;"}
+        -if logged_in?
+          -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
+
+            .controls.right{:style=>"padding:0;margin:0;width:40px;"}
+              .actions{:style=>"width:40px;margin-top:8px"}
                 -#= link_to "direct link", item_answer_path(@item.doctype_id, @item.id, answer.id), :class => "button"
                 - if logged_in? && @aflag.new? && current_user != answer.user
                   = link_to t(".flag"), new_item_answer_flag_path(@item.doctype, @item,answer), :class => "flag-link button", :rel => 'nofollow'
@@ -43,8 +43,10 @@
                     -if solution
                       -#= link_to t(".unset_answer"),  unsolve_item_path(@item.doctype_id, @item), :class=>"button"
                   -if current_user.can_edit_others_posts_on?(answer.group) || current_user.can_modify?(answer)
-                    = link_to "[x]", item_answer_path(@item.doctype_id, @item, answer), :confirm => t("scaffold.sure", :model => "answer"), :method => :delete, :class =>"right"
-                    = link_to t("scaffold.edit"), edit_item_answer_path(@item.doctype_id, @item, answer), :class=>"inner-button left", :style=>"height:1.2em;line-height:1.2em;"
+
+                    
+                    -#= link_to "Delete", item_answer_path(@item.doctype_id, @item, answer), :confirm => t("scaffold.sure", :model => "answer"), :method => :delete, :class =>"right"
+
 
                   -if !@aflag.new?
                     .flagged
@@ -55,13 +57,10 @@
                 -if answer.versions.count > 0
                   -#= link_to t(".history", :default => "history"), history_item_answer_path(@item.doctype_id, @item, answer), :class=>"button"
 
-          .clear
-          .forms
-        .clear
-    -else
-      .container{:style=>"padding:0"}
-        .dark-down.outset.right{:style=>"border-radius:16px;margin:16px 0 0 0;height:16px;width:16px;"}
-        -#.inset.left{:style=>"border-radius:8px;margin:16px 0;height:16px;width:400px;"}
+              .clear
+              .forms
+            .clear
+
 
     .clear
     / Nested Answers

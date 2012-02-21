@@ -1,8 +1,13 @@
 -content_for :form do
 
   =local_assigns[:mode]
+  .container
+    .inset
+      -form_for @answer, :url => item_answers_path(@item.doctype_id, @item), :html => {:class => "form mainAnswerForm", :style=>"width:480px"} do |f|
+        = render :partial => "answers/form_mobile", :locals => {:f => f, :markdown => true, :mode => "item"}
+      .clear
 
-  -if @item
+  -if false
     - form_for(:answer, :url => item_answer_path(@item.doctype, @item, @answer), :html => {:method => :put, :class => "form"}) do |f|
       = h(@item.mode.to_s)
       =render :partial => "form", :locals => {:f => f, :markdown => true, }
@@ -16,6 +21,10 @@
           = link_to t('scaffold.cancel'), item_path(@item.doctype, @item), :class => "button cancel"
 
 /Layout
+
+- content_for :custom_header do
+  = render :partial => "shared/custom_header", :locals => {:heading => "Edit"}
+
 -content_for :main do
 
   #main-index

@@ -621,7 +621,7 @@ class ItemsController < ApplicationController
 
 
 
-          format.html { redirect_to item_path(@doctype.name, @item)}
+          format.html { redirect_to item_path(@doctype, @item)}
         end
 
 
