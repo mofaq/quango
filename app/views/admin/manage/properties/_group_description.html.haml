@@ -8,30 +8,26 @@
   -# Just do Australia for now - internationalize later
   .about
     .dark-down.inset
-      .mobile-form{:style=>"padding:0px"}
+      .mobile-form{:style=>"padding:0px 16px"}
 
         .group
           .note
             = "Name"
-          = f.text_field :display_name, :class=> "text_field_mobile", :style => "font-size:1em"
+          = f.text_field :display_name, :class=> "text_field_mobile_edit", :style => "font-size:1em"
         .group
           .note
             = "Strapline"
-          = f.text_field :strapline, :class=> "text_field_mobile", :style => "font-size:1em"
+          = f.text_field :strapline, :class=> "text_field_mobile_edit", :style => "font-size:1em"
 
         .group
           .note
             = "Description"
-          = f.text_area :description, :class=> "text_field_mobile", :style => "height:128px;font-size:1em"
+          = f.text_area :description, :class=> "text_area_mobile_edit", :style => "height:128px;font-size:1em"
+
+
 
         .group
-          .note
-            = "Business type"
-          =render :partial => "admin/manage/properties/group_place_types"
-          -#= f.text_field :group_place_type, :class=> "text_area_mobile", :style => "width: 100%"
-
-        .group
-          %button.submit-button.left{:style=>"margin:0 0 32px;"}
+          %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
             = "Save"
 
       .clear
@@ -39,4 +35,4 @@
   .tips
     %ul
       %li
-        = "How to write a great company statement"
+        = "How to write a great company description"

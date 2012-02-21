@@ -1,8 +1,8 @@
 .container
   .heading
-    = "Custom Stylesheets"
+    = "Google Analytics"
   .note
-    = "Override inbuilt styles here. Use at own risk!"
+    = "Paste your Google Analytics tracking code here"
 
 
   -# Just do Australia for now - internationalize later
@@ -11,8 +11,8 @@
       .mobile-form{:style=>"padding:0px 16px"}
         .group
 
-          -@group.has_custom_css? ? custom_css = @group.custom_css.read : custom_css = ""
-          = f.text_area :custom_css, :value => custom_css, :class=> "text_field_mobile_edit", :style => "height:128px;font-size:1em"
+          -#@group.has_custom_js? ? custom_css = @group.custom_js.read : custom_js = ""
+          = "Analytics - full members only"
 
         .group
           %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}

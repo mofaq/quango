@@ -36,7 +36,7 @@
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Business Classification ", "?tab=group_type",:style=>"color:white;margin-right:16px;"
+                  = link_to "Business Classification ", "?tab=group_categories",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
@@ -70,6 +70,10 @@
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
                   = link_to "FAQ Configuration", "?tab=group_faq_configuration",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Messaging", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
         %a{:name=>"3"}
         %dt.container{:style=>"width:480px;padding:8px 0;"}
@@ -80,17 +84,14 @@
             %ul.mobile
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Contact Address", "?tab=group_location",:style=>"color:white;margin-right:16px;"
+                  = link_to "Account details", "?tab=group_location",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Company statement ", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
+                  = link_to "Change password", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
-              %li
-                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
 
         %a{:name=>"4"}
         %dt.container{:style=>"width:480px;padding:8px 0;"}
@@ -104,7 +105,7 @@
                   = link_to "Domain name", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Google analytics", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
+                  = link_to "Google analytics", "?tab=group_analytics",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
                   = link_to "Custom Stylesheet", "?tab=group_stylesheets",:style=>"color:white;margin-right:16px;"

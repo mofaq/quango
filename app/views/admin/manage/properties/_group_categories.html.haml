@@ -1,0 +1,30 @@
+.container
+  .heading
+    = "Company description"
+  .note
+    = "Your company description appears in the About section of your MOFAQ homepage"
+
+
+  -# Just do Australia for now - internationalize later
+  .about
+    .dark-down.inset
+      .mobile-form{:style=>"padding:0px"}
+
+        .group
+          .note
+            = "Business type"
+          =render :partial => "admin/manage/properties/group_place_types"
+          -#= f.text_field :group_place_type, :class=> "text_area_mobile", :style => "width: 100%"
+
+
+
+        .group
+          %button.inner-button.submit.left{:style=>"margin:0 0 32px;"}
+            = "Save"
+
+      .clear
+
+  .tips
+    %ul
+      %li
+        = "How to write a great company statement"
