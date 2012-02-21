@@ -2,22 +2,20 @@
 
 - if @subscription
   -content_for :after_form do
-    .container
-      .heading{:style=>"height:32px;line-height:32px;padding:16px 0;"}
-        = "MOFAQ Settings"
-
-    .container{:style=>"padding-bottom:16px;border-top:1px solid #{current_group.primary};background:#{current_group.secondary};"}
-
-      -# TODO: This is a bit of a hack really, will figure out a more elegant way later
-      -if current_group.users.count.to_i < 2
-        .dark.inset
-          .create-owner
-            = "This site does not yet have an account holder..."
-          .centered
-            .submit-button{:style=>"text-align:center;"}
-              = link_to "Add account holder",new_user_path(:owner=>true),:class=>"inner-button-link"
+    .container{:style=>"height:56px;margin:0;padding:0 16px;width:480px;background:#{current_group.secondary};"}
+      .subheading{:style=>"border-radius:0 32px 32px 0px;line-height:2.2em;font-size:1.5em;padding:4px 16px;"}
+        = "SETTINGS"
 
 
+
+    -# TODO: This is a bit of a hack really, will figure out a more elegant way later
+    -if current_group.users.count.to_i < 2
+      .dark.inset
+        .create-owner
+          = "This site does not yet have an account holder..."
+        .centered
+          .inner-button.submit{:style=>"text-align:center;"}
+            = link_to "Add account holder",new_user_path(:owner=>true)
 
 
     #accordion
@@ -26,7 +24,7 @@
 
 
         %a{:name=>"1"}
-        %dt.container{:style=>"width:480px;padding:8px 0;"}
+        %dt.container{:style=>"width:480px;padding:0 0 8px 0;"}
           .inner-button
             = link_to "Company Details","#1",:class=>"inner-button-link"
         %dd.container{:style=>"width:480px;padding:0;"}

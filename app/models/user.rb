@@ -28,6 +28,8 @@ class User
   key :slugs, Array, :index => true
 
   key :bio,                       String, :limit => 256
+  key :phone,                       String, :limit => 256
+  key :phonetime,                       String, :default => "Anytime"
 
   key :website,                   String, :limit => 200
   key :website_url,               String, :limit => 200

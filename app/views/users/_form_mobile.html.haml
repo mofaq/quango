@@ -1,55 +1,84 @@
 
-.container{:style=>"border-top:1px solid #{current_group.primary};"}
-  .heading{:style=>"height:32px;line-height:32px;padding:16px 0 16px;"}
-    = "Create a new account"
 
-.container{:style=>"padding-bottom:16px;"}
+.container{:style=>"padding:16px;"}
 
-  - if logged_in?
-    - if current_user.owner_of?(current_group)
-      = "You are about to add a new owner to this account, only account owners are permitted to create free trials, change settings and buy subscriptions"
-      = f.hidden_field :role, :class => "text_field_mobile", :value=>"owner"
+
 
 
   .dark{:style=>"width:450px;border-radius:8px;border-color:#{current_group.primary};-webkit-box-shadow:inset 0 0 1px white,0 0 1px #{current_group.primary_dark};padding:16px;"}
 
+    - if logged_in?
+      - if current_user.owner_of?(current_group)
+        .heading{:style=>"height:32px;line-height:32px;padding:8px 0;"}
+          = "Create a new account OWNER"
+        .note{:style=>"padding:0 0 8px 0"}
+          = "You are about to add a new owner to this account, only account owners are permitted to create free trials, change settings and buy subscriptions"
+        = f.hidden_field :role, :class => "text_field_mobile_edit", :value=>"owner"
+
+    - else
+      .heading{:style=>"height:32px;line-height:32px;padding:8px 0;"}
+        = "Create a new account"
+
+
+
+
     .form
       .group
-        = "First name"
-        = f.text_field :first_name, :class => "text_field_mobile"
-      .clear
+        .left{:style=>"width:50%;"}
+          .note
+            = "First name"
+          = f.text_field :first_name, :class => "text_field_mobile_edit",:style=>"width:198px;"
 
-      .group
-        = "Last name"
-        = f.text_field :last_name, :class => "text_field_mobile"
-      .clear
+        .right{:style=>"width:50%;"}
+          .note
+            = "Last name"
+          = f.text_field :last_name, :class => "text_field_mobile_edit",:style=>"width:198px;"
+        .clear
 
       .group{:style => "display:none"}
-        = f.text_field :login, :class => "text_field_mobile"
+        = f.text_field :login, :class => "text_field_mobile_edit"
       .clear
 
       .group
-        = "Email address"
-        = f.text_field :email, :class => "text_field_mobile"
-        .note{:style=>"color:white; font-size:12px; line-height:12px; margin-left:16px; float:right "}
-          = "Your email address is never shared"
-      .clear
+        .note
+          .right{:style=>"color:#{current_group.tertiary};"}
+            = "Your email address is never shared"
+          .left          
+            = "Email address"
+        = f.text_field :email, :class => "text_field_mobile_edit"
 
       .group
-        = "Password"
-        = f.password_field :password, :class => "text_field_mobile"
-      .clear
+        .note
+          .right{:style=>"color:#{current_group.tertiary};"}
+            = "Preferably Mobile"
+          .left          
+            = "Phone number"
+        = f.text_field :phone, :class => "text_field_mobile_edit"
 
       .group
-        = "Password Again"
-        = f.password_field :password_confirmation, :class => "text_field_mobile"
+        .note
+          .right{:style=>"color:#{current_group.tertiary};"}
+            = "What is the best time to call?"
+          .left          
+            = "Convenient Moments"
+        = f.text_area :phonetime, :class => "text_area_mobile_edit",:style=>"height:56px;"
 
-      .clear
+      .group
+        .left{:style=>"width:50%;"}
+          .note
+            = "Password"
+          = f.password_field :password, :class => "text_field_mobile_edit",:style=>"width:198px;"
+
+        .right{:style=>"width:50%;"}
+          .note
+            = "Password Confirmation"
+          = f.password_field :password_confirmation, :class => "text_field_mobile_edit",:style=>"width:198px;"
+        .clear
 
 
       .group{:style => "display:none"}
         = f.label :name, t(:name, :scope => "activerecord.attributes.user"), :class => "label left"
-        = f.text_field :name, :class => "text_field_mobile"
+        = f.text_field :name, :class => "text_field_mobile_edit"
 
       .group{:style => "margin-bottom:4px; border: 0; float:left;"}
         = f.check_box :terms

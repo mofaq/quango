@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new
     
-    @user.safe_update(%w[login email first_name last_name display_name password_confirmation password terms preferred_languages website language timezone identity_url bio hide_country role], params[:user])
+    @user.safe_update(%w[login email first_name last_name display_name phone password_confirmation password terms preferred_languages website language timezone identity_url bio hide_country role], params[:user])
 
 
     first_name = params[:user][:first_name]
@@ -199,7 +199,7 @@ class UsersController < ApplicationController
       @user.password_confirmation = params[:user][:password_confirmation]
     end
 
-    @user.safe_update(%w[slug login email display_name first_name last_name default_avatar language timezone preferred_languages 
+    @user.safe_update(%w[slug login email display_name first_name last_name phone phonetimes default_avatar language timezone preferred_languages 
                          notification_opts bio hide_country website website_url twitter twitter_url linkedin linkedin_url], params[:user])
 
 
