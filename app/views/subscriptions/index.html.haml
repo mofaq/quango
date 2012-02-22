@@ -26,11 +26,12 @@
             %td
               = subscription.status
             %td
-              = subscription.ends_at
+              = subscription.ends_at.strftime("%d %B %Y")
             %td
               = link_to 'Show', subscription
-              = link_to 'Edit', edit_subscription_path(subscription)
-              = link_to 'Destroy', subscription, :confirm => 'Are you sure?', :method => :delete
+              -if current_user.admin?
+                = link_to 'Edit', edit_subscription_path(subscription)
+                = link_to 'Destroy', subscription, :confirm => 'Are you sure?', :method => :delete
 
 
 

@@ -85,12 +85,17 @@
             %ul.mobile
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Account details", "?tab=group_location",:style=>"color:white;margin-right:16px;"
+                  = link_to "Account Holder Details", "?tab=account_details",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Change password", "?tab=group_contacts",:style=>"color:white;margin-right:16px;"
+                  = link_to "Change password", "?tab=account_password",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                  = link_to "Subscriptions", "?tab=account_subscriptions",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
 
 
 

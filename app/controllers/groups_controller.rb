@@ -187,11 +187,11 @@ class GroupsController < ApplicationController
     #@group = current_group
 
     @subscription = Subscription.new
-    @subscription.name = "Trial subscription"
+    @subscription.name = "Initial demo subscription"
     @subscription.group = @group
     @subscription.user = @user
     @subscription.starts_at = Time.now
-    @subscription.ends_at = Time.now + 2.minutes
+    @subscription.ends_at = Time.now + 15.minutes
     @subscription.save!
 
     subscriptions.each do |subscription|

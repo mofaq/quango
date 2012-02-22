@@ -1,0 +1,32 @@
+
+.container{:style=>"padding:0 16px 16px 16px;"}
+  .description{:style=>"height:64px; line-height:64px;"}
+    .subheading
+    = "Subscriptions"
+
+  .inset.container{:style=>"padding:16px;"}
+    %table
+      %tr
+        %th
+          = "name"
+        %th
+          = "status"
+        %th
+          = "end"
+        %th
+          = "actions"
+      - current_group.subscriptions.reverse.each do |subscription|
+        %tr
+          %td
+            = subscription.name
+          %td
+            = subscription.status
+          %td
+            = subscription.ends_at
+          %td
+            = link_to 'Show', subscription
+            -if current_user.admin?
+
+              = link_to 'Edit', edit_subscription_path(subscription)
+              = link_to 'Destroy', subscription, :confirm => 'Are you sure?', :method => :delete  
+    .clear
