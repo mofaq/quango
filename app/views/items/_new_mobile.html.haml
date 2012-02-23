@@ -1,16 +1,27 @@
 
+- content_for :custom_javascript do
+  -require_js "jquery.min"
+  -require_js "jquery.textarea"
+  -require_js "showdown"
+  -require_js "modules/editor"
 
--content_for :main do
+- content_for :css do
+  -require_css "editor"
 
-  -#= javascript_include_merged :show
 
-  .container
-    .heading
+
+
+- content_for :main do
+
+
+
+  .container{:style=>"padding:16px"}
+    .subheading
       = @item.doctype.create_label
 
 
     -#if logged_in?
-    .form-for-content
+    .darkish.inset{:style=>"padding:16px"}
       - form_for(@item, :html=>{:class => "form mainAnswerForm", :id => "ask_item"}) do |f|
         = f.hidden_field :doctype_id, :value => @item.doctype.id
         = f.hidden_field :anonymous, :value => params[:anonymous]
@@ -18,22 +29,31 @@
         = f.hidden_field :anonymous_email, :value => params[:anonymous_email]
         .answer-form-holder
           .answer-form
-            = f.label :title, "Your #{@item.doctype.id}", :class => "label"
-            = f.text_area :title, :class => "text_field_mobile",:style=>"width:456px;padding:0px 8px;line-height:28px;"
-            = f.label :body, t(:body, :scope => "activerecord.attributes.item"), :class => "label", :style=>"margin:16px 0 0 0"
-            = f.text_area :body, :class => "text_area_mobile", :id => "editor"
+            .note
+              = "Subject"
+
+            = f.text_area :title, :class => "text_field_mobile_edit"
+
+            .note
+              = "If your question needs further explanation please add the details below - note that answering the question itself occurs in the next step"
+
+            = f.text_area :body, :class => "text_area_mobile_edit", :id => "markdown_editor"
+
             = f.hidden_field :language, :value => (current_group.language || AppConfig.default_language)
+
             .group
-              %button.submit-button{:style=>"margin:0 0 32px;"}
+              %button.inner-button.submit
                 = "#{current_group.quick_create_label}"
-              = link_to t('scaffold.cancel'), items_path, :class => "submit-button cancel", :style => "background:red"
+              = link_to t('scaffold.cancel'), items_path, :class => "inner-button cancel"
+      .clear
 
-
-    .related-item
-      %ul.items#related_items
-        -#=render :partial => "form_mobile", :locals => {:f => f, :doctype => @doctype}
-
-
+  .container{:style=>"padding:0 16px 32px 16px"}
+    .inset
+      .note
+        = image_tag "/images/tips.png"
+        = "Confused by this editor?</br>"
+      .note
+        = "Please read our \'Getting acquainted with MOFAQ Editing\' Guide"
 
 
 

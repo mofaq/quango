@@ -16,7 +16,7 @@
 - content_for :main do
 
   .container{:style=>"background-color:#{current_group.primary};height:64px;width:480px;padding-top:12px;"}
-    -form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
+    -form_for(current_group, :html => {:class => "form", :multipart => true}) do |f|
       = f.error_messages
       - source = headers_path
       = hidden_field_tag :source, source
@@ -101,9 +101,9 @@
 
 -content_for :javascript_init do
 
-  :javascript
-    var slider1=new accordion.slider("slider1");
-    slider1.init("slider");
+  -#:javascript
+    -#var slider1=new accordion.slider("slider1");
+    -#slider1.init("slider");
 
 
 

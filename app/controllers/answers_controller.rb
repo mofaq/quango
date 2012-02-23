@@ -176,7 +176,7 @@ class AnswersController < ApplicationController
     Magent.push("actors.judge", :on_destroy_answer, current_user.id, @answer.attributes)
 
     respond_to do |format|
-      format.html { redirect_to("/#{@item.section}/#{@item.slug}") }
+      format.html { redirect_to item_path(@item.doctype, @item) }
       format.json { head :ok }
     end
   end

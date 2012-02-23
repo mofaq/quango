@@ -13,10 +13,10 @@
           = render :partial => "shared/quick_create_button"
       .clear
 
-.footer-mobile{:style=>"width:480px;padding:16px 0;margin:0 16px;font-size:0.8em;border-top:0px solid #{current_group.secondary}"}
+.fade-out.footer-mobile{:style=>"width:480px;padding:16px;margin:0;font-size:0.8em;border-top:0px solid #{current_group.secondary}"}
   .footer
-    .left{:style=>"width:50%; font-weight:bold;line-height:40px;letter-spacing:-1px;"}
-      = "Every business needs a mobile FAQ : <a>Why?</a>"
+    .left{:style=>"width:50%; font-weight:bold;line-height:48px;letter-spacing:-1px;"}
+      = "Every business needs a mobile FAQ : <a href=\"http://mofaq.com/mobile/faq/id/5d04-why-does-my-business-need-a-mobile-faq\">Why?</a>"
     .right
       %button.inner-button{:onclick=>"window.location=\'#{new_group_path}/?mobile=true\'",:style=>"width:200px;"}
         = "Get y<u>our</u> mobile FAQ"

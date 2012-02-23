@@ -1,9 +1,9 @@
 -content_for :form do
 
   =local_assigns[:mode]
-  .container
+  .container{:style=>"padding:16px 16px 32px 16px;"}
     .inset
-      -form_for @answer, :url => item_answers_path(@item.doctype_id, @item), :html => {:class => "form mainAnswerForm", :style=>"width:480px"} do |f|
+      -form_for (:answer, :url => item_answer_path(@item.doctype_id, @item, @answer), :html => {:method=>"put",:class => "form mainAnswerForm", :style=>"width:480px"}) do |f|
         = render :partial => "answers/form_mobile", :locals => {:f => f, :markdown => true, :mode => "item"}
       .clear
 

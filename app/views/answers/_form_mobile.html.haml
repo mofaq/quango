@@ -23,14 +23,13 @@
 
       -if logged_in?
 
-        .right{:style=>"border-radius:4px;width:72px;min-height:152px;padding:4px 0 0 0;margin:80px 0 0 0;"}
+        .right{:style=>"border-radius:4px;width:72px;min-height:152px;padding:0;margin:80px 0 0 0;"}
 
-          .answer-actions{:style => ""}
-            = submit_tag "Save", :class => "inner-button submit", :style => "width:72px; height:64px; float:right;font-size:1.1em;"
-            .openedit{:style => "float:right; margin-right: 16px; display:none"}
-              = f.label :wiki, "Anybody can edit? ", :class => "radio"
-              = check_box :wiki, :class => "checkbox right"
-            .clear
+          .answer-actions{:style => "margin-right:24px;"}
+            = submit_tag "Save", :class => "inner-button submit", :style => "padding:0;text-align:center;width:64px; height:164px; float:right;font-size:1.1em;"
+          -#.answer-actions{:style => ""}
+            -#= link_to t('scaffold.cancel'), items_path, :class => "inner-button cancel"
+
         .clear
 
       -if !local_assigns[:markdown] && !current_group.wysiwyg_editor

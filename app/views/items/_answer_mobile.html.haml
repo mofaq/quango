@@ -19,13 +19,19 @@
       .inset.left{:style=>"border-radius:4px;margin:4px 0 0 0; background:#{current_group.primary}"}
         .markdown.entry-content{:style=>"width:364px;min-height:108px;"}
           =find_and_preserve(shapado_auto_link(markdown(answer.body), :link_users => true))
-      .right{:style=>"width:84px;min-height:108px;padding:4px 0 0 0"}
+      .right{:style=>"width:84px;min-height:108px;padding:4px 0 0 0; text-align:center;"}
  
-        .inset.right{:style=>"border-radius:16px 0 16px 0px;margin:0;width:64px;height:32px;background:#{current_group.primary_dark}"}
+
 
         -if logged_in?
+
+          -if current_user.can_edit_others_posts_on?(answer.group) || current_user.can_modify?(answer)
+
+            
+            = link_to "Delete", item_answer_path(@item.doctype_id, @item, answer), :confirm => t("scaffold.sure", :model => "answer"), :method => :delete
+
           -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
-            = link_to t("scaffold.edit"), edit_item_answer_path(@item.doctype_id, @item, answer), :class=>"inner-button left", :style=>"margin:8px 16px 0 4px;height:1.1em;line-height:1.1em;width:48px;"
+            = link_to t("scaffold.edit"), edit_item_answer_path(@item.doctype_id, @item, answer), :class=>"inner-button left", :style=>"margin:8px 16px 0 4px;height:1.1em;line-height:1.1em;width:40px; text-align:center;"
             .clear
 
 
@@ -33,7 +39,7 @@
           -if (current_user.mod_of?(@item.group) || current_user.can_modify?(@item))
 
             .controls.right{:style=>"padding:0;margin:0;width:40px;"}
-              .actions{:style=>"width:40px;margin-top:8px"}
+              .actions
                 -#= link_to "direct link", item_answer_path(@item.doctype_id, @item.id, answer.id), :class => "button"
                 - if logged_in? && @aflag.new? && current_user != answer.user
                   = link_to t(".flag"), new_item_answer_flag_path(@item.doctype, @item,answer), :class => "flag-link button", :rel => 'nofollow'
@@ -44,10 +50,7 @@
                       -#= link_to t(".pick_answer"), solve_item_path(@item.doctype_id, @item, :answer_id => answer), :class=>"button"
                     -if solution
                       -#= link_to t(".unset_answer"),  unsolve_item_path(@item.doctype_id, @item), :class=>"button"
-                  -if current_user.can_edit_others_posts_on?(answer.group) || current_user.can_modify?(answer)
 
-                    
-                    -#= link_to "Delete", item_answer_path(@item.doctype_id, @item, answer), :confirm => t("scaffold.sure", :model => "answer"), :method => :delete, :class =>"right"
 
 
                   -if !@aflag.new?
