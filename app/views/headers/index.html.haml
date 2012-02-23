@@ -3,53 +3,12 @@
   = "My elbos"
 
 
-- content_for :css do
-  %style
-    = "input[type=\'checkbox\']{display:none}"
-    = ".check_box{text-align:center;}"
 
--content_for :custom_javascript do
-
-  = javascript_include_tag 'jquery.min'
-  = javascript_include_tag 'modules/depressed'
  
 - content_for :main do
 
   .container{:style=>"background-color:#{current_group.primary};height:64px;width:480px;padding-top:12px;"}
-    -form_for(current_group, :html => {:class => "form", :multipart => true}) do |f|
-      = f.error_messages
-      - source = headers_path
-      = hidden_field_tag :source, source
 
-      %table{:style=>"width:480px;"}
-        %tr
-          %td{:style=>"width:28%;"}
-            - if current_group.logo_only?
-              .check_box.checked
-                = f.label :logo_only, "Hide image"
-                = f.check_box :logo_only
-            - else
-              .check_box.unchecked
-                = f.label :logo_only, "Show image"
-                = f.check_box :logo_only
-          %td{:style=>"width:28%;padding:0 4px"}
-            - if current_group.text_only?
-              .check_box.checked
-                = f.label :text_only, "Hide text"
-                = f.check_box :text_only
-            - else
-              .check_box.unchecked
-                = f.label :text_only, "Show Text"
-                = f.check_box :text_only
-          %td{:style=>"width:28%;"}
-            - if current_group.has_strapline?
-              .check_box.checked
-                = f.label :has_strapline, "Hide strapline"
-                = f.check_box :has_strapline
-            - else
-              .check_box.unchecked
-                = f.label :has_strapline, "Show strapline"
-                = f.check_box :has_strapline
 
 
 

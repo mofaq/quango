@@ -35,7 +35,7 @@
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
                   = link_to "Name & Description ", "?tab=group_description",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
+              %li{:style=>"display:none"}
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
                   = link_to "Business Classification ", "?tab=group_categories",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
@@ -47,7 +47,7 @@
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
                   = link_to "Physical Address", "?tab=group_address",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
+              %li{:style=>"display:none"}
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
                   = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
@@ -63,6 +63,11 @@
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
                   = link_to "Choose images for header", "/headers",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Header text settings", "?tab=group_header_text",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
                   = link_to "Background Colours", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
@@ -71,8 +76,8 @@
                 %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
                   = link_to "FAQ Configuration", "?tab=group_faq_configuration",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+              %li{:style=>"display:none"}
+                %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;margin:4px 8px;"}
                   = link_to "Messaging", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 

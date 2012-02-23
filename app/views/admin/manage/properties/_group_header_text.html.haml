@@ -1,0 +1,83 @@
+- content_for :css do
+  %style
+    -#= "input[type=\'checkbox\']{display:none}"
+    = ".check_box{text-align:center; line-height:32px;padding:4px 8px;}"
+
+-content_for :custom_javascript do
+
+  -#= javascript_include_tag 'jquery.min'
+  -#= javascript_include_tag 'modules/depressed'
+
+
+
+
+.container
+  .heading{:style=>"height:32px; line-height:32px;"}
+    = "Header settings"
+
+
+    -#-form_for(current_group, :html => {:class => "form", :multipart => true}) do |f|
+      -#= f.error_messages
+      -#- source = headers_path
+      -#= hidden_field_tag :source, source
+
+
+
+
+
+-# Just do Australia for now - internationalize later
+.container{:padding=>"16px 16px 32px 16px"}
+  .dark-down.inset
+    .mobile-form{:style=>"padding:0px 16px"}
+      .group
+        .note
+          = "Visibility settings"
+        %table{:style=>"width:440px;"}
+          %tr
+            %td{:style=>"width:28%;"}
+              - if current_group.logo_only?
+                .check_box.checked
+                  = f.label :logo_only, "Image",:style=>"position:relative;top:-12px;"
+                  = f.check_box :logo_only
+              - else
+                .check_box.unchecked
+                  = f.label :logo_only, "Image",:style=>"position:relative;top:-12px;"
+                  = f.check_box :logo_only
+            %td{:style=>"width:28%;padding:0 4px"}
+              - if current_group.text_only?
+                .check_box.checked
+                  = f.label :text_only, "Name",:style=>"position:relative;top:-12px;"
+                  = f.check_box :text_only
+              - else
+                .check_box.unchecked
+                  = f.label :text_only, "Name",:style=>"position:relative;top:-12px;"
+                  = f.check_box :text_only
+            %td{:style=>"width:28%;"}
+              - if current_group.has_strapline?
+                .check_box.checked
+                  = f.label :has_strapline, "Strapline",:style=>"position:relative;top:-12px;"
+                  = f.check_box :has_strapline
+              - else
+                .check_box.unchecked
+                  = f.label :has_strapline, "Strapline",:style=>"position:relative;top:-12px;"
+                  = f.check_box :has_strapline
+
+      .group
+        .note
+          = "Name"
+        = f.text_field :display_name, :class=> "text_field_mobile_edit", :style => "font-size:1em"
+      .group
+        .note
+          = "Strapline"
+        = f.text_field :strapline, :class=> "text_field_mobile_edit", :style => "font-size:1em"
+
+      .group
+        %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
+          = "Save"
+
+    .clear
+
+.tips
+  %ul
+    %li
+      = "NOTES"
