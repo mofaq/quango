@@ -62,11 +62,11 @@ class SubscriptionsController < ApplicationController
     @user = current_user
     @group = current_group
     @subscription = Subscription.new
-    @subscription.name = "Free Trial Subscription (45 mins)"
+    @subscription.name = "Free Trial Subscription (7 Days)"
     @subscription.group = @group
     @subscription.user = @user
     @subscription.starts_at = Time.zone.now
-    @subscription.ends_at = Time.zone.now + 45.minutes
+    @subscription.ends_at = Time.zone.now + 7.days
     @subscription.status = "active"    
     @subscription.is_active = "true"
 
