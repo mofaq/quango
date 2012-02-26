@@ -11,9 +11,78 @@
 
 
 
+\.inflated{visibility:true}
+\.deflated{visibility:hidden;height:0;}
+
 \input[type="checkbox"] {font-size:2em;height:32px;}
 
 
+\#tabs li{display:inline;}
+\#tabs li.mark{width:96px;height:48px;}
+
+\#tabs div.selected{border:2px solid red;
+
+text-shadow:-1px -1px 1px #{stop1},1px 1px 1px #{stop2};
+margin:0;
+border-radius: 8px 8px 0 0;
+color:white;
+font-weight:bold;
+\-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1}, inset 0 0 16px #{stop1};
+\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
+
+border-top: 1px solid #{stop2};
+border-left: 1px solid #{stop2};
+border-bottom: 1px solid #{stop1};
+border-right: 1px solid #{stop1};
+
+
+background: #{stop1}; /* Old browsers */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop3}), color-stop(49%,#{stop4}), color-stop(51%,#{stop2}), color-stop(100%,#{stop3})); /* Chrome,Safari4+ */
+
+background: -webkit-linear-gradient(top, #{stop3},#{stop2} 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 49%, #{stop2} 51%, #{stop1} 100%); /* FF3.6+ */
+
+background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
+background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', endColorstr='#{stop1}',GradientType=0 ); /* IE6-9 */
+}
+
+
+\#tabs div{border:2px solid red;
+
+text-shadow:-1px -1px 1px #{stop1},1px 1px 1px #{stop2};
+font-size:1em;
+margin:0;
+border-radius: 8px;
+color:white;
+font-weight:bold;
+\-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1}, inset 0 0 16px #{stop1};
+\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
+
+border-top: 1px solid #{stop2};
+border-left: 1px solid #{stop2};
+border-bottom: 1px solid #{stop1};
+border-right: 1px solid #{stop1};
+
+
+background: #{stop1}; /* Old browsers */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop2}), color-stop(51%,#{stop3}), color-stop(100%,#{stop2})); /* Chrome,Safari4+ */
+
+background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop3} 49%,#{stop2} 51%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 49%, #{stop2} 51%, #{stop1} 100%); /* FF3.6+ */
+
+background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
+background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', endColorstr='#{stop1}',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+
+
+\.not_selected{border:2px solid white;}
 
 
 \.note{font-weight:bold;font-size:0.8em;}

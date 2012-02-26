@@ -1,21 +1,91 @@
 
 - is_mobile = params[:mobile]
 
--content_for :inner_title do
-  %h1
-    = "Choose a name"
+
 
 - if is_mobile
   = form.hidden_field :group_type, :value=>"mobile"
+
+  -#.group
+    -#= select_tag :client_type, options_for_select(Group::CLIENT_TYPES, :action=>"somethign")
+
   .group
-    = form.text_field :name, :class => "text_field_mobile", :value => params[:name]
+    = form.hidden_field :client_type, :value => current_group.client_type
 
+  .darkish.inset
 
-
-  -if AppConfig.enable_i18n
     .group
-      = form.label :language, t(:language, :scope => "activerecord.attributes.group"), :class => "label"
-      = form.select :language, AVAILABLE_LANGUAGES.collect {|lang| [ language_desc(lang), lang ] }+[[t(".any_language"), 'none']], :selected => @group.language || 'none', :class => "select"
-  -else
-    = form.hidden_field :language, :value => (AppConfig.default_language || 'en')
+      .note{:style=>"margin:8px 0 16px 0;"}
+        = "Please enter your name:"
+      = form.text_field :name, :class => "text_field_mobile_edit", :value => params[:name]
 
+
+
+    .group
+      .note{:style=>"margin:8px 0 16px 0;"}
+        = "Please choose the type of MOFAQ required:"
+
+      #tabs
+        - Group::CLIENT_TYPES.each do |client_type|
+          %div{:id=>"#{client_type}",:onclick=>"update_client_type(\'#{client_type}\')",:style=>"width:80px;height:48px;line-height:48px;float:left;margin-right:8px;text-align:center;"}
+            = client_type.capitalize
+      .clear
+
+      -if AppConfig.enable_i18n
+        .group
+          = form.label :language, t(:language, :scope => "activerecord.attributes.group"), :class => "label"
+          = form.select :language, AVAILABLE_LANGUAGES.collect {|lang| [ language_desc(lang), lang ] }+[[t(".any_language"), 'none']], :selected => @group.language || 'none', :class => "select"
+      -else
+        = form.hidden_field :language, :value => (AppConfig.default_language || 'en')
+
+
+    .group
+      %button.inner-button.submit{:style=>"margin:0;", :type=>"submit"}
+        = "Create y<u>our</u> MOFAQ"
+    .clear
+
+- content_for :javascript_init do
+  :javascript
+
+    init_client_type();
+
+    function init_client_type(){
+
+      var ct = document.getElementById('group_client_type').value;
+      var rc = document.getElementById(ct);      
+      rc.className += 'selected';
+      var bubble = document.getElementById(ct+'-bubble');
+      bubble.className += 'inflate';
+
+    }
+    function update_client_type(client_type){
+
+      var lis=document.getElementById("tabs").childNodes; //gets all the LI from the UL
+   
+      for(i=0;i<lis.length;i++)
+      {
+        lis[i].className=""; //removes the classname from all the LI
+      }
+
+      var pt = client_type;
+      var ct = document.getElementById('group_client_type');
+
+
+      ct.value = pt;
+
+      var li = document.getElementById(pt);
+      li.className += "selected";
+      //alert(li);
+
+      var lis=document.getElementById("tab-bubble").childNodes; //gets all the LI from the UL
+   
+      for(i=0;i<lis.length;i++)
+      {
+        lis[i].className = 'deflated'; //removes the classname from all the LI
+      }
+
+      var showBubble = document.getElementById((pt+'-bubble'));
+      showBubble.className += 'inflate';
+
+      return
+    }

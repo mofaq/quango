@@ -100,7 +100,7 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new
-    @group.safe_update(%w[name group_type agent_id owner_id parent_id name_highlight legend description default_tags subdomain logo logo_path favicon_path forum
+    @group.safe_update(%w[name group_type client_type agent_id owner_id parent_id name_highlight legend description default_tags subdomain logo logo_path favicon_path forum
                           custom_favicon language theme custom_css wysiwyg_editor], params[:group])
 
     @group.safe_update(%w[isolate domain private], params[:group]) if current_user.admin?
@@ -226,7 +226,7 @@ class GroupsController < ApplicationController
   # PUT /groups/1
   # PUT /groups/1.json
   def update
-    @group.safe_update(%w[group_type name name_highlight name_link name_highlight_link disable_signups
+    @group.safe_update(%w[group_type name name_highlight name_link name_highlight_link disable_signups client_type
                           other_groups_facebook other_groups_linkedin other_groups_twitter other_groups_google
                           group_address_i group_address_ii group_city group_state group_region group_postcode group_phone group_fax group_place_reference
                           display_name group_website group_generic_email quick_create quick_create_heading
