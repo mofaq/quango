@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
 
   #map.resources :images
 
+
+
   map.oauth_authorize '/oauth/start', :controller => 'oauth', :action => 'start'
   map.oauth_callback '/oauth/callback', :controller => 'oauth', :action => 'callback'
 
@@ -133,6 +135,7 @@ ActionController::Routing::Routes.draw do |map|
 
   
 
+
   map.clients '/clients', :controller => 'groups', :action => 'index', :method => :post
 
   map.resources :groups, :member => {:accept => :get,
@@ -154,6 +157,7 @@ ActionController::Routing::Routes.draw do |map|
                           :collection => { :autocomplete_for_group_slug => :get}, :as => "groups"
 
   #map.groups '/check',:controller => "groups", :action => "post", :as => "communities"
+
 
 
   map.resources :votes
@@ -202,7 +206,7 @@ ActionController::Routing::Routes.draw do |map|
   map.search '/search.:format', :controller => "searches", :action => "index"
   map.about '/about', :controller => "groups", :action => "show"
 
-
+  map.connect '/modetect.:format', :controller => 'public',:action=>'modetect'
 
 
   map.connect ':controller/:action/:id'

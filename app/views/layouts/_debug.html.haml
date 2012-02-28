@@ -34,10 +34,8 @@
     .clear
 
     .left
-      = "Counter:"
-      -if @groups
-        == (#{format_number(@groups.total_entries)}) 
-      
+      = "Client Type: #{current_group.client_type}"
+    .clear
 
     .left
       = "Group: #{current_group.id} / #{current_group.name}"

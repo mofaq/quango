@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   skip_before_filter :check_group_access, :only => [:logo, :css, :favicon, :background]
-  before_filter :login_required, :except => [:pages, :index, :show, :logo,:sponsor_logo_wide,:sponsor_logo_narrow,:group_style,:group_style_mobile, :css, :signup_button_css, :favicon, :background]
+  before_filter :login_required, :except => [:pages, :index, :show, :logo,:sponsor_logo_wide,:sponsor_logo_narrow,:modetect,:group_style,:group_style_mobile, :css, :signup_button_css, :favicon, :background]
   before_filter :check_permissions, :only => [:edit, :update, :close]
   before_filter :moderator_required , :only => [:accept, :destroy]
   subtabs :index => [ [:most_active, "activity_rate desc"], [:newest, "created_at desc"],
@@ -363,6 +363,15 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       format.css
+    end
+
+  end
+
+  def modetect
+    @group = Group.find_by_slug_or_id(params[:id])
+
+    respond_to do |format|
+      format.js
     end
 
   end
