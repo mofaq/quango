@@ -1,0 +1,43 @@
+
+- content_for :after_form do
+
+  .container
+    .heading
+      = "Mobile Redirection"
+    .note
+      = "If you have an existing website and wish to automatically redirect your visitors to your MOFAQ if they are using a mobile device then simply paste the following code into the &lt;head&gt;&lt;/head&gt; section of your website."
+
+
+    -# Just do Australia for now - internationalize later
+    .about
+      .dark-down.inset
+        .mobile-form{:style=>"padding:0px 16px"}
+          .group
+
+            - code_snippet = ""
+            - code_snippet = code_snippet + "<script type=\"text/javascript\">"
+            - code_snippet = code_snippet + "var mofaqId = \"#{current_group.id}\";"
+            - code_snippet = code_snippet + "document.write(unescape(\"%3Cscript src='http://mofaq.com/modetect.js?mofaqId=\"+ mofaqId +\"' type='text/javascript'%3E%3C/script%3E\"));"
+            - code_snippet = code_snippet + "</script>"
+
+            %textarea{:readonly=>true,:class=> "text_field_mobile_edit", :style => "background:white;height:128px;font-size:0.9em;color:black;font-family:monospace;", :disabled => "disabled"}
+              -#%code{:height=>"128px;width:440px;"}
+              = h(code_snippet)
+
+          .note
+            = "Highlight all of the above (Triple left click) and then press CTRL+C to copy, or Right-click and choose 'Copy' from the menu."
+
+        .clear
+
+    .tips
+      %ul
+        %li
+          = "I have pasted the code into the website and nothing happens... Help!"
+
+
+
+
+
+
+
+
