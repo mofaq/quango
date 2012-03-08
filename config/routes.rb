@@ -58,7 +58,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :adbards
   map.resources :badges
   #system pages
-  map.resources :pages, :member => {:css => :get, :js => :get}, :as => "about"
+  map.resources :pages, :member => {:css => :get, :js => :get}, :as => "pages"
   map.resources :announcements, :collection => {:hide => :any }
   map.resources :imports, :collection => {:send_confirmation => :post}
 

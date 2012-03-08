@@ -9,11 +9,28 @@
   -#= javascript_include_tag 'modules/depressed'
 
 
+.container
+  %h3.heading
+    = "Action Button Preview"
+  .note
+    = "This is how the button will look on y<u>our</u> MOFAQ welcome screen"
+
+
+.container{:style=>"margin:0;padding:16px;width:480px;"}
+  .inset
+    -if !current_group.action_button_note.empty?
+      .note{:style=>"text-align:center; "}
+        = "#{current_group.action_button_note}"
+    .empty{:style=>"margin:0 auto;width:480px;"}
+      .inner-button.submit{:style=>"text-align:center;margin:16px 32px; width:400px;height:56px;line-height:56px;"}
+        = link_to "#{current_group.action_button_text}","#{current_group.action_button_link}", :style=>"color:#{current_group.text_colour};font-size:1.5em;letter-spacing:-2px;"
+
+    .clear
 
 
 .container
-  .heading{:style=>"height:32px; line-height:32px;"}
-    = "Action Button"
+  %h3
+    = "Action Button Settings"
 
 
     -#-form_for(current_group, :html => {:class => "form", :multipart => true}) do |f|
@@ -43,6 +60,8 @@
       .group
         .note
           = "Action Button Note"
+        %small
+          = "just leave blank if not required)"
         = f.text_field :action_button_note, :class=> "text_field_mobile_edit", :style => "font-size:1em"
       .group
         .note

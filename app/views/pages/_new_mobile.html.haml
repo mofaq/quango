@@ -1,0 +1,44 @@
+
+- content_for :custom_javascript do
+  -require_js "jquery.min"
+  -require_js "jquery.textarea"
+  -require_js "showdown"
+  -require_js "modules/editor"
+
+- content_for :css do
+  -require_css "editor"
+
+
+
+-content_for :main do
+
+
+  .container{:style=>"padding:0 16px 32px 16px;"}
+
+    %h3
+      = "Create static page"  
+
+    .container.inset{:style=>"padding:16px 16px 32px 16px;"}
+
+      - form_for(@page, :html=>{:class => "form", :id => "new_page"}) do |f|
+        .answer-form-holder
+          .answer-form
+            .note
+              = "Page title"
+
+            = f.text_area :title, :class => "text_field_mobile_edit"
+
+            .note
+              = "Use markdown for advanced formatting"
+
+            = f.text_area :body, :class => "text_area_mobile_edit", :id => "markdown_editor"
+
+            = f.hidden_field :language, :value => (current_group.language || AppConfig.default_language)
+
+            .group
+              %button.inner-button.submit
+                = "Create Static page"
+              = link_to t('scaffold.cancel'), pages_path, :class => "inner-button cancel"
+        .clear
+
+

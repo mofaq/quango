@@ -41,9 +41,16 @@
 
 -content_for :main do
   #main-index
-    .markdown
+    .container.markdown
+      %h1
+        = @page.title
       -if safe_page?(@page)
         -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
         = RDiscount.new(render_page_links(body)).to_html
       -else
         = markdown(@page.body)
+
+
+
+
+

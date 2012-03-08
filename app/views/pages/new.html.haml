@@ -1,23 +1,13 @@
+- rendering_start = Time.now
+- is_mobile = params[:mobile]
 
--content_for :subtabs do
-  .navtitle
-    = t(".title")
-
--content_for :sidebar do
-  = ""
 
 -content_for :main do
   #main-index
 
-  - form_for(@page, :html=>{:class => "form", :id => "new_page"}) do |f|
-    =render :partial => "form", :locals => {:f => f}
+  - if is_mobile || current_group.group_type == "mobile"
+    = render :partial => "/pages/new_mobile"
+  - else
+    = render :partial => "/pages/new"
 
-    .group.navform
-      .right
-        -if current_user.mod_of?(current_group)
-          = f.label :wiki, "Wiki", :class => "radio"
-          = f.check_box :wiki, :class => "checkbox"
 
-      = f.submit t('scaffold.create')
-      = t("global.or")
-      = link_to t('scaffold.cancel'), pages_path, :class => "button cancel"
