@@ -52,6 +52,12 @@ class Group
   key :other_groups_twitter, String, :default => "http://www.twitter.com"
   key :other_groups_google, String, :default => "http://www.google.com"
 
+  key :action_button, Boolean, :default => false
+  key :action_button_note, String, :default => "Find out about our..."
+  key :action_button_text, String, :default => "Free consultation"
+  key :action_button_link, String, :default => "http://"
+  key :action_button_tel, String, :default => "tel:"
+
   key :display_name, String, :default => "moFAQ"
 
   key :has_strapline, Boolean, :default => true

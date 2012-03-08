@@ -1,0 +1,67 @@
+- content_for :css do
+  %style
+    -#= "input[type=\'checkbox\']{display:none}"
+    = ".check_box{text-align:center; line-height:32px;padding:4px 8px;}"
+
+-content_for :custom_javascript do
+
+  -#= javascript_include_tag 'jquery.min'
+  -#= javascript_include_tag 'modules/depressed'
+
+
+
+
+.container
+  .heading{:style=>"height:32px; line-height:32px;"}
+    = "Action Button"
+
+
+    -#-form_for(current_group, :html => {:class => "form", :multipart => true}) do |f|
+      -#= f.error_messages
+      -#- source = headers_path
+      -#= hidden_field_tag :source, source
+
+
+
+
+
+-# Just do Australia for now - internationalize later
+.container{:padding=>"16px 16px 32px 16px"}
+  .dark-down.inset
+    .mobile-form{:style=>"padding:0px 16px"}
+      .group
+        .note
+          = "Visibility settings"
+        %table{:style=>"width:440px;"}
+          %tr
+            %td{:style=>"width:28%;"}
+              = f.check_box :action_button
+              = f.label :action_button, "Show the action button on welcome page",:style=>"position:relative;top:-12px;"
+
+ 
+
+      .group
+        .note
+          = "Action Button Note"
+        = f.text_field :action_button_note, :class=> "text_field_mobile_edit", :style => "font-size:1em"
+      .group
+        .note
+          = "Action Button Text"
+        = f.text_field :action_button_text, :class=> "text_field_mobile_edit", :style => "font-size:1em"
+      .group
+        .note
+          = "Links to ( for web pages prefix with \'http://\' and for phones prefix with \'tel:\' )..."
+        = f.text_field :action_button_link, :class=> "text_field_mobile_edit", :style => "font-size:1em"
+
+
+
+      .group
+        %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
+          = "Save Action Button"
+
+    .clear
+
+.tips
+  %ul
+    %li
+      = "NOTES"

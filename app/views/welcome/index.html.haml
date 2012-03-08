@@ -7,21 +7,40 @@
 
 -content_for :main do
 
+
+
+
+
   #accordion
     %dl.accordian#slider
 
-      %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
+      %dt.container{:style=>"width:480px;padding:0;"}
         .inner-button
           = link_to "Our details","#",:class=>"inner-button-link"
       %dd.container{:style=>"width:480px;padding:0;"}
         = render :partial => "mobile_about"
         .clear
 
+      -if current_group.action_button?
+        %div.container{:style=>"margin:0;padding:16px 0 16px 0;width:480px;background:#{current_group.secondary};"}
+          .inset
+            -#.note{:style=>"text-align:center; "}
+              -#= "#{current_group.action_button_note}"
+            .empty{:style=>"margin:0 auto;width:480px;"}
+              .inner-button.submit{:style=>"text-align:center;margin:16px 32px; width:400px;height:56px;line-height:56px;"}
+                = link_to "#{current_group.action_button_text}","#{current_group.action_button_link}", :style=>"color:#{current_group.text_colour};"
+
+
+
+            .clear
+        -#%dd.container{:style=>"display:none;width:480px;padding:16px;"}
+
+
       %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
         .inner-button
           = link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
       %dd.container{:style=>"width:480px;padding:0;"}
-        -#= render :partial => "mobile_faq"
+        = render :partial => "mobile_faq"
         .clear
 
       %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
