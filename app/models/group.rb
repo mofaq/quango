@@ -58,6 +58,12 @@ class Group
   key :action_button_link, String, :default => "http://"
   key :action_button_tel, String, :default => "tel:"
 
+  key :welcome_faq, Boolean, :default => true
+
+  key :has_custom_section, Boolean, :default => false
+  key :custom_section, String
+
+
   key :display_name, String, :default => "moFAQ"
 
   key :has_strapline, Boolean, :default => true

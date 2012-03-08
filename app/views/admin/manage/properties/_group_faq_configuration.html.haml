@@ -1,6 +1,14 @@
+- content_for :css do
+  %style
+    -#= "input[type=\'checkbox\']{display:none}"
+    = ".check_box{text-align:center; line-height:32px;padding:4px 8px;height:32px;width:32px;font-size:8em;}"
+
+
+
+
 .container
   .heading
-    = "FAQ Configuration"
+    = "FAQ configuration"
   .note
     = "These settings control the FAQ section of your MOFAQ homepage"
 
@@ -11,9 +19,15 @@
       .mobile-form{:style=>"padding:0px"}
 
         .group
+          = f.check_box :welcome_faq, :class => "check_box"
+          = f.label "Show the FAQ section on the welcome page"
+
+
+
+        .group
           .note
             = "Allow questions from visitors?"
-          = f.check_box :has_quick_create, :class => "checkbox"
+          = f.check_box :has_quick_create, :class => "check_box"
 
         .group
           .note
@@ -23,7 +37,7 @@
 
         .group
           %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
-            = "Save"
+            = "Save FAQ configuration"
         .clear
 
   .tips

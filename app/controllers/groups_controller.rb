@@ -226,7 +226,7 @@ class GroupsController < ApplicationController
   # PUT /groups/1
   # PUT /groups/1.json
   def update
-    @group.safe_update(%w[group_type name name_highlight name_link name_highlight_link disable_signups client_type action_button action_button_link action_button_text action_button_note action_button_tel
+    @group.safe_update(%w[group_type name name_highlight name_link name_highlight_link disable_signups client_type action_button action_button_link action_button_text action_button_note action_button_tel welcome_faq
                           other_groups_facebook other_groups_linkedin other_groups_twitter other_groups_google
                           group_address_i group_address_ii group_city group_state group_region group_postcode group_phone group_fax group_place_reference
                           display_name group_website group_generic_email quick_create quick_create_heading

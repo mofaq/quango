@@ -12,8 +12,8 @@
 
 
 .container
-  .heading{:style=>"height:32px; line-height:32px;"}
-    = "Header settings"
+  %h3.heading{:style=>"height:32px; line-height:32px;"}
+    = "Header text settings"
 
 
     -#-form_for(current_group, :html => {:class => "form", :multipart => true}) do |f|
@@ -26,12 +26,15 @@
 
 
 -# Just do Australia for now - internationalize later
+
+
+
 .container{:padding=>"16px 16px 32px 16px"}
   .dark-down.inset
     .mobile-form{:style=>"padding:0px 16px"}
       .group
         .note
-          = "Visibility settings"
+          = "Visibility:"
         %table{:style=>"width:440px;"}
           %tr
             %td{:style=>"width:28%;"}
@@ -77,7 +80,23 @@
 
     .clear
 
-.tips
-  %ul
-    %li
-      = "NOTES"
+.container{:style=>"width:480px;padding:16px;"}
+  .note{:style=>"height:3em;line-height:3em;border-top:1px dotted #{current_group.tertiary}"}
+    = "Related settings pages"
+  %button.inner-button{:style=>"text-align:center;width:480px;height:56px;line-height:32px;font-size:1.5em;"}
+    = link_to "Header configuration", "/headers",:style=>"color:white;margin-right:16px;"
+    = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+  .clear
+
+.container{:style=>"width:480px;padding:16px 16px 32px 16px;"}
+  .note{:style=>"height:3em;line-height:3em;border-top:1px dotted #{current_group.tertiary}"}
+    = "Help guide"
+
+  .tips
+    %ul
+      %li
+        = "What is this all about?"
+
+
+
+

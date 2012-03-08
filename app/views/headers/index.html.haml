@@ -7,18 +7,16 @@
  
 - content_for :main do
 
-  .container{:style=>"background-color:#{current_group.primary};height:64px;width:480px;padding-top:12px;"}
-
 
 
 
   .container.light-down{:style=>"height:80px;line-height:64px;border-top:1px solid #{current_group.primary_dark};"}
     .heading.left
-      = "My Headers"
+      = "Header configuration"
 
     .right{:style=>"margin-top:16px;"}
       %button.inner-button.submit.right{:onclick=>"window.location=\'#{new_header_path}\'", :style=>"width:202px;"}
-        = "Add Images"
+        = "Add Headers"
 
 
 
@@ -54,8 +52,15 @@
 
       - else
         .container
-          = "No images have been uploaded yet..."
+          = "No headers have been uploaded yet..."
 
+  .container{:style=>"width:480px;padding:16px 16px 32px 16px;"}
+    .note{:style=>"height:3em;line-height:3em;border-top:1px dotted #{current_group.tertiary}"}
+      = "Related settings pages"
+    %button.inner-button{:style=>"text-align:center;width:480px;height:56px;line-height:32px;font-size:1.5em;"}
+      = link_to "Header text settings", "/manage/properties?tab=group_header_text",:style=>"color:white;margin-right:16px;"
+      = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+    .clear
 
 
 -content_for :javascript_init do
