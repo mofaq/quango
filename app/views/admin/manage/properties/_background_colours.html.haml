@@ -1,0 +1,44 @@
+-require_js "modules/colour_sliders.js"
+-require_js "modules/slider.js"
+-content_for :javascript_init do
+  :javascript
+    slider_init();
+
+
+.container{:style=>"width:512px;padding:0;"}
+
+  #palette{:style=>"width:80%;height:56px;margin:5px 10%;float:left"}
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :primary_dark, :hsl => "0.0,0.0,0.0", :onclick => "swatch_click('group_primary_dark');", :class => "colorwell colorwell-selected",:style => "color: #{current_group.primary_dark};background: #{current_group.primary_dark}"
+      = f.hidden_field :primary_dark_backup, :value=>"stuff"
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :primary, :hsl => "0.0,0.0,0.11", :onclick => "swatch_click('group_primary');", :class => "colorwell",:style => "color: #{current_group.primary};background: #{current_group.primary}"
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :secondary, :hsl => "0.0,0.0,0.33", :onclick => "swatch_click('group_secondary');", :class => "colorwell",:style => "color: #{current_group.secondary};background: #{current_group.secondary}"
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :tertiary, :hsl => "0.0,0.0,0.66", :onclick => "swatch_click('group_tertiary');", :class => "colorwell",:style => "color: #{current_group.tertiary};background: #{current_group.tertiary}"
+    .form-item{:style=>"float:left;height:20%;"}
+      = f.text_field :text_colour, :hsl => "0.0,0.0,0.0", :onclick => "swatch_click('group_text_colour');", :class => "colorwell",:style => "color: #{current_group.text_colour};background: #{current_group.text_colour}"
+
+  #colour-sliders{:style=>"width:422px;height:140px;float:right;"}
+
+
+  .clear
+
+  #palette-indicator{:style=>"width:512px;height:64px;margin:0;border-radius:8px;"}
+    .container
+      %button{:type=>"button",:class=>"inner-button",:onclick=>"location.reload(true);",:style=>"float:left;width:32%;margin-right:2%;"}
+        = "Reset"
+      %button{:type=>"button",:class=>"inner-button",:onclick=>"invertSwatches();",:style=>"float:left;width:32%;"}
+        = "Invert"
+      %button{:type=>"button",:class=>"inner-button",:onclick=>"set_auto();",:style=>"float:right;width:33%;",:type=>"button",:id=>"auto-colours"}
+        = "Auto"
+
+  #submit{:style=>"width:512px;height:72px;margin:0;border-radius:8px;"}
+    .container
+      %button{:name=>"submit_type",:value=>"colour_preview",:class => "submit-button",:style=>"width:30%;float:left;margin:1.5%"}
+        = "Preview"
+      %button{:name=>"submit_type",:value=>"colour_undo",:class => "submit-button",:style=>"width:30%;float:left;margin:1.5%"}
+        = "Undo"
+      %button{:name=>"submit_type",:value=>"colour_save",:class => "submit-button",:style=>"width:30%;float:left;margin:1.5%"}
+        = "Save"

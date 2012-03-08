@@ -226,7 +226,32 @@ class GroupsController < ApplicationController
   # PUT /groups/1
   # PUT /groups/1.json
   def update
-    @group.safe_update(%w[group_type name name_highlight name_link name_highlight_link disable_signups client_type action_button action_button_link action_button_text action_button_note action_button_tel welcome_faq
+    if params[:submit_type] == 'colour_preview'
+      params[:group][:primary_dark_backup] = @group[:primary_dark]
+      params[:group][:primary_backup] = @group[:primary]
+      params[:group][:secondary_backup] = @group[:secondary]
+      params[:group][:tertiary_backup] = @group[:tertiary]
+      params[:group][:text_colour_backup] = @group[:text_colour]
+    elsif (params[:submit_type] == 'colour_undo') && (@group[:primary_backup] != nil)
+      params[:group][:primary_dark] = @group[:primary_dark_backup]
+      @group[:primary_dark_backup] = nil
+      params[:group][:primary] = @group[:primary_backup]
+      @group[:primary_backup] = nil
+      params[:group][:secondary] = @group[:secondary_backup]
+      @group[:secondary_backup] = nil
+      params[:group][:tertiary] = @group[:tertiary_backup]
+      @group[:tertiary_backup] = nil
+      params[:group][:text_colour] = @group[:text_colour_backup]
+      @group[:text_colour_backup] = nil
+    elsif params[:submit_type] == 'colour_save'
+      @group[:primary_dark_backup] = nil
+      @group[:primary_backup] = nil
+      @group[:secondary_backup] = nil
+      @group[:tertiary_backup] = nil
+      @group[:text_colour_backup] = nil
+    end
+    @group.safe_update(%w[primary_dark_backup primary_backup secondary_backup tertiary_backup text_colour_backup
+                          group_type name name_highlight name_link name_highlight_link disable_signups client_type action_button action_button_link action_button_text action_button_note action_button_tel welcome_faq
                           other_groups_facebook other_groups_linkedin other_groups_twitter other_groups_google
                           group_address_i group_address_ii group_city group_state group_region group_postcode group_phone group_fax group_place_reference
                           display_name group_website group_generic_email quick_create quick_create_heading
