@@ -171,7 +171,9 @@ class Group
   key :toolbar_bg, String
   key :toolbar_bg_image, String
   key :primary, String, :default => "#202020" #tabs, 
+  key :primary_backup, String
   key :primary_dark, String, :default => "#000000" #tabs, 
+  key :primary_dark_backup, String
   key :primary_hover, String, :default => "#E1A970" #header_bg and edit buttons
   key :primary_selected, String, :default => "#990000"
 
@@ -182,10 +184,12 @@ class Group
   key :custom_toolbar_image_info, Hash, :default => {"width" => 64, "height" => 32}
 
   key :secondary, String, :default => "#404040" #tabs,
+  key :secondary_backup, String
   key :secondary_hover, String, :default => "orange"
   key :secondary_selected, String, :default => "#E1A970"
   key :secondary_active, String, :default => "#990000"
   key :tertiary, String, :default => "#606060" #tabs, 
+  key :tertiary_backup, String
   key :complementary, String, :default => "#007500" #tabs, 
 
   key :secondary_navigation_bg, String, :default => "gainsboro"
@@ -194,6 +198,7 @@ class Group
   key :edit_button_bg_image, String, :default => "/images/default_button_bg.png"
   key :link_colour, String, :default => "#532a2a"
   key :text_colour, String, :default => "#ffffff"
+  key :text_colour_backup, String
 
   key :supplementary_dark, String, :default => "#A64300" #action buttons and anything requiring high visibility
   key :supplementary, String, :default => "#FF6600" #action buttons and anything requiring high visibility
