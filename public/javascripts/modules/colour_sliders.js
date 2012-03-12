@@ -7,8 +7,8 @@ var colorSquare;
 var slHue;
 var slSaturation;
 var slLightness;
-var start_top = 275;
-var start_left = 122;
+var start_top = 264;
+var start_left = 32;
 var swatches = [];
 var auto = false;
 
@@ -17,16 +17,16 @@ function slider_init(){
 	slSaturation=new SliderControl();
 	slLightness=new SliderControl();
 
-	slHue.setSize(270,15);
+	slHue.setSize(448,40);
 	slHue.setPosition(start_left,start_top);
 	slHue.setTracking(true, false);
 
-	slSaturation.setSize(270,15);
-	slSaturation.setPosition(start_left,start_top+20);
+	slSaturation.setSize(448,40);
+	slSaturation.setPosition(start_left,start_top+56);
 	slSaturation.setTracking(true, false);
 
-	slLightness.setSize(270,15);
-	slLightness.setPosition(start_left,start_top+40);
+	slLightness.setSize(448,40);
+	slLightness.setPosition(start_left,start_top+112);
 	slLightness.setTracking(true, false);
 
   colorSquare = document.getElementById('group_primary_dark');

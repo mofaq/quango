@@ -45,7 +45,18 @@
 
   #submit{:style=>"width:512px;height:72px;margin:0;border-radius:8px;"}
     .container
-      %button{:class => "submit-button",:style=>"width:66%;float:left"}
+      %button{:class => "inner-button",:style=>"width:66%;float:left"}
         = "Preview"
-      %button{:class => "submit-button",:style=>"width:33%;float:right"}
+      %button{:class => "inner-button submit",:style=>"width:33%;float:right"}
         = "Save"
+
+
+  .container{:style=>"width:480px;padding:16px 16px 32px 16px;"}
+    .note{:style=>"height:3em;line-height:3em;border-top:1px dotted #{current_group.tertiary}"}
+      = "Related settings pages"
+    %button.inner-button{:style=>"text-align:center;width:480px;height:56px;line-height:32px;font-size:1.5em;"}
+      = link_to "Header text settings", "/manage/properties?tab=group_header_text",:style=>"color:white;margin-right:16px;"
+      = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+    .clear
+
+

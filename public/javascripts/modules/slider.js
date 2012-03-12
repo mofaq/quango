@@ -168,7 +168,7 @@ function SliderControlSetColors(color,thumbColor) {
   this.color=color;
   this.thumbColor=thumbColor;
   this.slider.style.backgroundColor=this.color;
-  this.thumb.style.backgroundColor=this.thumbColor;
+  //this.thumb.style.backgroundColor=this.thumbColor;
 }
 
 // set x and y values and optionally notify listener
@@ -222,9 +222,9 @@ function SliderControlSetThumbSize(sz) {
 function SliderControl(id) {
   // set a bunch of default values
   //container = document.getElementById('colour-sliders');
-  this.thumbWidth=3;
-  this.thumbHeight=3;
-  this.thumbSize=3;
+  this.thumbWidth=34;
+  this.thumbHeight=34;
+  this.thumbSize=34;
   this.xValue=0;
   this.yValue=0;
   this.x=0;
@@ -240,6 +240,7 @@ function SliderControl(id) {
   this.isMouseDown=false;
   // set up main slider body
   this.slider = document.createElement('div');
+  this.slider.className="slider-trough";
   this.slider.style.zIndex=5;
   this.slider.style.width=this.width+"px";
   this.slider.style.height=this.height+"px";
@@ -270,12 +271,13 @@ function SliderControl(id) {
   this.slider.onmousemove=this.mouseMove;
   // set up 'thumb' element
   this.thumb = document.createElement('div');
+  this.thumb.className="slider-marker";
   this.thumb.style.zIndex=6;
   this.thumb.style.width=this.thumbWidth+"px";
   this.thumb.style.height=this.thumbHeight+"px";
   this.thumb.style.left=(this.x+this.mouseX)+"px";
-  this.thumb.style.top=(this.y+this.mouseY)+"px";
-  this.thumb.style.backgroundColor=this.thumbColor;
+  this.thumb.style.top=(this.y+this.mouseY+64)+"px";
+  // this.thumb.style.backgroundColor=this.thumbColor;
   this.thumb.style.visibility='visible';
   this.thumb.style.position='absolute';
   this.thumb.style.fontSize='0';

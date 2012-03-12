@@ -4,10 +4,16 @@
   :javascript
     slider_init();
 
+- content_for :css do
+  :css
+    .colorwell{height:56px;width:72px;}
+    .slider-trough{-webkit-box-shadow:0 0 8px black;outline: none;transition: all 0.25s ease-in-out;border: 3px solid silver;border-radius: 16px;}
+    .slider-marker{width: 34px;height: 34px;margin: 0;overflow: hidden;background: url(/images/marker.png) no-repeat;}
+
 
 .container{:style=>"width:512px;padding:0;"}
 
-  #palette{:style=>"width:80%;height:56px;margin:5px 10%;float:left"}
+  #palette{:style=>"height:56px;margin:5px auto;float:left"}
     .form-item{:style=>"float:left;height:20%;"}
       = f.text_field :primary_dark, :hsl => "0.0,0.0,0.0", :onclick => "swatch_click('group_primary_dark');", :class => "colorwell colorwell-selected",:style => "color: #{current_group.primary_dark};background: #{current_group.primary_dark}"
       = f.hidden_field :primary_dark_backup, :value=>"stuff"
@@ -20,7 +26,7 @@
     .form-item{:style=>"float:left;height:20%;"}
       = f.text_field :text_colour, :hsl => "0.0,0.0,0.0", :onclick => "swatch_click('group_text_colour');", :class => "colorwell",:style => "color: #{current_group.text_colour};background: #{current_group.text_colour}"
 
-  #colour-sliders{:style=>"width:422px;height:140px;float:right;"}
+  #colour-sliders{:style=>"width:422px;height:200px;float:right;"}
 
 
   .clear
@@ -36,9 +42,20 @@
 
   #submit{:style=>"width:512px;height:72px;margin:0;border-radius:8px;"}
     .container
-      %button{:name=>"submit_type",:value=>"colour_preview",:class => "submit-button",:style=>"width:30%;float:left;margin:1.5%"}
+      %button{:name=>"submit_type",:value=>"colour_preview",:class => "inner-button",:style=>"width:30%;float:left;margin:1.5%"}
         = "Preview"
-      %button{:name=>"submit_type",:value=>"colour_undo",:class => "submit-button",:style=>"width:30%;float:left;margin:1.5%"}
+      %button{:name=>"submit_type",:value=>"colour_undo",:class => "inner-button",:style=>"width:30%;float:left;margin:1.5%"}
         = "Undo"
-      %button{:name=>"submit_type",:value=>"colour_save",:class => "submit-button",:style=>"width:30%;float:left;margin:1.5%"}
+      %button{:name=>"submit_type",:value=>"colour_save",:class => "inner-button submit",:style=>"width:30%;float:left;margin:1.5%"}
         = "Save"
+
+
+  .container{:style=>"width:480px;padding:16px 16px 32px 16px;"}
+    .note{:style=>"height:3em;line-height:3em;border-top:1px dotted #{current_group.tertiary}"}
+      = "Related settings pages"
+    %button.inner-button{:style=>"text-align:center;width:480px;height:56px;line-height:32px;font-size:1.5em;"}
+      = link_to "Switch to colour wheel", "/manage/properties?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
+      = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+    .clear
+
+

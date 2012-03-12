@@ -49,3 +49,19 @@
         = "Preview"
       %button{:class => "inner-button submit",:style=>"width:33%;float:right"}
         = "Save"
+
+
+
+  .container{:style=>"width:480px;padding:16px 16px 32px 16px;"}
+    .note{:style=>"height:3em;line-height:3em;border-top:1px dotted #{current_group.tertiary}"}
+      = "Related settings pages"
+    %button.inner-button{:style=>"text-align:center;width:480px;height:56px;line-height:32px;font-size:1.5em;"}
+      = link_to "Switch to colour sliders", "/manage/properties?tab=background_colours",:style=>"color:white;margin-right:16px;"
+      = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+    .clear
+
+
+
+
+
+
