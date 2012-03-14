@@ -2,10 +2,13 @@
 .container{:style=>"width:480px;padding:4px 0;margin:0 16px 32px 16px;font-size:0.7em;border:0;"}
   .footer
     .left{:style=>"width:40%"}
-      = link_to "MOFAQ", "#{AppConfig.site.to_s}", :title => "Every business needs a mobile FAQ", :style=>"font-weight:bold;letter-spacing:-1px;"
-      = " v" + AppConfig.version.to_s
 
-      = "<a style='border-radius:2px;background-color: #{current_group.secondary};color:white;padding:0 4px;letter-spacing:-1px;font-size:10px;font-weight:normal;'>BETA</a></br>"
+      = link_to "MOFAQ", "#{AppConfig.site.to_s}", :title => "Every business needs a mobile FAQ", :style=>"padding:4px 0;font-weight:bold;letter-spacing:-1px;"
+
+
+      = "<a style='border-radius:2px;background-color: #{current_group.secondary};color:white;padding:0 4px ;letter-spacing:-1px;font-size:11px;font-weight:bold;float:left;'>BUSINESS</a></br>"
+      .small{:style=>"margin-top:2px;color:gainsboro"}
+        = " v" + AppConfig.version.to_s + " | beta"
 
     .right{:style=>"display:none"}
       = "<a style='border-radius:2px;background-color: #{current_group.secondary};color:white;padding:0 4px;letter-spacing:-1px;font-size:10px;font-weight:normal;'>BETA</a></br>"
