@@ -11,8 +11,8 @@
       .mobile-form{:style=>"padding:0px 16px"}
         .group
 
-          -#@group.has_custom_js? ? custom_css = @group.custom_js.read : custom_js = ""
-          = "Analytics - full members only"
+          
+          = f.text_area :group_analytics, :value => group_analytics, :class=> "text_field_mobile_edit", :style => "height:128px;font-size:1em"
 
         .group
           %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
@@ -23,7 +23,7 @@
   .tips
     %ul
       %li
-        = "How to modify and target styles in MOFAQ"
+        = "How to get your Google Analytics tracking code"
 
 
 
