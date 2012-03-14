@@ -8,7 +8,7 @@
     - if current_group.default_header
       - header = Header.find(current_group.default_header)
       - base_header = header.header.process(:thumb,header.header_cropping)
-      - base_header1 = base_header.process(:thumb,"512x")
+      - base_header1 = base_header.process(:thumb,"464x")
       - base_header2 = base_header1.encode(:png, '-quality 80')
 
     - if @subscription || !current_group.default_header
@@ -18,25 +18,27 @@
       - expired_header1 = expired_header.encode(:png, '-quality 80')
       - header_image = expired_header1.url
 
-    #header{:style=>"height:136px; background-image:url(#{header_image});/*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
+    #header.darkish{:style=>"padding-top:16px;height:116px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
-      - if current_group.logo_only? && current_group.text_only?
+      .inset{:style=>"margin:0 16px 0 16px;width:464px;height:96px;background-image:url(#{header_image});"}
 
-        .container{:style => "padding:0;height:80px;width:512px; float:left;z-index:2;position:absolute;top:28px;left:0px;"}
-          .logo-mobile{:style => "width:512px"}
-            .name
-              = link_to h(current_group.display_name), "#{domain_url(:custom => current_group.domain)}", :style=>"text-shadow:-1px -1px 2px black,1px 1px 2px #{current_group.tertiary};color:#{current_group.text_colour};"
-          
+        - if current_group.logo_only? && current_group.text_only?
+
+          .container{:style => "padding:0;height:80px;width:512px; float:left;z-index:2;position:absolute;top:28px;left:0px;"}
+            .logo-mobile{:style => "width:512px"}
+              .name
+                = link_to h(current_group.display_name), "#{domain_url(:custom => current_group.domain)}", :style=>"text-shadow:-1px -1px 2px black,1px 1px 2px #{current_group.tertiary};color:#{current_group.text_colour};"
+            
+            -if current_group.has_strapline?
+              .clear
+              .strapline{:style => "text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};"}
+                ="#{current_group.strapline}" 
+
+        - elsif current_group.logo_only? && !current_group.text_only?
           -if current_group.has_strapline?
-            .clear
+
             .strapline{:style => "text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};"}
               ="#{current_group.strapline}" 
-
-      - elsif current_group.logo_only? && !current_group.text_only?
-        -if current_group.has_strapline?
-
-          .strapline{:style => "text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};"}
-            ="#{current_group.strapline}" 
 
 
     .clear
@@ -44,17 +46,17 @@
 
   - else
 
-    #header.light-down{:style=>"height:134px", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
+    #header.light-down{:style=>"padding-top:16px;padding-bottom:4px;height:116px", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
+      .inset{:style=>"margin:0 16px 0 16px;width:464px;height:96px"}
+        .container{:style => "padding:0 16px;float:left;z-index:2;position:absolute;top:32px;left:0px;"}
+          .logo-mobile
+            .name
+              = link_to h(current_group.display_name), "#{domain_url(:custom => current_group.domain)}", :style=>"text-shadow:-1px -1px 2px black,1px 1px 2px #{current_group.tertiary};color:#{current_group.text_colour}"
+          
+          -if current_group.has_strapline?
+            .clear
+            .strapline{:style => "text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};"}
+              ="#{current_group.strapline}" 
 
-      .container{:style => "padding:0;height:80px;width:512px; float:left;z-index:2;position:absolute;top:28px;left:0px;"}
-        .logo-mobile{:style => "width:512px"}
-          .name
-            = link_to h(current_group.display_name), "#{domain_url(:custom => current_group.domain)}", :style=>"text-shadow:-1px -1px 2px black,1px 1px 2px #{current_group.tertiary};color:#{current_group.text_colour}"
-        
-        -if current_group.has_strapline?
-          .clear
-          .strapline{:style => "text-shadow:-1px -1px 1px #{current_group.primary_dark},1px 1px 2px #{current_group.secondary};color:#{current_group.text_colour};"}
-            ="#{current_group.strapline}" 
-
-
+        .clear
 
