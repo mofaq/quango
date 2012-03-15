@@ -16,7 +16,7 @@
 
       -if current_group.action_button?
         %div.container{:style=>"margin:0;padding:8px 0 8px 0;width:480px;"}
-          .inset{:style=>"background:#{current_group.primary};"}
+          .inset{:style=>"background:#{current_group.primary};margin:0"}
             -if !current_group.action_button_note.empty?
               .note{:style=>"text-align:center; "}
                 = "#{current_group.action_button_note}"
