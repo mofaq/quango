@@ -20,7 +20,7 @@
 
     #header.darkish{:style=>"padding-top:16px;height:156px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
-      .inset{:style=>"margin:0 16px 0 16px;width:464px;height:128px;background-image:url(#{header_image});"}
+      .inset{:style=>"margin:0 16px 0 16px;width:462px;height:126px;background-image:url(#{header_image});border:1px solid #{current_group.primary_dark};"}
 
         - if current_group.logo_only? && current_group.text_only?
 
