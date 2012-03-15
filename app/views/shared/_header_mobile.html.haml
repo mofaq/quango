@@ -8,7 +8,7 @@
     - if current_group.default_header
       - header = Header.find(current_group.default_header)
       - base_header = header.header.process(:thumb,header.header_cropping)
-      - base_header1 = base_header.process(:thumb,"480x")
+      - base_header1 = base_header.process(:thumb,"512x")
       - base_header2 = base_header1.encode(:png, '-quality 80')
 
     - if @subscription || !current_group.default_header
@@ -18,9 +18,9 @@
       - expired_header1 = expired_header.encode(:png, '-quality 80')
       - header_image = expired_header1.url
 
-    #header.darkish{:style=>"padding-top:16px;height:116px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
+    #header.darkish{:style=>"padding-top:16px;height:156px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
-      .inset{:style=>"margin:0 16px 0 16px;width:464px;height:96px;background-image:url(#{header_image});"}
+      .inset{:style=>"margin:0 16px 0 16px;width:464px;height:128px;background-image:url(#{header_image});"}
 
         - if current_group.logo_only? && current_group.text_only?
 
@@ -46,8 +46,8 @@
 
   - else
 
-    #header.light-down{:style=>"padding-top:16px;padding-bottom:4px;height:116px", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
-      .inset{:style=>"margin:0 16px 0 16px;width:464px;height:96px"}
+    #header.light-down{:style=>"padding-top:16px;padding-bottom:4px;height:156px", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
+      .inset{:style=>"margin:0 16px 0 16px;width:464px;height:128px"}
         .container{:style => "padding:0 16px;float:left;z-index:2;position:absolute;top:32px;left:0px;"}
           .logo-mobile
             .name
