@@ -33,9 +33,10 @@
 
 -content_for :main do
   .container{:style=>"background:#{current_group.secondary};"}
-    .heading{:style=>"height:32px;line-height:32px;padding:16px 0 0;"}
+    .subheading{:style=>"height:32px;line-height:32px;padding:16px 0 0;"}
       = "Add a new image"
-
+    .note
+      = "Tip: For optimum results use a 480x144px 8bit .PNG file"
 
   #accordion
     %dl.accordian#slider

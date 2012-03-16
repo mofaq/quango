@@ -14,8 +14,8 @@ class Header
   key :copyright, String, :default => "cc-by-3.0"
   key :copyright_url, String
   key :header_uid, String
-  key :header_width, Integer, :default => 512
-  key :header_height, Integer, :default => 156
+  key :header_width, Integer, :default => 480
+  key :header_height, Integer, :default => 144
   key :header_cropping, String
   key :is_default, Boolean, :default => false
 
@@ -25,9 +25,9 @@ class Header
   belongs_to :group
   validates_presence_of :group_id
 
-  THUMB_W = 512
-  THUMB_H = 156
-  CROP_W = 512
+  THUMB_W = 480
+  THUMB_H = 144
+  CROP_W = 480
 
   validates_format_of :name, :with => /\A[a-z0-9]+\z/i
 

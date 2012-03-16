@@ -42,7 +42,7 @@
 
 
   - dragonfly_link = "/media/" << @header.header_uid.to_s
-  - cropped_header = @header.header.process(:thumb, 'x512')
+  - cropped_header = @header.header.process(:thumb, '480x')
 
   - @base_header = @default_thumbnail
   -# base_header = @header.header.process(:thumb,header.header_cropping)
@@ -90,7 +90,7 @@
     .clear
     .crop-container
       .crop
-        = image_tag cropped_header.url, :width => "512px", :id => 'cropbox'
+        = image_tag cropped_header.url, :width => "480px", :id => 'cropbox'
 
     #accordion
       %dl.accordian#slider
@@ -114,7 +114,7 @@
 
 - content_for :custom_header do
   - cropped_header = @header.header.process(:thumb, 'x512')
-  %div{:style => "width:512px;height:136px;overflow:hidden;position:absolute;top:28px;left:0px;z-index:11;"}
+  %div{:style => "width:480px;height:144px;overflow:hidden;position:absolute;top:28px;left:0px;z-index:11;"}
     = image_tag (cropped_header.url, :width => "256px", :id => 'preview')
 
   .container{:style=>"margin:16px;border:1px solid yellow;height:104px;z-index:11;"}
