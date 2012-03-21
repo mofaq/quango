@@ -1,0 +1,37 @@
+-content_for :main do
+
+  #main-index
+
+    %h1
+      = "Listing locs for"
+      = @group.name
+    %small
+      = link_to @group.name, locations_path(@group)
+
+    %p
+      = link_to 'New location', new_location_path
+
+    %p
+      %table
+        %tr
+          %th
+            = "name"
+          %th
+            = "city"
+          %th
+            = "actions"
+        - @group.locations.each do |location|
+          %tr
+            %td
+              = location.name.to_s
+            %td
+              = location.loc_city.to_s
+            %td
+              = link_to 'Show', location_path(location)
+              = link_to 'Edit', edit_location_path(@group,location)
+              = link_to 'Destroy', location_path(location), :confirm => 'Are you sure?', :method => :delete
+
+
+
+
+

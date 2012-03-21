@@ -1,0 +1,26 @@
+- location = local_assigns[:location]
+
+
+.location
+
+  .map-holder{:style=>"width:232px; height:323px"}
+
+    .map{:id => "map_canvas", :style=>"width:232px; height:232px"}
+
+.clear
+
+
+
+
+-content_for :javascript_init do
+  :javascript
+    function initMap() {
+      var map = null;
+      var geo = new google.maps.LatLng(#{current_group.group_latitude},#{current_group.group_longitude})
+      var address = [
+        "# { location.name}"
+      ];
+
+ 
+      map = createMap(geo,address);
+    }

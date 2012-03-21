@@ -178,6 +178,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.header_callback '/headers/callback', :controller => 'headers', :action => 'callback', :method => :post
 
+  map.resources :locations
+
   map.resources :headers, :member => {:callback => :get,:crop => :get,
                                               :pull => :get, 
                                               :set_default_header => :get, 

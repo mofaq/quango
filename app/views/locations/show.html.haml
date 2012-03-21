@@ -1,0 +1,13 @@
+-content_for :main do
+
+  #main-index
+
+    %h1
+      = "Showing location"
+
+    %p
+      = @location.name
+
+    %p
+      = link_to 'Edit', edit_location_path
+      = link_to 'Back', locations_path

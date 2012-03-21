@@ -45,9 +45,26 @@
           = render :partial => "mobile_faq"
           .clear
 
-      %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
-        .inner-button{:onclick=>"initMap()"}
-          = link_to "Location","javascript:initMap()",:class => "inner-button-link"
+
+
+      -if current_group.locations.count > 1
+
+        %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
+          .inner-button{:onclick=>"initMap()"}
+            = link_to "Locations","javascript:initMap()",:class => "inner-button-link"
+        %dd.container{:style=>"width:480px;padding:0;"}
+          = render :partial => "locations/locations_map", :locals => {:expanded => false}
+          .clear
+
+      -else
+
+        %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
+          .inner-button{:onclick=>"initMap()"}
+            = link_to "Location","javascript:initMap()",:class => "inner-button-link"
+        %dd.container{:style=>"width:480px;padding:0;"}
+          = render :partial => "mobile_map", :locals => {:expanded => false}
+          .clear
+
       %dd.container{:style=>"width:480px;padding:0;"}
         = render :partial => "mobile_map", :locals => {:expanded => false}
         .clear

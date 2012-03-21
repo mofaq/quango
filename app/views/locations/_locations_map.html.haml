@@ -1,0 +1,27 @@
+- expanded = local_assigns[:expanded]
+
+
+
+%table
+  %tr
+    %th
+      = "Store"
+    %th
+      = "Location"
+  - @group.locations.each do |location|
+    %tr
+      %td
+        = location.name.to_s
+      %td
+        = location.loc_city.to_s
+
+
+  - @group.locations.each do |location|
+    = render :partial => "/locations/location", :location => location
+
+
+
+-content_for :custom_javascript do
+
+  %script{:type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyAlzkt8p7MDY0igloVFWD1-kQ2wYynxLgs&sensor=false"}
+  %script{:type => "text/javascript", :src => "/javascripts/modules/google_maps.js"}
