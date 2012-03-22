@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
 
-  before_filter :login_required, :except => [:index, :show]
-  before_filter :check_permissions, :only => [:edit, :update, :close]
+  before_filter :login_required, :except => [:pages, :index, :show, :logo,:sponsor_logo_wide,:sponsor_logo_narrow,:modetect,:group_style,:group_style_mobile, :css, :signup_button_css, :favicon, :background]
+  #before_filter :check_permissions, :only => [:edit, :update, :close]
 
   # GET /locations
   # GET /locations.xml

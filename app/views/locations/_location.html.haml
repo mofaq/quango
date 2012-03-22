@@ -59,11 +59,6 @@
       open(map#{counter},marker#{counter});
       return map#{counter};
     }
-
-
-
--content_for :javascript_init do
-  :javascript
     function initMap#{counter}() {
       var map#{counter} = null;
       var geo#{counter} = new google.maps.LatLng(#{location.latitude},#{location.longitude})
@@ -72,7 +67,12 @@
 
       map#{counter} = createMap#{counter}(geo#{counter});
     }
-    //initMap#{counter}();
+
+
+-content_for :javascript_init do
+  :javascript
+
+    initMap#{counter}();
 
 
 
