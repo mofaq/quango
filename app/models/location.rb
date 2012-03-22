@@ -12,7 +12,10 @@ class Location
   key :loc_state, String, :default => "VIC"
   key :loc_region, String, :default => "Australia"
   key :loc_postcode, String, :default => "3000"
-  key :loc_phone, String, :default => "1800MOFAQ"
+  key :loc_phone, String, :default => "0425425550"
+
+  key :latitude, String, :default => "-37.816608"
+  key :longitude, String, :default => "144.890106"
 
 
   timestamps!

@@ -1,18 +1,52 @@
 -content_for :main do
 
-  #main-index
+  #main-index{:style=>"padding:16px;"}
+    .container.inset{:style=>"padding:16px; width:448px; margin:0"}
 
-    %h1
-      = "Editing bunny"
+      -#= @geo_location.inspect()
 
-    %p
-      - form_for @bunny, :url => item_bunny_path(@item.doctype_id, @item), :html =>{ :method => :put } do |f|
-        = f.error_messages
-        %p
-          = f.text_field :name, :value => @bunny.name
-        %p
-          = f.submit 'Update'
+      %h1
+        = "Editing Location"
 
-    %p
-      = link_to 'Show', item_bunny_path
-      = link_to 'Back', item_bunnies_path
+      %p
+        - form_for @location,:url => location_path(@location),  :html =>{ :method => :put } do |f|
+          = f.error_messages
+          %p
+            = f.text_field :name, :value => @location.name, :class => "text_field_mobile_edit"
+
+          %p
+            .note
+              = "Address"
+            = f.text_field :loc_address_i, :value => @location.loc_address_i, :class => "text_field_mobile_edit"
+
+          %p
+            .note
+              = "City"
+            = f.text_field :loc_city, :value => @location.loc_city, :class => "text_field_mobile_edit"
+
+          %p
+            .note
+              = "Ohone"
+            = f.text_field :loc_phone, :value => @location.loc_phone, :class => "text_field_mobile_edit"
+
+          %h1
+            = "Calculate #{@address}"
+
+
+          %p
+            .note
+              = "Lat (#{@geo_location.lat.to_s})"
+            = f.text_field :latitude, :value => @location.latitude, :class => "text_field_mobile_edit"
+
+          %p
+            .note
+              = "Lng (#{@geo_location.lng.to_s})"
+            = f.text_field :longitude, :value => @location.longitude, :class => "text_field_mobile_edit"
+
+
+          %p
+            = f.submit 'Update'
+
+      %p
+        = link_to 'Show', location_path
+        = link_to 'Back', locations_path

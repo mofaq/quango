@@ -48,11 +48,17 @@
 
 
       -if current_group.locations.count > 1
+        - counter = 0
+        - js_string = ""
+        - current_group.locations.each do |loc|
+          - counter = counter + 1
+          - js_string = js_string + "initMap#{counter}();"
+
 
         %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
-          .inner-button{:onclick=>"initMap()"}
-            = link_to "Locations","javascript:initMap()",:class => "inner-button-link"
-        %dd.container{:style=>"width:480px;padding:0;"}
+          .inner-button{:onclick=>"#{js_string}"}
+            = link_to "Locations","javascript:#{js_string}",:class => "inner-button-link"
+        %dd.container{:style=>"width:480px;padding:0;min-height:440px;"}
           = render :partial => "locations/locations_map", :locals => {:expanded => false}
           .clear
 
@@ -65,9 +71,9 @@
           = render :partial => "mobile_map", :locals => {:expanded => false}
           .clear
 
-      %dd.container{:style=>"width:480px;padding:0;"}
-        = render :partial => "mobile_map", :locals => {:expanded => false}
-        .clear
+      -#%dd.container{:style=>"width:480px;padding:0;"}
+        -#= render :partial => "mobile_map", :locals => {:expanded => false}
+        -#.clear
 
 -content_for :javascript_init do
 

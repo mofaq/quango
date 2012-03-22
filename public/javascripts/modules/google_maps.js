@@ -1,7 +1,7 @@
 function createMap(geo,address) {
   var options = {
     center: geo,
-    zoom: 14,
+    zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     zoomControl: true,
     panControl: false,
@@ -20,10 +20,7 @@ function createMap(geo,address) {
 
   var overlay = new google.maps.InfoWindow({
     content: "<p style = \"color:black\">" +
-      address[0] + "<br/>" +
-      address[1] + "<br/>" +
-      address[2] + "<br/>" +
-      address[3] + "<br/>"
+      address[0] + "</p>"
   });
   overlay.open(map,marker);
   return map;

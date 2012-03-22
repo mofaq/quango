@@ -1,26 +1,83 @@
 - location = local_assigns[:location]
+- counter = local_assigns[:counter]
+- align = local_assigns[:align]
 
 
-.location
 
-  .map-holder{:style=>"width:232px; height:323px"}
+.inset.map-holder{:style=>"width:216px; height:416px;margin:0",:class=>"#{align}"}
+  .subheading{:style=>"height:32px;line-height:20px;margin:8px 0;"}
+    = location.loc_city
+    .inner-button.right{:style=>"font-size:0.8em;height:18px;line-height:18px;margin:0 0 4px 0;"}
+      = link_to  "[+]", location_path(location)
 
-    .map{:id => "map_canvas", :style=>"width:232px; height:232px"}
+  .map.inset{:id => "map_canvas#{counter}", :style=>"width:200px; height:200px; border-radius:8px;"}
 
-.clear
+  .note{:style=>"margin:8px 0 8px 0"}
+    .addr.sitename
+      %strong
+        = location.name
+    .addr.line1
+      = location.loc_address_i
+    .addr.city
+      = location.loc_city
+    .addr.state
+      = location.loc_state
+      = location.loc_postcode
+    .hr{:style=>"height:1px;width:100%;background:#{current_group.tertiary};"}
+    .addr.phone{:style=>"height:20px;line-height:20px;"}
+      = "☎ #{location.loc_phone}"
 
+  .inner-button.submit{:style=>"width:186px;height:32px;font-size:1.1em;letter-spacing:-1px;text-align:center;margin:0"}
+    = "☎ #{location.loc_city}"
+  .clear
+
+-content_for :custom_javascript do
+  :javascript
+    function createMap#{counter}(geo#{counter}) {
+      var options#{counter} = {
+        center: geo#{counter},
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControl: true,
+        panControl: false,
+        streetViewControl: false,
+        mapTypeControl: false
+      };
+      var canvas#{counter} = document.getElementById('map_canvas#{counter}');
+      var map#{counter} =  new google.maps.Map(canvas#{counter},options#{counter});
+
+
+      var marker#{counter} = new google.maps.Marker({
+        position: geo#{counter},
+        map: map#{counter},
+        title: "Stuff marker"
+      });
+
+      var overlay#{counter} = new google.maps.InfoWindow({
+        content: "x"
+      });
+      open(map#{counter},marker#{counter});
+      return map#{counter};
+    }
 
 
 
 -content_for :javascript_init do
   :javascript
-    function initMap() {
-      var map = null;
-      var geo = new google.maps.LatLng(#{current_group.group_latitude},#{current_group.group_longitude})
-      var address = [
-        "# { location.name}"
-      ];
+    function initMap#{counter}() {
+      var map#{counter} = null;
+      var geo#{counter} = new google.maps.LatLng(#{location.latitude},#{location.longitude})
+      var address#{counter} = null;
 
- 
-      map = createMap(geo,address);
+
+      map#{counter} = createMap#{counter}(geo#{counter});
     }
+    //initMap#{counter}();
+
+
+
+
+
+
+
+

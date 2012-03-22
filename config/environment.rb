@@ -55,7 +55,7 @@ Rails::Initializer.run do |config|
 
   config.gem "rake", :version => '0.8.7'
 
-
+  config.gem "google_maps_geocoder", :version => "~> 0.1.1"
 
   #config.gem "activesupport",:version => "3.0.3"
   #config.gem "paypal-recurring"

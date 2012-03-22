@@ -20,6 +20,7 @@
       var map = null;
       var geo = new google.maps.LatLng(#{current_group.group_latitude},#{current_group.group_longitude})
       var address = [
+        "#{current_group.display_name}",
         "#{current_group.group_address_i}",
         "#{current_group.group_address_ii}",
         "#{current_group.group_city}",

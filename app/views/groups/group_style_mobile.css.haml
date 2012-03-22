@@ -17,6 +17,11 @@
 \input[type="checkbox"] {font-size:2em;height:32px;}
 
 
+
+
+
+
+
 \#tabs li{display:inline;}
 \#tabs li.mark{width:96px;height:48px;}
 
@@ -167,9 +172,9 @@ border-radius:8px;
 
 
 \.map{height:256px;width:256px;background:#{stop4};}
-\.map-holder{height:256px;width:256px;border-radius:8px;background:#{stop5};}
+\.map-holder{height:256px;width:256px;border-radius:8px;}
 \.map-large{height:464px;width:464px;background:#{stop4};}
-\.map-large-holder{height:464px;width:464px;border-radius:8px;background:#{stop5};}
+\.map-large-holder{height:464px;width:464px;}
 
 
 \.heading{
@@ -822,17 +827,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 margin-top:12px;
 font-size:1.2em;
 padding:8px;
-border-radius: 8px;
+-#border-radius: 8px;
 color:white;
 font-weight:bold;
-\-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
-\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
+\-webkit-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
+\-moz-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
 
-border-top: 1px solid #{stop1};
-border-left: 1px solid #{stop1};
+border-top: 1px solid #{stop4};
+border-left: 1px solid #{stop4};
 border-bottom: 1px solid #{stop2};
 border-right: 1px solid #{stop2};
 }
+
+
+\.logo-inner{
+border-top: 1px solid #{stop3};
+border-left: 1px solid #{stop3};
+border-bottom: 1px solid #{stop2};
+border-right: 1px solid #{stop2};
+}
+
 
 
 \/*General styles*/
