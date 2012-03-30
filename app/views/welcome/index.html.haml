@@ -7,7 +7,12 @@
 
 -content_for :main do
 
-
+  -if current_group.locations.count > 1
+    - counter = 0
+    - js_string = ""
+    - current_group.locations.each do |loc|
+      - counter = counter + 1
+      - js_string = js_string + "initMap#{counter}();"
 
 
 
@@ -52,7 +57,8 @@
 
         %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
           .inner-button
-            = link_to "Locations","javascript:initMaps()",:class => "inner-button-link",:style=>"width:480px;height:32px;"
+            = link_to "Locations", "#",:class=>"inner-button-link"
+            -#= link_to "Locations","#", :onclick=>"initMaps();",:class => "inner-button-link",:style=>"width:480px;height:32px;"
         %dd.container{:style=>"width:480px;padding:0;min-height:440px;"}
           = render :partial => "locations/locations_map", :locals => {:expanded => false}
           .clear
@@ -60,8 +66,8 @@
       -else
 
         %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
-          .inner-button{:onclick=>"initMap()"}
-            = link_to "Location","javascript:initMap()",:class => "inner-button-link"
+          .inner-button{:onclick=>"initMap();"}
+            = link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
         %dd.container{:style=>"width:480px;padding:0;"}
           = render :partial => "mobile_map", :locals => {:expanded => false}
           .clear
@@ -72,18 +78,11 @@
 
 -content_for :javascript_init do
 
-  -if current_group.locations.count > 1
-    - counter = 0
-    - js_string = ""
-    - current_group.locations.each do |loc|
-      - counter = counter + 1
-      - js_string = js_string + "initMap#{counter}();"
+
 
 
   :javascript
-    function initMaps() {
-      #{js_string}
-    }
+
 
     var slider1=new accordion.slider("slider1");
     slider1.init("slider");

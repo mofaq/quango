@@ -31,7 +31,7 @@
     = "☎ #{location.loc_city}"
   .clear
 
--content_for :custom_javascript do
+-content_for :javascript_init do
   :javascript
     function createMap#{counter}(geo#{counter}) {
       var options#{counter} = {
@@ -45,7 +45,8 @@
       };
       var canvas#{counter} = document.getElementById('map_canvas#{counter}');
       var map#{counter} =  new google.maps.Map(canvas#{counter},options#{counter});
-
+      map#{counter}.panBy(-200,-200);
+      map#{counter}.panBy(100,100);
 
       var marker#{counter} = new google.maps.Marker({
         position: geo#{counter},
@@ -67,12 +68,12 @@
 
       map#{counter} = createMap#{counter}(geo#{counter});
     }
-
-
--content_for :javascript_init do
-  :javascript
-
     initMap#{counter}();
+
+-#content_for :javascript_init do
+  -#:javascript
+
+    -#initMap#{counter}();
 
 
 
