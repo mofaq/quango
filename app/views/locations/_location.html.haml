@@ -31,7 +31,7 @@
     = "☎ #{location.loc_city}"
   .clear
 
--content_for :javascript_init do
+-content_for :custom_javascript do
   :javascript
     function createMap#{counter}(geo#{counter}) {
       var options#{counter} = {
@@ -45,8 +45,8 @@
       };
       var canvas#{counter} = document.getElementById('map_canvas#{counter}');
       var map#{counter} =  new google.maps.Map(canvas#{counter},options#{counter});
-      map#{counter}.panBy(-200,-200);
-      map#{counter}.panBy(100,100);
+      map#{counter}.panBy(-100,-100);
+      //map#{counter}.panBy(100,100);
 
       var marker#{counter} = new google.maps.Marker({
         position: geo#{counter},
@@ -57,23 +57,22 @@
       var overlay#{counter} = new google.maps.InfoWindow({
         content: "x"
       });
-      open(map#{counter},marker#{counter});
+      //open(map#{counter},marker#{counter});
       return map#{counter};
     }
     function initMap#{counter}() {
       var map#{counter} = null;
-      var geo#{counter} = new google.maps.LatLng(#{location.latitude},#{location.longitude})
+      var geo#{counter} = new google.maps.LatLng(#{location.latitude},#{location.longitude});
       var address#{counter} = null;
 
 
       map#{counter} = createMap#{counter}(geo#{counter});
     }
+    //initMap#{counter}();
+
+-content_for :javascript_init do
+  :javascript
     initMap#{counter}();
-
--#content_for :javascript_init do
-  -#:javascript
-
-    -#initMap#{counter}();
 
 
 
