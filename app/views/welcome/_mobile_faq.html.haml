@@ -1,7 +1,7 @@
 - expanded = local_assigns[:expanded]
 
 .frame
-  .inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;background:#{current_group.primary};"}
+  .inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;border-top:1px solid #{current_group.tertiary};border-left:1px solid #{current_group.tertiary};border-bottom:1px solid #{current_group.primary};border-right:1px solid #{current_group.primary};"}
     .note{:style=>"padding:8px;font-weight:bold;"}
       = "Here are some of our most frequently asked questions"
 
@@ -17,17 +17,19 @@
                 = link_to "?", "#{item_path(item.doctype.name, item)}",:style=>"color:#{current_group.text_colour}"
 
             %td
-              .inset.question-title{:style=>"margin:8px 8px 4px 8px; background:#{current_group.secondary}"}
+              .question-title{:style=>"margin:8px 8px 4px 8px; background:#{current_group.secondary}"}
                 = link_to item.title, "#{item_path(item.doctype.name, item)}", :title => truncate(strip_tags(item.body), :length => 88), :style=>""
 
 
 
     .clear
 
-.frame
-  .inset{:style=>"text-align:center;padding:8px;border-radius:8px;margin-top:8px;background:#{current_group.primary};"}
-    = link_to "See more common questions", items_path(@doctype), :class=>"inner-button submit",:style=>"text-align:center;font-size:1.2em;line-height:2.4em;margin:8px auto;"
-    .clear
+- if false
+
+  .frame
+    .inset{:style=>"text-align:center;padding:8px;border-radius:8px;margin-top:8px;background:#{current_group.primary};"}
+      = link_to "See more common questions", items_path(@doctype), :class=>"inner-button submit",:style=>"text-align:center;font-size:1.2em;line-height:2.4em;margin:8px auto;"
+      .clear
 
 
 - if current_group.has_quick_create

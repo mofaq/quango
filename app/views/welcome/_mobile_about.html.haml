@@ -25,10 +25,10 @@
       - @group.locations.each do |location|
         .group
           .inner-button.submit{:style=>"margin:4px 8px;width:140px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
-            = link_to location.loc_city.to_s, location_path(location)
+            = link_to location.loc_city.to_s, location_path(location), :style=>"color:#{current_group.text_colour};"
    
       .note{:style=>"color:#{current_group.tertiary};"}
-        = "Please choose from above or click the &raquo;<span style=\'color:white;\'>Locations</span>&laquo; below"
+        = "Please choose from above or click the &raquo;<span style=\'color:#{current_group.text_colour};\'>Locations</span>&laquo; below"
 
 
     -else
