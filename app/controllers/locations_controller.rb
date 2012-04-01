@@ -85,7 +85,7 @@ class LocationsController < ApplicationController
   def update
 
     @location = Location.find(params[:id])
-    @location.safe_update(%w[name loc_address_i loc_address_ii loc_city loc_phone loc_state loc_region longitude latitude], params[:location])
+    @location.safe_update(%w[name loc_address_i loc_address_ii loc_city loc_phone loc_postcode loc_state loc_region longitude latitude], params[:location])
 
     @address = [@location.loc_address_i,@location.loc_city].join(',')
     @geo_location = GoogleMapsGeocoder.new(@address)

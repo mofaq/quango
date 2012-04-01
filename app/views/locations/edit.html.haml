@@ -23,10 +23,26 @@
             .note
               = "City"
             = f.text_field :loc_city, :value => @location.loc_city, :class => "text_field_mobile_edit"
+          %p
+            .note
+              = "State"
+            = f.text_field :loc_state, :value => @location.loc_state, :class => "text_field_mobile_edit"
 
           %p
             .note
-              = "Ohone"
+              = "Postcode"
+            = f.text_field :loc_postcode, :value => @location.loc_postcode, :class => "text_field_mobile_edit"
+          %p
+            .note
+              = "Region"
+            = f.text_field :loc_region, :value => @location.loc_region, :class => "text_field_mobile_edit"
+
+
+          %hr
+
+          %p
+            .note
+              = "Phone Number"
             = f.text_field :loc_phone, :value => @location.loc_phone, :class => "text_field_mobile_edit"
 
           %h1

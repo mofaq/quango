@@ -9,37 +9,56 @@
       = "About us"
     = current_group.description
 
+    -if current_group.group_website != ""
+      .clear
+      .group{:style=>"padding:16px 0 8px;"}
+        .inner-button{:onclick=>"window.location=\'http://#{current_group.group_website}?noredirection=true\'",:style=>"text-align:center;line-height:48px;"}
+          = "Visit main website"    
+
   .frame.inset.right{:style=>"width:40%;padding:8px;border-radius:4px;background:#{current_group.primary}"}
 
-    .heading{:style=>"font-size:100%;"}
-      = "#{current_group.display_name}"
-    .group
-      = "#{current_group.group_address_i}"
-    .group
-      = "#{current_group.group_address_ii}"
-    .group
-      = "#{current_group.group_city}"
-    .group
-      = "#{current_group.group_state} "
-      = "#{current_group.group_postcode}"
+    -if current_group.locations.count > 1
 
-    .group{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
-      = "#{current_group.group_region}"
+      .heading{:style=>"font-size:100%;"}
+        = "Our locations..."
 
-    -if current_group.group_phone
-      %hr{:style=>"margin-top:8px"} 
-      .subheading{:style=>"padding:8px 0;"}
-        = "Tel:"
-        = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
-    -if !current_group.group_fax.nil?
+      - @group.locations.each do |location|
+        .group
+          .inner-button.submit{:style=>"margin:4px 8px;width:140px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
+            = link_to location.loc_city.to_s, location_path(location)
+   
+      .note{:style=>"color:#{current_group.tertiary};"}
+        = "Please choose from above or click the &raquo;<span style=\'color:white;\'>Locations</span>&laquo; below"
+
+
+    -else
+
+
+      .heading{:style=>"font-size:100%;"}
+        = "#{current_group.display_name}"
       .group
-        = "Fax: #{current_group.group_fax}"
+        = "#{current_group.group_address_i}"
+      .group
+        = "#{current_group.group_address_ii}"
+      .group
+        = "#{current_group.group_city}"
+      .group
+        = "#{current_group.group_state} "
+        = "#{current_group.group_postcode}"
 
-  -if current_group.group_website
-    .clear
-    .group{:style=>"padding:16px 0 8px;"}
-      .inner-button{:onclick=>"window.location=\'http://#{current_group.group_website}?noredirection=true\'",:style=>"text-align:center;line-height:48px;"}
-        = "Visit our main website"    
+      .group{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
+        = "#{current_group.group_region}"
+
+      -if current_group.group_phone
+        %hr{:style=>"margin-top:8px"} 
+        .subheading{:style=>"padding:8px 0;"}
+          = "Tel:"
+          = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
+      -if !current_group.group_fax == ""
+        .group
+          = "Fax: #{current_group.group_fax}"
+
+
 
 
   .clear
