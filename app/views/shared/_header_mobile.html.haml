@@ -10,14 +10,16 @@
       - base_header = header.header.process(:thumb,header.header_cropping)
       - base_header1 = base_header.process(:thumb,"480x144")
       - base_header2 = base_header1.encode(:png, '-quality 80')
+      - header_image = base_header2.url
 
-    - if @subscription || !current_group.default_header
-      - header_image = base_header2.url
-    - else
-      - expired_header = base_header2.process!(:watermark,:mark => 'public/images/mofaq/expired.png')
-      - expired_header1 = expired_header.encode(:png, '-quality 80')
+
+    -# if @subscription || !current_group.default_header
+      -# header_image = base_header2.url
+    -# else
+      -# expired_header = base_header2.process!(:watermark,:mark => 'public/images/mofaq/expired.png')
+      -# expired_header1 = expired_header.encode(:png, '-quality 80')
       -# header_image = expired_header1.url
-      - header_image = base_header2.url
+      -# header_image = base_header2.url
 
     #header.darkish{:style=>"padding-top:16px;height:156px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
