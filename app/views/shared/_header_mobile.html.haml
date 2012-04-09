@@ -16,7 +16,8 @@
     - else
       - expired_header = base_header2.process!(:watermark,:mark => 'public/images/mofaq/expired.png')
       - expired_header1 = expired_header.encode(:png, '-quality 80')
-      - header_image = expired_header1.url
+      -# header_image = expired_header1.url
+      - header_image = base_header2.url
 
     #header.darkish{:style=>"padding-top:16px;height:156px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
