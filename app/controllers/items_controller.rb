@@ -407,10 +407,10 @@ class ItemsController < ApplicationController
     if current_group.group_type == "mobile"
       @item = Item.new(params[:item])
 
-      #@doctypes = current_group.doctypes
-      #@doctype = @doctypes.find_by_id(params[:doctype_id])
+      @doctypes = current_group.doctypes
+      @doctype = params[:doctype_id]
 
-      #@item.doctype_id = @doctype.id
+      @item.doctype_id = @doctype
 
       #@item.tags = current_group.default_tags.first
 
@@ -621,7 +621,7 @@ class ItemsController < ApplicationController
 
 
 
-          format.html { redirect_to item_path(@doctype, @item)}
+          format.html { redirect_to item_path(@item.doctype_id, @item)}
         end
 
 
