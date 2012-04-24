@@ -8,7 +8,7 @@
         = link_to "MOFAQ", "#{AppConfig.site.to_s}", :title => "Every business needs a mobile FAQ", :style=>"color:white;float:left;padding:2px 0;font-size:10px;font-weight:bold;letter-spacing:-1px;"
 
 
-        = "<a style='border-radius:2px;padding: 2px 0 ;letter-spacing:-1px;font-size:10px;font-weight:bold;float:left;'>BUSINESS</a>"
+        = "<span style='color:#{current_group.secondary};border-radius:2px;padding: 2px 0 ;letter-spacing:-1px;font-size:10px;font-weight:bold;float:left;'>BUSINESS</span>"
       .right
         .small{:style=>"color:gainsboro;letter-spacing:-1px;font-size:10px;font-weight:bold;"}
           = AppConfig.version.to_s + " BETA"
@@ -23,8 +23,8 @@
         -#= "<a href='http://mocomm.co' style='border-radius:2px;border:1px solid #{current_group.primary};color:white;padding:0 4px ;letter-spacing:-1px;font-size:10px;font-weight:bold;float:left;' title='moCOMM.CO : the mobile commerce company'><small>M</small>MOCO</a> &sdot; the mobile commerce company</br>"
 
       .right
-        .small{:style=>"color:#{current_group.tertiary};letter-spacing:-1px;font-size:10px;font-weight:bold;"}
-          = "MELBOURNE &sdot; SYDNEY"
+        .small{:style=>"color:#{current_group.tertiary};letter-spacing:-1px;font-size:10px;font-weight:bold;text-transform:lowercase;"}
+          -#= "LONDON &sdot; MELBOURNE &sdot; SYDNEY &sdot; OTTAWA &sdot; viligili"
 
 
     .right{:style=>"display:none"}
