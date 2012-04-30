@@ -65,19 +65,19 @@
     %h1
       = @page.title
 
-
+    -if safe_page?(@page)
+      -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
+      = RDiscount.new(render_page_links(body)).to_html
+    -else
+      .container{:style=>"width:480px;padding:16px;"}
+        = markdown(@page.body)
 
   - if @page.custom_helper == true
     .container
       = "#{@page.custom_helper_ref.to_s}"
+      = render :partial => "#{@page.custom_helper_ref.to_s}", :locals => {:something => "meaningful"}
 
 
-  -if safe_page?(@page)
-    -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
-    = RDiscount.new(render_page_links(body)).to_html
-  -else
-    .container{:style=>"width:480px;margin:0 16px;"}
-      = markdown(@page.body)
 
   .space
     = "&nbsp;"
