@@ -3,9 +3,16 @@ require 'open-uri'
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-  def fetch_html_nodes(url,css_class)
-    doc = Nokogiri::HTML(open(url))
-    return doc.xpath("//div[@class='#{css_class}']").to_a
+  def fetch_html_nodes(domain,css_class)
+    doc = Nokogiri::HTML(open(domain))
+    nodes = doc.xpath("//div[@class='#{css_class}']")
+    nodes.css('a').each do |link|
+      url = link['href']
+      if url[0..0] == '/'
+        link['href'] = domain + url
+      end
+    end
+    return nodes.to_a
   end
 
   def has_subscription?(group)
