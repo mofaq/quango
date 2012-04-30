@@ -35,6 +35,14 @@
           = f.text_area :sponsor_description, :value => current_group.sponsor_description, :class=> "text_field_mobile_edit"
 
 
+
+
+        %hr
+          -AVAILABLE_LANGUAGES.sort.each do |lang|
+            .group
+              = f.label "footer", "footer", :class => "label"
+              = text_area_tag "group[custom_html][footer[#{lang}]]", @group.custom_html.footer[lang],:style=>"width:440px;height:48px;"
+
         .group
           %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
             = "Save"
