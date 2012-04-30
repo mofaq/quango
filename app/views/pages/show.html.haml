@@ -45,7 +45,7 @@
     .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
       .light                              
         .subheading.left
-          ="page"
+          ="#{@page.title}"
 
         - if logged_in?
           - if current_user.mod_of?(current_group)
@@ -58,24 +58,24 @@
 
 
 
-
-
-
-  .container.markdown
-    %h1
-      = @page.title
-
-    -if safe_page?(@page)
-      -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
-      = RDiscount.new(render_page_links(body)).to_html
-    -else
-      .container{:style=>"width:480px;padding:16px;"}
-        = markdown(@page.body)
-
   - if @page.custom_helper == true
     .container
-      = "#{@page.custom_helper_ref.to_s}"
+      -#= "#{@page.custom_helper_ref.to_s}"
       = render :partial => "#{@page.custom_helper_ref.to_s}", :locals => {:something => "meaningful"}
+  - else
+
+    .container.markdown
+      %h1
+        = @page.title
+
+      -if safe_page?(@page)
+        -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
+        = RDiscount.new(render_page_links(body)).to_html
+      -else
+        .container{:style=>"width:480px;padding:16px;"}
+          = markdown(@page.body)
+
+
 
 
 

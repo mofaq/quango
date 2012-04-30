@@ -2,7 +2,6 @@
 #suntheatre_movies
   - node_array = fetch_html_nodes("http://www.suntheatre.com.au","yco_movie")
   - node_array.each do |node|
-    = node.to_s
-    - unless node == node_array.last
-      .divider.inset
-      %br
+    .inset{:style=>"margin-bottom:16px;"}
+      = node.to_s
+      .clear
