@@ -1,0 +1,58 @@
+.container
+  .heading
+    = "Group Hierachy"
+  .note
+    = "Use at own risk!"
+
+
+  -# Just do Australia for now - internationalize later
+  .about
+    .dark-down.inset
+      .mobile-form{:style=>"padding:0px 16px"}
+        .group
+
+          = f.text_field :parent_id, :value => current_group.parent_id, :class=> "text_field_mobile_edit"
+
+        .group
+          = "Business Category"
+
+        %hr
+
+        .group
+          = "Has Sponsor?"
+          = f.check_box :has_sponsor, :value => current_group.has_sponsor
+
+        .group
+          = "Sponsor Name"
+          = f.text_field :sponsor_name, :value => current_group.sponsor_name, :class=> "text_field_mobile_edit"
+
+        .group
+          = "Sponsor Link"
+          = f.text_field :sponsor_link, :value => current_group.sponsor_link, :class=> "text_field_mobile_edit"
+
+        .group
+          = "Link to image"
+          = f.text_area :sponsor_description, :value => current_group.sponsor_description, :class=> "text_field_mobile_edit"
+
+
+        .group
+          %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
+            = "Save"
+
+      .clear
+
+  .tips
+    %ul
+      %li
+        = "How to modify and target styles in MOFAQ"
+
+
+
+
+
+
+
+
+
+
+

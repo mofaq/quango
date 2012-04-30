@@ -1,0 +1,39 @@
+.container
+  .heading
+    = "Custom Stylesheets"
+  .note
+    = "Override inbuilt styles here. Use at own risk!"
+
+
+  -# Just do Australia for now - internationalize later
+  .about
+    .dark-down.inset
+      .mobile-form{:style=>"padding:0px 16px"}
+        .group
+
+        -AVAILABLE_LANGUAGES.sort.each do |lang|
+          .group
+            = f.label "footer", "footer", :class => "label"
+            = text_area_tag "group[custom_html][footer[#{lang}]]", @group.custom_html.footer[lang], :class => "text_area_mobile"
+
+        .group
+          %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
+            = "Save"
+
+      .clear
+
+  .tips
+    %ul
+      %li
+        = "How to modify and target styles in MOFAQ"
+
+
+
+
+
+
+
+
+
+
+
