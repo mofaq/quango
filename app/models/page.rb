@@ -15,6 +15,10 @@ class Page
   key :language, String
   key :adult_content, Boolean, :default => false
 
+  key :custom_helper, Boolean, :default => false
+  key :custom_helper_ref, String, :default => "custom helper name"
+
+
   key :user_id, String
   belongs_to :user
 

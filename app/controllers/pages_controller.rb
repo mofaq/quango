@@ -91,7 +91,7 @@ class PagesController < ApplicationController
   # PUT /pages/1
   # PUT /pages/1.json
   def update
-    @page.safe_update(%w[title body tags language adult_content css js], params[:page])
+    @page.safe_update(%w[custom_helper custom_helper_ref title body tags language adult_content css js], params[:page])
     @page.updated_by = current_user
 
     @page.safe_update(%w[wiki], params[:page]) if current_user.mod_of?(current_group)

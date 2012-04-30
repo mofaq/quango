@@ -40,17 +40,47 @@
 
 
 -content_for :main do
-  #main-index
-    .container.markdown
-      %h1
-        = @page.title
-      -if safe_page?(@page)
-        -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
-        = RDiscount.new(render_page_links(body)).to_html
-      -else
-        = markdown(@page.body)
+
+  .container{:style=>"height:48px;width:480px;padding:16px;"}
+    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
+      .light                              
+        .subheading.left
+          ="page"
+
+        - if logged_in?
+          - if current_user.mod_of?(current_group)
+            .subheading.right
+              %ul.right{:style=>"list-style-type:none; display:inline;"}
+                %li{:style=>"display:inline"}
+                  = link_to "Delete", page_path(@page), :confirm => "Are you sure?", :method => :delete
+                %li{:style=>"display:inline"}
+                  = link_to "Edit", edit_page_path(@page), :class => "inner-button", :style=>"height:1.5em;"
 
 
+
+
+
+
+  .container.markdown
+    %h1
+      = @page.title
+
+
+
+  - if @page.custom_helper == true
+    .container
+      = "#{@page.custom_helper_ref.to_s}"
+
+
+  -if safe_page?(@page)
+    -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
+    = RDiscount.new(render_page_links(body)).to_html
+  -else
+    .container{:style=>"width:480px;margin:0 16px;"}
+      = markdown(@page.body)
+
+  .space
+    = "&nbsp;"
 
 
 
