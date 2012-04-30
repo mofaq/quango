@@ -1,5 +1,12 @@
+require 'open-uri'
+
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+
+  def fetch_html_nodes(url,css_class)
+    doc = Nokogiri::HTML(open(url))
+    return doc.xpath("//div[@class='#{css_class}']").to_a
+  end
 
   def has_subscription?(group)
     group.subscriptions.each do |sub|
