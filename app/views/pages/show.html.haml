@@ -74,7 +74,7 @@
 
   - if @page.custom_helper == true
     .container
-      = "#{@page.custom_helper_ref.to_s}"
+      -#= "#{@page.custom_helper_ref.to_s}"
       = render :partial => "#{@page.custom_helper_ref.to_s}", :locals => {:something => "meaningful"}
 
 
