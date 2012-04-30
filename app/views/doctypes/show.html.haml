@@ -25,9 +25,9 @@
 
 
 /Items
--content_for :doctype_head do
-  #doctype-listing{:class => @active_tab}
-    = render :partial => "items/doctype_head_summary", :locals => {:doctype => @active_doctype,  :list_mode => "standard"}
+-#content_for :doctype_head do
+  -##doctype-listing{:class => @active_tab}
+    -#= render :partial => "items/doctype_head_summary", :locals => {:doctype => @active_doctype,  :list_mode => "standard"}
 
 -content_for :main do
   #main-index

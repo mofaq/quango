@@ -10,22 +10,14 @@
           = "Clients"
 
         .subheading.right
-          %ul
+          %span.right
+            = link_to t(".newest", :default => :"items.index.newest"), groups_path(:tab=>"newest")
+          %span.right
+            = link_to t(".oldest", :default => :"items.index.oldest"), groups_path(:tab=>"oldest")
+          %span.right
+            = link_to t(".name", :default => :"items.index.name"), groups_path(:tab=>"name")
 
-            %li
-              = link_to t(".newest", :default => :"items.index.newest"), groups_path(:tab=>"newest"), :class => "inner-button"
-            %li
-              = link_to t(".oldest", :default => :"items.index.oldest"), groups_path(:tab=>"oldest"), :class => "inner-button"
-            %li
-              = link_to t(".name", :default => :"items.index.name"), groups_path(:tab=>"name"), :class => "inner-button"
 
-  .toolbox{:class => @active_subtab.to_s}
-    %form
-      %select{:onchange=>"window.location.href(this.options[this.selectedIndex].value,'_top')"}
-        %option{:value => groups_path(:tab=>"newest")}
-          = "Newest"
-        %option{:value => groups_path(:tab=>"oldest")}
-          = "Oldest"
 
 
     - if current_group.group_type == "mobile"

@@ -1,12 +1,39 @@
+-if current_group.has_sponsor?
 
-.clear
-.divider.inset{:style=>"margin:0 16px;height:4px;width:446px;padding:0 16px;background-color:#{current_group.primary};"}
+  .clear
+  .divider.inset{:style=>"margin:0 16px;height:4px;width:446px;padding:0 16px;background-color:#{current_group.primary};"}
+  .container{:style=>"padding:16px;text-align:center;"}
+    = current_group.custom_html.footer["en"]
 
--if current_user
-  -if current_user.owner_of?(current_group)
+  .clear
+  .divider{:style=>"margin:0 16px 24px 16px;line-height:64px;height:64px;width:446px;padding:0 16px;background-image:url(#{current_group.sponsor_description});overflow:hidden;", :onclick=>"window.location=('http:\/\/#{current_group.sponsor_link}')"}
+    -#= current_group.sponsor_description
+    = link_to current_group.sponsor_name, "http://" + current_group.sponsor_link, :style=>"font-weight:bold;color:#{current_group.text_colour};"
 
-    .footer-mobile{:style=>"width:480px;padding:16px;margin:0 16px 0 0;font-size:0.8em;border:0;"}
-      .footer
+
+
+
+
+
+
+
+.fade-out.footer-mobile{:style=>"width:480px;padding:16px;margin:0;font-size:0.8em;border:0;border-top:4px solid #{current_group.primary_dark};"}
+  -if current_user
+
+
+
+    .footer
+      .left{:style=>"width:50%; font-weight:bold;line-height:48px;letter-spacing:-1px;"}
+        = "Every business needs a mobile FAQ : <a href=\"http://mofaq.com/mobile/faq/id/5d04-why-does-my-business-need-a-mobile-faq\">Why?</a>"
+      .right
+        %button.inner-button{:onclick=>"window.location=\'#{new_group_path}/?mobile=true\'",:style=>"width:200px;"}
+          = "Free Trial"
+
+    -if current_user.owner_of?(current_group)
+      .clear
+
+
+      .footer{:style=>"margin-top:16px;"}
 
         .right
           %button.inner-button{:onclick=>"window.location=\'#{manage_properties_path}\'",:style=>"width:200px;"}
@@ -16,18 +43,6 @@
       .clear
 
 
-
-.container{:style=>"background:#{current_group.secondary}; margin:0;padding:0;height:4px;"}
-  .inset{:style=>"margin:0 16px;height:4px;width:446px;padding:0 16px;background-color:#{current_group.primary};"}
-
-.fade-out.footer-mobile{:style=>"width:480px;padding:16px;margin:0;font-size:0.8em;border:0"}
-  
-  .footer
-    .left{:style=>"width:50%; font-weight:bold;line-height:48px;letter-spacing:-1px;"}
-      = "Every business needs a mobile FAQ : <a href=\"http://mofaq.com/mobile/faq/id/5d04-why-does-my-business-need-a-mobile-faq\">Why?</a>"
-    .right
-      %button.inner-button{:onclick=>"window.location=\'#{new_group_path}/?mobile=true\'",:style=>"width:200px;"}
-        = "Get y<u>our</u> mobile FAQ"
   .clear
 
 

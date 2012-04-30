@@ -8,9 +8,7 @@ class Group
 
   BLACKLIST_GROUP_NAME = ["www","admin","ftp","mail","ftp","forum","mail","pop3","imap","secure","smtp"]
   CLIENT_TYPES = ["personal","business","corporate","enterprise","custom"]
-  PERSONAL_SUBTYPES = ["public","private"]
-  BUSINESS_SUBTYPES = ["retail","service"]
-  ENTERPRISE_SUBTYPES = ["retail","service"]
+  CLIENT_CATEGORIES = ["1","2"]
 
   key :_id, String
   key :parent_id, String #this will be used for groups hierarchies
@@ -27,7 +25,7 @@ class Group
   key :name, String, :required => true
   key :name_link, String
   key :client_type, String, :default => "business"
-
+  key :client_category, String, :default => "general"
 
   slug_key :title, :unique => false, :min_length => 4
   key :slugs, Array, :index => true

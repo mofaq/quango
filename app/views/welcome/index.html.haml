@@ -35,7 +35,7 @@
         -#%dd.container{:style=>"display:none;width:480px;padding:16px;"}
 
       %dt.container{:style=>"width:480px;padding:8px 0 0 0;"}
-        .inner-button
+        .inner-button{:style=>"border-radius:8px;"}
           = link_to "Our details","#",:class=>"inner-button-link"
       %dd.container{:style=>"width:480px;padding:0;"}
         = render :partial => "mobile_about"
@@ -44,8 +44,9 @@
 
       -if current_group.welcome_faq?
         %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
-          .inner-button
+          .inner-button{:style=>"border-radius:8px;"}
             = link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
+
         %dd.container{:style=>"width:480px;padding:0;"}
           = render :partial => "mobile_faq"
           .clear
@@ -56,7 +57,7 @@
       -if current_group.locations.count > 1
 
         %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
-          .inner-button
+          .inner-button{:style=>"border-radius:8px 8px 8px 8px;"}
             = link_to "Locations", "#",:class=>"inner-button-link"
             -#= link_to "Locations","#", :onclick=>"initMaps();",:class => "inner-button-link",:style=>"width:480px;height:32px;"
         %dd.container{:style=>"width:480px;padding:0;min-height:440px;"}
@@ -66,7 +67,7 @@
       -else
 
         %dt.container{:style=>"width:480px;padding:16px 0 0 0;"}
-          .inner-button{:onclick=>"initMap();"}
+          .inner-button{:onclick=>"initMap();",:style=>"border-radius:8px 8px 8px 8px"}
             = link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
         %dd.container{:style=>"width:480px;padding:0;"}
           = render :partial => "mobile_map", :locals => {:expanded => false}
