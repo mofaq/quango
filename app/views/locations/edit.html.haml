@@ -12,7 +12,13 @@
         - form_for @location,:url => location_path(@location),  :html =>{ :method => :put } do |f|
           = f.error_messages
           %p
+            = "Name"
             = f.text_field :name, :value => @location.name, :class => "text_field_mobile_edit"
+          %p
+            .note
+              = "Opening Hours"
+            = f.text_field :opening_hours, :value => @location.opening_hours, :class => "text_field_mobile_edit"
+
 
           %p
             .note
@@ -45,18 +51,34 @@
               = "Phone Number"
             = f.text_field :loc_phone, :value => @location.loc_phone, :class => "text_field_mobile_edit"
 
-          %h1
-            = "Calculate #{@address}"
 
+
+          %hr
 
           %p
             .note
-              = "Lat (#{@geo_location.lat.to_s})"
+              = "Show second button"
+            = f.check_box :show_alt_button, :value => @location.show_alt_button, :class => "text_field_mobile_edit"
+
+          %p
+            .note
+              = "Second button text"
+            = f.text_field :alt_button_text, :value => @location.alt_button_text, :class => "text_field_mobile_edit"
+          %p
+            .note
+              = "Second button link"
+            = f.text_field :alt_button_link, :value => @location.alt_button_link, :class => "text_field_mobile_edit"
+
+          %h1
+            = "Calculate #{@address}"
+          %p
+            .note
+              -#= "Lat (#{@geo_location.lat.to_s})"
             = f.text_field :latitude, :value => @location.latitude, :class => "text_field_mobile_edit"
 
           %p
             .note
-              = "Lng (#{@geo_location.lng.to_s})"
+              -#= "Lng (#{@geo_location.lng.to_s})"
             = f.text_field :longitude, :value => @location.longitude, :class => "text_field_mobile_edit"
 
 

@@ -14,8 +14,15 @@ class Location
   key :loc_postcode, String, :default => "3000"
   key :loc_phone, String, :default => "0425425550"
 
+  key :opening_hours1, String, :default => "Weekdays 9-6"
+  key :opening_hours2, String, :default => "Sun 11-4"
+
   key :latitude, String, :default => "-37.816608"
   key :longitude, String, :default => "144.890106"
+
+  key :show_alt_button, Boolean, :default => false
+  key :alt_button_text, :default => "Order Online"
+  key :alt_button_link, :default => "link"
 
 
   timestamps!
