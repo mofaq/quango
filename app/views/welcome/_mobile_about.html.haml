@@ -4,18 +4,12 @@
 
 .container{:style=>"padding:8px 0 0 0"}
 
-  .frame.inset.left{:style=>"width:50%;padding:8px;border-radius:4px;background:#{current_group.primary}"}
+  .frame.inset.left{:style=>"width:50%;padding:8px;border-radius:4px;Xbackground:#{current_group.primary}"}
     .subheading
       = "About us"
     = current_group.description
-
-    -if current_group.group_website != ""
-      .clear
-      .group{:style=>"padding:16px 0 8px;"}
-        .inner-button{:onclick=>"window.location=\'http:\/\/#{current_group.group_website}?noredirection=true\'",:style=>"text-align:center;line-height:48px;"}
-          = "Visit main website"    
-
-  .frame.inset.right{:style=>"width:40%;padding:8px;border-radius:4px;background:#{current_group.primary}"}
+  
+  .frame.inset.right{:style=>"width:40%;padding:8px;border-radius:4px;Xbackground:#{current_group.primary}"}
 
     -if current_group.locations.count > 1
 
@@ -58,11 +52,13 @@
         .group
           = "Fax: #{current_group.group_fax}"
 
-
-
-
   .clear
 
+  -if current_group.group_website != ""
+    .container{:style=>"padding:0;margin-top:16px;"}
+      .inset{:style=>"padding:16px;height:56px;"}
+        .inner-button.submit{:onclick=>"window.location=\'http:\/\/#{current_group.group_website}?noredirection=true\'",:style=>"width:416px;text-align:center;line-height:48px;"}
+          = "Visit main website"  
 
 
 
