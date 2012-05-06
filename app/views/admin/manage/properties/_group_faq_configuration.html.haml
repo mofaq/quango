@@ -15,24 +15,24 @@
 
   -# Just do Australia for now - internationalize later
   .about
-    .dark-down.inset
+    .darkish.inset
       .mobile-form{:style=>"padding:0px"}
 
-        .group
+
+
+        .inner-button
           = f.check_box :welcome_faq, :class => "check_box"
-          = f.label "Show the FAQ section on the welcome page"
+          = f.label :welcome_faq, "Show FAQ section on the welcome page"
 
-
-
-        .group
-          .note
-            = "Allow questions from visitors?"
+        .inner-button
           = f.check_box :has_quick_create, :class => "check_box"
+          = f.label :has_quick_create, "Allow questions from visitors?"
+
 
         .group
           .note
             = "Button label on homepage "
-          = f.text_field :quick_create_heading, :class=> "text_field_mobile"
+          = f.text_field :quick_create_heading, :class=> "text_field_mobile_edit"
 
 
         .group

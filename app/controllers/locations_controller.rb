@@ -49,13 +49,13 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @address = [@location.loc_address_i, @location.loc_city].join(',')
 
-    #@geo_location = GoogleMapsGeocoder.new(@address)
+    @geo_location = GoogleMapsGeocoder.new(@address)
 
     puts @address
     puts @geo_location
 
-    #@location.longitude = @geo_location.lng
-    #@location.latitude = @geo_location.lat
+    @location.longitude = @geo_location.lng
+    @location.latitude = @geo_location.lat
   end
 
   # POST /locations
@@ -127,7 +127,7 @@ class LocationsController < ApplicationController
 
   def google_maps
     @location = Location.find(params[:id])
-    address = [@location.loc_address_i, @location.loc_address_ii, @location.loc_city, @location.loc_state, @location.loc_region].join(', ')
+    address = [@location.loc_address_i, @location.loc_city, @location.loc_state, @location.loc_region].join(', ')
     address = CGI::escape(address)
     uri = "http://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false"
     response = http_request(uri,"GET")

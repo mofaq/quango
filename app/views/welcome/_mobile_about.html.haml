@@ -2,32 +2,32 @@
 
 
 
-.container{:style=>"padding:8px 0 0 0"}
 
 
-  .container{:style=>"padding:0;margin:16px 0;"}
-    .frame.inset.primary{:style=>"padding:16px;"}
-      %h2
+.inset.container{:style=>"padding:0;margin:16px 0;"}
+  .container{:style=>"padding:0;margin:0;"}
+    .holder{:style=>"padding:16px;"}
+      %h1
         = "#{current_group.display_name}"
       -if current_group.strapline != ""
         = "#{current_group.strapline}" 
 
-  .left{:style=>"width:50%;padding:8px 16px;border-radius:4px;Xbackground:#{current_group.primary}"}
+  .left{:style=>"width:33%;padding:8px 16px;border-radius:4px;Xbackground:#{current_group.primary}"}
     %h2
-      = "Our Business"
+      = "Who we are"
     = current_group.description
-  
-  .right{:style=>"width:190px;padding:8px 0 8px 0;border-radius:4px;Xbackground:#{current_group.primary}"}
+
+  .frame.inset.right{:style=>"margin-right:16px;width:198px;padding:16px;border-radius:8px;background:#{current_group.primary}"}
 
     -if current_group.locations.count > 1
 
       %h2
-        = "Locations..."
-
+        = "Locations"
+      
       - @group.locations.each do |location|
         .group
-          .inner-button.submit{:style=>"margin:4px 8px;width:156px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
-            = link_to location.loc_city.to_s, location_path(location), :style=>"color:#{current_group.text_colour};"
+          .inner-button.submit{:style=>"margin:4px 8px;width:148px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
+            = link_to location.name, location_path(location), :style=>"color:#{current_group.text_colour};"
    
       .note{:style=>"color:#{current_group.tertiary};"}
         = "Please choose from above or click the &raquo;<span style=\'color:#{current_group.text_colour};\'>Locations</span>&laquo; below"
@@ -39,19 +39,19 @@
         %h2
           = "Address"
 
-        .group
+        .address-name
           = "#{current_group.display_name}"
-        .group
+        .address-line-one
           = "#{current_group.group_address_i}"
-        .group
+        .address-line-two
           = "#{current_group.group_address_ii}"
-        .group
+        .address-city
           = "#{current_group.group_city}"
-        .group
+        .address-state
           = "#{current_group.group_state} "
           = "#{current_group.group_postcode}"
 
-        .group{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
+        .address-country{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
           = "#{current_group.group_region}"
 
         -if current_group.group_phone
@@ -64,25 +64,26 @@
           .subheading{:style=>"padding:8px 0;"}
             = "Tel:"
             = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
-        -if current_group.group_fax != ""
-          .group
-            = "Fax: #{current_group.group_fax}"
+          -if current_group.group_fax != ""
+            .subheading
+              = "Fax: "
+              =  "#{current_group.group_fax}"
 
   .clear
 
   -if current_group.group_hours != ""
-    .container{:style=>"padding:0;margin-top:16px;"}
-      .light.inset{:style=>"padding:16px;"}
+    .container{:style=>"padding:0;margin:16px 0;"}
+      .light{:style=>"padding:16px 16px 24px 16px;border-radius:8px"}
         %h2
           = "Opening hours: "
         = "#{current_group.group_hours}"  
 
 
-  -if current_group.group_website != ""
-    .container{:style=>"padding:0;margin-top:16px;"}
-      .primary.inset{:style=>"padding:16px;height:56px;"}
-        .inner-button.submit{:onclick=>"window.location=\'http:\/\/#{current_group.group_website}?noredirection=true\'",:style=>"width:416px;text-align:center;line-height:48px;"}
-          = "Visit main website"  
+-if current_group.group_website != ""
+  .container{:style=>"padding:0;margin-top:16px;"}
+    .primary.inset{:style=>"padding:16px;height:56px;"}
+      .inner-button.submit{:onclick=>"window.location=\'http:\/\/#{current_group.group_website}?noredirection=true\'",:style=>"width:384px;text-align:center;line-height:48px;height:48px;"}
+        = "Visit main website"  
 
 
 

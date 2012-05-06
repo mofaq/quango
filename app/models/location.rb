@@ -13,6 +13,7 @@ class Location
   key :loc_region, String, :default => "Australia"
   key :loc_postcode, String, :default => "3000"
   key :loc_phone, String, :default => "0425425550"
+  key :loc_fax, String
 
   key :opening_hours1, String, :default => "Weekdays 9-6"
   key :opening_hours2, String, :default => "Sun 11-4"

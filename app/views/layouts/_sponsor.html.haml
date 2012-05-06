@@ -1,0 +1,19 @@
+
+
+.clear
+.divider.inset{:style=>"margin:0 16px;height:4px;width:430px;padding:0 16px;background-color:#{current_group.primary};"}
+.container{:style=>"font-size:12px;padding:16px 0;text-align:center;"}
+  = current_group.custom_html.footer["en"]
+
+.clear
+.divider{:style=>"margin:0 16px 24px 16px;line-height:64px;height:64px;width:446px;padding:0 16px;background-image:url(#{current_group.sponsor_description});overflow:hidden;", :onclick=>"window.location=('http:\/\/#{current_group.sponsor_link}')"}
+  -#= current_group.sponsor_description
+  = link_to current_group.sponsor_name, "http://" + current_group.sponsor_link, :style=>"font-weight:bold;color:#{current_group.text_colour};"
+
+
+.clear
+.divider{:style=>"margin:0 16px;height:4px;width:430px;padding:0 16px 16px 16px;"}
+
+
+
+

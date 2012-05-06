@@ -9,7 +9,19 @@
 - alt2 = grp.supplementary
 - alt3 = grp.supplementary_lite
 
-\.expand{float:right;}
+\.expand{margin:4px;float:right;;line-height:36px;height:36px;width:36px;border-radius:18px;
+\-webkit-box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
+\-moz-box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
+
+border-top: 1px solid #{stop3};
+/*border-left: 1px solid #{stop3};*/
+border-bottom: 1px solid #{stop2};
+border-right: 1px solid #{stop2};
+background:#{stop2};
+
+background: -webkit-linear-gradient(top, #{stop4} 0%,#{stop3} 33%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
+
+}
 
 
 \.hidden{display:none}
@@ -605,7 +617,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 text-shadow:-1px -1px 0px #{stop2},1px 1px 0px #{stop3};
 background: #{stop1}; /* Old browsers */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(50%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop2} 50%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
+background: -webkit-linear-gradient(top, #{stop3} 0%,#{stop2} 33%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
 background: -moz-linear-gradient(top, #{stop2} 0%, #{stop2} 50%, #{stop1} 100%); /* FF3.6+ */
 background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
@@ -860,8 +872,9 @@ border-right: 1px solid #{stop2};
 
 \a{color:#{stop4};text-decoration: none;}
 \a:hover{color:#{stop2};text-decoration:none;} 
+\h1{text-shadow:-1px -1px 2px #{stop1},1px 1px 1px #{stop3};color:#{stop5};text-transform:uppercase;letter-spacing:-1px;font-size:2em;}
 \h2{text-shadow:-1px -1px 2px #{stop1},1px 1px 1px #{stop3};color:#{stop5};text-transform:uppercase;letter-spacing:-1px;font-size:1.3em;height:1.5em;}
-\h3{text-shadow:-1px -1px 2px #000000,2px 2px 1px #{stop2};margin:0 auto;height:3em;line-height:3em;}
+\h3{text-shadow:-1px -1px 2px #{stop1},1px 1px 1px #{stop3};margin:0 auto;height:1.3em;line-height:1.5em;}
 
 \ul{list-style-type:none;padding:0}
 \body{font-family:arial,helvetica,sans-serif;width:512px;margin:0 ;padding:0;color:#{stop5};background:#{stop1};

@@ -14,6 +14,8 @@ class Group
   key :parent_id, String #this will be used for groups hierarchies
   key :group_type, String, :default => "mobile"
 
+  key :is_directory, Boolean, :default => false
+
   key :agent_id, String #stores the agent id
   key :owner_id, String
 
@@ -60,6 +62,10 @@ class Group
   key :action_button_tel, String, :default => "tel:"
 
   key :welcome_faq, Boolean, :default => true
+  key :welcome_locations, Boolean, :default => true
+  key :welcome_directory, Boolean, :default => false
+  key :welcome_directory_heading, String, :default => "Directory"
+  key :welcome_directory_content, String, :default => "Some content..."
 
   key :has_custom_section, Boolean, :default => false
   key :custom_section, String

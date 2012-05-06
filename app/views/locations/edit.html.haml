@@ -4,9 +4,11 @@
     .container.inset{:style=>"padding:16px; width:448px; margin:0"}
 
       -#= @geo_location.inspect()
-
-      %h1
-        = "Editing Location"
+      .container
+        %h1
+          = "Editing Location"
+        .right
+          = link_to "Show", location_path(@location), :class => "inner-button", :style=>"height:1.5em;"
 
       %p
         - form_for @location,:url => location_path(@location),  :html =>{ :method => :put } do |f|
@@ -24,6 +26,7 @@
             .note
               = "Address"
             = f.text_field :loc_address_i, :value => @location.loc_address_i, :class => "text_field_mobile_edit"
+            = f.text_field :loc_address_ii, :value => @location.loc_address_ii, :class => "text_field_mobile_edit"
 
           %p
             .note

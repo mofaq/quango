@@ -1,13 +1,103 @@
 -content_for :main do
+  .container{:style=>"height:48px;width:464px;padding:16px;"}
+    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
+      .light                              
+        .subheading.left
+          ="#{@location.name}"
 
-  #main-index
+        - if logged_in?
+          - if current_user.mod_of?(current_group)
+            .subheading.right
+              %ul.right{:style=>"list-style-type:none; display:inline;"}
+                %li{:style=>"display:inline"}
+                  = link_to "Delete", location_path(@location), :confirm => "Are you sure?", :method => :delete
 
-    %h1
-      = "Showing location"
+                %li{:style=>"display:inline"}
+                  = link_to "Edit", edit_location_path(@location), :class => "inner-button", :style=>"height:1.5em;"
+  .container{:style=>"height:48px;width:464px;padding:0 16px;"}
 
-    %p
-      = @location.name
+    .inset.map-holder{:style=>"width:216px; height:auto;margin:0 0 16px 0",:class=>"left"}
+      .map.inset{:id => "map_canvas", :style=>"width:200px; height:200px; border-radius:8px;"}
 
-    %p
-      = link_to 'Edit', edit_location_path
-      = link_to 'Back', locations_path
+    .address{:style=>"font-weight:bold;float:right;"}
+      %h2
+        = "Address"
+
+      .address-name
+        = "#{@location.name}"
+      .address-line-one
+        = "#{@location.loc_address_i}"
+      .address-line-two
+        = "#{@location.loc_address_ii}"
+      .address-city
+        = "#{@location.loc_city}"
+      .address-state
+        = "#{@location.loc_state} "
+        = "#{@location.loc_postcode}"
+
+      .address-country{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
+        = "#{@location.loc_region}"
+
+      -if @location.loc_phone
+        .spacer{:style=>"margin-top:8px"} 
+        .inner-button.submit{:style=>"width:164px;height:32px;font-size:1.1em;letter-spacing:-1px;text-align:center;margin:4px auto;line-height:32px;float:right;"}
+          = link_to "☎ Click to call","tel:#{@location.loc_phone}",:style=>"color:#{current_group.text_colour};"
+        .clear
+
+      .note
+        = "#{@location.opening_hours}"
+
+
+
+
+
+
+-content_for :custom_javascript do
+  :javascript
+    function createMap(geo) {
+      var options = {
+        center: geo,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControl: true,
+        panControl: false,
+        streetViewControl: false,
+        mapTypeControl: false
+      };
+      var canvas = document.getElementById('map_canvas');
+      var map =  new google.maps.Map(canvas,options);
+      //map.panBy(-50,-50);
+      //map.panBy(100,100);
+
+      var marker = new google.maps.Marker({
+        position: geo,
+        map: map,
+        title: "Stuff marker"
+      });
+
+      var overlay = new google.maps.InfoWindow({
+        content: "x"
+      });
+      //open(map,marker);
+      return map;
+    }
+    function initMap() {
+      var map = null;
+      var geo = new google.maps.LatLng(#{@location.latitude},#{@location.longitude});
+      var address = null;
+
+
+      map = createMap(geo);
+    }
+    //initMap();
+
+-content_for :javascript_init do
+  :javascript
+    initMap();
+
+
+-content_for :custom_javascript do
+
+  %script{:type => "text/javascript", :src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyAlzkt8p7MDY0igloVFWD1-kQ2wYynxLgs&sensor=false"}
+  -#%script{:type => "text/javascript", :src => "/javascripts/modules/google_maps.js"}
+

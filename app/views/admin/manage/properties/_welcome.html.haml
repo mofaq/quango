@@ -2,10 +2,11 @@
 
 - if @subscription
   -content_for :after_form do
-    .container{:style=>""}
-      %h3.subheading
+    .container{:style=>"margin:0 0 8px 0;"}
+      %h1
         = "Settings"
-
+      %h3
+        = "Please choose from the options below"
 
 
     -# TODO: This is a bit of a hack really, will figure out a more elegant way later
@@ -14,135 +15,130 @@
     #accordion
       %dl.accordian#slider
 
-
-
-        %a{:name=>"1"}
-        %dt.container{:style=>"width:480px;padding:0;"}
+        .container{:style=>"width:464px;padding:0 0 16px 0;"}
           .inner-button
-            = link_to "Company Details","#1",:class=>"inner-button-link"
-        %dd.container{:style=>"width:480px;padding:0 0 16px 0;"}
-          .darkish.inset{:style=>"margin:16px 0"}
-            %ul.mobile
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Name & Description ", "?tab=group_description",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li{:style=>"display:none"}
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Business Type", "?tab=group_categories",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Contact Information", "?tab=group_information",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Physical Address", "?tab=group_address",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+            = link_to "Contact Details","?tab=group_description",:class=>"inner-button-link"
 
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Locations (Business+)", "/locations",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-
-
-              %li{:style=>"display:none"}
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-
-        %a{:name=>"2"}
-        %dt.container{:style=>"width:480px;padding:8px 0;"}
+        .container{:style=>"width:464px;padding:0 0 16px 0;"}
           .inner-button
-            = link_to "MOFAQ Settings","#2",:class=>"inner-button-link"
-
-        %dd.container{:style=>"width:480px;padding:0;"}
-          .dark.inset{:style=>"margin-bottom:16px"}
-            %ul.mobile
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "Header Images", "/headers",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "Colour Wheel", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "Background Colours", "?tab=background_colours",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "FAQ Configuration", "?tab=group_faq_configuration",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "Action Button", "?tab=group_action_button",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "Static Pages", pages_path,:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-
-              %li{:style=>"display:none"}
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;margin:4px 8px;"}
-                  = link_to "Messaging", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+            = link_to "Address","?tab=group_address",:class=>"inner-button-link"
 
         %a{:name=>"3"}
-        %dt.container{:style=>"width:480px;padding:8px 0;"}
+        %dt.container{:style=>"width:464px;padding:0 0 16px 0;"}
           .inner-button
             = link_to "Account holder","#3",:class=>"inner-button-link"
-        %dd.container{:style=>"width:480px;padding:0;"}
-          .dark.inset{:style=>"margin-bottom:16px"}
+            .expand
+              = link_to "&nbsp;","#",:class=>"inner-button-link"
+
+        %dd.container{:style=>"width:448px;padding:0;"}
+          .darkish.inset{:style=>"margin-bottom:16px"}
             %ul.mobile
               %li
-                - form_tag "/subscriptions/add_pending" do
-                  %button.inner-button.submit{:style=>"float:left;text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;", :action=>"submit"}
-                    = "Buy Subscription"
-                    = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                %button.inner-button{:style=>"text-align:center;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                  = link_to "Add User",new_user_path(:owner=>true), :style=>"color:#{current_group.text_colour};"
+              %li.hidden
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
                   = link_to "Account Holder Details", "?tab=account_details",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
                   = link_to "Change password", "?tab=account_password",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
                   = link_to "Subscriptions", "?tab=account_subscriptions",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
+
+        %a{:name=>"2"}
+        %dt.container{:style=>"width:464px;padding:0 0 16px 0;"}
+          .inner-button
+            = link_to "MOFAQ Settings","#2",:class=>"inner-button-link"
+            .expand
+              = link_to "&nbsp;","#",:class=>"inner-button-link"
+
+        %dd.container{:style=>"width:448px;padding:0;"}
+          .darkish.inset{:style=>"margin-bottom:16px"}
+            %ul.mobile
+              %li
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "General Settings", "?tab=group_settings",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Header Images", "/headers",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Colour Wheel", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li.hidden
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Background Colours", "?tab=background_colours",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li.hidden
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "FAQ Configuration", "?tab=group_faq_configuration",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Action Button", "?tab=group_action_button",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+              %li
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+                  = link_to "Static Pages", pages_path,:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
+              %li
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                  = link_to "Mobile Redirection", "?tab=group_redirect",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
+              %li.hidden
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;margin:4px 8px;"}
+                  = link_to "Messaging", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
+
 
 
 
 
         %a{:name=>"4"}
-        %dt.container{:style=>"width:480px;padding:8px 0;"}
+        %dt.container{:style=>"width:464px;padding:8px 0;"}
           .inner-button
             = link_to "Advanced","#4",:class=>"inner-button-link"
-        %dd.container{:style=>"width:480px;padding:0;"}
-          .dark.inset{:style=>"margin-bottom:16px"}
+            .expand
+              = link_to "&nbsp;","#",:class=>"inner-button-link"
+        %dd.container{:style=>"width:448px;padding:0;"}
+          .darkish.inset{:style=>"margin-bottom:16px"}
             %ul.mobile
               %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
                   = link_to "Domain name", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
                   = link_to "Google analytics", "?tab=group_analytics",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
               %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
-                  = link_to "Mobile Redirection", "?tab=group_redirect",:style=>"color:white;margin-right:16px;"
-                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
-              %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
                   = link_to "Custom Stylesheet", "?tab=group_stylesheets",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
               %li
-                %button.inner-button{:style=>"text-align:right;width:456px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
                   = link_to "Group Hierarchies", "?tab=group_hierarchy",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
+              %li
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;margin:4px 8px;font-size:1.5em;"}
+                  = link_to "Locations (Business+)", "/locations",:style=>"color:white;margin-right:16px;"
+                  = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
+
+              %li{:style=>"display:none"}
+                %button.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                  = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   = image_tag "/images/spacer.gif", :height => "32px", :width => "32px",:style=>"float:left;"
 
 

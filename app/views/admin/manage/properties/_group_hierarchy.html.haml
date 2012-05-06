@@ -9,9 +9,10 @@
   .about
     .dark-down.inset
       .mobile-form{:style=>"padding:0px 16px"}
-        .group
+        .inner-button
+          = f.check_box :is_directory, :class => "check_box"
+          = f.label :is_directory, "Is this a directory site?"
 
-          = f.text_field :parent_id, :value => current_group.parent_id, :class=> "text_field_mobile_edit"
 
         .group
           = "Business Category"
