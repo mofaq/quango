@@ -9,6 +9,9 @@
 - alt2 = grp.supplementary
 - alt3 = grp.supplementary_lite
 
+\.expand{float:right;}
+
+
 \.hidden{display:none}
 
 \.inflated{visibility:true}
@@ -106,6 +109,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 \.subheading{
 font-weight:bold;
 text-shadow:-1px -1px 0px #{stop2},1px 1px 0px #{stop3};
+margin:0 0 4px 0;
 }
 
 \.question-bullet{
@@ -280,7 +284,7 @@ margin:0;
 
 \#footer{
 
-background: #{stop3}; /* Old browsers */
+background: #{stop1}; /* Old browsers */
 margin:0;
 
 }
@@ -320,6 +324,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 }
 
 \#body{
+
+border-radius:0 0 16px 16px;
 
 -#border-top: 1px solid #{stop2};
 -#border-bottom: 1px solid #111111;
@@ -551,7 +557,7 @@ float:right;
 font-size:1.5em;
 text-shadow:-1px -1px 1px #{alt1},1px 1px 1px #{alt3};
 background: #{alt1}; /* Old browsers */
-background: -moz-linear-gradient(top, #{alt1} 0%, #{alt2} 50%, #{alt3} 60%, #{alt1} 100%); /* FF3.6+ */
+background: -moz-linear-gradient(top, #{alt1} 0%, #{alt3} 49%, #{alt2} 51%, #{alt1} 100%); /* FF3.6+ */
 
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{alt1}), color-stop(49%,#{alt3}), color-stop(51%,#{alt2}), color-stop(100%,#{alt1})); /* Chrome,Safari4+ */
 
@@ -598,9 +604,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 \.fade-out{
 text-shadow:-1px -1px 0px #{stop2},1px 1px 0px #{stop3};
 background: #{stop1}; /* Old browsers */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(50%,#{stop2}), color-stop(75%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop2} 50%,#{stop2} 75%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
-background: -moz-linear-gradient(top, #{stop3} 0%, #{stop3} 50%, #{stop2} 75%, #{stop1} 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(50%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop2} 50%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop2} 0%, #{stop2} 50%, #{stop1} 100%); /* FF3.6+ */
 background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
 background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
@@ -644,10 +650,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 
 }
 
+\.primary{
+background: #{stop2}; /* Old browsers */
+}
+
 \.light{
 background: #{stop1}; /* Old browsers */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(24%,#{stop1}), color-stop(76%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(bottom, #{stop2} 0%,#{stop3} 50%,#{stop3} 60%,#{stop4} 100%); /* Chrome10+,Safari5.1+ */
+background: -webkit-linear-gradient(bottom, #{stop2} 0%,#{stop2} 50%,#{stop3} 100%); /* Chrome10+,Safari5.1+ */
 background: -moz-linear-gradient(bottom, #{stop2} 0%, #{stop3} 50%, #{stop3} 60%, #{stop4} 100%); /* FF3.6+ */
 background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
@@ -850,7 +860,7 @@ border-right: 1px solid #{stop2};
 
 \a{color:#{stop4};text-decoration: none;}
 \a:hover{color:#{stop2};text-decoration:none;} 
-\h2{text-shadow:-1px -1px 2px #000000,2px 2px 1px #{stop2};}
+\h2{text-shadow:-1px -1px 2px #{stop1},1px 1px 1px #{stop3};color:#{stop5};text-transform:uppercase;letter-spacing:-1px;font-size:1.3em;height:1.5em;}
 \h3{text-shadow:-1px -1px 2px #000000,2px 2px 1px #{stop2};margin:0 auto;height:3em;line-height:3em;}
 
 \ul{list-style-type:none;padding:0}

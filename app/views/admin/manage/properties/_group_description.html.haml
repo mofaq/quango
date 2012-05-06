@@ -7,7 +7,7 @@
 
   -# Just do Australia for now - internationalize later
   .about
-    .dark-down.inset
+    .inset
       .mobile-form{:style=>"padding:0px 16px"}
 
         .group
@@ -24,7 +24,10 @@
             = "Description"
           = f.text_area :description, :class=> "text_area_mobile_edit", :style => "height:128px;font-size:1em"
 
-
+        .group
+          .note
+            = "Opening hours"
+          = f.text_field :group_hours, :class=> "text_field_mobile_edit"
 
         .group
           %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}

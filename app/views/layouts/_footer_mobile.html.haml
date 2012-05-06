@@ -1,30 +1,16 @@
--if current_group.has_sponsor?
-
-  .clear
-  .divider.inset{:style=>"margin:0 16px;height:4px;width:446px;padding:0 16px;background-color:#{current_group.primary};"}
-  .container{:style=>"font-size:12px;padding:16px;text-align:center;"}
-    = current_group.custom_html.footer["en"]
-
-  .clear
-  .divider{:style=>"margin:0 16px 24px 16px;line-height:64px;height:64px;width:446px;padding:0 16px;background-image:url(#{current_group.sponsor_description});overflow:hidden;", :onclick=>"window.location=('http:\/\/#{current_group.sponsor_link}')"}
-    -#= current_group.sponsor_description
-    = link_to current_group.sponsor_name, "http://" + current_group.sponsor_link, :style=>"font-weight:bold;color:#{current_group.text_colour};"
 
 
+.something{:style=>"height:4px;background:#{current_group.primary_dark};"}
 
+.fade-out.footer-mobile{:style=>"width:480px;padding:16px;margin:0 0 0 0;font-size:0.8em;border-radius:16px 16px 0 0;"}
 
-
-
-
-
-.fade-out.footer-mobile{:style=>"width:480px;padding:16px;margin:0;font-size:0.8em;border:0;border-top:4px solid #{current_group.primary_dark};"}
   -if current_user
 
 
 
     .footer
       .left{:style=>"width:50%; font-weight:bold;line-height:48px;letter-spacing:-1px;"}
-        = "Every business needs a mobile FAQ : <a href=\"http://mofaq.com/mobile/faq/id/5d04-why-does-my-business-need-a-mobile-faq\">Why?</a>"
+        = "Every business needs a mobile website"
       .right
         %button.inner-button{:onclick=>"window.location=\'#{new_group_path}/?mobile=true\'",:style=>"width:200px;"}
           = "Free Trial"

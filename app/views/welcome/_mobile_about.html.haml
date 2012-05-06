@@ -4,21 +4,29 @@
 
 .container{:style=>"padding:8px 0 0 0"}
 
-  .frame.inset.left{:style=>"width:50%;padding:8px;border-radius:4px;Xbackground:#{current_group.primary}"}
-    .subheading
-      = "About us"
+
+  .container{:style=>"padding:0;margin:16px 0;"}
+    .frame.inset.primary{:style=>"padding:16px;"}
+      %h2
+        = "#{current_group.display_name}"
+      -if current_group.strapline != ""
+        = "#{current_group.strapline}" 
+
+  .left{:style=>"width:50%;padding:8px 16px;border-radius:4px;Xbackground:#{current_group.primary}"}
+    %h2
+      = "Our Business"
     = current_group.description
   
-  .frame.inset.right{:style=>"width:40%;padding:8px;border-radius:4px;Xbackground:#{current_group.primary}"}
+  .right{:style=>"width:190px;padding:8px 0 8px 0;border-radius:4px;Xbackground:#{current_group.primary}"}
 
     -if current_group.locations.count > 1
 
-      .heading{:style=>"font-size:100%;"}
-        = "Our locations..."
+      %h2
+        = "Locations..."
 
       - @group.locations.each do |location|
         .group
-          .inner-button.submit{:style=>"margin:4px 8px;width:140px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
+          .inner-button.submit{:style=>"margin:4px 8px;width:156px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
             = link_to location.loc_city.to_s, location_path(location), :style=>"color:#{current_group.text_colour};"
    
       .note{:style=>"color:#{current_group.tertiary};"}
@@ -27,36 +35,52 @@
 
     -else
 
+      .address{:style=>"font-weight:bold;"}
+        %h2
+          = "Address"
 
-      .heading{:style=>"font-size:100%;"}
-        = "#{current_group.display_name}"
-      .group
-        = "#{current_group.group_address_i}"
-      .group
-        = "#{current_group.group_address_ii}"
-      .group
-        = "#{current_group.group_city}"
-      .group
-        = "#{current_group.group_state} "
-        = "#{current_group.group_postcode}"
-
-      .group{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
-        = "#{current_group.group_region}"
-
-      -if current_group.group_phone
-        %hr{:style=>"margin-top:8px"} 
-        .subheading{:style=>"padding:8px 0;"}
-          = "Tel:"
-          = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
-      -if !current_group.group_fax == ""
         .group
-          = "Fax: #{current_group.group_fax}"
+          = "#{current_group.display_name}"
+        .group
+          = "#{current_group.group_address_i}"
+        .group
+          = "#{current_group.group_address_ii}"
+        .group
+          = "#{current_group.group_city}"
+        .group
+          = "#{current_group.group_state} "
+          = "#{current_group.group_postcode}"
+
+        .group{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
+          = "#{current_group.group_region}"
+
+        -if current_group.group_phone
+          %hr{:style=>"margin-top:8px"} 
+          .inner-button.submit{:style=>"width:164px;height:32px;font-size:1.1em;letter-spacing:-1px;text-align:center;margin:4px auto;line-height:32px;float:right;"}
+            = link_to "☎ Click to call","tel:#{current_group.group_phone}",:style=>"color:#{current_group.text_colour};"
+          .clear
+
+
+          .subheading{:style=>"padding:8px 0;"}
+            = "Tel:"
+            = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
+        -if current_group.group_fax != ""
+          .group
+            = "Fax: #{current_group.group_fax}"
 
   .clear
 
+  -if current_group.group_hours != ""
+    .container{:style=>"padding:0;margin-top:16px;"}
+      .light.inset{:style=>"padding:16px;"}
+        %h2
+          = "Opening hours: "
+        = "#{current_group.group_hours}"  
+
+
   -if current_group.group_website != ""
     .container{:style=>"padding:0;margin-top:16px;"}
-      .inset{:style=>"padding:16px;height:56px;"}
+      .primary.inset{:style=>"padding:16px;height:56px;"}
         .inner-button.submit{:onclick=>"window.location=\'http:\/\/#{current_group.group_website}?noredirection=true\'",:style=>"width:416px;text-align:center;line-height:48px;"}
           = "Visit main website"  
 

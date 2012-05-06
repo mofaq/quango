@@ -39,6 +39,11 @@
     #body
       = yield :main
 
+      -if current_group.has_sponsor?
+        .sponsor
+          = render :partial => "layouts/sponsor"
+        .clear
+
     #footer
       = render :partial => "layouts/footer_mobile"
 

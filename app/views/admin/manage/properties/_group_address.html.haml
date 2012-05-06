@@ -7,45 +7,66 @@
 
   -# Just do Australia for now - internationalize later
   .about
-    .dark-down.inset
-      .group
-        .note
-          = "Address line 1"
-        = f.text_field :group_address_i, :class=> "text_field_mobile_edit"
-
-      .group
-        .note
-          = "Address line 2"
-        = f.text_field :group_address_ii, :class=> "text_field_mobile_edit"
-
-      .group
-        .note
-          = "Town"
-        = f.text_field :group_city, :class=> "text_field_mobile_edit"
-
-      .group
-        .note
-          = "State"
-        = f.text_field :group_state, :class=> "text_field_mobile_edit"
-
-      .group
-        .note
-          = "Postal Code"
-        = f.text_field :group_postcode, :class=> "text_field_mobile_edit"
-
-      .group.center
-        .note
-          = "Country"
-        = f.text_field :group_region, :class=> "text_field_mobile_edit"
+    .inset
+      .mobile-form{:style=>"padding:0px 16px"}
+        .group
+          .note
+            = "Phone "
+          = f.text_field :group_phone, :class=> "text_field_mobile_edit"
 
 
-      .group
-        %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
-          = "Save"
-      .clear
+
+        .group
+          .note
+            = "Website"
+          = f.text_field :group_website, :class=> "text_field_mobile_edit"
+
+
+        %hr
+        .group
+          .note
+            = "Address line 1"
+          = f.text_field :group_address_i, :class=> "text_field_mobile_edit"
+
+        .group
+          .note
+            = "Address line 2"
+          = f.text_field :group_address_ii, :class=> "text_field_mobile_edit"
+
+        .group
+          .note
+            = "Town"
+          = f.text_field :group_city, :class=> "text_field_mobile_edit"
+
+        .group
+          .note
+            = "State"
+          = f.text_field :group_state, :class=> "text_field_mobile_edit"
+
+        .group
+          .note
+            = "Postal Code"
+          = f.text_field :group_postcode, :class=> "text_field_mobile_edit"
+
+        .group.center
+          .note
+            = "Country"
+          = f.text_field :group_region, :class=> "text_field_mobile_edit"
+
+        %hr
+        .group
+          .note
+            = "Fax"
+          = f.text_field :group_fax, :class=> "text_field_mobile_edit"
+
+
+        .group
+          %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
+            = "Save"
+        .clear
 
 
   .tips
     %ul
       %li
-        = "What if my business has multiple locations?"
+        = "&nbsp;"

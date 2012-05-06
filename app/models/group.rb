@@ -30,6 +30,7 @@ class Group
   slug_key :title, :unique => false, :min_length => 4
   key :slugs, Array, :index => true
 
+  key :group_hours, String, :default => "Monday to Friday, 9am-5pm"
   key :group_address_i, String, :default => "Level 1"
   key :group_address_ii, String, :default => "530 Lonsdale Street"
   key :group_city, String, :default => "Melbourne"

@@ -253,7 +253,7 @@ class GroupsController < ApplicationController
     @group.safe_update(%w[primary_dark_backup primary_backup secondary_backup tertiary_backup text_colour_backup
                           group_type name name_highlight name_link name_highlight_link disable_signups client_type action_button action_button_link action_button_text action_button_note action_button_tel welcome_faq
                           other_groups_facebook other_groups_linkedin other_groups_twitter other_groups_google group_analytics
-                          group_address_i group_address_ii group_city group_state group_region group_postcode group_phone group_fax group_place_reference
+                          group_hours group_address_i group_address_ii group_city group_state group_region group_postcode group_phone group_fax group_place_reference
                           display_name group_website group_generic_email quick_create quick_create_heading
                           has_strapline strapline legend has_welcome_features has_product_gallery has_video_on_homepage above_the_fold below_the_fold
                           description has_custom_channels custom_channels custom_channel_content default_tags subdomain 
