@@ -1,0 +1,40 @@
+-content_for :main do
+
+  .container{:style=>"height:48px;width:480px;padding:16px;"}
+    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
+      .light                              
+        .subheading.left
+          ="#{@listing.name}"
+
+        - if logged_in?
+          - if current_user.mod_of?(current_group)
+            .subheading.right
+              %ul.right{:style=>"list-style-type:none; display:inline;"}
+                %li{:style=>"display:inline"}
+                  = link_to "Edit", edit_listing_path(@listing), :class => "inner-button", :style=>"height:1.5em;"
+
+    .note.hidden
+      = "#{@listing.description}"
+
+    %p
+      - @list_members = @listing.list_members.split(',')
+      - counter = 0
+
+      - @list_members.each do |list_member|
+        - counter = counter + 1
+
+
+        = render :partial => "listing", :locals => {:list_member => list_member}
+
+        - if false
+          .frame.inset
+            = counter
+            = "."
+            = list_member
+
+  .clear
+  .spacer
+    = "&nbsp;"
+
+
+

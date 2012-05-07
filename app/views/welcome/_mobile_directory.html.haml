@@ -6,6 +6,10 @@
       = "#{current_group.welcome_directory_content}"
       -#= @items.inspect
 
+    - current_group.listings.each do |listing|
+      .inner-button-alt{:style=>"margin-bottom:8px;"}
+        = link_to "#{listing.name}",listing_path(listing),:class=>"inner-button-link"
+
 
 
 .clear

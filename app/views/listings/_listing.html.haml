@@ -1,0 +1,37 @@
+
+= local_assigns[list_member]
+
+- listings_member = Group.find(list_member)
+
+- if true
+  - if listings_member.default_header
+    - header = Header.find(listings_member.default_header)
+    - base_header = header.header.process(:thumb,header.header_cropping)
+    - base_header1 = base_header.process(:thumb,"232x70")
+    - base_header2 = base_header1.encode(:png, '-quality 80')
+    - header_image = base_header2.url
+
+  .frame.inset
+
+    .left
+      = link_to image_tag(header_image), domain_url(:custom => listings_member.domain)
+
+
+ 
+    .right{:style=>"width:200px"}
+      %h3
+        = link_to h(listings_member.display_name), domain_url(:custom => listings_member.domain)
+      %p
+        = listings_member.strapline.to_s
+
+    .clear
+
+- else
+  .clear
+  = listings_member.default_header
+  .clear
+
+-#{:style => "background-image:url(#{background_group_path(group)})"}
+
+
+

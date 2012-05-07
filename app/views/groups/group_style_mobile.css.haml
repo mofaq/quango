@@ -9,7 +9,7 @@
 - alt2 = grp.supplementary
 - alt3 = grp.supplementary_lite
 
-\.expand{margin:4px;float:right;;line-height:36px;height:36px;width:36px;border-radius:18px;
+\.expand{margin:4px 0 4px 0;float:right;;line-height:36px;height:36px;width:36px;border-radius:12px 0 0 12px ;
 \-webkit-box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
 \-moz-box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
 
@@ -19,7 +19,7 @@ border-bottom: 1px solid #{stop2};
 border-right: 1px solid #{stop2};
 background:#{stop2};
 
-background: -webkit-linear-gradient(top, #{stop4} 0%,#{stop3} 33%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
+background: -webkit-linear-gradient(bottom, #{stop3} 0%,#{stop3} 33%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
 
 }
 
@@ -510,6 +510,39 @@ background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{sto
 background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop1}',GradientType=0 ); /* IE6-9 */
 }
+
+\.inner-button-alt{
+cursor:pointer;
+text-shadow:-1px -1px 1px #{stop1},1px 1px 1px #{stop2};
+font-size:1.2em;
+padding:4px 16px;margin:0;
+border-radius: 8px;
+color:white;
+font-weight:bold;
+\-webkit-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
+\-moz-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
+
+border-top: 1px solid #{stop1};
+border-left: 1px solid #{stop1};
+border-bottom: 1px solid #{stop2};
+border-right: 1px solid #{stop2};
+
+height:48px;
+line-height:36px;
+
+
+background: #{stop1}; /* Old browsers */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop3}), color-stop(51%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
+
+background: -webkit-linear-gradient(bottom, #{stop2} 0%,#{stop3} 49%,#{stop4} 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 49%, #{stop2} 51%, #{stop1} 100%); /* FF3.6+ */
+
+background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
+background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop1}',GradientType=0 ); /* IE6-9 */
+}
+
 
 \.inner-button.left-nested{
 float:left;

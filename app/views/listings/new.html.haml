@@ -1,0 +1,17 @@
+-content_for :main do
+
+  #main-index
+
+    %h1
+      = "New List"
+
+    %p
+      - form_for @listing do |f|
+        = f.error_messages
+        %p
+          = f.text_field :name, :value => @listing.name
+        %p
+          = f.submit 'Create'
+
+    %p
+      = link_to 'Back', listings_path()

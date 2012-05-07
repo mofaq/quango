@@ -1,0 +1,34 @@
+-content_for :main do
+
+  .container
+
+    %h1
+      = "Edit listing"
+    .right
+      = link_to 'Back', listings_path
+
+    %p
+      - form_for @listing, :html =>{ :method => :put } do |f|
+        = f.error_messages
+        %p
+          = "Name"
+          = f.text_field :name, :value => @listing.name
+        %p
+          = "Description"
+          = f.text_field :name, :value => @listing.description
+
+        %p
+          = f.submit 'Update'
+
+        %hr
+
+        %p
+          = "Members"
+          = f.text_area :list_members, :value => @listing.list_members
+
+
+
+
+    %h2
+      = "Members"
+
