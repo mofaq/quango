@@ -41,7 +41,7 @@
             = link_to "&nbsp;","#",:class=>"inner-button-link"
 
 
-      %dd.container{:style=>"width:464px;padding:0;"}
+      %dd.container{:style=>"width:448px;padding:0;"}
         = render :partial => "mobile_about"
         .clear
 
@@ -65,7 +65,7 @@
               = link_to "&nbsp","#",:class=>"inner-button-link"
 
         %dd.container{:style=>"width:448px;padding:0;"}
-          = "#{current_group.welcome_directory_content}"
+          = render :partial => "mobile_directory"
           .clear
 
 
