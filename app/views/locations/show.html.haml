@@ -44,6 +44,13 @@
           = link_to "☎ Click to call","tel:#{@location.loc_phone}",:style=>"color:#{current_group.text_colour};"
         .clear
 
+      - if @location.show_alt_button == true
+        .spacer{:style=>"margin-top:8px"} 
+        .inner-button{:style=>"width:164px;height:32px;font-size:1.1em;letter-spacing:-1px;text-align:center;margin:4px auto;line-height:32px;"}
+          = link_to "#{@location.alt_button_text}","#{@location.alt_button_link}",:style=>"color:#{current_group.text_colour};"
+
+
+
       .note
         = "#{@location.opening_hours}"
 
