@@ -15,7 +15,7 @@ class Location
   key :loc_phone, String, :default => "0425425550"
   key :loc_fax, String
 
-  key :opening_hours1, String, :default => "Weekdays 9-6"
+  key :opening_hours, String, :default => "Weekdays 9-6"
   key :opening_hours2, String, :default => "Sun 11-4"
 
   key :latitude, String, :default => "-37.816608"
