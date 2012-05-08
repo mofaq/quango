@@ -7,7 +7,7 @@
       -#= @items.inspect
 
     - current_group.listings.each do |listing|
-      .inner-button-alt{:style=>"margin-bottom:8px;"}
+      .inner-button-alt{:style=>"margin-bottom:8px;", :onclick=>"window.location='#{listing_path(listing)}'"}
         = link_to "#{listing.name}",listing_path(listing),:class=>"inner-button-link"
 
 

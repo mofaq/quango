@@ -1,7 +1,7 @@
 -content_for :main do
 
   - if !logged_in?
-    .container{:style=>"height:48px;width:480px;padding:16px;"}
+    .container{:style=>"height:48px;width:456px;padding:16px;"}
       .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
         .light                              
           .subheading.left
@@ -14,9 +14,9 @@
                   %li{:style=>"display:inline"}
                     = link_to "Edit", edit_listing_path(@listing), :class => "inner-button", :style=>"height:1.5em;"
 
-    .container
+    .container{:style=>"width:464px;"}
       - current_group.listings.each do |listing|
-        .inner-button-alt{:style=>"margin-bottom:8px;"}
+        .inner-button-alt{:style=>"margin-bottom:8px;", :onclick=>"window.location='#{listing_path(listing)}'"}
           = link_to "#{listing.name}",listing_path(listing),:class=>"inner-button-link"
     .clear
 
