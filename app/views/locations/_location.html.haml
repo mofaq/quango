@@ -39,6 +39,10 @@
       = link_to "☎ #{location.loc_city}","tel:#{location.loc_phone}",:style=>"color:#{current_group.text_colour};"
     .clear
 
+.clear
+.spacer
+  = "&nbsp;"
+
 -content_for :custom_javascript do
   :javascript
     function createMap#{counter}(geo#{counter}) {
