@@ -16,7 +16,7 @@
     .note.hidden
       = "#{@listing.description}"
 
-    %p
+    %p{:style=>"margin:16px 0;"}
       - @list_members = @listing.list_members.split(',')
       - counter = 0
 
