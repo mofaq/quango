@@ -48,7 +48,8 @@
       -if current_group.welcome_faq?
         %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
           %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
-            = link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
+            = "#{current_group.quick_create_heading}"
+            -#= link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
 
 
 
@@ -59,8 +60,8 @@
       -if current_group.welcome_directory?
         %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
           %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
-            = link_to "#{current_group.welcome_directory_heading}","#",:class=>"inner-button-link"
-
+            = "#{current_group.welcome_directory_heading}"
+            -#= link_to "#{current_group.welcome_directory_heading}","#",:class=>"inner-button-link"
 
 
         %dd.container{:style=>"width:448px;padding:0;"}
@@ -81,8 +82,9 @@
       -else
 
         %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
-            = link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
+          %button.inner-button{:onclick=>"initMap();",:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
+            = "Location"
+            -#= link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
 
 
         %dd.container{:style=>"width:448px;padding:0;"}
