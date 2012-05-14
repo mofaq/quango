@@ -36,9 +36,9 @@
     %dl.accordian#slider
 
       %dt.container{:style=>"width:464px;padding:8px 0 0 0;"}
-        .inner-button{:style=>"border-radius:8px;"}
-          = link_to "Contact Details","#",:class=>"inner-button-link"
-
+        %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
+          = "Contact Details"
+          -#= link_to "Contact Details","#",:class=>"inner-button-link"
 
       %dd.container{:style=>"width:448px;padding:0;"}
         = render :partial => "mobile_about"
@@ -47,7 +47,7 @@
 
       -if current_group.welcome_faq?
         %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          .inner-button{:style=>"border-radius:8px;"}
+          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
             = link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
 
 
@@ -58,7 +58,7 @@
 
       -if current_group.welcome_directory?
         %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          .inner-button{:style=>"border-radius:8px;"}
+          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
             = link_to "#{current_group.welcome_directory_heading}","#",:class=>"inner-button-link"
 
 
@@ -71,7 +71,7 @@
       -if current_group.locations.count > 1
 
         %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          .inner-button{:style=>"border-radius:8px;"}
+          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
             = link_to "Locations", "#",:class=>"inner-button-link"
             -#= link_to "Locations","#", :onclick=>"initMaps();",:class => "inner-button-link",:style=>"width:480px;height:32px;"
         %dd.container{:style=>"width:464px;padding:0;min-height:440px;"}
@@ -81,7 +81,7 @@
       -else
 
         %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          .inner-button{:onclick=>"initMap();",:style=>"border-radius:8px 8px 8px 8px"}
+          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
             = link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
 
 
