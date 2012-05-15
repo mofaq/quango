@@ -1,35 +1,54 @@
 -content_for :main do
 
-  #main-index
 
-    %h1
-      = "Listing locs for"
-      = @group.name
-    %small
-      = link_to @group.name, locations_path(@group)
+  .container{:style=>"height:48px;width:456px;padding:16px;"}
+    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
+      .light                              
+        .subheading.left
+          ="Our locations"
 
-    %p
-      = link_to 'New location', new_location_path
 
-    %p
-      %table
-        %tr
-          %th
-            = "name"
-          %th
-            = "city"
-          %th
-            = "actions"
-        - @group.locations.each do |location|
-          %tr
-            %td
-              = location.name.to_s
-            %td
-              = location.loc_city.to_s
-            %td
-              = link_to 'Show', location_path(location)
-              = link_to 'Edit', edit_location_path(location)
-              = link_to 'Destroy', location_path(location), :confirm => 'Are you sure?', :method => :delete
+  .container{:style=>"width:452px;"}
+    - current_group.locations.each do |location|
+      .inner-button-alt{:style=>"margin-bottom:8px;", :onclick=>"window.location='#{location_path(location)}'"}
+        = link_to "#{location.name}",location_path(location),:class=>"inner-button-link"
+  .clear
+  .spacer
+    = "&nbsp;"
+
+
+  - if logged_in?
+    - if current_user.mod_of?(current_group)
+
+      .container
+
+        %h1
+          = "Edit locations for"
+          = @group.name
+
+
+        %p
+          = link_to 'New location', new_location_path
+
+        %p
+          %table
+            %tr
+              %th
+                = "name"
+              %th
+                = "city"
+              %th
+                = "actions"
+            - @group.locations.each do |location|
+              %tr
+                %td
+                  = location.name.to_s
+                %td
+                  = location.loc_city.to_s
+                %td
+                  = link_to 'Show', location_path(location)
+                  = link_to 'Edit', edit_location_path(location)
+                  = link_to 'Destroy', location_path(location), :confirm => 'Are you sure?', :method => :delete
 
 
 
