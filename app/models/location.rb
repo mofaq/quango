@@ -1,6 +1,7 @@
 class Location
   include MongoMapper::Document
   include MongoMapperExt::Filter
+  include MongoMapperExt::Slugizer
 
   key :_id, String
   key :_type, String
@@ -24,6 +25,10 @@ class Location
   key :show_alt_button, Boolean, :default => false
   key :alt_button_text, :default => "Order Online"
   key :alt_button_link, :default => "link"
+
+  slug_key :name, :unique => true, :min_length => 3
+  key :slugs, Array, :index => true
+
 
 
   timestamps!
