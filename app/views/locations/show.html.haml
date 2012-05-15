@@ -19,9 +19,9 @@
     .inset.map-holder{:style=>"width:216px; height:auto;margin:0 0 16px 0",:class=>"left"}
       .map.inset{:id => "map_canvas", :style=>"width:200px; height:200px; border-radius:8px;"}
 
-    .address{:style=>"font-weight:bold;float:right;"}
+    .address{:style=>"font-weight:bold;float:right;width:216px;"}
       %h2
-        = "Address"
+        = "Our Address:"
 
       .address-name
         = "#{@location.name}"
@@ -38,9 +38,19 @@
       .address-country{:style=>"size:1em;text-transform:uppercase;font-weight:bold;"}
         = "#{@location.loc_region}"
 
+      .spacer
+        = "&nbsp;"
+
+      %hr
+  
+      .note
+        = "Opening hours:</br>"
+        = "#{@location.opening_hours1}"
+
+
       -if @location.loc_phone
         .spacer{:style=>"margin-top:8px"} 
-        .inner-button.submit{:style=>"width:164px;height:32px;font-size:1.1em;letter-spacing:-1px;text-align:center;margin:4px auto;line-height:32px;float:right;"}
+        .inner-button{:style=>"width:164px;height:32px;font-size:1.1em;letter-spacing:-1px;text-align:center;margin:4px auto;line-height:32px;"}
           = link_to "☎ Click to call","tel:#{@location.loc_phone}",:style=>"color:#{current_group.text_colour};"
         .clear
 
@@ -51,11 +61,12 @@
 
 
 
-      .note
-        = "#{@location.opening_hours1}"
 
 
 
+  .clear
+  .spacer
+    = "&nbsp;"
 
 
 
