@@ -49,6 +49,8 @@ class Group
   key :group_place_type, String, :default=>"geocode"
   key :group_analytics, String, :default=>"//placeholder"
 
+  key :show_facebook, Boolean, :default => false
+  key :group_facebook, String, :default => "http://www.facebook.com"
 
   key :other_groups_facebook, String, :default => "http://www.facebook.com"
   key :other_groups_linkedin, String, :default => "http://www.linkedin.com"

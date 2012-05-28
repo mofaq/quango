@@ -57,7 +57,20 @@
             = "Country"
           = f.text_field :group_region, :class=> "text_field_mobile_edit"
 
+
+
         %hr
+
+        .group
+          .note
+            = "Facebook"
+          .note
+            = "show"
+            = f.check_box :show_facebook, :class => "left"
+          = f.text_field :group_facebook, :class=> "text_field_mobile_edit right",:style=>"width:80%;"
+        .clear
+
+
         .group
           .note
             = "Fax"
