@@ -54,7 +54,7 @@
       };
       var canvas#{counter} = document.getElementById('map_canvas#{counter}');
       var map#{counter} =  new google.maps.Map(canvas#{counter},options#{counter});
-      map#{counter}.panBy(-100,-100);
+      //map#{counter}.panBy(-100,-100);
       //map#{counter}.panBy(100,100);
 
       var marker#{counter} = new google.maps.Marker({
@@ -81,7 +81,12 @@
 
 -content_for :javascript_init do
   :javascript
-    initMap#{counter}();
+    //initMap#{counter}();
+    var dropdown_event_#{counter} = function(){
+      initMap#{counter}();
+      this.removeEventListener("click",dropdown_event_#{counter});
+    };
+    document.getElementById("loc-dropdown").addEventListener("click",dropdown_event_#{counter},false);
 
 
 
