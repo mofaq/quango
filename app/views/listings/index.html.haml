@@ -14,10 +14,14 @@
                   %li{:style=>"display:inline"}
                     = link_to "Edit", edit_listing_path(@listing), :class => "inner-button", :style=>"height:1.5em;"
 
+
+
+
     .container{:style=>"width:464px;"}
       - current_group.listings.each do |listing|
-        .inner-button-alt{:style=>"margin-bottom:8px;", :onclick=>"window.location='#{listing_path(listing)}'"}
+        .inner-button{:style=>"margin-bottom:8px;", :onclick=>"window.location='#{listing_path(listing)}'"}
           = link_to "#{listing.name}",listing_path(listing),:class=>"inner-button-link"
+  
     .clear
 
 

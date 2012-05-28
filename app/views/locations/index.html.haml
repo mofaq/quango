@@ -1,17 +1,26 @@
 -content_for :main do
 
 
-  .container{:style=>"height:48px;width:456px;padding:16px;"}
+  .container{:style=>"height:48px;width:464px;padding:16px;"}
     .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
       .light                              
         .subheading.left
           ="Our locations"
 
 
-  .container{:style=>"width:452px;"}
+  .container{:style=>"width:464px;height:24px;line-height:24px;margin-bottom:8px;"}
+    .left
+      = "Full details"
+    .right
+      = "Phone"
+  .clear
+
+  .container{:style=>"width:464px;"}
     - current_group.locations.each do |location|
-      .inner-button-alt{:style=>"margin-bottom:8px;", :onclick=>"window.location='#{location_path(location)}'"}
+      .inner-button{:style=>"float:left;margin-bottom:8px;width:356px;", :onclick=>"window.location='#{location_path(location)}'"}
         = link_to "#{location.name}",location_path(location),:class=>"inner-button-link"
+      .inner-button.submit{:style=>"float:right;margin-bottom:8px;padding:4px 8px;width:48px;height:48px;text-align:center;"}
+        = link_to "☎","tel:#{location.loc_phone}",:class=>"inner-button-link",:style=>"width:28px;text-align:center;"
   .clear
   .spacer
     = "&nbsp;"
