@@ -1,0 +1,11 @@
+b{color:silver;}
+
+button{font-size:12px;font-weight:bold}
+
+button.panel-in{height:31px;border:1px solid gainsboro;margin:20px 4px;padding:4px;}
+button.panel-button{width:99px;height:31px;border:1px solid silver;background-color:gainsboro;margin:20px 4px;border-radius:3px;}
+
+
+.standard_input{border:1px solid gainsboro;height:27px;}
+.search_input{border:1px solid gainsboro;height:27px;width:300px;margin:21px 0;}
+button.search-button{width:128px;height:31px;border:1px solid silver;background-color:gainsboro;margin:19px 4px;border-radius:3px;}

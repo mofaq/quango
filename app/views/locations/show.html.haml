@@ -5,6 +5,11 @@
         .subheading.left
           ="#{@location.name}"
 
+        .subheading.right
+          %ul.right{:style=>"list-style-type:none; display:inline;"}
+            %li{:style=>"display:inline"}
+              = link_to "Back", locations_path, :class=>"inner-button"
+
         - if logged_in?
           - if current_user.mod_of?(current_group)
             .subheading.right
@@ -15,11 +20,8 @@
                 %li{:style=>"display:inline"}
                   = link_to "Edit", edit_location_path(@location), :class => "inner-button", :style=>"height:1.5em;"
 
-        - else
-          .subheading.right
-            %ul.right{:style=>"list-style-type:none; display:inline;"}
-              %li{:style=>"display:inline"}
-                = link_to "Back", locations_path, :class=>"inner-button"
+        -# else
+
 
 
 
