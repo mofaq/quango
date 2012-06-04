@@ -72,6 +72,8 @@ $(document).ready(function() {
 $('a.add').click(function(ev){
     ev.preventDefault();
     $('.inner-results').children(':first').clone().appendTo('.inner-results');
+    $('.inner-results').children(':first').clone().appendTo('.inner-results');
+    $('.inner-results').children(':first').clone().appendTo('.inner-results');
     panelHeight();
 
 
@@ -319,6 +321,7 @@ $(document).ready(function() {
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
           +$panel.outerWidth(+40) : 0
+
       });
 
     }
@@ -389,7 +392,7 @@ $(document).ready(function() {
 	//initMap();*/
     $("#language-list").toggle();
     $("#country-list").toggle();
-    resizeFrame2();
+    resizeFrame3();
   });
 });
 
