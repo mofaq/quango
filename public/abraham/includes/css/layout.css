@@ -11,7 +11,7 @@ body {margin:0; padding:0; height:100%; }
 #header{width:100%;height:71px;line-height:71px;}
 .header-inner{margin:0 32px;}
 
-.logo{padding:0 32px;height:71px;width:318px;font-size:19px;font-weight:bold;letter-spacing:-1px;}
+.logo{margin:0 32px;padding:0 32px;height:71px;width:256px;font-size:19px;font-weight:bold;letter-spacing:-1px;background-image:url(../../images/cf-logo.png);background-repeat:no-repeat;}
 .search{height:71px;}
 
 #content{overflow:hidden;}
