@@ -5,7 +5,7 @@ body {margin:0; padding:0; height:100%; }
 .right{float:right;}
 
 
-#toolbar{width:100%;height:29px;line-height:29px;background-color:black;color:white}
+#toolbar{width:100%;height:29px;line-height:29px;background-color:#2d3a8b;color:white}
 .toolbar-inner{margin:0 32px;font-size:11px;}
 
 #header{width:100%;height:71px;line-height:71px;}
@@ -17,8 +17,11 @@ body {margin:0; padding:0; height:100%; }
 #content{overflow:hidden;}
 
 #panel{position:absolute;z-index:2;float:left;background-color:#fefefe;width:381px;border-right:1px solid white;-webkit-box-shadow:0 3px 6px #bdbdbd;box-shadow:0 3px 6px #bdbdbd;behavior: url(includes/css/PIE.htc);}
-.panel-header{padding:4px; height:71px;border-bottom:1px solid gainsboro;}
-.panel-container{padding:4px;margin:0 28px;}
+.panel-header{padding:4px; height:64px;border-bottom:1px solid gainsboro;}
+.panel-container{padding:4px;margin:0;}
+
+.inner-header{padding:4px 28px; height:71px;border-bottom:1px solid gainsboro;}
+
 
 .toggle{height:29px;padding:4px;}
 .toggle-out{height:29px;padding:4px;}
