@@ -17,7 +17,7 @@ body {margin:0; padding:0; height:100%; }
 #content{overflow:hidden;}
 
 #panel{position:absolute;z-index:4;float:left;background-color:#fefefe;width:381px;border-right:1px solid white;-webkit-box-shadow:0 3px 6px #bdbdbd;box-shadow:0 3px 6px #bdbdbd;behavior: url(includes/css/PIE.htc);}
-.panel-header{padding:20px 4px 0 8px; height:44px;min-width:256px;line-height:32px;border-bottom:1px solid gainsboro;}
+.panel-header{padding:20px 4px 0 8px; height:44px;min-width:200px;line-height:32px;border-bottom:1px solid gainsboro;}
 .panel-container{padding:8px 4px 4px 4px;margin:0;}
 
 
@@ -29,7 +29,7 @@ body {margin:0; padding:0; height:100%; }
 #country-list{width:256px;position:absolute;z-index:2;}
 .country-list{width:256px;}
 
-.toggle{height:32px;line-height:28px;min-width:222px}
+.toggle{height:32px;line-height:28px;min-width:200px}
 .toggle-out{height:29px;padding:4px;}
 
 #map{-webkit-box-shadow:0 3px 6px #bdbdbd inset;box-shadow:0 3px 6px #bdbdbd inset;}

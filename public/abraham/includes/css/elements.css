@@ -7,7 +7,7 @@
 body{color:#111111;}
 
 h3{height:32px;margin:0;}
-h3:hover{background-color:gainsboro}
+h3:hover{background-color:#efefef;cursor:pointer;}
 
 
 .flag{height:16px;margin:6px 8px 0 0;}
