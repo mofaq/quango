@@ -12,7 +12,8 @@ function choose(){
   return;
 }
 
-function addLanguageToForm(){
+function chooseCountry(){
+  $().this.addClass('selected');
   return;
 }
 
@@ -26,15 +27,18 @@ function setDefaults()
 	$(".text-direction").text('ltr');
 	$("#map_canvas").css('float','right');
 	$("#panel").css('float','left');
+	$("#language-list").css('float','left');
+	$("#country-list").css('float','left');
 	$(".logo").css('float','left');
 	$(".search").css('float','left');
+	$(".choose").css('float','left');
   $(".select_language").load("./select_language.html");
   $(".select_country").load("./select_country.html");
 }
 
 function panelHeight()
 {
-	var hmod = 220
+	var hmod = 256
 	var wh = $(window).height();
   var ph = (wh-hmod);
 	$(".panel-container").css('min-height',ph);
@@ -44,10 +48,11 @@ function panelHeight()
 
 	var pch = $(".panel-container").height();
 
+
   $(".panel-container-height").text(pch);
 
   $('#scrollbar1').tinyscrollbar({ size: pch });
-  $('#scrollbar2').tinyscrollbar({ size: pch });
+  $('#scrollbar2').tinyscrollbar({ size: (pch-101)});
 
 
   if (ph >= pch){
@@ -80,18 +85,49 @@ $('a.remove').click(function(ev){
 
 });
 
-function resizeFrame1() 
+
+function resizeFrame() 
 {
 	var hmod = 101
 	var wmod = 381
-	var wselector = 421
+	var wselector = 256
 	var h = $(window).height();
   var w = $(window).width();
   $("#content").css('height',(h - hmod));
   $("#content").css('width',(w))
   $("#panel").css('height',(h - hmod));
+  $("#panel").css('width',(wmod));
   $("#map_canvas").css('height',(h - hmod));
-	$("#map_canvas").css('width', (w - wmod - wselector));
+	$("#map_canvas").css('width', (w - wmod - wselector - wselector));
+
+	$(".wheight").text(h);
+	$(".wwidth").text(w);
+
+  panelHeight();
+  initMap();
+
+}
+
+
+function resizeFrame1() 
+{
+	var hmod = 101
+	var wmod = 381
+	var wselector = 256
+	var h = $(window).height();
+  var w = $(window).width();
+  $("#content").css('height',(h - hmod));
+  $("#content").css('width',(w))
+  $("#panel").css('height',(h - hmod));
+  $("#panel").css('width',(wmod));
+  $("#language-list").css('width',(wselector));
+  $("#language-list").css('height',(h - hmod));
+  $("#country-list").css('width',(wselector));
+  $("#country-list").css('margin-left',(wmod + wselector));
+  $("#language-list").css('margin-left',(wmod));
+  $("#country-list").css('height',(h - hmod));
+  $("#map_canvas").css('height',(h - hmod));
+	$("#map_canvas").css('width', (w - wmod - wselector - wselector));
 
 	$(".wheight").text(h);
 	$(".wwidth").text(w);
@@ -105,12 +141,48 @@ function resizeFrame2()
 {
 	var hmod = 101
 	var wmod = 381
+	var wselector = 256
 	var h = $(window).height();
     var w = $(window).width();
-    $("#content").css('height',(h - hmod));
-    $("#panel").css('height',(h - hmod));
-    $("#map_canvas").css('height',(h - hmod));
-	$("#map_canvas").css('width', (w));
+  $("#content").css('height',(h - hmod));
+  $("#content").css('width',(w))
+  $("#panel").css('height',(h - hmod));
+  $("#panel").css('width',(wmod));
+  $("#language-list").css('width',(wselector));
+  $("#language-list").css('height',(h - hmod));
+  $("#country-list").css('width',(wselector));
+  $("#country-list").css('margin-left',(wselector));
+  $("#language-list").css('margin-left',(wmod));
+  $("#country-list").css('height',(h - hmod));
+  $("#map_canvas").css('height',(h - hmod));
+	$("#map_canvas").css('width', (w - wmod));
+
+
+	$(".wheight").text(h);
+	$(".wwidth").text(w);
+
+}
+
+function resizeFrame3() 
+{
+	var hmod = 101
+	var wmod = 381
+	var wselector = 256
+	var h = $(window).height();
+    var w = $(window).width();
+  $("#content").css('height',(h - hmod));
+  $("#content").css('width',(w))
+  $("#panel").css('height',(h - hmod));
+  $("#panel").css('width',(wmod));
+  $("#language-list").css('width',(wselector));
+  $("#language-list").css('height',(h - hmod));
+  $("#country-list").css('width',(wselector));
+  $("#country-list").css('margin-left',(wmod + wselector));
+  $("#language-list").css('margin-left',(wmod));
+  $("#country-list").css('height',(h - hmod));
+  $("#map_canvas").css('height',(h - hmod));
+	$("#map_canvas").css('width', (w - wmod - wselector));
+
 
 	$(".wheight").text(h);
 	$(".wwidth").text(w);
@@ -206,8 +278,8 @@ $(document).ready(function() {
 $(document).ready(function() {
   var w = $(window).width();
   var d = $("input:hidden[name=text-direction]").val();
-	$('button.panel-in2').click(function() {
-    var $panel = $('#country_selector');
+	$('button.language-out').click(function() {
+    var $panel = $('#language-list');
     if (d == 'ltr'){
       $panel.animate({
         marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
@@ -222,14 +294,105 @@ $(document).ready(function() {
       });
 
     }
-	$("#country_selector").css({display:'inline'});
-	$("#country_selector").css({width:381});
+	$("#language-list").css({display:'inline'});
+	$("#language-list").css({width:256});
 
-	resizeFrame1();
+	resizeFrame3();
 	//initMap();
 /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
 });
+
+$(document).ready(function() {
+  var w = $(window).width();
+  var d = $("input:hidden[name=text-direction]").val();
+	$('button.country-out').click(function() {
+    var $panel = $('#country-list');
+    if (d == 'ltr'){
+      $panel.animate({
+        marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
+          +$panel.outerWidth(+40) : 0
+      });
+
+    }
+    if (d == 'rtl'){
+      $panel.animate({
+        marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
+          +$panel.outerWidth(+40) : 0
+      });
+
+    }
+	$("#country-list").css({display:'inline'});
+	$("#country-list").css({width:256});
+
+	resizeFrame3();
+	//initMap();
+/*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
+  });
+});
+
+$(document).ready(function() {
+  var w = $(window).width();
+  var d = $("input:hidden[name=text-direction]").val();
+	$('button.country-in').click(function() {
+    /*var $panel = $('#country-list');
+    if (d == 'ltr'){
+      $panel.animate({
+        marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
+          -$panel.outerWidth(+40) : 0
+      });
+
+    }
+    if (d == 'rtl'){
+      $panel.animate({
+        marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
+          $panel.outerWidth(+40) : 0
+      });
+
+    }
+	$("#country-list").css({display:'inline'});
+	$("#country-list").css({width:256});
+
+	resizeFrame2();*/
+	//initMap();
+    $("#language-list").toggle();
+    $("#country-list").toggle();
+    resizeFrame2();
+
+  });
+});
+
+
+$(document).ready(function() {
+  var w = $(window).width();
+  var d = $("input:hidden[name=text-direction]").val();
+	$('button.language-in').click(function() {
+    /*var $panel = $('#language-list');
+    if (d == 'ltr'){
+      $panel.animate({
+        marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
+          +$panel.outerWidth(+40) : 0
+      });
+
+    }
+    if (d == 'rtl'){
+      $panel.animate({
+        marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
+          +$panel.outerWidth(+40) : 0
+      });
+
+    }
+	$("#language-list").css({display:'inline'});
+	$("#language-list").css({width:256});
+
+	resizeFrame1();
+	//initMap();*/
+    $("#language-list").toggle();
+    $("#country-list").toggle();
+    resizeFrame2();
+  });
+});
+
 
 $(document).ready(function() {
   var w = $(window).width();
@@ -279,7 +442,7 @@ $(document).ready(function() {
 	$("#panel").css({display:'none'});
 	$("#map_canvas").animate({width:w},700);
 	$("#map_canvas").css({width:w});
-	resizeFrame2();
+	resizeFrame1();
 	//initMap();
 /*$("#panel").animate({"marginLeft": "+=340px"}, "fast");*/
   });

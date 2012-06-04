@@ -3,27 +3,33 @@ body {margin:0; padding:0; height:100%; }
 
 .left{float:left;}
 .right{float:right;}
-
+.clear{clear:both}
 
 #toolbar{width:100%;height:29px;line-height:29px;background-color:#2d3a8b;color:white}
 .toolbar-inner{margin:0 32px;font-size:11px;}
 
-#header{width:100%;height:71px;line-height:71px;}
+#header{width:100%;height:71px;line-height:71px; overflow:hidden;}
 .header-inner{margin:0 32px;}
 
-.logo{margin:0 32px;padding:0 32px;height:71px;width:256px;font-size:19px;font-weight:bold;letter-spacing:-1px;background-image:url(../../images/cf-logo.png);background-repeat:no-repeat;}
+.logo{margin:0 0 0 32px;padding:0 32px;height:71px;width:310px;font-size:19px;font-weight:bold;letter-spacing:-1px;background-image:url(../../images/cf-logo.png);background-repeat:no-repeat;}
 .search{height:71px;}
 
 #content{overflow:hidden;}
 
-#panel{position:absolute;z-index:2;float:left;background-color:#fefefe;width:381px;border-right:1px solid white;-webkit-box-shadow:0 3px 6px #bdbdbd;box-shadow:0 3px 6px #bdbdbd;behavior: url(includes/css/PIE.htc);}
-.panel-header{padding:4px; height:64px;border-bottom:1px solid gainsboro;}
-.panel-container{padding:4px;margin:0;}
-
-.inner-header{padding:4px 28px; height:71px;border-bottom:1px solid gainsboro;}
+#panel{position:absolute;z-index:4;float:left;background-color:#fefefe;width:381px;border-right:1px solid white;-webkit-box-shadow:0 3px 6px #bdbdbd;box-shadow:0 3px 6px #bdbdbd;behavior: url(includes/css/PIE.htc);}
+.panel-header{padding:20px 4px 0 0; height:44px;line-height:32px;border-bottom:1px solid gainsboro;}
+.panel-container{padding:8px 4px 4px 4px;margin:0;}
 
 
-.toggle{height:29px;padding:4px;}
+
+.inner-header{padding:4px 28px;width:288px;border-bottom:1px solid gainsboro;}
+
+#language-list{width:256px;position:absolute;z-index:3;}
+.language-list{width:256px;border-right:1px solid #dcdcdc;}
+#country-list{width:256px;position:absolute;z-index:2;}
+.country-list{width:256px;}
+
+.toggle{height:32px;line-height:32px;min-width:240px}
 .toggle-out{height:29px;padding:4px;}
 
 #map{-webkit-box-shadow:0 3px 6px #bdbdbd inset;box-shadow:0 3px 6px #bdbdbd inset;}

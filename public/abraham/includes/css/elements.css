@@ -4,29 +4,34 @@
 .primary-option#lang_3 {background-image:url("flags/de.png");background-repeat:no-repeat;}
 */
 
+body{color:#111111;}
 
-.flag{margin:8px 8px 0 0;}
+h3{height:32px;margin:0;}
+h3:hover{background-color:gainsboro}
+
+
+.flag{height:16px;margin:6px 8px 0 0;}
 
 /* the language selector */
 
 #language_selector{width:200px}
 
 .choose{font-weight:bold;margin:0 16px 0 24px;font-size:1.1em;letter-spacing:-1px;}
-.primary-option{display:block;height:32px;line-height:32px;padding:0 8px 0 20px;opacity:0.5;}
-.primary-option.selected{display:block;;height:32px;line-height:32px;font-weight:bold;opacity:1;}
-#language-list{list-style-type:none;padding:0;border-right:1px solid gainsboro;}
+.primary-option{font-size:1em;display:block;height:32px;line-height:16px;padding:0 8px 0 20px;opacity:0.5;}
+.primary-option.selected{display:block;line-height:24px;font-weight:bold;opacity:1;}
+#language-list ul{list-style-type:none;padding:0;}
 li.primary-option{display:block;border:1px solid #fefefe;}
 li.primary-option:hover{background:gainsboro;cursor:pointer;}
-li.primary-seperator{background:gainsboro;height:1px;margin:8px;}
+li.primary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
-.secondary-option{display:block;height:32px;line-height:32pxpadding:0 8px 0 20px;opacity:0.5;}
-.secondary-option.selected{display:block;;height:32px;line-height:32px;font-weight:bold;opacity:1;}
+.secondary-option{font-size:1em;display:block;height:32px;line-height:16px;padding:0 8px 0 20px;opacity:0.5;}
+.secondary-option.selected{display:block;line-height:24px;font-weight:bold;opacity:1;}
 
-#country-list{list-style-type:none;padding:0;border-right:1px solid gainsboro;height:auto;}
-li.secondary-option{display:block;width:200px;border:1px solid #fefefe;}
+.country-list{list-style-type:none;padding:0;border-right:1px solid gainsboro;height:auto;}
+li.secondary-option{display:block;border:1px solid #fefefe;height:32px;}
 li.secondary-option:hover{background:gainsboro;cursor:pointer;}
-li.secondary-seperator{background:gainsboro;height:1px;margin:8px;}
+li.secondary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
 
@@ -42,8 +47,13 @@ b{color:silver;}
 
 button{font-size:12px;font-weight:bold;cursor:pointer;}
 
-button.panel-in{height:28px;border:2px solid #e49501;margin:12px 4px;padding:4px;border-radius:32px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
-button.panel-button{width:99px;height:31px;border:2px solid white;background-color:#fec65d;margin:12px 4px;border-radius:12px;color:white;}
+button.country-in{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:32px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
+button.language-in{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:32px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
+button.language-out{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:32px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
+button.country-out{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:32px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
+
+button.panel-in{height:28px;border:2px solid #e49501;padding:4px;border-radius:32px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
+button.panel-button{height:31px;border:2px solid white;background-color:#fec65d;border-radius:12px;color:white;}
 button.panel-in2{height:40px;border:3px solid #e49501;margin:16px 12px;padding:4px;border-radius:32px;width:40px;background-color:#fec65d;color:white;font-weight:bold;}
 button.panel-in3{height:40px;border:3px solid #e49501;margin:16px 12px;padding:4px;border-radius:32px;width:40px;background-color:#fec65d;color:white;font-weight:bold;}
 
@@ -59,22 +69,22 @@ button.search-button{height:40px;border:3px solid white;margin:16px 12px;padding
 #scrollbar1 {margin:0; }
 #scrollbar1 .viewport {overflow: hidden; position: relative; }
 #scrollbar1 .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
-#scrollbar1 .scrollbar{ background-color: green; position: relative; width: 8px; margin:0 2px; }
-#scrollbar1 .track {background-color:silver; height: 100%; width:8px; position: relative; padding: 0; }
-#scrollbar1 .thumb {background-color:gray; height: 20px; width: 8px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
-#scrollbar1 .thumb:hover {background-color:pink; height: 20px; width: 8px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
-#scrollbar1 .thumb .end { background-color:gainsboro; overflow: hidden; height: 1px; width: 8px; }
+#scrollbar1 .scrollbar{ background-color: green; position: relative; width: 20px; margin:0 8px 0 2px; }
+#scrollbar1 .track {background-color:#dcdcdc; height: 100%; width:20px; position: relative; padding: 0;border:1px solid white; }
+#scrollbar1 .thumb {background-color:#fec65d; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
+#scrollbar1 .thumb:hover {background-color:#fec65d; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
+#scrollbar1 .thumb .end { background-color:gainsboro; overflow: hidden; height: 1px; width: 16px; }
 #scrollbar1 .disable { display: none; }
 
 #scrollbar2 {margin:0; }
 #scrollbar2 .viewport {overflow: hidden; position: relative; }
 #scrollbar2 .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
-#scrollbar2 .scrollbar{ background-color: green; position: relative; width: 8px; margin:0 2px; }
-#scrollbar2 .track {background-color:silver; height: 100%; width:8px; position: relative; padding: 0; }
-#scrollbar2 .thumb {background-color:gray; height: 20px; width: 8px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
+#scrollbar2 .scrollbar{ background-color: green; position: relative; width: 16px; margin:0 8px 0 2px; }
+#scrollbar2 .track {background-color:#dcdcdc; height: 100%; width:16px; position: relative; padding: 0; }
+#scrollbar2 .thumb {background-color:#fec65d; height: 20px; width: 16px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
 
-#scrollbar2 .thumb:hover {background-color:pink; height: 20px; width: 8px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
-#scrollbar2 .thumb .end { background-color:gainsboro; overflow: hidden; height: 1px; width: 8px; }
+#scrollbar2 .thumb:hover {background-color:#fec65d; height: 20px; width: 16px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
+#scrollbar2 .thumb .end { background-color:gainsboro; overflow: hidden; height: 1px; width: 16px; }
 #scrollbar2 .disable { display: none; }
 
 

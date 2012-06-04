@@ -37,16 +37,32 @@
 <!---->
 <div id="header" dir="null">
 	<div class="logo"><span class="right">I want to learn</span></div>
-	<div class="search"><div class="select_language left">
+  <div class="langauge">Language...<button class="language-in right">&lt;</button></div>
+  <div class="choose"><button class="country-in right">&lt;</button>Country...</div>
+  <div class="choose"><button class="search-button left">Find Courses</button></div>
+</div>
+
+<div id="content" dir="null">
 
 
+  <div id="country-list left">
+    <ul class="country-list" >
+      <li onclick="chooseCountry(&quot;country_0&quot;);" id="country_0" class="secondary-option" rel="13" alias="australia"><div class="flag left"><img src="flags/au.png" />Australia</li>
+      <li onclick="chooseCountry(&quot;country_3&quot;);" id="country_3" class="secondary-option selected" rel="39" alias="canada"><div class="flag left"><img src="flags/ca.png" />Canada</li>
+      <li onclick="chooseCountry(&quot;country_9&quot;);" id="country_9" class="secondary-option" rel="227" alias="unitedkingdom"><div class="flag left"><img src="flags/gb.png" />United Kingdom</li><li onclick="chooseCountry(&quot;country_10&quot;);" id="country_10" class="secondary-option" rel="228" alias="unitedstates">USA</li>
+      <li class="secondary-seperator"></li>
+      <li onclick="chooseCountry(&quot;country_1&quot;);" id="country_1" class="secondary-option" rel="16" alias="bahamas">Bahamas</li><li onclick="chooseCountry(&quot;country_2&quot;);" id="country_2" class="secondary-option" rel="19" alias="barbados">Barbados</li>
+      <li onclick="chooseCountry(&quot;country_4&quot;);" id="country_999" class="secondary-option" rel="104" alias="india"><div class="flag left"><img src="flags/in.png" />India</li>
+      <li onclick="chooseCountry(&quot;country_4&quot;);" id="country_4" class="secondary-option" rel="104" alias="ireland">Ireland</li>
+      <li onclick="chooseCountry(&quot;country_5&quot;);" id="country_5" class="secondary-option" rel="132" alias="malta">Malta</li>
+      <li onclick="chooseCountry(&quot;country_6&quot;);" id="country_6" class="secondary-option" rel="154" alias="newzealand">New Zealand</li><li onclick="chooseCountry(&quot;country_7&quot;);" id="country_7" class="secondary-option" rel="171" alias="philippines">Philippines</li><li onclick="chooseCountry(&quot;country_8&quot;);" id="country_8" class="secondary-option" rel="199" alias="southafrica">South Africa</li>
+    </ul>
+  </div>
 
+<div id="language-list left">
 
-
-<div id="language_selector">
-<div class="choose">Language...<button class="panel-in2 right"><img src="owner-icon.png"/></button></div>
         
-<ul id="language-list" class="">
+<ul class="language-list" class="">
 
   <li onclick="choose('lang_1');" id="lang_1" class="primary-option selected" rel="29" alias="english"><div class="flag left"><img src="flags/gb.png"/></div>English</li>
   <li onclick="choose('lang_3');" id="lang_3" class="primary-option" rel="39" alias="german"><div class="flag left"><img src="flags/de.png"/></div>German</li>
@@ -55,6 +71,7 @@
 
   <li class="primary-seperator"></li>
 </ul>
+  <ul>
 	    <div id="scrollbar2">
 		    <div class="scrollbar right"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
 		    <div class="viewport">
@@ -62,7 +79,7 @@
             <div class="results">
 
 
-<li onclick="choose('lang_0');" id="lang_0" class="primary-option" rel="5" alias="arabic">Arabic</li>
+  <li onclick="choose('lang_0');" id="lang_0" class="primary-option" rel="5" alias="arabic">Arabic</li>
   <li onclick="choose('lang_1');" id="lang_4" class="primary-option" rel="21" alias="chinese">Chinese </li>
   <li onclick="choose('lang_5');" id="lang_5" class="primary-option" rel="52" alias="italian">Italian</li>
   <li onclick="choose('lang_7');" id="lang_7" class="primary-option" rel="90" alias="portuguese">Portuguese</li>
@@ -86,6 +103,7 @@
   <li onclick="choose('lang_20');" id="lang_20" class="primary-option" rel="14" alias="bulgarian">Bulgarian</li>
   <li onclick="choose('lang_21');" id="lang_21" class="primary-option" rel="18" alias="catalan">Catalan</li>
   <li onclick="choose('lang_22');" id="lang_22" class="primary-option" rel="140" alias="chichewa">Chichewa</li>
+  <li onclick="choose('lang_999');" id="lang_999" class="primary-option" rel="999" alias="cockney">Cockney</li>
   <li onclick="choose('lang_23');" id="lang_23" class="primary-option" rel="25" alias="corsican">Corsican</li>
   <li onclick="choose('lang_24');" id="lang_24" class="primary-option" rel="129" alias="croatian">Croatian</li>
   <li onclick="choose('lang_25');" id="lang_25" class="primary-option" rel="26" alias="czech">Czech  </li>
@@ -145,33 +163,18 @@
   <li onclick="choose('lang_79');" id="lang_79" class="primary-option" rel="123" alias="welsh">Welsh</li>
   <li onclick="choose('lang_80');" id="lang_80" class="primary-option" rel="124" alias="xhosa">Xhosa</li>
   <li onclick="choose('lang_81');" id="lang_81" class="primary-option" rel="127" alias="zulu">Zulu</li>
+<ul>
+</div>
 
-
-</div></div></div></div>
+</div>
 </ul>
 
 
 
-</div>
+</div
 
-
-
-
-
-
-
-
-
-
-
-
-  </div></div>
-	<div class="search"><div class="select_country left">boxe</div></div>
-
-  <div><button class="search-button left">Find Courses</button></div>
-</div>
 <!---->
-<div id="content" dir="null">
+
   <!---->
 	<div class="toggle-out left" style="position:absolute;z-index:1"><button class="panel-out">&gt;</button></div>
 	<div id="panel">
@@ -190,7 +193,8 @@
           <div class="overview">
             <div class="results">
               <div class="inner-header">
-                <h2 style="margin:0;">Search results</h2>
+                <h3><span width="200px"><div class="flag left"><img src="flags/gb.png"/></div>English</span><span style="color:gray">&nbsp;in</span><span><button class="language-out right">&gt;</button></span></h3>
+                <h3><span width="200px"><div class="flag left"><img src="flags/ca.png"/></div>Canada<button class="country-out right">&gt;</button></span></h3>
                 <div class="action"><a href="#" class="add">More results</a> | <a href="#" class="remove">Less results</a>[testing only]</div>
               </div>
               <div class="inner-results">
@@ -204,12 +208,13 @@
             <div class="shortlist"></div>
 
           </div>
+          <div class="clear"></div>
+
       </div>
-		</div>		
-	</div>
+		</div>	
+  <div class="panel-footer"><button class="search-button left">COLLEGES: Add your courses here</button></div>
 
-  </div>
-
+</div>
   <div id="map_canvas"></div>
 
 </div>
