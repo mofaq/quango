@@ -84,7 +84,7 @@ function resizeFrame1()
 {
 	var hmod = 101
 	var wmod = 381
-	var wselector = 381
+	var wselector = 421
 	var h = $(window).height();
   var w = $(window).width();
   $("#content").css('height',(h - hmod));

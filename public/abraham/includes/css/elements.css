@@ -16,7 +16,7 @@
 .primary-option.selected{display:block;;height:32px;line-height:32px;font-weight:bold;opacity:1;}
 #language-list{list-style-type:none;padding:0;border-right:1px solid gainsboro;}
 li.primary-option{display:block;border:1px solid #fefefe;}
-li.primary-option:hover{background:gainsboro;}
+li.primary-option:hover{background:gainsboro;cursor:pointer;}
 li.primary-seperator{background:gainsboro;height:1px;margin:8px;}
 
 
@@ -25,7 +25,7 @@ li.primary-seperator{background:gainsboro;height:1px;margin:8px;}
 
 #country-list{list-style-type:none;padding:0;border-right:1px solid gainsboro;height:auto;}
 li.secondary-option{display:block;width:200px;border:1px solid #fefefe;}
-li.secondary-option:hover{background:gainsboro;}
+li.secondary-option:hover{background:gainsboro;cursor:pointer;}
 li.secondary-seperator{background:gainsboro;height:1px;margin:8px;}
 
 
@@ -40,7 +40,7 @@ ol.search-results li:hover{background-color:salmon;}
 
 b{color:silver;}
 
-button{font-size:12px;font-weight:bold}
+button{font-size:12px;font-weight:bold;cursor:pointer;}
 
 button.panel-in{height:28px;border:2px solid #e49501;margin:12px 4px;padding:4px;border-radius:32px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
 button.panel-button{width:99px;height:31px;border:2px solid white;background-color:#fec65d;margin:12px 4px;border-radius:12px;color:white;}
