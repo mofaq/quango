@@ -22,7 +22,7 @@ body {margin:0; padding:0; height:100%; }
 
 
 
-.inner-header{padding:4px 28px;width:288px;border-bottom:1px solid gainsboro;}
+.inner-header{padding:4px 28px;width:308px;border-bottom:8px solid white;}
 
 #language-list{width:256px;position:absolute;z-index:3;}
 .language-list{width:256px;border-right:1px solid #dcdcdc;}

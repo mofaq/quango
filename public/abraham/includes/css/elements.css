@@ -17,7 +17,7 @@ h3:hover{background-color:gainsboro}
 #language_selector{width:200px}
 
 .choose{font-weight:bold;margin:0 16px 0 24px;font-size:1.1em;letter-spacing:-1px;}
-.primary-option{font-size:1em;display:block;height:32px;line-height:16px;padding:0 8px 0 20px;opacity:0.5;}
+.primary-option{font-size:1em;display:block;height:32px;line-height:24px;padding:0 8px 0 20px;opacity:0.5;}
 .primary-option.selected{display:block;line-height:24px;font-weight:bold;opacity:1;}
 #language-list ul{list-style-type:none;padding:0;}
 li.primary-option{display:block;border:1px solid #fefefe;}
@@ -25,7 +25,7 @@ li.primary-option:hover{background:gainsboro;cursor:pointer;}
 li.primary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
-.secondary-option{font-size:1em;display:block;height:32px;line-height:16px;padding:0 8px 0 20px;opacity:0.5;}
+.secondary-option{font-size:1em;display:block;height:32px;line-height:24px;padding:0 8px 0 20px;opacity:0.5;}
 .secondary-option.selected{display:block;line-height:24px;font-weight:bold;opacity:1;}
 
 .country-list{list-style-type:none;padding:0;border-right:1px solid gainsboro;height:auto;}
@@ -52,8 +52,8 @@ button.language-in{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px
 button.language-out{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
 button.country-out{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
 
-button.panel-in{height:28px;border:2px solid #e49501;padding:4px;border-radius:32px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
-button.panel-button{height:31px;border:2px solid white;background-color:#fec65d;border-radius:12px;color:white;}
+button.panel-in{height:28px;border:2px solid #e49501;padding:4px;border-radius:3px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
+button.panel-button{height:31px;border:2px solid white;background-color:#e49501;border-radius:6px;color:white;padding:0 8px;margin:0 2px;}
 button.panel-in2{height:40px;border:3px solid #e49501;margin:16px 12px;padding:4px;border-radius:32px;width:40px;background-color:#fec65d;color:white;font-weight:bold;}
 button.panel-in3{height:40px;border:3px solid #e49501;margin:16px 12px;padding:4px;border-radius:32px;width:40px;background-color:#fec65d;color:white;font-weight:bold;}
 

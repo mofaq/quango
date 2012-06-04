@@ -46,7 +46,7 @@
 	<div class="toggle-out left" style="position:absolute;z-index:1"><button class="panel-out">&gt;</button></div>
   <div id="map_canvas"></div>
   <div id="panel">
-	  <div class="panel-header" style="width:374px;">
+	  <div class="panel-header" style="width:368px;">
       <div class="toggle right">
         <button class="panel-in right" style="margin:0 2px;">&lt;</button>
         <button id="results"class="panel-button right">Results</button>
@@ -61,9 +61,9 @@
           <div class="overview">
             <div class="results">
               <div class="inner-header">
-                <h3><span width="200px"><div class="flag left"><img src="flags/gb.png"/></div>English</span><span style="color:gray">&nbsp;in</span><span><button class="language-out right">&gt;</button></span></h3>
+                <h3><span syle="width:200px; color:black;"><div class="flag left"><img src="flags/gb.png"/></div>English</span><span style="color:gray">&nbsp;in</span><span><button class="language-out right" style="background-color:gainsboro;">&gt;</button></span></h3>
                 <h3><span width="200px"><div class="flag left"><img src="flags/ca.png"/></div>Canada<button class="country-out right">&gt;</button></span></h3>
-                <h3 style="color:gray;"><span style="width:200px;margin-bottom:8px;"><div class="flag left"><img src="flags/ca.png"/></div>Show Cities...<button class="country-out right" style="background-color:gainsboro;">?</button></span></h3>
+                <h3 style="color:gray;"><span style="width:200px;margin-bottom:8px;"><div class="flag left"><img src="flags/ca.png"/></div>Show Cities...<button class="country-out right">&lt;</button></span></h3>
                 <div class="action"><a href="#" class="add">More results</a> | <a href="#" class="remove">Less results</a></div>
               </div>
               <div class="inner-results">
@@ -79,7 +79,7 @@
 
 </div>
 </div>
-	  <div class="panel-footer" style="text-align:center;"><button class="search-button" style="width:90%;">Schools click here to add listings</button></div>
+	  <div class="panel-footer" style="text-align:center;"><button class="panel-button" style="margin-top:16px;width:90%;">Schools click here to add listings</button></div>
   </div>
 
   <div id="country-list">
@@ -92,8 +92,10 @@
     <ul class="country-list">
       <li onclick="chooseCountry(&quot;country_0&quot;);" id="country_0" class="secondary-option" rel="13" alias="australia"><div class="flag left"><img src="flags/au.png" /></div>Australia</li>
       <li onclick="chooseCountry(&quot;country_3&quot;);" id="country_3" class="secondary-option selected" rel="39" alias="canada"><div class="flag left"><img src="flags/ca.png" /></div>Canada</li>
+      <li onclick="chooseCountry(&quot;country_3&quot;);" id="country_3" class="secondary-option" rel="39" alias="canada"><div class="flag left"><img src="flags/fr.png" /></div>France</li>
+      <li onclick="chooseCountry(&quot;country_3&quot;);" id="country_3" class="secondary-option" rel="39" alias="canada"><div class="flag left"><img src="flags/de.png" /></div>Germany</li>
       <li onclick="chooseCountry(&quot;country_9&quot;);" id="country_9" class="secondary-option" rel="227" alias="unitedkingdom"><div class="flag left"><img src="flags/gb.png" /></div>United Kingdom</li>
-      <li onclick="chooseCountry(&quot;country_10&quot;);" id="country_10" class="secondary-option" rel="228" alias="unitedstates">USA</li>
+      <li onclick="chooseCountry(&quot;country_10&quot;);" id="country_10" class="secondary-option" rel="228" alias="unitedstates"><div class="flag left"><img src="flags/us.png" /></div>USA</li>
       <li class="secondary-seperator"></li>
       <li onclick="chooseCountry(&quot;country_1&quot;);" id="country_1" class="secondary-option" rel="16" alias="bahamas">Bahamas</li><li onclick="chooseCountry(&quot;country_2&quot;);" id="country_2" class="secondary-option" rel="19" alias="barbados">Barbados</li>
       <li onclick="chooseCountry(&quot;country_4&quot;);" id="country_999" class="secondary-option" rel="104" alias="india"><div class="flag left"><img src="flags/in.png" />India</li>
@@ -108,9 +110,9 @@
   <div id="language-list">  
 
 	  <div class="panel-header">
-      <div class="toggle left">
-        <button class="language-in left">&lt;</button>
-        Language
+      <div class="toggle left"><b>Language</b>
+        <button class="language-in right">&lt;</button>
+        
       </div>
     </div>
      
