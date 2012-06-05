@@ -23,6 +23,8 @@
 <!---->
 <div id="sessions" style="visibility:hidden;">
 <input type="hidden" name="text-direction" value="rtl"/>
+<input type="hidden" name="language-filter" value="english"/>
+<input type="hidden" name="country-filter" value="canada"/>
 </div>
 <!---->
 <div id="toolbar">
@@ -36,10 +38,9 @@
 </div>
 <!---->
 <div id="header" dir="null">
-	<div class="logo"><span class="right">I want to learn</span></div>
-  <div class="left">English<span style="color:gray">&nbsp;in</span></div>
-  <div class="left">Canada...</div>
-  <div class="left"><button class="search-button left">Find Courses</button></div>
+	<div class="logo"><a href="index.html" class="left"><img src="images/cf-logo.png" style="width:28px;margin:6px -1px 0 0;"/></a><span class="left"><c>ABRAHAM</c></span><span style="color:#2d3a8b"><c>ZEBRA</c></span></div>
+  <div class="left search language-out"><b class="language_filter white"></b><span class="pop">&nbsp;in&nbsp;</span></div>
+  <div class="left search country-out"><b class="country_filter white"></b></div>
 </div>
 
 <div id="content" dir="null">
@@ -47,11 +48,11 @@
   <div id="map_canvas"></div>
   <div id="panel">
 	  <div class="panel-header">
-      <div class="toggle" style="width:300px;">
+      <div class="toggle" style="width:340px;">
         <button class="panel-in right" style="margin:0 2px;">&lt;</button>
-        <button id="results"class="panel-button right">Results</button>
-        <button id="searches"class="panel-button right">My Searches</button>
-        <button id="shortlist" class="panel-button right">Shortlist</button>
+        <button id="results"class="panel-button left">Results</button>
+        <button id="searches"class="panel-button left">My Searches</button>
+        <button id="shortlist" class="panel-button left">Shortlist</button>
       </div>
     </div>
 	  <div class="panel-container">
@@ -61,8 +62,8 @@
           <div class="overview">
             <div class="results">
               <div class="inner-header">
-                <h3 class="language-out"><span syle="width:200px; color:black;"><div class="flag left"><img src="flags/gb.png"/></div>English</span><span style="color:gray">&nbsp;in</span><span class="right modify_link">modify</span></h3>
-                <h3 class="country-out"><span width="200px"><div class="flag left"><img src="flags/ca.png"/></div>Canada<button class="country-out right">modify</button></span></h3>
+                <h3 class="language-out"><span syle="width:200px; color:black;"><div class="flag left"><img src="flags/gb.png"/></div><b class="language_filter"></b></span><span style="color:gray">&nbsp;in</span><span class="right modify_link">modify</span></h3>
+                <h3 class="country-out"><span width="200px"><div class="flag left"><img src="flags/ca.png"/></div><b class="country_filter"></b><button class="country-out right">modify</button></span></h3>
                 <h3 style="color:gray;"><span style="width:200px;margin-bottom:8px;"><div class="flag left"><img src="flags/ca.png"/></div>Show Cities...<button class="country-out right">modify</button></span></h3>
                 <div class="action"><a href="#" class="add">More results</a> | <a href="#" class="remove">Less results</a></div>
               </div>
@@ -79,7 +80,9 @@
 
 </div>
 </div>
-	  <div class="panel-footer" style="text-align:center;"><button class="panel-button" style="margin-top:16px;width:90%;">Schools click here to add listings</button></div>
+	  <div class="panel-footer""><button class="panel-button" style="margin-top:16px;width:90%;text-align:center;">Schools click here to add listings</button>
+      Abraham | v0.3
+    </div>
   </div>
 
   <div id="country-list">
@@ -90,20 +93,21 @@
       </div>
     </div>
     <ul class="country-list">
-      <li onclick="chooseCountry(&quot;country_0&quot;);" id="country_0" class="secondary-option" rel="13" alias="australia"><div class="flag left"><img src="flags/au.png" /></div>Australia</li>
-      <li onclick="chooseCountry(&quot;country_3&quot;);" id="country_3" class="secondary-option selected" rel="39" alias="canada"><div class="flag left"><img src="flags/ca.png" /></div>Canada</li>
-      <li onclick="chooseCountry(&quot;country_3&quot;);" id="country_3" class="secondary-option" rel="39" alias="canada"><div class="flag left"><img src="flags/fr.png" /></div>France</li>
-      <li onclick="chooseCountry(&quot;country_3&quot;);" id="country_3" class="secondary-option" rel="39" alias="canada"><div class="flag left"><img src="flags/de.png" /></div>Germany</li>
-      <li onclick="chooseCountry(&quot;country_9&quot;);" id="country_9" class="secondary-option" rel="227" alias="unitedkingdom"><div class="flag left"><img src="flags/gb.png" /></div>United Kingdom</li>
-      <li onclick="chooseCountry(&quot;country_10&quot;);" id="country_10" class="secondary-option" rel="228" alias="unitedstates"><div class="flag left"><img src="flags/us.png" /></div>USA</li>
+      <li onclick="chooseCountry('country_0');" id="country_0" class="secondary-option" rel="13" alias="australia"><div class="flag left"><img src="flags/au.png" /></div>Australia</li>
+      <li onclick="chooseCountry('country_1');" id="country_1" class="secondary-option selected" rel="39" alias="canada"><div class="flag left"><img src="flags/ca.png" /></div>Canada</li>
+      <li onclick="chooseCountry('country_2');" id="country_2" class="secondary-option" rel="39" alias="france"><div class="flag left"><img src="flags/fr.png" /></div>France</li>
+      <li onclick="chooseCountry('country_3');" id="country_3" class="secondary-option" rel="39" alias="germany"><div class="flag left"><img src="flags/de.png" /></div>Germany</li>
+      <li onclick="chooseCountry('country_4');" id="country_4" class="secondary-option" rel="227" alias="england"><div class="flag left"><img src="flags/gb.png" /></div>United Kingdom</li>
+      <li onclick="chooseCountry('country_5');" id="country_5" class="secondary-option" rel="228" alias="usa"><div class="flag left"><img src="flags/us.png" /></div>USA</li>
       <li class="secondary-seperator"></li>
-      <li onclick="chooseCountry(&quot;country_1&quot;);" id="country_1" class="secondary-option" rel="16" alias="bahamas">Bahamas</li><li onclick="chooseCountry(&quot;country_2&quot;);" id="country_2" class="secondary-option" rel="19" alias="barbados">Barbados</li>
-      <li onclick="chooseCountry(&quot;country_4&quot;);" id="country_999" class="secondary-option" rel="104" alias="india"><div class="flag left"><img src="flags/in.png" />India</li>
-      <li onclick="chooseCountry(&quot;country_4&quot;);" id="country_4" class="secondary-option" rel="104" alias="ireland">Ireland</li>
-      <li onclick="chooseCountry(&quot;country_5&quot;);" id="country_5" class="secondary-option" rel="132" alias="malta">Malta</li>
-      <li onclick="chooseCountry(&quot;country_6&quot;);" id="country_6" class="secondary-option" rel="154" alias="newzealand">New Zealand</li>
-      <li onclick="chooseCountry(&quot;country_7&quot;);" id="country_7" class="secondary-option" rel="171" alias="philippines">Philippines</li>
-      <li onclick="chooseCountry(&quot;country_8&quot;);" id="country_8" class="secondary-option" rel="199" alias="southafrica">South Africa</li>
+      <li onclick="chooseCountry('country_6');" id="country_6" class="secondary-option" rel="16" alias="bahamas">Bahamas</li>
+      <li onclick="chooseCountry('country_6a');" id="country_6a" class="secondary-option" rel="19" alias="barbados">Barbados</li>
+      <li onclick="chooseCountry('country_7');" id="country_7" class="secondary-option" rel="104" alias="india"><div class="flag left"><img src="flags/in.png" />India</li>
+      <li onclick="chooseCountry('country_8');" id="country_8" class="secondary-option" rel="104" alias="ireland">Ireland</li>
+      <li onclick="chooseCountry('country_9');" id="country_9" class="secondary-option" rel="132" alias="malta">Malta</li>
+      <li onclick="chooseCountry('country_10');" id="country_10" class="secondary-option" rel="154" alias="newzealand">New Zealand</li>
+      <li onclick="chooseCountry('country_11');" id="country_11" class="secondary-option" rel="171" alias="philippines">Philippines</li>
+      <li onclick="chooseCountry('country_12');" id="country_12" class="secondary-option" rel="199" alias="southafrica">South Africa</li>
     </ul>
   </div>
 

@@ -8,13 +8,22 @@ jQuery.event.add(window, "resize", resizeFrame1);
 jQuery.easing.def = "easeOutBounce";
 
 
-function choose(){
-  return;
+
+
+function choose(lang){
+  $(".primary-option").removeClass("selected");
+  var language = $("#"+lang).attr("alias");
+  var lantext = $(language).text();
+  $("#"+lang).addClass("selected");
+  $(".language_filter").text(language)
 }
 
-function chooseCountry(){
-  $().this.addClass('selected');
-  return;
+function chooseCountry(lang){
+  $("#"+lang).siblings().removeClass("selected");
+  var language = $("#"+lang).attr("alias");
+  var lantext = $(language).text();
+  $("#"+lang).addClass("selected");
+  $(".country_filter").text(language)
 }
 
 
@@ -25,6 +34,10 @@ function setDefaults()
 	$('[dir|="null"]').attr('dir','ltr'); //
 	$(".text-direction").text('ltr');
 	$(".text-direction").text('ltr');
+    $("input:hidden[name=language-filter]").val('english');
+  choose('lang_1');
+  chooseCountry('country_1');
+	//$(".language_filter").text('english');
 	$("#map_canvas").css('float','right');
 	$("#panel").css('float','left');
 	$("#language-list").css('float','left').css('display','none');
@@ -100,7 +113,9 @@ function resizeFrame()
   $("#panel").css('height',(h - hmod));
   $("#panel").css('width',(wmod));
   $("#map_canvas").css('height',(h - hmod));
-	$("#map_canvas").css('width', (w - wmod - wselector - wselector));
+	$("#map_canvas").css('width', (w));
+
+	$(".language_filter").text(h);
 
 	$(".wheight").text(h);
 	$(".wwidth").text(w);
@@ -447,7 +462,7 @@ $(document).ready(function() {
 	$("#country-list").css({display:'none'});
 	$("#map_canvas").animate({width:w},700);
 	$("#map_canvas").css({width:w});
-	resizeFrame3();
+	resizeFrame();
 	//initMap();
 /*$("#panel").animate({"marginLeft": "+=340px"}, "fast");*/
   });
@@ -473,7 +488,7 @@ function createMap(geo,address) {
   var marker = new google.maps.Marker({
     position: geo,
     map: map,
-    icon: 'images/pin.png',
+    icon: 'images/marker.png',
     title: "Stuff marker"
   });
 

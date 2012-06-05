@@ -11,6 +11,8 @@ h3:hover{background-color:#efefef;cursor:pointer;}
 
 
 .modify_link{color:#e49501;text-decoration:underline;}
+.language_filter{text-transform:capitalize;}
+.country_filter{text-transform:capitalize;}
 
 .flag{height:16px;margin:6px 8px 0 0;}
 
@@ -47,14 +49,14 @@ ol.search-results li:hover{background-color:salmon;}
 
 b{color:silver;}
 
-button{font-size:12px;font-weight:bold;cursor:pointer;}
+button{font-size:12px;font-weight:bold;cursor:pointer;letter-spacing:-1px;text-transform:uppercase;}
 
 button.country-in{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
 button.language-in{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
 button.language-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 button.country-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 
-button.panel-in{height:28px;border:2px solid #e49501;padding:4px;border-radius:3px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
+button.panel-in{height:28px;border:2px solid #e49501;padding:4px;border-radius:3px;width:28px;background-color:white;color:#fec65d;font-weight:bold;}
 button.panel-button{height:31px;border:2px solid white;background-color:#e49501;border-radius:6px;color:white;padding:0 8px;margin:0 2px;}
 button.panel-in2{height:40px;border:3px solid #e49501;margin:16px 12px;padding:4px;border-radius:32px;width:40px;background-color:#fec65d;color:white;font-weight:bold;}
 button.panel-in3{height:40px;border:3px solid #e49501;margin:16px 12px;padding:4px;border-radius:32px;width:40px;background-color:#fec65d;color:white;font-weight:bold;}
