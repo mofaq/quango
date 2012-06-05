@@ -264,7 +264,7 @@ $(document).ready(function() {
 	$("#panel").css('float','left');
 	$(".logo").css('float','left');
 	$(".search").css('float','left');
-  $(".results").load("./results.html");
+  //$(".results").load("./results.html");
 	resizeFrame1();
     });
 });
@@ -279,7 +279,7 @@ $(document).ready(function() {
 	$("#panel").css('float','right');
 	$(".logo").css('float','right');
 	$(".search").css('float','right');
-  $(".results").load("./results-arabic.html");
+  //$(".results").load("./results-arabic.html");
 	resizeFrame1();
     });
 });
