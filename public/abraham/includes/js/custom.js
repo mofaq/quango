@@ -27,8 +27,8 @@ function setDefaults()
 	$(".text-direction").text('ltr');
 	$("#map_canvas").css('float','right');
 	$("#panel").css('float','left');
-	$("#language-list").css('float','left');
-	$("#country-list").css('float','left');
+	$("#language-list").css('float','left').css('display','none');
+	$("#country-list").css('float','left').css('display','none');
 	$(".logo").css('float','left');
 	$(".search").css('float','left');
 	$(".choose").css('float','left');
@@ -125,11 +125,11 @@ function resizeFrame1()
   $("#language-list").css('width',(wselector));
   $("#language-list").css('height',(h - hmod));
   $("#country-list").css('width',(wselector));
-  $("#country-list").css('margin-left',(wmod + wselector));
+  $("#country-list").css('margin-left',(wmod));
   $("#language-list").css('margin-left',(wmod));
   $("#country-list").css('height',(h - hmod));
   $("#map_canvas").css('height',(h - hmod));
-	$("#map_canvas").css('width', (w - wmod - wselector - wselector));
+	$("#map_canvas").css('width', (w - wmod));
 
 	$(".wheight").text(h);
 	$(".wwidth").text(w);
@@ -153,11 +153,11 @@ function resizeFrame2()
   $("#language-list").css('width',(wselector));
   $("#language-list").css('height',(h - hmod));
   $("#country-list").css('width',(wselector));
-  $("#country-list").css('margin-left',(wselector));
-  $("#language-list").css('margin-left',(wmod));
+  //$("#country-list").css('margin-right',(w + wselector));
+  //$("#language-list").css('margin-right',(w + wselector));
   $("#country-list").css('height',(h - hmod));
   $("#map_canvas").css('height',(h - hmod));
-	$("#map_canvas").css('width', (w - wmod));
+	$("#map_canvas").css('width', (w - wmod - wselector));
 
 
 	$(".wheight").text(h);
@@ -174,16 +174,8 @@ function resizeFrame3()
     var w = $(window).width();
   $("#content").css('height',(h - hmod));
   $("#content").css('width',(w))
-  $("#panel").css('height',(h - hmod));
-  $("#panel").css('width',(wmod));
-  $("#language-list").css('width',(wselector));
-  $("#language-list").css('height',(h - hmod));
-  $("#country-list").css('width',(wselector));
-  $("#country-list").css('margin-left',(wmod + wselector));
-  $("#language-list").css('margin-left',(wmod));
-  $("#country-list").css('height',(h - hmod));
   $("#map_canvas").css('height',(h - hmod));
-	$("#map_canvas").css('width', (w - wmod - wselector));
+	$("#map_canvas").css('width', (w));
 
 
 	$(".wheight").text(h);
@@ -280,27 +272,27 @@ $(document).ready(function() {
 $(document).ready(function() {
   var w = $(window).width();
   var d = $("input:hidden[name=text-direction]").val();
-	$('button.language-out').click(function() {
+	$('.language-out').click(function() {
     var $panel = $('#language-list');
     if (d == 'ltr'){
       $panel.animate({
         marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
-          +$panel.outerWidth(+40) : 0
+          -$panel.outerWidth(+40) : 0
       });
 
     }
     if (d == 'rtl'){
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
-          +$panel.outerWidth(+40) : 0
+          -$panel.outerWidth(+40) : 0
       });
 
     }
-	$("#language-list").css({display:'inline'});
+	$("#language-list").css({display:'inline'}).animate();
 	$("#language-list").css({width:256});
 
-	resizeFrame3();
-	//initMap();
+	resizeFrame2();
+	initMap();
 /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
 });
@@ -308,13 +300,14 @@ $(document).ready(function() {
 $(document).ready(function() {
   var w = $(window).width();
   var d = $("input:hidden[name=text-direction]").val();
-	$('button.country-out').click(function() {
+	$('.country-out').click(function() {
     var $panel = $('#country-list');
     if (d == 'ltr'){
       $panel.animate({
         marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
           +$panel.outerWidth(+40) : 0
       });
+
 
     }
     if (d == 'rtl'){
@@ -325,10 +318,11 @@ $(document).ready(function() {
       });
 
     }
+	$("#language-list").css({display:'none'});
 	$("#country-list").css({display:'inline'});
 	$("#country-list").css({width:256});
 
-	resizeFrame3();
+	resizeFrame2();
 	//initMap();
 /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
@@ -338,7 +332,7 @@ $(document).ready(function() {
   var w = $(window).width();
   var d = $("input:hidden[name=text-direction]").val();
 	$('button.country-in').click(function() {
-    /*var $panel = $('#country-list');
+    var $panel = $('#country-list');
     if (d == 'ltr'){
       $panel.animate({
         marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
@@ -353,14 +347,16 @@ $(document).ready(function() {
       });
 
     }
-	$("#country-list").css({display:'inline'});
-	$("#country-list").css({width:256});
+	$("#country-list").hide();
+	$("#map_canvas").animate({width:w-(381)},700);
+	$("#map_canvas").css({width:w-(381)});
+	//$("#country-list").css({width:256});
 
-	resizeFrame2();*/
-	//initMap();
-    $("#language-list").toggle();
-    $("#country-list").toggle();
-    resizeFrame2();
+	//resizeFrame2();
+	initMap();
+    //$("#language-list").toggle();
+    //$("#country-list").toggle();
+    resizeFrame1();
 
   });
 });
@@ -369,30 +365,33 @@ $(document).ready(function() {
 $(document).ready(function() {
   var w = $(window).width();
   var d = $("input:hidden[name=text-direction]").val();
-	$('button.language-in').click(function() {
-    /*var $panel = $('#language-list');
+	$('.language-in').click(function() {
+    var $panel = $('#language-list');
     if (d == 'ltr'){
       $panel.animate({
         marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
-          +$panel.outerWidth(+40) : 0
+          -$panel.outerWidth(+40) : 0
       });
 
     }
     if (d == 'rtl'){
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
-          +$panel.outerWidth(+40) : 0
+          -$panel.outerWidth(+40) : 0
       });
 
     }
-	$("#language-list").css({display:'inline'});
-	$("#language-list").css({width:256});
+	$("#language-list").hide();
+	//$("#language-list").css({width:256});
+
+	$("#map_canvas").animate({width:w-(381)},700);
+	$("#map_canvas").css({width:w-(381)});
 
 	resizeFrame1();
 	//initMap();*/
-    $("#language-list").toggle();
-    $("#country-list").toggle();
-    resizeFrame3();
+    //$("#language-list").toggle();
+    //$("#country-list").toggle();
+   // resizeFrame1();
   });
 });
 
@@ -418,6 +417,7 @@ $(document).ready(function() {
     }
 	$("#panel").css({display:'inline'});
 	$("#panel").css({width:381});
+	$("#map_canvas").animate({width:w-381},700);
 	$("#map_canvas").css({width:w-381});
 	resizeFrame1();
 	//initMap();
@@ -443,9 +443,11 @@ $(document).ready(function() {
       });
     }
 	$("#panel").css({display:'none'});
+	$("#language-list").css({display:'none'});
+	$("#country-list").css({display:'none'});
 	$("#map_canvas").animate({width:w},700);
 	$("#map_canvas").css({width:w});
-	resizeFrame1();
+	resizeFrame3();
 	//initMap();
 /*$("#panel").animate({"marginLeft": "+=340px"}, "fast");*/
   });
@@ -471,6 +473,7 @@ function createMap(geo,address) {
   var marker = new google.maps.Marker({
     position: geo,
     map: map,
+    icon: 'images/pin.png',
     title: "Stuff marker"
   });
 

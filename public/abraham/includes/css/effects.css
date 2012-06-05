@@ -1,6 +1,6 @@
 #header{
-background: #fec65d;
-background-color:#fec65d;
+background: #6c7bd0;
+background-color:#6c7bd0;
 border-bottom:1px solid white;
 }
 
@@ -41,7 +41,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( endColorstr='#ffffff', start
 
 .panel-header{
 
-border:1px solid gainsboro;
 border-top:0;
 background: #ffffff;
 background-color:#ffffff;
@@ -63,6 +62,14 @@ border-top:0;
 }
 
 #country-list{
+box-shadow:-5px 6px 12px #000000;
+background: #ffffff;
+background-color:#ffffff;
+border:1px solid gainsboro;
+border-top:0;
+}
+
+#city-list{
 box-shadow:-5px 6px 12px #000000;
 background: #ffffff;
 background-color:#ffffff;

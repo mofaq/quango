@@ -8,7 +8,7 @@ body {margin:0; padding:0; height:100%; }
 #toolbar{width:100%;height:29px;line-height:29px;background-color:#2d3a8b;color:white}
 .toolbar-inner{margin:0 32px;font-size:11px;}
 
-#header{width:100%;height:71px;line-height:71px; overflow:hidden;}
+#header{width:100%;height:71px;line-height:71px; overflow:hidden;background-color:#6c7bd0}
 .header-inner{margin:0 32px;}
 
 .logo{margin:0 0 0 32px;padding:0 32px;height:71px;width:310px;font-size:19px;font-weight:bold;letter-spacing:-1px;background-image:url(../../images/cf-logo.png);background-repeat:no-repeat;}
@@ -22,14 +22,17 @@ body {margin:0; padding:0; height:100%; }
 
 
 
-.inner-header{padding:4px 28px;width:308px;border-bottom:8px solid white;}
+.inner-header{padding:0px 28px 4px 28px;width:308px;border-bottom:8px solid white;}
 
 #language-list{width:256px;position:absolute;z-index:3;}
 .language-list{width:256px;border-right:1px solid #dcdcdc;}
 #country-list{width:256px;position:absolute;z-index:2;}
-.country-list{width:256px;}
+.country-list{width:256px;border-right:1px solid #dcdcdc;}
+#city-list{width:256px;position:absolute;z-index:1;}
+.city-list{width:256px;border-right:1px solid #dcdcdc;}
 
-.toggle{height:32px;line-height:28px;min-width:200px}
+
+.toggle{height:32px;line-height:28px;min-width:256px}
 .toggle-out{height:29px;padding:4px;}
 
 #map{-webkit-box-shadow:0 3px 6px #bdbdbd inset;box-shadow:0 3px 6px #bdbdbd inset;}
