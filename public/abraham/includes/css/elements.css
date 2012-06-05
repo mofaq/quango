@@ -15,6 +15,7 @@ h3:hover{background-color:#efefef;cursor:pointer;}
 .country_filter{text-transform:capitalize;}
 
 .flag{height:16px;margin:6px 8px 0 0;}
+.flag-panel{height:16px;margin:12px 8px 0 8px;}
 
 /* the language selector */
 
@@ -39,8 +40,8 @@ li.secondary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
 
-
-.action a{height:1em;font-weight:bold;color:#67cbdo;margin:16px 0;}
+.action{height:40px;line-height:48px;}
+.action a{height:40px;font-weight:bold;color:#6C7BD0;margin:16px 0;}
 
 
 .result-item{margin:4px 0;width:300px;background-color:white;height:64px;overflow:hidden;padding-left:28px;}
@@ -58,6 +59,9 @@ button.country-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;b
 button.language-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
 button.language-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 button.country-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
+
+.language-out{margin-right:16px;}
+.country-out{margin-right:16px;}
 
 button.panel-in{height:28px;border:2px solid silver;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
 button.panel-button{height:31px;border:2px solid white;background-color:silver;border-radius:6px;color:white;padding:0 8px;margin:0 2px;}
