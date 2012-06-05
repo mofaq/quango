@@ -1,6 +1,8 @@
 html {height:100%;font-family:arial;overflow:hidden;}
 body {margin:0; padding:0; height:100%; }
 
+a{color:#6C7BD0;}
+
 .left{float:left;}
 .right{float:right;}
 .clear{clear:both}
@@ -25,7 +27,7 @@ body {margin:0; padding:0; height:100%; }
 .panel-header{padding:16px 8px 0 24px; height:44px;min-width:222px;line-height:32px;border-bottom:1px solid gainsboro;}
 .panel-container{padding:8px 4px 4px 4px;margin:0;}
 
-.panel-footer{font-size:0.7em;color:gainsboro;}
+.panel-footer{font-size:0.7em;color:#6C7BD0;}
 
 .inner-header{padding:0px 28px 4px 28px;width:308px;border-bottom:8px solid white;}
 

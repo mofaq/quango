@@ -44,6 +44,9 @@ li.secondary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
 .result-item{margin:4px 0;width:300px;background-color:white;height:64px;overflow:hidden;padding-left:28px;}
+.result-item:hover{margin:4px 0;width:300px;background-color:#efefef;height:64px;overflow:hidden;padding-left:28px;cursor:pointer;}
+.result-item{font-size:12px;}
+.result-item a{font-size:12px;font-weight:bold;text-decoration:none}
 ol.search-results li:hover{background-color:salmon;}
 
 
@@ -51,13 +54,13 @@ b{color:silver;}
 
 button{font-size:12px;font-weight:bold;cursor:pointer;letter-spacing:-1px;text-transform:uppercase;}
 
-button.country-in{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
-button.language-in{height:28px;border:2px solid #e49501;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:#fec65d;color:white;font-weight:bold;}
+button.country-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
+button.language-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
 button.language-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 button.country-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 
-button.panel-in{height:28px;border:2px solid #e49501;padding:4px;border-radius:3px;width:28px;background-color:white;color:#fec65d;font-weight:bold;}
-button.panel-button{height:31px;border:2px solid white;background-color:#e49501;border-radius:6px;color:white;padding:0 8px;margin:0 2px;}
+button.panel-in{height:28px;border:2px solid silver;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
+button.panel-button{height:31px;border:2px solid white;background-color:silver;border-radius:6px;color:white;padding:0 8px;margin:0 2px;}
 button.panel-in2{height:40px;border:3px solid #e49501;margin:16px 12px;padding:4px;border-radius:32px;width:40px;background-color:#fec65d;color:white;font-weight:bold;}
 button.panel-in3{height:40px;border:3px solid #e49501;margin:16px 12px;padding:4px;border-radius:32px;width:40px;background-color:#fec65d;color:white;font-weight:bold;}
 
