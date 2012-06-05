@@ -493,8 +493,8 @@ function createMap(geo,address) {
   });
 
   var overlay = new google.maps.InfoWindow({
-    content: "<p style = \"color:black\">" +
-      address[0] + "x<br><br><b>x</b><br><br><b>x</b></p>"
+    content: "<p style = \"color:black\"><div class=\"result-item\" style=\"padding:0\"><div class=\"right\"><a href=\"#\">Lorem ipsum dolor sit amet</a><br>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div><div class=\"right\"><b>Something: " +
+      address[0] + "</b></div></div>"
   });
   overlay.open(map,marker);
   return map;

@@ -60,8 +60,8 @@ button.language-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;
 button.language-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 button.country-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 
-.language-out{margin-right:16px;}
-.country-out{margin-right:16px;}
+.language-out{color:#6C7BD0;margin-right:16px;}
+.country-out{color:#6C7BD0;margin-right:16px;}
 
 button.panel-in{height:28px;border:2px solid silver;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
 button.panel-button{height:31px;border:2px solid white;background-color:silver;border-radius:6px;color:white;padding:0 8px;margin:0 2px;}
