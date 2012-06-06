@@ -13,9 +13,10 @@ jQuery.easing.def = "easeOutBounce";
 function choose(lang){
   $(".primary-option").siblings().removeClass("selected");
   var language = $("#"+lang).attr("alias");
-  var lantext = $(language).text();
+  var lantext = $("#"+lang).html();
   $("#"+lang).addClass("selected");
-  $(".language_filter").text(language);
+  $(".language_filter").html(lantext);
+  $(".language_filter .flag").addClass('flag-panel').removeClass('flag');
   $(".language_filter").css('color','#2D3A8B');
   $("#destination-list").hide();
   $("#country-list").hide();
@@ -28,9 +29,10 @@ function choose(lang){
 function chooseCountry(lang){
   $("#"+lang).siblings().removeClass("selected");
   var language = $("#"+lang).attr("alias");
-  var lantext = $(language).text();
+  var lantext = $("#"+lang).html();
   $("#"+lang).addClass("selected");
-  $(".country_filter").text(language);
+  $(".country_filter").html(lantext);
+  $(".country_filter .flag").addClass('flag-panel').removeClass('flag');
   $(".country_filter").css('color','#2D3A8B');
   $("#destination-list").hide();
   $("#language-list").hide();

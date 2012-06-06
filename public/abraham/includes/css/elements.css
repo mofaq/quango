@@ -6,7 +6,7 @@
 
 body{color:#111111;}
 
-h3{height:32px;line-height:32px;margin:0;}
+h3{height:32px;line-height:32px;padding:0 8px 0 24px;margin:0}
 h3:hover{background-color:#efefef;cursor:pointer;}
 
 
@@ -28,7 +28,7 @@ h3:hover{background-color:#efefef;cursor:pointer;}
 .choose{font-weight:bold;margin:0 16px 0 24px;font-size:1.1em;letter-spacing:-1px;}
 .primary-option{font-size:1em;display:block;height:32px;line-height:24px;padding:0 8px 0 20px;opacity:0.5;}
 .primary-option.selected{display:block;line-height:24px;font-weight:bold;opacity:1;}
-#language-list ul{list-style-type:none;padding:0;margin:0;}
+#language-list ul{list-style-type:none;padding:0;margin:0;width:212px;}
 li.primary-option{display:block;border:1px solid #fefefe;}
 li.primary-option:hover{background:gainsboro;cursor:pointer;}
 li.primary-seperator{background:gainsboro;height:4px;margin:8px;}
@@ -44,12 +44,12 @@ li.secondary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
 
-.action{height:40px;line-height:40px;}
+.action{height:40px;line-height:40px;padding:0 24px;}
 .action a{font-weight:bold;color:#6C7BD0;}
 
 
-.result-item{padding:0 24px;margin:0 0 4px 0;width:280px;background-color:white;height:64px;overflow:hidden;}
-.result-item:hover{padding:0 24px;margin:0 0 4px 0;width:280px;background-color:#efefef;height:64px;overflow:hidden;cursor:pointer;}
+.result-item{padding:0 24px;margin:0 0 4px 0;width:296px;background-color:white;height:64px;overflow:hidden;}
+.result-item:hover{padding:0 24px;margin:0 0 4px 0;width:296px;background-color:#efefef;height:64px;overflow:hidden;cursor:pointer;}
 .result-item{font-size:12px;}
 .result-item a{font-size:12px;font-weight:bold;text-decoration:none}
 
@@ -89,8 +89,8 @@ button.search-button{height:40px;border:3px solid white;margin:16px 12px;padding
 #scrollbar1 .viewport {overflow: hidden; position: relative; }
 #scrollbar1 .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
 #scrollbar1 .scrollbar{ background-color: green; position: relative; width: 20px; margin:0 8px 0 2px; }
-#scrollbar1 .track {background-color:#dcdcdc; height: 100%; width:20px; position: relative; padding: 0;border:1px solid white; }
-#scrollbar1 .thumb {background-color:#fec65d; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
+#scrollbar1 .track {background-color:#ededed; height: 100%; width:20px; position: relative; padding: 0;border:1px solid gainsboro; }
+#scrollbar1 .thumb {background-color:#dcdcdc; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
 #scrollbar1 .thumb:hover {background-color:#fec65d; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
 #scrollbar1 .thumb .end { background-color:gainsboro; overflow: hidden; height: 1px; width: 16px; }
 #scrollbar1 .disable { display: none; }
@@ -98,9 +98,9 @@ button.search-button{height:40px;border:3px solid white;margin:16px 12px;padding
 #scrollbar2 {margin:0; }
 #scrollbar2 .viewport {overflow: hidden; position: relative; }
 #scrollbar2 .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
-#scrollbar2 .scrollbar{ background-color: green; position: relative; width: 20px; margin:0 8px 0 2px;border:1px solid white;  }
-#scrollbar2 .track {background-color:#dcdcdc; height: 100%; width:20px; position: relative; padding: 0; }
-#scrollbar2 .thumb {background-color:#fec65d; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
+#scrollbar2 .scrollbar{ background-color: green; position: relative; width: 20px; margin:0 8px 0 2px;border:1px solid gainsboro;  }
+#scrollbar2 .track {background-color:#ededed; height: 100%; width:20px; position: relative; padding: 0; }
+#scrollbar2 .thumb {background-color:#dcdcdc; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
 
 #scrollbar2 .thumb:hover {background-color:#fec65d; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
 #scrollbar2 .thumb .end { background-color:gainsboro; overflow: hidden; height: 1px; width: 16px; }
