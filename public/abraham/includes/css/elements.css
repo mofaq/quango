@@ -15,8 +15,8 @@ h3:hover{background-color:#efefef;cursor:pointer;}
 .language_filter{text-transform:capitalize;}
 .country_filter{text-transform:capitalize;}
 
-#header .language_filter{background-color:white;border-radius:6px;padding:4px 16px;cursor:pointer;}
-#header .country_filter{background-color:white;border-radius:6px;padding:4px 16px;cursor:pointer;}
+#header .language_filter{background-color:white;border-radius:6px;padding:4px 16px;cursor:pointer;min-width:256px;}
+#header .country_filter{background-color:white;border-radius:6px;padding:4px 16px;cursor:pointer;min-width:256px;}
 
 .flag{height:16px;margin:6px 8px 0 0;}
 .flag-panel{height:16px;margin:12px 12px 0 0px;}
@@ -28,7 +28,7 @@ h3:hover{background-color:#efefef;cursor:pointer;}
 .choose{font-weight:bold;margin:0 16px 0 24px;font-size:1.1em;letter-spacing:-1px;}
 .primary-option{font-size:1em;display:block;height:32px;line-height:24px;padding:0 8px 0 20px;opacity:0.5;}
 .primary-option.selected{display:block;line-height:24px;font-weight:bold;opacity:1;}
-#language-list ul{list-style-type:none;padding:0;}
+#language-list ul{list-style-type:none;padding:0;margin:0;}
 li.primary-option{display:block;border:1px solid #fefefe;}
 li.primary-option:hover{background:gainsboro;cursor:pointer;}
 li.primary-seperator{background:gainsboro;height:4px;margin:8px;}
@@ -44,8 +44,8 @@ li.secondary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
 
-.action{height:48px;line-height:48px;}
-.action a{height:48px;font-weight:bold;color:#6C7BD0;margin:20px 0;}
+.action{height:32px;line-height:64px;}
+.action a{height:32px;font-weight:bold;color:#6C7BD0;margin:16px 0;}
 
 
 .result-item{margin:4px 0;width:300px;background-color:white;height:64px;overflow:hidden;padding-left:28px;}
@@ -65,8 +65,11 @@ button.language-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;
 button.language-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 button.country-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 
-.language-out{color:silver;margin-right:16px;}
-.country-out{color:silver;margin-right:16px;}
+.language-out{color:silver;margin-right:8px;}
+.selected{color:#2D3A8B;background-color:#efefef;}
+
+.country-out{color:silver;margin-right:8px;}
+.destination-out{color:silver;margin-right:8px;}
 
 button.panel-in{height:28px;border:2px solid silver;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
 button.panel-button{height:31px;border:2px solid white;background-color:silver;border-radius:6px;color:white;padding:0 8px;margin:0 2px;}
@@ -95,11 +98,11 @@ button.search-button{height:40px;border:3px solid white;margin:16px 12px;padding
 #scrollbar2 {margin:0; }
 #scrollbar2 .viewport {overflow: hidden; position: relative; }
 #scrollbar2 .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
-#scrollbar2 .scrollbar{ background-color: green; position: relative; width: 16px; margin:0 8px 0 2px; }
-#scrollbar2 .track {background-color:#dcdcdc; height: 100%; width:16px; position: relative; padding: 0; }
-#scrollbar2 .thumb {background-color:#fec65d; height: 20px; width: 16px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
+#scrollbar2 .scrollbar{ background-color: green; position: relative; width: 20px; margin:0 8px 0 2px;border:1px solid white;  }
+#scrollbar2 .track {background-color:#dcdcdc; height: 100%; width:20px; position: relative; padding: 0; }
+#scrollbar2 .thumb {background-color:#fec65d; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
 
-#scrollbar2 .thumb:hover {background-color:#fec65d; height: 20px; width: 16px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
+#scrollbar2 .thumb:hover {background-color:#fec65d; height: 20px; width: 20px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; }
 #scrollbar2 .thumb .end { background-color:gainsboro; overflow: hidden; height: 1px; width: 16px; }
 #scrollbar2 .disable { display: none; }
 

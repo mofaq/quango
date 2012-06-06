@@ -23,20 +23,20 @@ a{color:#6C7BD0;}
 
 #content{overflow:hidden;}
 
-#panel{position:absolute;z-index:4;float:left;background-color:#fefefe;width:381px;border-right:1px solid white;-webkit-box-shadow:0 3px 6px #bdbdbd;box-shadow:0 3px 6px #bdbdbd;behavior: url(includes/css/PIE.htc);}
+#panel{position:absolute;z-index:5;float:left;background-color:#fefefe;width:381px;border-right:1px solid white;-webkit-box-shadow:0 3px 6px #bdbdbd;box-shadow:0 3px 6px #bdbdbd;behavior: url(includes/css/PIE.htc);}
 .panel-header{padding:16px 8px 0 24px; height:44px;min-width:222px;line-height:32px;border-bottom:1px solid gainsboro;}
 .panel-container{padding:8px 4px 4px 4px;margin:0;}
 
 .panel-footer{font-size:0.7em;color:#6C7BD0;}
 
-.inner-header{padding:0px 24px 16px 24px;width:308px;border-bottom:8px solid white;}
+.inner-header{padding:0px 24px 0 24px;width:308px;border-bottom:8px solid white;}
 
-#language-list{width:256px;position:absolute;z-index:3;}
+#language-list{width:256px;position:absolute;z-index:4;}
 .language-list{width:256px;border-right:1px solid #dcdcdc;}
-#country-list{width:256px;position:absolute;z-index:2;}
+#country-list{width:256px;position:absolute;z-index:3;}
 .country-list{width:256px;border-right:1px solid #dcdcdc;}
-#city-list{width:256px;position:absolute;z-index:1;}
-.city-list{width:256px;border-right:1px solid #dcdcdc;}
+#destination-list{width:256px;position:absolute;z-index:2;}
+.destination-list{width:256px;border-right:1px solid #dcdcdc;}
 
 
 .toggle{height:32px;line-height:28px;min-width:222px}

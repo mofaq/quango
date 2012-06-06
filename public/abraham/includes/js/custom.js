@@ -1,7 +1,7 @@
 /*Some simple sizing stuff*/
 
 jQuery.event.add(window, "load", resizeFrame1);
-jQuery.event.add(window, "load", setDefaults);
+jQuery.event.add(window, "load", setDefaultsLtr);
 jQuery.event.add(window, "load", panelHeight);
 
 jQuery.event.add(window, "resize", resizeFrame1);
@@ -11,12 +11,18 @@ jQuery.easing.def = "easeOutBounce";
 
 
 function choose(lang){
-  $(".primary-option").removeClass("selected");
+  $(".primary-option").siblings().removeClass("selected");
   var language = $("#"+lang).attr("alias");
   var lantext = $(language).text();
   $("#"+lang).addClass("selected");
-  $(".language_filter").text(language)
-  $(".language_filter").css('color','black');
+  $(".language_filter").text(language);
+  $(".language_filter").css('color','#2D3A8B');
+  $("#destination-list").hide();
+  $("#country-list").hide();
+  $("#language-list").hide();
+  $(".language-out").removeClass("selected");
+  resizeFrame1();
+
 }
 
 function chooseCountry(lang){
@@ -25,11 +31,17 @@ function chooseCountry(lang){
   var lantext = $(language).text();
   $("#"+lang).addClass("selected");
   $(".country_filter").text(language);
-  $(".country_filter").css('color','black');
+  $(".country_filter").css('color','#2D3A8B');
+  $("#destination-list").hide();
+  $("#language-list").hide();
+  $("#country-list").hide();
+  $(".country-out").removeClass("selected");
+  resizeFrame1();
+
 }
 
 
-function setDefaults()
+function setDefaultsLtr()
 {
   $("input:hidden[name=text-direction]").val('ltr');
 	// $('html').attr('dir','ltr'); //
@@ -44,14 +56,37 @@ function setDefaults()
 	$("#panel").css('float','left');
 	$("#language-list").css('float','left').css('display','none');
 	$("#country-list").css('float','left').css('display','none');
+	$("#destination-list").css('float','left').css('display','none');
 	$(".logo").css('float','left');
 	$(".search").css('float','left');
 	$(".choose").css('float','left');
   $(".language_filter").text('Language')
   $(".country_filter").text('Country')
-  //$(".select_language").load("./select_language.html");
-  //$(".select_country").load("./select_country.html");
+  $(".language_filter").tooltip();
 }
+
+function setDefaultsRtl()
+{
+  $("input:hidden[name=text-direction]").val('rtl');
+	// $('html').attr('dir','ltr'); //
+	$('[dir|="null"]').attr('dir','rtl'); //
+	$(".text-direction").text('rtl');
+	$(".text-direction").text('rtl');
+    $("input:hidden[name=language-filter]").val('Language');
+  //choose('lang_1');
+  //chooseCountry('country_1');
+	//$(".language_filter").text('english');
+	$("#map_canvas").css('float','left');
+	$("#panel").css('float','right');
+	$("#language-list").css('float','right').css('display','none');
+	$("#country-list").css('float','right').css('display','none');
+	$("#destination-list").css('float','right').css('display','none');
+	$(".logo").css('float','right');
+	$(".search").css('float','right');
+	$(".choose").css('float','right');
+  $(".language_filter").tooltip();
+}
+
 
 function panelHeight()
 {
@@ -69,7 +104,7 @@ function panelHeight()
   $(".panel-container-height").text(pch);
 
   $('#scrollbar1').tinyscrollbar({ size: pch });
-  $('#scrollbar2').tinyscrollbar({ size: (pch-101)});
+  $('#scrollbar2').tinyscrollbar({ size: pch });
 
 
   if (ph >= pch){
@@ -88,16 +123,14 @@ function panelHeight()
 $(document).ready(function() {
 $('a.add').click(function(ev){
     ev.preventDefault();
-    $('.inner-results').children(':first').clone().appendTo('.inner-results');
-    $('.inner-results').children(':first').clone().appendTo('.inner-results');
-    $('.inner-results').children(':first').clone().appendTo('.inner-results');
+    $('.inner-results').children(':first').clone().removeClass('selected').appendTo('.inner-results');
     panelHeight();
 
 
 });
 $('a.remove').click(function(ev){
     ev.preventDefault();
-    $('.inner-results').children(':first').remove();
+    $('.inner-results').children(':last').remove();
     panelHeight();
 
 });
@@ -143,10 +176,13 @@ function resizeFrame1()
   $("#panel").css('width',(wmod));
   $("#language-list").css('width',(wselector));
   $("#language-list").css('height',(h - hmod));
+  $("#language-list").css('margin-left',(wmod));
   $("#country-list").css('width',(wselector));
   $("#country-list").css('margin-left',(wmod));
-  $("#language-list").css('margin-left',(wmod));
   $("#country-list").css('height',(h - hmod));
+  $("#destination-list").css('width',(wselector));
+  $("#destination-list").css('margin-left',(wmod));
+  $("#destination-list").css('height',(h - hmod));
   $("#map_canvas").css('height',(h - hmod));
 	$("#map_canvas").css('width', (w - wmod));
 
@@ -241,19 +277,12 @@ $(document).ready(function() {
     });
 });
 
-
 $(document).ready(function() {
-  $('button.ltr').click(function() {
-    $("input:hidden[name=text-direction]").val('ltr');
-	$(".text-direction").text('ltr');
-	$('[dir]').attr('dir','ltr'); // 
-  $('.left').toggleClass('left').toggleClass('right');
-	$("#map_canvas").css('float','right');
-	$("#panel").css('float','left');
-	$(".logo").css('float','left');
-	$(".search").css('float','left');
-  $(".results").load("./results.html");
-	resizeFrame1();
+  $('.result-item').click(function() {
+  $(this).siblings().removeClass('selected');
+  $(this).addClass('selected');
+
+
     });
 });
 
@@ -269,6 +298,7 @@ $(document).ready(function() {
 	$(".logo").css('float','left');
 	$(".search").css('float','left');
   //$(".results").load("./results.html");
+  setDefaultsLtr();
 	resizeFrame1();
     });
 });
@@ -284,6 +314,7 @@ $(document).ready(function() {
 	$(".logo").css('float','right');
 	$(".search").css('float','right');
   //$(".results").load("./results-arabic.html");
+  setDefaultsRtl();
 	resizeFrame1();
     });
 });
@@ -307,12 +338,91 @@ $(document).ready(function() {
       });
 
     }
-	$("#language-list").css({display:'inline'}).animate();
-	$("#language-list").css({width:256});
+  $("#country-list").hide();
+  $("#language-list").show();
+	$("#destination-list").hide();
 
+  $(".inner-header").children().removeClass('selected');
+  $("h3.language-out").addClass('selected');
 	resizeFrame2();
 	initMap();
 /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
+  });
+});
+
+$(document).ready(function() {
+  var w = $(window).width();
+  var d = $("input:hidden[name=text-direction]").val();
+	$('.destination-out').click(function() {
+    var $panel = $('#destination-list');
+    if (d == 'ltr'){
+      $panel.animate({
+        marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
+          +$panel.outerWidth(+40) : 0
+      });
+
+
+    }
+    if (d == 'rtl'){
+      $panel.animate({
+        marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
+          +$panel.outerWidth(+40) : 0
+
+      });
+
+    }
+  $("#country-list").hide();
+  $("#language-list").hide();
+	$("#destination-list").show();
+	$("#destination-list").css({width:256});
+  $(".inner-header").children().removeClass('selected');
+  $("h3.destination-out").addClass('selected');
+
+	resizeFrame2();
+
+//	$("#map_canvas").animate({width:w-(381+256)},700);
+//	$("#map_canvas").css({width:w-(381+256)});
+
+
+	initMap();
+/*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
+  });
+});
+$(document).ready(function() {
+  var w = $(window).width();
+  var d = $("input:hidden[name=text-direction]").val();
+	$('.destination-in').click(function() {
+    var $panel = $('#destination-list');
+    if (d == 'ltr'){
+      $panel.animate({
+        marginLeft: parseInt($panel.css('marginLeft'),10) == 0 ?
+          -$panel.outerWidth(+40) : 0
+      });
+
+
+    }
+    if (d == 'rtl'){
+      $panel.animate({
+        marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
+          +$panel.outerWidth(+40) : 0
+
+      });
+
+    }
+	$("#language-list").hide();
+  $("#country-list").hide();
+
+	$("#destination-list").hide();
+
+  $(".inner-header").children().removeClass('selected');
+  $("h3.destination-out").removeClass('selected');
+
+	$("#map_canvas").animate({width:w-(381)},700);
+	$("#map_canvas").css({width:w-(381)});
+
+	resizeFrame1();
+
+
   });
 });
 
@@ -337,9 +447,12 @@ $(document).ready(function() {
       });
 
     }
-	$("#language-list").css({display:'none'});
-	$("#country-list").css({display:'inline'});
-	$("#country-list").css({width:256});
+  $("#country-list").show();
+  $("#language-list").hide();
+	$("#destination-list").hide();
+	$("#destination-list").css({width:256});
+  $(".inner-header").children().removeClass('selected');
+  $("h3.country-out").addClass('selected');
 
 	resizeFrame2();
 	//initMap();
@@ -366,16 +479,14 @@ $(document).ready(function() {
       });
 
     }
-	$("#country-list").hide();
-	$("#map_canvas").animate({width:w-(381)},700);
-	$("#map_canvas").css({width:w-(381)});
-	//$("#country-list").css({width:256});
+	$("#language-list").hide();
+  $("#country-list").hide();
 
-	//resizeFrame2();
-	initMap();
-    //$("#language-list").toggle();
-    //$("#country-list").toggle();
-    resizeFrame1();
+	$("#destination-list").hide();
+  $(".inner-header").children().removeClass('selected');
+
+
+	resizeFrame1();
 
   });
 });
@@ -401,14 +512,17 @@ $(document).ready(function() {
 
     }
 	$("#language-list").hide();
-	//$("#language-list").css({width:256});
+  $("#country-list").hide();
 
-	$("#map_canvas").animate({width:w-(381)},700);
-	$("#map_canvas").css({width:w-(381)});
+	$("#destination-list").hide();
+
+
+  $(".inner-header").children().removeClass('selected');
+  $("h3.language-out").removeClass('selected');
 
 	resizeFrame1();
 	//initMap();*/
-    //$("#language-list").toggle();
+   $(".language-out").removeClass('selected');
     //$("#country-list").toggle();
    // resizeFrame1();
   });
