@@ -44,12 +44,12 @@ li.secondary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
 
-.action{height:32px;line-height:64px;}
-.action a{height:32px;font-weight:bold;color:#6C7BD0;margin:16px 0;}
+.action{height:40px;line-height:40px;}
+.action a{font-weight:bold;color:#6C7BD0;}
 
 
-.result-item{margin:4px 0;width:300px;background-color:white;height:64px;overflow:hidden;padding-left:28px;}
-.result-item:hover{margin:4px 0;width:300px;background-color:#efefef;height:64px;overflow:hidden;padding-left:28px;cursor:pointer;}
+.result-item{padding:0 24px;margin:0 0 4px 0;width:280px;background-color:white;height:64px;overflow:hidden;}
+.result-item:hover{padding:0 24px;margin:0 0 4px 0;width:280px;background-color:#efefef;height:64px;overflow:hidden;cursor:pointer;}
 .result-item{font-size:12px;}
 .result-item a{font-size:12px;font-weight:bold;text-decoration:none}
 
