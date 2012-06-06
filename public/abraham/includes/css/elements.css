@@ -11,11 +11,15 @@ h3:hover{background-color:#efefef;cursor:pointer;}
 
 
 .modify_link{color:#e49501;text-decoration:underline;}
+
 .language_filter{text-transform:capitalize;}
 .country_filter{text-transform:capitalize;}
 
+#header .language_filter{background-color:white;border-radius:6px;padding:4px 16px;cursor:pointer;}
+#header .country_filter{background-color:white;border-radius:6px;padding:4px 16px;cursor:pointer;}
+
 .flag{height:16px;margin:6px 8px 0 0;}
-.flag-panel{height:16px;margin:12px 8px 0 8px;}
+.flag-panel{height:16px;margin:12px 12px 0 0px;}
 
 /* the language selector */
 
@@ -40,15 +44,16 @@ li.secondary-seperator{background:gainsboro;height:4px;margin:8px;}
 
 
 
-.action{height:40px;line-height:48px;}
-.action a{height:40px;font-weight:bold;color:#6C7BD0;margin:16px 0;}
+.action{height:48px;line-height:48px;}
+.action a{height:48px;font-weight:bold;color:#6C7BD0;margin:20px 0;}
 
 
 .result-item{margin:4px 0;width:300px;background-color:white;height:64px;overflow:hidden;padding-left:28px;}
 .result-item:hover{margin:4px 0;width:300px;background-color:#efefef;height:64px;overflow:hidden;padding-left:28px;cursor:pointer;}
 .result-item{font-size:12px;}
 .result-item a{font-size:12px;font-weight:bold;text-decoration:none}
-ol.search-results li:hover{background-color:salmon;}
+
+ol.inner-results{padding:0;list-style-type:lower-alpha;}
 
 
 b{color:silver;}
@@ -60,8 +65,8 @@ button.language-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;
 button.language-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 button.country-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 
-.language-out{color:#6C7BD0;margin-right:16px;}
-.country-out{color:#6C7BD0;margin-right:16px;}
+.language-out{color:silver;margin-right:16px;}
+.country-out{color:silver;margin-right:16px;}
 
 button.panel-in{height:28px;border:2px solid silver;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
 button.panel-button{height:31px;border:2px solid white;background-color:silver;border-radius:6px;color:white;padding:0 8px;margin:0 2px;}

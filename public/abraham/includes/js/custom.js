@@ -16,6 +16,7 @@ function choose(lang){
   var lantext = $(language).text();
   $("#"+lang).addClass("selected");
   $(".language_filter").text(language)
+  $(".language_filter").css('color','black');
 }
 
 function chooseCountry(lang){
@@ -23,7 +24,8 @@ function chooseCountry(lang){
   var language = $("#"+lang).attr("alias");
   var lantext = $(language).text();
   $("#"+lang).addClass("selected");
-  $(".country_filter").text(language)
+  $(".country_filter").text(language);
+  $(".country_filter").css('color','black');
 }
 
 
@@ -34,9 +36,9 @@ function setDefaults()
 	$('[dir|="null"]').attr('dir','ltr'); //
 	$(".text-direction").text('ltr');
 	$(".text-direction").text('ltr');
-    $("input:hidden[name=language-filter]").val('english');
-  choose('lang_1');
-  chooseCountry('country_1');
+    $("input:hidden[name=language-filter]").val('Language');
+  //choose('lang_1');
+  //chooseCountry('country_1');
 	//$(".language_filter").text('english');
 	$("#map_canvas").css('float','right');
 	$("#panel").css('float','left');
@@ -45,8 +47,10 @@ function setDefaults()
 	$(".logo").css('float','left');
 	$(".search").css('float','left');
 	$(".choose").css('float','left');
-  $(".select_language").load("./select_language.html");
-  $(".select_country").load("./select_country.html");
+  $(".language_filter").text('Language')
+  $(".country_filter").text('Country')
+  //$(".select_language").load("./select_language.html");
+  //$(".select_country").load("./select_country.html");
 }
 
 function panelHeight()
@@ -299,7 +303,7 @@ $(document).ready(function() {
     if (d == 'rtl'){
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
-          -$panel.outerWidth(+40) : 0
+          +$panel.outerWidth(+40) : 0
       });
 
     }
@@ -328,7 +332,7 @@ $(document).ready(function() {
     if (d == 'rtl'){
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
-          +$panel.outerWidth(+40) : 0
+          -$panel.outerWidth(+40) : 0
 
       });
 
@@ -358,7 +362,7 @@ $(document).ready(function() {
     if (d == 'rtl'){
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
-          $panel.outerWidth(+40) : 0
+          +$panel.outerWidth(+40) : 0
       });
 
     }
@@ -392,7 +396,7 @@ $(document).ready(function() {
     if (d == 'rtl'){
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
-          -$panel.outerWidth(+40) : 0
+          +$panel.outerWidth(+40) : 0
       });
 
     }
@@ -426,7 +430,7 @@ $(document).ready(function() {
     if (d == 'rtl'){
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
-          +$panel.outerWidth(+40) : 0
+          -$panel.outerWidth(+40) : 0
       });
 
     }
@@ -454,7 +458,7 @@ $(document).ready(function() {
     if (d == 'rtl'){
       $panel.animate({
         marginRight: parseInt($panel.css('marginRight'),10) == 0 ?
-          -$panel.outerWidth(+40) : 0
+          +$panel.outerWidth(+40) : 0
       });
     }
 	$("#panel").css({display:'none'});

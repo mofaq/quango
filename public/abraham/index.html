@@ -23,8 +23,8 @@
 <!---->
 <div id="sessions" style="visibility:hidden;">
 <input type="hidden" name="text-direction" value="rtl"/>
-<input type="hidden" name="language-filter" value="english"/>
-<input type="hidden" name="country-filter" value="canada"/>
+<input type="hidden" name="language-filter" value="language"/>
+<input type="hidden" name="country-filter" value="country"/>
 </div>
 <!---->
 <div id="toolbar">
@@ -38,9 +38,9 @@
 </div>
 <!---->
 <div id="header" dir="null">
-	<div class="logo"><a href="index.html" class="left"><img src="images/cf-logo.png" style="width:24px;margin:6px -1px 0 0;"/></a><span class="left"><c>GREAT</c></span><span style="color:#000000"><c style="opacity:0.25;">PAINS</c></span></div>
-  <div class="left search language-out"><b class="language_filter white"></b><span class="pop">&nbsp;in&nbsp;</span></div>
-  <div class="left search country-out"><b class="country_filter white"></b></div>
+	<div class="logo"><a href="index.html" class="left"><img src="images/cf-logo.png" style="width:24px;margin:6px -1px 0 0;" class="left"/></a><span class="left"><c>ABRAHAM</c></span><span style="color:#000000"><c class="left" style="opacity:0.25;">PLAINS</c></span></div>
+  <div class="left search language-out"><b class="language_filter"></b><span class="pop">&nbsp;in&nbsp;</span></div>
+  <div class="left search country-out"><b class="country_filter"></b></div>
 </div>
 
 <div id="content" dir="null">
@@ -62,25 +62,25 @@
           <div class="overview">
             <div class="results">
               <div class="inner-header">
-                <h3 class="language-out"><span style="width:256px; color:black;"><div class="flag-panel left"><img src="flags/gb.png"/></div><b class="language_filter"></b></span><span style="color:gray">&nbsp;in</span><span class="right language-out">►</span></h3>
-                <h3 class="country-out"><span width="200px"><div class="flag-panel left"><img src="flags/ca.png"/></div><b class="country_filter"></b><span class="country-out right">►</span></span></h3>
-                <h3 class="country-out"><span style="width:200px;margin-bottom:8px;"><div class="flag-panel left"><img src="flags/ca.png"/></div><b>Destinations...</b><span class="country-out right">►</span></span></h3>
+                <h3 class="language-out"><span style="width:256px; color:black;"><div class="flag-panel left"><img src="flags/gb.png"/></div><b class="language_filter"></b></span><span class="right language-out">&gt;</span></h3>
+                <h3 class="country-out"><span width="200px"><div class="flag-panel left"><img src="flags/ca.png"/></div><b class="country_filter"></b><span class="country-out right">&gt;</span></span></h3>
+                <h3 class="country-out"><span style="width:200px;margin-bottom:8px;"><div class="flag-panel left"><img src="flags/ca.png"/></div><b>Destinations...</b><span class="country-out right">&gt;</span></span></h3>
                 <div class="action"><a href="#" class="add">More results</a> &sdot; <a href="#" class="remove">Less results</a></div>
               </div>
-              <div class="inner-results">
-                <div class="result-item">
+              <ol class="inner-results">
+                <li class="result-item">
                   <div class="right"><a href="#">Lorem ipsum dolor sit amet</a><br>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
                   <div class="right"><b>Something</b></div>
-                </div>
-                <div class="result-item">
+                </li>
+                <li class="result-item">
                   <div class="right"><a href="#">Lorem ipsum dolor sit amet</a><br>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
                   <div class="right"><b>Something</b></div>
-                </div>
-                <div class="result-item">
+                </li>
+                <li class="result-item">
                   <div class="right"><a href="#">Lorem ipsum dolor sit amet</a><br>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div>
                   <div class="right"><b>Something</b></div>
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
             <div class="searches"></div>
             <div class="shortlist"></div>
@@ -104,7 +104,7 @@
     </div>
     <ul class="country-list">
       <li onclick="chooseCountry('country_0');" id="country_0" class="secondary-option" rel="13" alias="australia"><div class="flag left"><img src="flags/au.png" /></div>Australia</li>
-      <li onclick="chooseCountry('country_1');" id="country_1" class="secondary-option selected" rel="39" alias="canada"><div class="flag left"><img src="flags/ca.png" /></div>Canada</li>
+      <li onclick="chooseCountry('country_1');" id="country_1" class="secondary-option" rel="39" alias="canada"><div class="flag left"><img src="flags/ca.png" /></div>Canada</li>
       <li onclick="chooseCountry('country_2');" id="country_2" class="secondary-option" rel="39" alias="france"><div class="flag left"><img src="flags/fr.png" /></div>France</li>
       <li onclick="chooseCountry('country_3');" id="country_3" class="secondary-option" rel="39" alias="germany"><div class="flag left"><img src="flags/de.png" /></div>Germany</li>
       <li onclick="chooseCountry('country_4');" id="country_4" class="secondary-option" rel="227" alias="england"><div class="flag left"><img src="flags/gb.png" /></div>United Kingdom</li>
@@ -131,9 +131,9 @@
     </div>
      
     <ul>
-      <li onclick="choose('lang_1');" id="lang_1" class="primary-option selected" rel="29" alias="english"><div class="flag left"><img src="flags/gb.png"/></div>English</li>
-      <li onclick="choose('lang_3');" id="lang_3" class="primary-option" rel="39" alias="german"><div class="flag left"><img src="flags/de.png"/></div>German</li>
-      <li onclick="choose('lang_2');" id="lang_2" class="primary-option" rel="33" alias="french"><div class="flag left"><img src="flags/fr.png"/></div>French</li>
+      <li onclick="choose('lang_1');" id="lang_1" class="primary-option" rel="29" alias="english"><div class="flag left"><img src="flags/gb.png"/></div>English</li>
+      <li onclick="choose('lang_2');" id="lang_2" class="primary-option" rel="39" alias="german"><div class="flag left"><img src="flags/de.png"/></div>German</li>
+      <li onclick="choose('lang_3');" id="lang_3" class="primary-option" rel="33" alias="french"><div class="flag left"><img src="flags/fr.png"/></div>French</li>
       <li class="primary-seperator"></li>
     </ul>
 
@@ -144,9 +144,9 @@
         <div class="overview">
           <div class="results">
             <ul>
-              <li onclick="choose('lang_0');" id="lang_0" class="primary-option" rel="5" alias="arabic">Arabic</li>
-              <li onclick="choose('lang_1');" id="lang_4" class="primary-option" rel="21" alias="chinese">Chinese </li>
-              <li onclick="choose('lang_5');" id="lang_5" class="primary-option" rel="52" alias="italian">Italian</li>
+              <li onclick="choose('lang_4');" id="lang_4" class="primary-option" rel="5" alias="arabic">Arabic</li>
+              <li onclick="choose('lang_5');" id="lang_5" class="primary-option" rel="21" alias="chinese">Chinese </li>
+              <li onclick="choose('lang_6');" id="lang_6" class="primary-option" rel="52" alias="italian">Italian</li>
               <li onclick="choose('lang_7');" id="lang_7" class="primary-option" rel="90" alias="portuguese">Portuguese</li>
               <li onclick="choose('lang_8');" id="lang_8" class="primary-option" rel="96" alias="russian">Russian</li>
               <li onclick="choose('lang_9');" id="lang_9" class="primary-option" rel="108" alias="spanish">Spanish</li> 
