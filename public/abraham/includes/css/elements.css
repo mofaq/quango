@@ -107,6 +107,48 @@ button.search-button{height:40px;border:3px solid white;margin:16px 12px;padding
 #scrollbar2 .disable { display: none; }
 
 
+.add{
+
+min-width: 128px;
+
+
+text-shadow: -1px -1px 1px #A64300,1px 1px 1px #FF8D40;
+background: #A64300;
+background: -moz-linear-gradient(top, #A64300 0%, #FF8D40 49%, #F60 51%, #A64300 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A64300), color-stop(49%,#FF8D40), color-stop(51%,#F60), color-stop(100%,#A64300));
+background: -webkit-linear-gradient(top, #A64300 0%,#FF8D40 49%,#F60 51%,#A64300 100%);
+background: -o-linear-gradient(top, #A64300 0%,#F60 50%,#FF8D40 60%,#A64300 100%);
+background: -ms-linear-gradient(top, #A64300 0%,#F60 50%,#FF8D40 60%,#A64300 100%);
+background: linear-gradient(top, #A64300 0%,#F60 50%,#FF8D40 60%,#A64300 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A64300', endColorstr='#FF8D40',GradientType=0 );
+cursor: pointer;
+
+}
+
+a.add{color:white;text-decoration:none;font-size:14px;}
+
+.inner-button {
+cursor: pointer;
+text-shadow: -1px -1px 2px #a64300,1px 1px 2px #ff8d40;
+font-size: 1.2em;
+padding: 8px 16px;
+margin: 0;
+border-radius: 8px;
+color: white;
+font-weight: bold;
+-webkit-box-shadow: 1px 1px 2px #dddddd, -1px -1px 2px #eeeeee;
+-moz-box-shadow: 1px 1px 2px #dddddd, -1px -1px 2px #eeeeee;
+border-top: 2px solid white;
+border-left: 2px solid white;
+border-bottom: 2px solid white;
+border-right: 2px solid white;
+height: 48px;
+line-height: 36px;
+
+}
+
+
+
 
 
 
