@@ -1,3 +1,11 @@
+var LAT_MIN = 46.797983;
+var LAT_MAX = 46.821731;
+var LNG_MIN = -71.221414;
+var LNG_MAX = -71.298861;
+
+var markers = {};
+var map = null;
+
 /*Some simple sizing stuff*/
 
 jQuery.event.add(window, "load", resizeFrame1);
@@ -122,21 +130,39 @@ function panelHeight()
   }
 }
 
+//Converts degree style map coordinates to decimal form
+function decimalCoord(coord_min,coord_max){
+  var coord = coord_min + Math.random() * (coord_max - coord_min);
+  return Math.round(coord * Math.pow(10,6))/Math.pow(10,6);
+}
+
 $(document).ready(function() {
-$('a.add').click(function(ev){
-    ev.preventDefault();
-    $('.inner-results').children(':first').clone().removeClass('selected').appendTo('.inner-results');
-    panelHeight();
+  $('a.add').click(function(ev){
+      ev.preventDefault();
+      var uuid = Math.round(Math.random() * 1000000000).toString();
+      var lat = decimalCoord(LAT_MIN,LAT_MAX);
+      var lng = decimalCoord(LNG_MIN,LNG_MAX);
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat,lng),
+        map: map,
+        icon: 'images/marker.png',
+        title: uuid
+      });
+      markers[uuid] = marker;
+      $('.inner-results').children(':first').clone().removeClass('selected').appendTo('.inner-results');
+      $('.inner-results').children(':last').attr('id',uuid);
+      panelHeight();
+  });
 
-
-});
-$('a.remove').click(function(ev){
-    ev.preventDefault();
-    $('.inner-results').children(':last').remove();
-    panelHeight();
-
-});
-
+  $('a.remove').click(function(ev){
+      ev.preventDefault();
+      var child = $('.inner-results').children(':last');
+      var uuid = child.attr('id');
+      markers[uuid].setMap(null);
+      delete markers[uuid];
+      child.remove();
+      panelHeight();
+  });
 });
 
 
@@ -531,7 +557,6 @@ function createMap(geo,address) {
 }
 
 function initMap() {
-	var map = null;
 	var geo = new google.maps.LatLng(46.800358,-71.219401)
 	var address = [
 	"Abraham",
