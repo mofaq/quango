@@ -58,7 +58,7 @@ ol.inner-results{padding:0;list-style-type:lower-alpha;}
 
 b{color:silver;}
 
-button{font-size:12px;font-weight:bold;cursor:pointer;letter-spacing:-1px;text-transform:uppercase;}
+button{font-size:12px;font-weight:bold;cursor:pointer;letter-spacing:-1px;text-transform:none;}
 
 button.country-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
 button.language-in{height:28px;border:2px solid silver;margin:0 4px;padding:4px;border-radius:3px;width:28px;background-color:white;color:silver;font-weight:bold;}
@@ -66,7 +66,7 @@ button.language-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;
 button.country-out{height:28px;border:2px solid white;margin:0 4px;padding:4px;border-radius:3px;background-color:#fec65d;color:white;font-weight:bold;}
 
 .language-out{color:silver;margin-right:8px;}
-.selected{color:#2D3A8B;background-color:#efefef;}
+.selected{color:#242495;background-color:#efefef;}
 
 .country-out{color:silver;margin-right:8px;}
 .destination-out{color:silver;margin-right:8px;}
@@ -112,15 +112,15 @@ button.search-button{height:40px;border:3px solid white;margin:16px 12px;padding
 min-width: 128px;
 
 
-text-shadow: -1px -1px 1px #A64300,1px 1px 1px #FF8D40;
-background: #A64300;
-background: -moz-linear-gradient(top, #A64300 0%, #FF8D40 49%, #F60 51%, #A64300 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A64300), color-stop(49%,#FF8D40), color-stop(51%,#F60), color-stop(100%,#A64300));
-background: -webkit-linear-gradient(top, #A64300 0%,#FF8D40 49%,#F60 51%,#A64300 100%);
-background: -o-linear-gradient(top, #A64300 0%,#F60 50%,#FF8D40 60%,#A64300 100%);
-background: -ms-linear-gradient(top, #A64300 0%,#F60 50%,#FF8D40 60%,#A64300 100%);
-background: linear-gradient(top, #A64300 0%,#F60 50%,#FF8D40 60%,#A64300 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A64300', endColorstr='#FF8D40',GradientType=0 );
+text-shadow: -1px -1px 1px #6C7BD0,1px 1px 1px #242495;
+background: #6C7BD0;
+background: -moz-linear-gradient(top, #6C7BD0 0%, #242495 49%, #F60 #242495, #6C7BD0 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6C7BD0), color-stop(49%,#242495), color-stop(51%,#242495), color-stop(100%,#828ed7));
+background: -webkit-linear-gradient(top, #6C7BD0 0%,#242495 49%,#6C7BD0 51%,#828ed7 100%);
+background: -o-linear-gradient(top, #6C7BD0 0%,#F60 50%,#242495 60%,#6C7BD0 100%);
+background: -ms-linear-gradient(top, #6C7BD0 0%,#F60 50%,#242495 60%,#6C7BD0 100%);
+background: linear-gradient(top, #6C7BD0 0%,#F60 50%,#242495 60%,#6C7BD0 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6C7BD0', endColorstr='#242495',GradientType=0 );
 cursor: pointer;
 
 }
@@ -129,7 +129,7 @@ a.add{color:white;text-decoration:none;font-size:14px;}
 
 .inner-button {
 cursor: pointer;
-text-shadow: -1px -1px 2px #a64300,1px 1px 2px #ff8d40;
+text-shadow: -1px -1px 2px #6C7BD0,1px 1px 2px #242495;
 font-size: 1.2em;
 padding: 8px 16px;
 margin: 0;
