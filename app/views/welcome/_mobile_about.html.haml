@@ -79,22 +79,7 @@
         = "#{current_group.group_hours}"  
 
 
--if current_group.group_website != ""
-  .container{:style=>"padding:0;margin-top:16px;"}
-    .primary.inset{:style=>"padding:16px;height:56px;"}
-      .inner-button.submit{:onclick=>"window.location=\'http:\/\/#{current_group.group_website}?noredirection=true\'",:style=>"width:400px;text-align:center;line-height:48px;height:48px;"}
-        = "Visit main website"  
 
--if current_group.show_facebook == true
-  .container{:style=>"padding:0;margin-top:16px;"}
-    .primary.inset{:style=>"padding:16px;height:56px;"}
-      .inset.hold{:style=>"height:56px;width:56px;margin:0;padding:0;float:left;background-image:url(/images/share/facebook_56.png);"}
-        = "&nbsp;"
-        -#= image_tag "/images/share/facebook_32.png",:style=>"height:56px;width:56px;margin:0;padding:0;float:left;"
-
-      .inner-button.submit{:onclick=>"window.location=\'http:\/\/#{current_group.group_website}?noredirection=true\'",:style=>"width:336px;text-align:center;line-height:48px;height:48px;"}
-
-        = "Visit Facebook Group"  
 
 
 
