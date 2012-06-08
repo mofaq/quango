@@ -3,9 +3,24 @@ var LAT_MAX = 46.821731;
 var LNG_MIN = -71.221414;
 var LNG_MAX = -71.298861;
 
-var markers = {};
+var mapElements = {};
 var map = null;
 var activeMarker = null;
+var address = [
+  "Abraham",
+  "Rue Garneau",
+  "Quebec City",
+  "Quebec"
+];
+var overlayContent = "<div class='result-item' style='padding:0'>" +
+                        "<div class='right'>" +
+                          "<a href='#'>Lorem ipsum dolor sit amet</a><br>" +
+                          "consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna." +
+                        "</div>" +
+                        "<div class='right'>" +
+                          "<b>Something: " + address[0] + "</b>" +
+                        "</div>" +
+                     "</div>";
 
 /*Some simple sizing stuff*/
 
@@ -144,13 +159,14 @@ function uuidGen(){
 
 //
 function markerSwap(uuid){
-  var marker = markers[uuid];
   if(activeMarker != null){
-    markers[activeMarker]['icon'] = './images/marker.png';
-    markers[activeMarker].setMap(map);
+    mapElements[activeMarker]['marker']['icon'] = './images/marker.png';
+    mapElements[activeMarker]['marker'].setMap(map);
+    mapElements[activeMarker]['overlay'].setMap(null);
   }
-  marker['icon'] = './images/marker40.png';
-  marker.setMap(map);
+  mapElements[uuid]['marker']['icon'] = './images/marker40.png';
+  mapElements[uuid]['marker'].setMap(map);
+  mapElements[uuid]['overlay'].setMap(map);
   activeMarker = uuid;
 }
 
@@ -160,13 +176,18 @@ $(document).ready(function() {
       var uuid = uuidGen();
       var lat = decimalCoord(LAT_MIN,LAT_MAX);
       var lng = decimalCoord(LNG_MIN,LNG_MAX);
+      var geo = new google.maps.LatLng(lat,lng);
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat,lng),
+        position: geo,
         map: map,
         icon: 'images/marker.png',
         title: uuid
       });
-      markers[uuid] = marker;
+      var overlay = new google.maps.InfoWindow({
+        position: geo,
+        content: overlayContent
+      });
+      mapElements[uuid] = {'marker':marker,'overlay':overlay};
       var clone = $('.inner-results').children(':first').clone().removeClass('selected').appendTo('.inner-results');
       clone.attr('id',uuid);
       clone.mouseenter(function(){markerSwap(this.id)});
@@ -178,9 +199,10 @@ $(document).ready(function() {
         ev.preventDefault();
         var child = $('.inner-results').children(':last');
         var uuid = child.attr('id');
-        markers[uuid].setMap(null);
+        mapElements[uuid]['marker'].setMap(null);
+        mapElements[uuid]['overlay'].setMap(null);
         if(uuid == activeMarker) activeMarker = null;
-        delete markers[uuid];
+        delete mapElements[uuid];
         child.remove();
         panelHeight();
       }
@@ -570,31 +592,19 @@ function createMap(geo,address,uuid) {
     title: "Stuff marker"
   });
 
-  markers[uuid] = marker;
-
   var overlay = new google.maps.InfoWindow({
-    content: "<div class='result-item' style='padding:0'>" +
-                "<div class='right'>" +
-                  "<a href='#'>Lorem ipsum dolor sit amet</a><br>" +
-                  "consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna." +
-                "</div>" +
-                "<div class='right'>" +
-                  "<b>Something: " + address[0] + "</b>" +
-                "</div>" +
-             "</div>"
+    position: geo,
+    content: overlayContent
   });
+
+  mapElements[uuid] = {'marker':marker,'overlay':overlay};
+
   overlay.open(map,marker);
   return map;
 }
 
 function initMap() {
 	var geo = new google.maps.LatLng(46.800358,-71.219401)
-	var address = [
-	  "Abraham",
-	  "Rue Garneau",
-	  "Quebec City",
-	  "Quebec"
-	];
   var uuid = uuidGen();
   var result = $('li.result-item');
   result.attr('id',uuid);
