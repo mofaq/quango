@@ -3,8 +3,24 @@ var LAT_MAX = 46.821731;
 var LNG_MIN = -71.221414;
 var LNG_MAX = -71.298861;
 
-var markers = {};
+var mapElements = {};
 var map = null;
+var activeMarker = null;
+var address = [
+  "Abraham",
+  "Rue Garneau",
+  "Quebec City",
+  "Quebec"
+];
+var overlayContent = "<div class='result-item' style='padding:0'>" +
+                        "<div class='right'>" +
+                          "<a href='#'>Lorem ipsum dolor sit amet</a><br>" +
+                          "consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna." +
+                        "</div>" +
+                        "<div class='right'>" +
+                          "<b>Something: " + address[0] + "</b>" +
+                        "</div>" +
+                     "</div>";
 
 /*Some simple sizing stuff*/
 
@@ -136,32 +152,60 @@ function decimalCoord(coord_min,coord_max){
   return Math.round(coord * Math.pow(10,6))/Math.pow(10,6);
 }
 
+//Generates a UUID
+function uuidGen(){
+  return Math.round(Math.random() * 1000000000).toString();
+}
+
+//
+function markerSwap(uuid){
+  if(activeMarker != null){
+    mapElements[activeMarker]['marker']['icon'] = './images/marker.png';
+    mapElements[activeMarker]['marker'].setMap(map);
+    mapElements[activeMarker]['overlay'].setMap(null);
+  }
+  mapElements[uuid]['marker']['icon'] = './images/marker40.png';
+  mapElements[uuid]['marker'].setMap(map);
+  mapElements[uuid]['overlay'].setMap(map);
+  activeMarker = uuid;
+}
+
 $(document).ready(function() {
   $('a.add').click(function(ev){
       ev.preventDefault();
-      var uuid = Math.round(Math.random() * 1000000000).toString();
+      var uuid = uuidGen();
       var lat = decimalCoord(LAT_MIN,LAT_MAX);
       var lng = decimalCoord(LNG_MIN,LNG_MAX);
+      var geo = new google.maps.LatLng(lat,lng);
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat,lng),
+        position: geo,
         map: map,
         icon: 'images/marker.png',
         title: uuid
       });
-      markers[uuid] = marker;
-      $('.inner-results').children(':first').clone().removeClass('selected').appendTo('.inner-results');
-      $('.inner-results').children(':last').attr('id',uuid);
+      var overlay = new google.maps.InfoWindow({
+        position: geo,
+        content: overlayContent
+      });
+      mapElements[uuid] = {'marker':marker,'overlay':overlay};
+      var clone = $('.inner-results').children(':first').clone().removeClass('selected').appendTo('.inner-results');
+      clone.attr('id',uuid);
+      clone.mouseenter(function(){markerSwap(this.id)});
       panelHeight();
   });
 
   $('a.remove').click(function(ev){
-      ev.preventDefault();
-      var child = $('.inner-results').children(':last');
-      var uuid = child.attr('id');
-      markers[uuid].setMap(null);
-      delete markers[uuid];
-      child.remove();
-      panelHeight();
+      if($('li.result-item').length > 1){
+        ev.preventDefault();
+        var child = $('.inner-results').children(':last');
+        var uuid = child.attr('id');
+        mapElements[uuid]['marker'].setMap(null);
+        mapElements[uuid]['overlay'].setMap(null);
+        if(uuid == activeMarker) activeMarker = null;
+        delete mapElements[uuid];
+        child.remove();
+        panelHeight();
+      }
   });
 });
 
@@ -186,7 +230,7 @@ function resizeFrame()
 	$(".wwidth").text(w);
 
   panelHeight();
-  initMap();
+  //initMap();
 
 }
 
@@ -218,7 +262,7 @@ function resizeFrame1()
 	$(".wwidth").text(w);
 
   panelHeight();
-  initMap();
+  //initMap();
 
 }
 
@@ -365,7 +409,7 @@ $(document).ready(function() {
 	$("#map_canvas").css({width:w-(381+256)});
 
 	//resizeFrame2();
-	initMap();
+	//initMap();
 /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
 });
@@ -385,7 +429,7 @@ $(document).ready(function() {
   $("#map_canvas").css({width:w-(381+256)});
 
 
-	initMap();
+	//initMap();
 /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
 });
@@ -405,7 +449,7 @@ $(document).ready(function() {
 	  $("#map_canvas").animate({width:w-(381+256)},700);
 	  $("#map_canvas").css({width:w-(381+256)});
 	  //resizeFrame2();
-	  initMap();
+	  //initMap();
   /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
 });
@@ -424,7 +468,7 @@ $(document).ready(function() {
     $("h3.language-out").removeClass('selected');
 	  $("#map_canvas").animate({width:w-(381)},700);
 	  $("#map_canvas").css({width:w-(381)});
-	  initMap();
+	  //initMap();
   });
 });
 
@@ -440,7 +484,7 @@ $(document).ready(function() {
 	  $("#map_canvas").animate({width:w-(381)},700);
 	  $("#map_canvas").css({width:w-(381)});
 
-	  initMap();
+	  //initMap();
 
   });
 });
@@ -461,7 +505,7 @@ $(document).ready(function() {
 	  $("#map_canvas").animate({width:w-(381)},700);
 	  $("#map_canvas").css({width:w-(381)});
 
-	  initMap();
+	  //initMap();
 
 
   });
@@ -527,7 +571,7 @@ $(document).ready(function() {
 
 /*just for the mockup*/
 
-function createMap(geo,address) {
+function createMap(geo,address,uuid) {
   var options = {
     center: geo,
     zoom: 13,
@@ -549,22 +593,23 @@ function createMap(geo,address) {
   });
 
   var overlay = new google.maps.InfoWindow({
-    content: "<p style = \"color:black\"><div class=\"result-item\" style=\"padding:0\"><div class=\"right\"><a href=\"#\">Lorem ipsum dolor sit amet</a><br>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div><div class=\"right\"><b>Something: " +
-      address[0] + "</b></div></div>"
+    position: geo,
+    content: overlayContent
   });
+
+  mapElements[uuid] = {'marker':marker,'overlay':overlay};
+
   overlay.open(map,marker);
   return map;
 }
 
 function initMap() {
 	var geo = new google.maps.LatLng(46.800358,-71.219401)
-	var address = [
-	"Abraham",
-	"Rue Garneau",
-	"Quebec City",
-	"Quebec"
-	];
-	map = createMap(geo,address);
-
+  var uuid = uuidGen();
+  var result = $('li.result-item');
+  result.attr('id',uuid);
+  result.mouseenter(function(){markerSwap(this.id)});
+  map = createMap(geo,address,uuid);
 }
 
+$(document).ready(function(){initMap()});
