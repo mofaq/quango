@@ -5,6 +5,7 @@ var LNG_MAX = -71.298861;
 
 var markers = {};
 var map = null;
+var activeMarker = null;
 
 /*Some simple sizing stuff*/
 
@@ -136,10 +137,27 @@ function decimalCoord(coord_min,coord_max){
   return Math.round(coord * Math.pow(10,6))/Math.pow(10,6);
 }
 
+//Generates a UUID
+function uuidGen(){
+  return Math.round(Math.random() * 1000000000).toString();
+}
+
+//
+function markerSwap(uuid){
+  var marker = markers[uuid];
+  if(activeMarker != null){
+    markers[activeMarker]['icon'] = './images/marker.png';
+    markers[activeMarker].setMap(map);
+  }
+  marker['icon'] = './images/marker40.png';
+  marker.setMap(map);
+  activeMarker = uuid;
+}
+
 $(document).ready(function() {
   $('a.add').click(function(ev){
       ev.preventDefault();
-      var uuid = Math.round(Math.random() * 1000000000).toString();
+      var uuid = uuidGen();
       var lat = decimalCoord(LAT_MIN,LAT_MAX);
       var lng = decimalCoord(LNG_MIN,LNG_MAX);
       var marker = new google.maps.Marker({
@@ -149,19 +167,23 @@ $(document).ready(function() {
         title: uuid
       });
       markers[uuid] = marker;
-      $('.inner-results').children(':first').clone().removeClass('selected').appendTo('.inner-results');
-      $('.inner-results').children(':last').attr('id',uuid);
+      var clone = $('.inner-results').children(':first').clone().removeClass('selected').appendTo('.inner-results');
+      clone.attr('id',uuid);
+      clone.mouseenter(function(){markerSwap(this.id)});
       panelHeight();
   });
 
   $('a.remove').click(function(ev){
-      ev.preventDefault();
-      var child = $('.inner-results').children(':last');
-      var uuid = child.attr('id');
-      markers[uuid].setMap(null);
-      delete markers[uuid];
-      child.remove();
-      panelHeight();
+      if($('li.result-item').length > 1){
+        ev.preventDefault();
+        var child = $('.inner-results').children(':last');
+        var uuid = child.attr('id');
+        markers[uuid].setMap(null);
+        if(uuid == activeMarker) activeMarker = null;
+        delete markers[uuid];
+        child.remove();
+        panelHeight();
+      }
   });
 });
 
@@ -186,7 +208,7 @@ function resizeFrame()
 	$(".wwidth").text(w);
 
   panelHeight();
-  initMap();
+  //initMap();
 
 }
 
@@ -218,7 +240,7 @@ function resizeFrame1()
 	$(".wwidth").text(w);
 
   panelHeight();
-  initMap();
+  //initMap();
 
 }
 
@@ -365,7 +387,7 @@ $(document).ready(function() {
 	$("#map_canvas").css({width:w-(381+256)});
 
 	//resizeFrame2();
-	initMap();
+	//initMap();
 /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
 });
@@ -385,7 +407,7 @@ $(document).ready(function() {
   $("#map_canvas").css({width:w-(381+256)});
 
 
-	initMap();
+	//initMap();
 /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
 });
@@ -405,7 +427,7 @@ $(document).ready(function() {
 	  $("#map_canvas").animate({width:w-(381+256)},700);
 	  $("#map_canvas").css({width:w-(381+256)});
 	  //resizeFrame2();
-	  initMap();
+	  //initMap();
   /*$("#panel").animate({"marginLeft": "-=340px"}, "fast");*/
   });
 });
@@ -424,7 +446,7 @@ $(document).ready(function() {
     $("h3.language-out").removeClass('selected');
 	  $("#map_canvas").animate({width:w-(381)},700);
 	  $("#map_canvas").css({width:w-(381)});
-	  initMap();
+	  //initMap();
   });
 });
 
@@ -440,7 +462,7 @@ $(document).ready(function() {
 	  $("#map_canvas").animate({width:w-(381)},700);
 	  $("#map_canvas").css({width:w-(381)});
 
-	  initMap();
+	  //initMap();
 
   });
 });
@@ -461,7 +483,7 @@ $(document).ready(function() {
 	  $("#map_canvas").animate({width:w-(381)},700);
 	  $("#map_canvas").css({width:w-(381)});
 
-	  initMap();
+	  //initMap();
 
 
   });
@@ -527,7 +549,7 @@ $(document).ready(function() {
 
 /*just for the mockup*/
 
-function createMap(geo,address) {
+function createMap(geo,address,uuid) {
   var options = {
     center: geo,
     zoom: 13,
@@ -548,9 +570,18 @@ function createMap(geo,address) {
     title: "Stuff marker"
   });
 
+  markers[uuid] = marker;
+
   var overlay = new google.maps.InfoWindow({
-    content: "<p style = \"color:black\"><div class=\"result-item\" style=\"padding:0\"><div class=\"right\"><a href=\"#\">Lorem ipsum dolor sit amet</a><br>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</div><div class=\"right\"><b>Something: " +
-      address[0] + "</b></div></div>"
+    content: "<div class='result-item' style='padding:0'>" +
+                "<div class='right'>" +
+                  "<a href='#'>Lorem ipsum dolor sit amet</a><br>" +
+                  "consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna." +
+                "</div>" +
+                "<div class='right'>" +
+                  "<b>Something: " + address[0] + "</b>" +
+                "</div>" +
+             "</div>"
   });
   overlay.open(map,marker);
   return map;
@@ -559,12 +590,16 @@ function createMap(geo,address) {
 function initMap() {
 	var geo = new google.maps.LatLng(46.800358,-71.219401)
 	var address = [
-	"Abraham",
-	"Rue Garneau",
-	"Quebec City",
-	"Quebec"
+	  "Abraham",
+	  "Rue Garneau",
+	  "Quebec City",
+	  "Quebec"
 	];
-	map = createMap(geo,address);
-
+  var uuid = uuidGen();
+  var result = $('li.result-item');
+  result.attr('id',uuid);
+  result.mouseenter(function(){markerSwap(this.id)});
+  map = createMap(geo,address,uuid);
 }
 
+$(document).ready(function(){initMap()});
