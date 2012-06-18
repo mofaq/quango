@@ -26,10 +26,8 @@
         = f.label :welcome_directory, "Show Directory on the welcome page"
 
 
-      .group.hidden
-        .note
-          = "Button label on homepage "
-        = f.text_field :quick_create_heading, :class=> "text_field_mobile_edit"
+      .group
+        = f.text_field :client_type, :class=> "text_field_mobile_edit"
 
 
       .group
