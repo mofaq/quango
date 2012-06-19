@@ -68,32 +68,32 @@
           = render :partial => "mobile_directory"
           .clear
 
+      -if current_group.welcome_locations != false
+        -if current_group.locations.count > 1
 
-      -if current_group.locations.count > 1
-
-        %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;",:id=>"loc-dropdown"}
-            = link_to "Locations", "#",:class=>"inner-button-link"
-            -#= link_to "Locations","#", :onclick=>"initMaps();",:class => "inner-button-link",:style=>"width:480px;height:32px;"
-        %dd.container{:style=>"width:464px;padding:0;min-height:440px;"}
-          = render :partial => "locations/locations_map", :locals => {:expanded => false}
-        .clear
-
-      -else
-
-        %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          %button.inner-button{:onclick=>"initMap();",:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
-            = "Location"
-            -#= link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
-
-
-        %dd.container{:style=>"width:448px;padding:0;"}
-          = render :partial => "mobile_map", :locals => {:expanded => false}
+          %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
+            %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;",:id=>"loc-dropdown"}
+              = link_to "Locations", "#",:class=>"inner-button-link"
+              -#= link_to "Locations","#", :onclick=>"initMaps();",:class => "inner-button-link",:style=>"width:480px;height:32px;"
+          %dd.container{:style=>"width:464px;padding:0;min-height:440px;"}
+            = render :partial => "locations/locations_map", :locals => {:expanded => false}
           .clear
 
-      -#%dd.container{:style=>"width:480px;padding:0;"}
-        -#= render :partial => "mobile_map", :locals => {:expanded => false}
-        -#.clear
+        -else
+
+          %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
+            %button.inner-button{:onclick=>"initMap();",:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
+              = "Location"
+              -#= link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
+
+
+          %dd.container{:style=>"width:448px;padding:0;"}
+            = render :partial => "mobile_map", :locals => {:expanded => false}
+            .clear
+
+        -#%dd.container{:style=>"width:480px;padding:0;"}
+          -#= render :partial => "mobile_map", :locals => {:expanded => false}
+          -#.clear
 
 
       -if current_group.group_website != ""
