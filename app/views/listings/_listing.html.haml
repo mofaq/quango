@@ -7,7 +7,7 @@
   - if listings_member.default_header
     - header = Header.find(listings_member.default_header)
     - base_header = header.header.process(:thumb,header.header_cropping)
-    - base_header1 = base_header.process(:thumb,"232x70")
+    - base_header1 = base_header.process(:thumb,"200x")
     - base_header2 = base_header1.encode(:png, '-quality 80')
     - header_image = base_header2.url
 
@@ -18,8 +18,10 @@
 
 
  
-    .right{:style=>"width:200px"}
-      %h3
+    .right{:style=>"width:240px"}
+      -#.tiny{:style=>"font-size:11px;text-transform:uppercase;"}
+        -#= listings_member.group_city
+      %h3{:style=>"height:20px;width:240px;font-size:14px;overflow:hidden;"}
         = link_to h(listings_member.display_name), domain_url(:custom => listings_member.domain)
       %p
         = listings_member.strapline.to_s
