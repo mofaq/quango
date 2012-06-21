@@ -19,6 +19,11 @@ class Location
   key :opening_hours1, String, :default => "Weekdays 9-6"
   key :opening_hours2, String, :default => "Sun 11-4"
 
+  key :show_facebook, Boolean, :default => false
+  key :loc_facebook, String, :default => "www.facebook.com/mygroup"
+
+
+
   key :latitude, String, :default => "-37.816608"
   key :longitude, String, :default => "144.890106"
 

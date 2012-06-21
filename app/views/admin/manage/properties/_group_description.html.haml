@@ -25,6 +25,7 @@
           = f.text_area :description, :class=> "text_area_mobile_edit", :style => "height:128px;font-size:1em"
 
         .group
+          = f.check_box :show_hours, :class => "left"
           .note
             = "Opening hours"
           = f.text_field :group_hours, :class=> "text_field_mobile_edit"

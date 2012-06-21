@@ -9,7 +9,7 @@
 
 .inset.map-holder{:style=>"width:208px; height:#{box_height};margin:0 0 16px 0",:class=>"#{align}"}
   .subheading{:style=>"height:32px;line-height:20px;margin:8px 0;"}
-    = location.loc_city
+    = location.name
     -#.inner-button.right{:style=>"font-size:0.8em;height:18px;line-height:18px;margin:0 0 4px 0;"}
       -#= link_to  "+", location_path(location)
 

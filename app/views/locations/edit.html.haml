@@ -55,6 +55,18 @@
             = f.text_field :loc_phone, :value => @location.loc_phone, :class => "text_field_mobile_edit"
 
 
+          %p
+            .note
+              = "Show Facebook Group"
+            = f.check_box :show_facebook, :value => @location.show_facebook, :class => "text_field_mobile_edit"
+
+          %p
+            .note
+              = "Facebook address ( specific to this location"
+            = f.text_field :loc_facebook, :value => @location.loc_facebook, :class => "text_field_mobile_edit"
+
+
+
 
           %hr
 

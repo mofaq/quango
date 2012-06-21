@@ -30,12 +30,12 @@
         .answer-form-holder
           .answer-form
             .note
-              = "Subject"
+              = "The question itself:"
 
             = f.text_area :title, :class => "text_field_mobile_edit"
 
             .note
-              = "If your question needs further explanation please add the details below - note that answering the question itself occurs in the next step"
+              = "Your answer:"
 
             = f.text_area :body, :class => "text_area_mobile_edit", :id => "markdown_editor"
 
@@ -47,13 +47,11 @@
               = link_to t('scaffold.cancel'), items_path, :class => "inner-button cancel"
       .clear
 
-  .container{:style=>"padding:0 16px 32px 16px"}
-    .inset
-      .note
-        = image_tag "/images/tips.png"
-        = "Confused by this editor?</br>"
-      .note
-        = "Please read our \'Getting acquainted with MOFAQ Editing\' Guide"
+  -#.container{:style=>"padding:0 16px 32px 16px"}
+    -#.inset
+      -#.note
+        -#= image_tag "/images/tips.png"
+        -#= "Try and be fairly concise - remember mobile users want facts quickly"
 
 
 

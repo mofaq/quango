@@ -26,12 +26,12 @@
       
       - @group.locations.each do |location|
         .group
-          .inner-button.submit{:style=>"margin:4px 8px;width:148px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
+          .inner-button.submit{:style=>"margin:8px 8px;width:148px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
             = link_to location.name, location_path(location), :style=>"color:#{current_group.text_colour};"
       .seperator{:style=>"color:#{current_group.primary};height:4px;margin:8px 0;"}
       .note{:style=>"color:#{current_group.tertiary};"}
-        %button.inner-button{:style=>"margin:4px 8px;width:148px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
-          = link_to "Locations",locations_path
+        %button.inner-button{:style=>"margin:8px 8px;width:182px;text-align:center;line-height:32px;height:42px;font-size:16px;"}
+          = link_to "Locations",locations_path, :style=>"color:white;"
 
 
     -else
@@ -72,12 +72,14 @@
 
   .clear
 
-  -if current_group.group_hours != ""
+  -if current_group.show_hours == true
     .container{:style=>"padding:0;margin:16px 0;"}
       .inner{:style=>"padding:16px 16px 24px 16px;border-radius:8px"}
         %h2
           = "Opening hours: "
         = "#{current_group.group_hours}"  
+  -else
+    = "&nbsp;"
 
 
 
