@@ -3,30 +3,11 @@
 = error_messages_for(:user)
 
 
-
+- doctype = current_group.doctypes.find_by_slug_or_id('reviews')
 
 .answer-form-holder
 
-  -if false
-    .group
-      .category{:style=>"float:left; width:728px;"}
-        = f.label :category, "Category", :class => "label", :style=>"margin-top:16px"
-        %div
-        -#= f.select(:category, current_group.group_categories.reverse)
-        - current_group.group_categories.each do |category|
-          - if @item.category == category
-            %label.category-button{:style=>"background-color:black; color: red; float:left;"}
-              = f.radio_button(:category, category, :checked => true, :style=>"float:left")
-              = "#{category}"
 
-
-          - else
-            %label.category-button{:style=>"background-color:white; color: #666; float:left;line-height:16px"}
-              = f.radio_button(:category, category, :style=>"float:left;")
-              = "#{category}"
-
-      .description{:style=>"margin-left:16px"}
-        = "The category is currently set to: <b>#{@item.category}</b>"
 
 
   = f.hidden_field :doctype_id, :value => @doctype.id
@@ -93,7 +74,7 @@
 
 
   .answer-actions{:style => "line-height:32px; height: 32px; width: 512px; margin: 0 auto 16px auto; position:relative;"}
-    = submit_tag h(current_group.publish_label), :class => "create-button", :style => "width:256px; height:28px; float:right;"
+    = submit_tag h(doctype.create_label), :class => "create-button", :style => "width:256px; height:28px; float:right;"
     = link_to t('scaffold.cancel'), items_path, :class => "button cancel", :style => "float:right;"
 
 

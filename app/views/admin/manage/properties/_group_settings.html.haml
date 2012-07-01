@@ -22,12 +22,15 @@
         = f.label :welcome_locations, "Show Locations on the welcome page"
 
       .inner-button{:style=>"margin:8px;width:416px;"}
+        = f.check_box :welcome_reviews, :class => "check_box"
+        = f.label :welcome_reviews, "Show reviews on the welcome page"
+
+      .inner-button{:style=>"margin:8px;width:416px;"}
         = f.check_box :welcome_directory, :class => "check_box"
         = f.label :welcome_directory, "Show Directory on the welcome page"
 
 
-      .group
-        = f.text_field :client_type, :class=> "text_field_mobile_edit"
+ 
 
 
       .group

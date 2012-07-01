@@ -36,13 +36,25 @@
     %dl.accordian#slider
 
       %dt.container{:style=>"width:464px;padding:8px 0 0 0;"}
-        %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
+        %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
           = "Contact Details"
           -#= link_to "Contact Details","#",:class=>"inner-button-link"
 
       %dd.container{:style=>"width:464px;padding:0;"}
         = render :partial => "mobile_about"
         .clear
+
+
+      -if current_group.welcome_reviews?
+        %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
+          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:30px;font-weight:bold;letter-spacing:-1px;"}
+            = "Our reviews"
+
+        %dd.container{:style=>"width:464px;padding:0;"}
+          = render :partial => "mobile_reviews"
+          .clear
+
+
 
 
       -if current_group.welcome_faq?

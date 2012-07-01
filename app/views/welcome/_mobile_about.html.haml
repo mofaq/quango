@@ -4,7 +4,7 @@
 
 
 
-.inset.container{:style=>"padding:0;margin:16px 0;"}
+.inset.container{:style=>"padding:0;margin:16px 0;background:#{current_group.primary_dark}"}
   .container{:style=>"padding:0;margin:0;"}
     .holder{:style=>"padding:16px;"}
       %h1
@@ -12,12 +12,12 @@
       -if current_group.strapline != ""
         = "#{current_group.strapline}" 
 
-  .left{:style=>"width:33%;padding:8px 16px;border-radius:4px;Xbackground:#{current_group.primary}"}
+  .left{:style=>"margin-left:16px;width:198px;"}
     %h2
-      = "Who we are"
+      = "About"
     = current_group.description
 
-  .frame.inset.right{:style=>"margin-right:16px;width:198px;padding:16px;border-radius:8px;background:#{current_group.primary}"}
+  .right{:style=>"margin-right:16px;width:192px;"}
 
     -if current_group.locations.count > 1
 
@@ -56,19 +56,15 @@
           = "#{current_group.group_region}"
 
         -if current_group.group_phone
-          %hr{:style=>"margin-top:8px"} 
-          .inner-button.submit{:style=>"width:164px;height:32px;font-size:1.1em;letter-spacing:-1px;text-align:center;margin:4px auto;line-height:32px;float:right;"}
-            = link_to "☎ Click to call","tel:#{current_group.group_phone}",:style=>"color:#{current_group.text_colour};"
-          .clear
-
 
           .subheading{:style=>"padding:8px 0;"}
             = "Tel:"
             = link_to "#{current_group.group_phone}","tel: #{current_group.group_phone}"
-          -if current_group.group_fax != ""
-            .subheading
-              = "Fax: "
-              =  "#{current_group.group_fax}"
+
+
+          .inner-button.submit{:style=>"height:32px;font-size:1.1em;letter-spacing:-1px;text-align:center;margin:4px auto;line-height:32px;float:right;"}
+            = link_to "☎ Call","tel:#{current_group.group_phone}",:style=>"color:#{current_group.text_colour};"
+          .clear
 
   .clear
 

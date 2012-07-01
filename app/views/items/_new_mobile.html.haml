@@ -19,6 +19,10 @@
     .subheading
       = @item.doctype.create_label
 
+    .form-for-link{:style=>"display:none"}
+      - form_for(@item, :html=>{:class => "form mainAnswerForm", :id => "ask_item"}) do |f|
+        =render :partial => "form_mobile_reviews", :locals => {:f => f, :doctype => 'reviews'}
+
 
     -#if logged_in?
     .darkish.inset{:style=>"padding:16px"}

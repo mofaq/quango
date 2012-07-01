@@ -1,0 +1,52 @@
+- expanded = local_assigns[:expanded]
+- doctype = current_group.doctypes.find_by_slug_or_id('reviews')
+
+.frame
+  .inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;border-top:1px solid #{current_group.tertiary};border-left:1px solid #{current_group.tertiary};border-bottom:1px solid #{current_group.primary};border-right:1px solid #{current_group.primary};"}
+    .note{:style=>"padding:8px;font-weight:bold;"}
+      = "Here are some of our reviews #{@doctype.inspect()}"
+      -#= @items.inspect
+    %table.faq{:style=>"padding:8px 0 16px 0;"}
+      -if current_group.items.empty?
+        %li.highlight
+          = t(".empty")
+      -else
+        - items = doctype.items
+        - items.reverse[0..5].each do |item|
+          %tr
+            %td
+              .inner-button.inset{:style=>"font-size:3em;text-align:center;font-weight:bold;margin:8px 0 4px 0;height:56px;line-height:56px;border-radius:32px;width:32px;"}
+                = link_to "?", "#{item_path(item.doctype_id.to_s,item)}",:style=>"color:#{current_group.text_colour}"
+
+            %td
+              .question-title{:style=>"margin:8px 8px 4px 8px; background:#{current_group.secondary}"}
+                = link_to item.title, "#{item_path(item.doctype_id.to_s,item)}", :title => truncate(strip_tags(item.body), :length => 88), :style=>""
+
+
+
+    .clear
+
+  -if current_group.welcome_reviews?
+    - form_for(Item.new, :url => new_item_path('reviews'), :html => {:class => "form",:method => "get"}) do |f|
+      = render :partial => "items/form_review_button", :locals => {:f => f, :doctype => 'reviews'}
+
+
+- if false
+
+  .frame
+    .inset{:style=>"text-align:center;padding:8px;border-radius:8px;margin-top:8px;background:#{current_group.primary};"}
+      = link_to "See more common questions", items_path(@doctype), :class=>"inner-button submit",:style=>"text-align:center;font-size:1.2em;line-height:2.4em;margin:8px auto;"
+      .clear
+
+
+- if current_group.has_quick_create
+
+  .quick-create.inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;"}
+    = render :partial => "shared/quick_create_mobile"
+
+
+.clear
+
+
+
+

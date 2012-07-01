@@ -49,6 +49,9 @@ class Group
   key :group_place_type, String, :default=>"geocode"
   key :group_analytics, String, :default=>"//placeholder"
 
+
+
+
   key :show_hours, Boolean, :default => true
   key :group_hours, String, :default => "Monday to Friday, 9am-5pm"
 
@@ -66,6 +69,10 @@ class Group
   key :action_button_text, String, :default => "Free consultation"
   key :action_button_link, String, :default => "http://"
   key :action_button_tel, String, :default => "tel:"
+
+
+  key :welcome_reviews, Boolean, :default => false
+
 
   key :welcome_faq, Boolean, :default => true
   key :welcome_locations, Boolean, :default => true

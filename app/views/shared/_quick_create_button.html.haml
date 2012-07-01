@@ -6,13 +6,14 @@
 
   - quick_create = current_group.quick_create
   - doctype = current_group.doctypes.find(quick_create)
+  - reviews = current_group.doctypes.find(quick_create)
 
-  - if current_group.doctypes.count > 1
-    = "multi"
-  -else
-    - item = Item.new 
-    - form_for(item, :url => new_item_path(doctype), :html => {:class => "form",:method => "get"}) do |f|
-      = render :partial => "items/form_quick_create_button", :locals => {:f => f, :doctype => doctype}
+
+
+
+  - item = Item.new 
+  - form_for(item, :url => new_item_path(doctype), :html => {:class => "form",:method => "get"}) do |f|
+    = render :partial => "items/form_quick_create_button", :locals => {:f => f, :doctype => doctype}
 
 .clear
 
