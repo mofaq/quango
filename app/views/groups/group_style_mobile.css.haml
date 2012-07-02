@@ -163,15 +163,21 @@ border-radius:8px;
 \.inset{
 border-top:1px solid #{stop1};
 border-left:1px solid #{stop1};
-border-bottom:1px solid #{stop3};
-border-right:1px solid #{stop3};
+border-bottom:1px solid #{stop4};
+border-right:1px solid #{stop4};
 margin-top:4px;
 \-webkit-box-shadow:1px 1px 0 #{stop4}, -1px -1px 0 #{stop1};
 \-moz-box-shadow:1px 1px 0 #{stop4}, -1px -1px 0 #{stop1};
-background: -moz-linear-gradient(bottom, #{stop3} 0%, #{stop2} 100%); /* FF3.6+ */
-background: -webkit-linear-gradient(bottom, #{stop3} 0%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
+
 border-radius:8px;
 padding: 8px;
+background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}),  color-stop(100%,#{stop3})); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* IE10+ */
+background: linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop3}',GradientType=0 ); /* IE6-9 */
 }
 
 \.outset{
