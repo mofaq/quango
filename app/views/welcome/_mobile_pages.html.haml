@@ -8,9 +8,9 @@
 
   - current_group.pages.each do |page|
     .inner-button-alt{:style=>"margin-bottom:16px;", :onclick=>"window.location='#{page_path(page)}'"}
-      .star{:style=>"margin:4px 8px 4px 0;float:left;"}
+      .star{:style=>"margin:12px 8px 4px 0;float:left;"}
         = "★"
-      = link_to "#{page.title}",page_path(page),:class=>"inner-button-link",:style=>"font-size:25px;"
+      = link_to "#{page.title}",page_path(page),:class=>"inner-button-link",:style=>"font-size:25px;font-size:25px;line-height:46px;"
 
 
 

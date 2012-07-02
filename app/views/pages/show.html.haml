@@ -47,10 +47,13 @@
         .subheading.left
           ="#{@page.title}"
 
-        - if logged_in?
-          - if current_user.mod_of?(current_group)
-            .subheading.right
-              %ul.right{:style=>"list-style-type:none; display:inline;"}
+
+        .subheading.right
+          %ul.right{:style=>"list-style-type:none; display:inline;"}
+            %li{:style=>"display:inline"}
+              = link_to "#{current_group.welcome_pages_heading}", pages_path, :class => "inner-button", :style=>"height:1.5em;"
+            - if logged_in?
+              - if current_user.mod_of?(current_group)
                 %li{:style=>"display:inline"}
                   = link_to "Delete", page_path(@page), :confirm => "Are you sure?", :method => :delete
                 %li{:style=>"display:inline"}
