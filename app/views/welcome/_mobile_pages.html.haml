@@ -1,0 +1,21 @@
+- expanded = local_assigns[:expanded]
+
+
+.inset{:style=>"padding:0 16px 16px 16px;margin-top:16px;background:#{current_group.primary};"}
+  .note{:style=>"padding:8px;font-weight:bold;"}
+    = ""
+    -#= @items.inspect
+
+  - current_group.pages.each do |page|
+    .inner-button-alt{:style=>"margin-bottom:16px;", :onclick=>"window.location='#{page_path(page)}'"}
+      .star{:style=>"margin:4px 8px 4px 0;float:left;"}
+        = "★"
+      = link_to "#{page.title}",page_path(page),:class=>"inner-button-link",:style=>"font-size:25px;"
+
+
+
+.clear
+
+
+
+

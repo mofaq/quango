@@ -1,0 +1,42 @@
+- content_for :css do
+  %style
+    -#= "input[type=\'checkbox\']{display:none}"
+    = ".check_box{text-align:center; line-height:32px;padding:4px 8px;height:32px;width:32px;font-size:8em;}"
+
+
+
+
+.container
+  .heading
+    = "Page Settings"
+
+  .darkish.inset
+    .mobile-form{:style=>"padding:0px"}
+
+
+
+      .inner-button
+        = f.check_box :welcome_pages, :class => "check_box"
+        = f.label :welcome_pages, "Show Directory"
+
+
+      .group
+        .note
+          = "Pages Headeing"
+        = f.text_field :welcome_pages_heading, :class=> "text_field_mobile_edit"
+
+      .group
+        .note
+          = "Content"
+        -#= f.text_area :welcome_directory_content, :class=> "text_area_mobile_edit"
+
+
+      .group
+        %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
+          = "Save"
+      .clear
+
+  .tips
+    %ul
+      %li
+        = "What if my business has multiple phone numbers?"

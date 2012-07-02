@@ -42,6 +42,7 @@ class Group
   key :group_phone, String, :default => "555-12341234"
   key :group_fax, String
   key :group_website, String
+  key :group_website_label, String, :default => "Visit website"
   key :group_generic_email, String
   key :group_longitude, Float, :default=>"144.956478"
   key :group_latitude, Float, :default=>"-37.813555"
@@ -57,7 +58,8 @@ class Group
 
 
   key :show_facebook, Boolean, :default => false
-  key :group_facebook, String, :default => "http://www.facebook.com"
+  key :group_facebook, String, :default => "www.facebook.com"
+  key :group_facebook_label, String, :default => "Find us on Facebook"
 
   key :other_groups_facebook, String, :default => "http://www.facebook.com"
   key :other_groups_linkedin, String, :default => "http://www.linkedin.com"
@@ -75,6 +77,8 @@ class Group
 
 
   key :welcome_faq, Boolean, :default => true
+  key :welcome_pages, Boolean, :default => false
+  key :welcome_pages_heading, String, :default => "Our pages"
   key :welcome_locations, Boolean, :default => true
   key :welcome_directory, Boolean, :default => false
   key :welcome_directory_heading, String, :default => "Directory"

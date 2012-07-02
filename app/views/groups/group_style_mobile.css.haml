@@ -9,6 +9,11 @@
 - alt2 = grp.supplementary
 - alt3 = grp.supplementary_lite
 
+
+\.right-arrow{border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:8px solid #{stop4};height:0px;width:0px;float:right;}
+
+
+
 \.expand{margin:4px 0 4px 0;float:right;;line-height:36px;height:36px;width:36px;border-radius:12px 0 0 12px ;
 \-webkit-box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
 \-moz-box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
@@ -156,17 +161,25 @@ border-radius:8px;
 }
 
 \.inset{
+border-top:1px solid #{stop1};
+border-left:1px solid #{stop1};
+border-bottom:1px solid #{stop3};
+border-right:1px solid #{stop3};
 margin-top:4px;
-\-webkit-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop1};
-\-moz-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop1};
+\-webkit-box-shadow:1px 1px 0 #{stop4}, -1px -1px 0 #{stop1};
+\-moz-box-shadow:1px 1px 0 #{stop4}, -1px -1px 0 #{stop1};
+background: -moz-linear-gradient(bottom, #{stop3} 0%, #{stop2} 100%); /* FF3.6+ */
+background: -webkit-linear-gradient(bottom, #{stop3} 0%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
 border-radius:8px;
 padding: 8px;
 }
 
 \.outset{
 margin-top:4px;
-\-webkit-box-shadow:1px 1px 1px #{stop1}, -1px -1px 1px #{stop4};
-\-moz-box-shadow:1px 1px 1px #{stop1}, -1px -1px 1px #{stop4};
+-#\-webkit-box-shadow:1px 1px 1px #{stop1}, -1px -1px 1px #{stop4};
+-#\-moz-box-shadow:1px 1px 1px #{stop1}, -1px -1px 1px #{stop4};
+background: -moz-linear-gradient(top, #{stop3} 0%, #{stop2} 100%); /* FF3.6+ */
+background: -webkit-linear-gradient(top, #{stop3} 0%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
 border-radius:8px;
 padding: 8px;
 }
@@ -429,9 +442,9 @@ float:left;
 }
 
 \.inner-button-link{
-height:48px;
-width:48px;
-line-height:48px;
+height:40px;
+width:40px;
+line-height:40px;
 font-size:30px;
 color:#{stop5};
 font-weight:bold;
@@ -492,8 +505,8 @@ font-weight:bold;
 
 border-top: 1px solid #{stop1};
 border-left: 1px solid #{stop1};
-border-bottom: 1px solid #{stop2};
-border-right: 1px solid #{stop2};
+border-bottom: 1px solid #{stop4};
+border-right: 1px solid #{stop4};
 
 height:48px;
 line-height:36px;
@@ -502,8 +515,8 @@ line-height:36px;
 background: #{stop1}; /* Old browsers */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop3}), color-stop(51%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
 
-background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop3} 49%,#{stop2} 51%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
-background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 49%, #{stop2} 51%, #{stop1} 100%); /* FF3.6+ */
+background: -webkit-linear-gradient(top, #{stop3} 0%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop3} 0%, #{stop2} 100%); /* FF3.6+ */
 
 background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
@@ -519,23 +532,23 @@ padding:4px 16px;margin:0;
 border-radius: 8px;
 color:white;
 font-weight:bold;
-\-webkit-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
-\-moz-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
+-#\-webkit-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
+-#\-moz-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
 
 border-top: 1px solid #{stop1};
 border-left: 1px solid #{stop1};
-border-bottom: 1px solid #{stop2};
-border-right: 1px solid #{stop2};
+border-bottom: 1px solid #{stop4};
+border-right: 1px solid #{stop4};
 
 height:48px;
-line-height:36px;
+
 
 
 background: #{stop1}; /* Old browsers */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop3}), color-stop(51%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
 
-background: -webkit-linear-gradient(bottom, #{stop2} 0%,#{stop3} 49%,#{stop4} 100%); /* Chrome10+,Safari5.1+ */
-background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 49%, #{stop2} 51%, #{stop1} 100%); /* FF3.6+ */
+background: -webkit-linear-gradient(top, #{stop3} 0%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop3} 0%, #{stop2} 100%); /* FF3.6+ */
 
 background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
@@ -906,7 +919,7 @@ border-right: 1px solid #{stop2};
 \a{color:#{stop4};text-decoration: none;}
 \a:hover{color:#{stop2};text-decoration:none;} 
 \h1{text-shadow:-1px -1px 2px #{stop1};color:#{stop4};text-transform:uppercase;letter-spacing:-1px;font-size:2em;}
-\h2{text-shadow:-1px -1px 2px #{stop1};color:#{stop3};text-transform:uppercase;letter-spacing:-1px;font-size:1.3em;height:1.5em;opacity:1;}
+\h2{text-shadow:-1px -1px 2px #{stop1};color:#{stop4};text-transform:uppercase;letter-spacing:-1px;font-size:1.3em;height:1.5em;opacity:0.8;}
 \h3{text-shadow:-1px -1px 2px #{stop1},1px 1px 1px #{stop3};margin:0 auto;height:1.3em;line-height:1.5em;}
 
 \ul{list-style-type:none;padding:0}

@@ -11,23 +11,29 @@
     = "General Settings"
 
   .darkish.inset
-    .mobile-form{:style=>"padding:0px"}
+    .mobile-form{:style=>"padding:0px;font-size:27px;"}
 
-      .inner-button{:style=>"margin:8px;width:416px;"}
+      .setting{:style=>"margin:8px;width:416px;"}
         = f.check_box :welcome_faq, :class => "check_box"
-        = f.label :welcome_faq, "Show FAQ section on the welcome page"
+        = f.label :welcome_faq, "Show FAQ"
 
-      .inner-button{:style=>"margin:8px;width:416px;"}
+      .setting{:style=>"margin:8px;width:416px;"}
+        = f.check_box :welcome_pages, :class => "check_box"
+        = f.label :welcome_pages, "Show Pages"
+
+
+
+      .setting{:style=>"margin:8px;width:416px;"}
         = f.check_box :welcome_locations, :class => "check_box"
-        = f.label :welcome_locations, "Show Locations on the welcome page"
+        = f.label :welcome_locations, "Show Locations"
 
-      .inner-button{:style=>"margin:8px;width:416px;"}
+      .setting{:style=>"margin:8px;width:416px;"}
         = f.check_box :welcome_reviews, :class => "check_box"
-        = f.label :welcome_reviews, "Show reviews on the welcome page"
+        = f.label :welcome_reviews, "Show Reviews"
 
-      .inner-button{:style=>"margin:8px;width:416px;"}
+      .setting{:style=>"margin:8px;width:416px;"}
         = f.check_box :welcome_directory, :class => "check_box"
-        = f.label :welcome_directory, "Show Directory on the welcome page"
+        = f.label :welcome_directory, "Show Directory"
 
 
  
@@ -43,7 +49,8 @@
         = link_to "FAQ Configuration", "?tab=group_faq_configuration",:style=>"color:white;margin-right:16px;"
       %button.inner-button{:style=>"text-align:left;width:448px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
         = link_to "Directory Settings", "?tab=group_directory",:style=>"color:white;margin-right:16px;"
-
+      %button.inner-button{:style=>"text-align:left;width:448px;height:56px;line-height:32px;font-size:1.5em;margin:4px 8px;"}
+        = link_to "Pages Settings", "?tab=group_pages",:style=>"color:white;margin-right:16px;"
 
   .tips
     %ul
