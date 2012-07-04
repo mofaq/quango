@@ -8,6 +8,10 @@
 %hr
 
 .group
+  = f.check_box :hide, :class => "checkbox"
+  = f.label :hide, "Hide page in nav", :class => "radio"
+
+.group
   = f.check_box :custom_helper, :class => "checkbox"
   = f.label :custom_helper, "Override page content with custom helper", :class => "radio"
 
