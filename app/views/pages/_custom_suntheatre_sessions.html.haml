@@ -1,0 +1,27 @@
+- future = local_assigns[:custom_helper_var]
+- time = Time.new
+- today = time.wday
+
+
+
+
+- if future.to_i > today
+  - future = future.to_i - today
+- elsif future.to_i < today
+  - future = today + 1 + future.to_i
+- elsif future.to_i == today
+  - future = 0
+
+
+- offset = future.to_i
+
+= future.inspect()
+
+= "offset:" + "#{offset}"
+
+#suntheatre_movies
+  - node_array = fetch_html_nodes("http://www.suntheatre.com.au/component/yco?view=yco&day=" + "#{offset}","yco_movie")
+  - node_array.each do |node|
+    .inset{:style=>"margin-bottom:16px;width:448px;"}
+      = node.to_s
+      .clear
