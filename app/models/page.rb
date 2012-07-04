@@ -17,7 +17,7 @@ class Page
 
   key :custom_helper, Boolean, :default => false
   key :custom_helper_ref, String, :default => "custom helper name"
-
+  key :custom_helper_var, String
 
   key :user_id, String
   belongs_to :user

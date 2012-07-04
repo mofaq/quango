@@ -1,6 +1,13 @@
+- future = local_assigns[:custom_helper_var]
+- time = Time.new
+- today = time.wday
+
+- offset = today + 1 + future.to_i
+
+= future.inspect()
 
 #suntheatre_movies
-  - node_array = fetch_html_nodes("http://www.suntheatre.com.au/component/yco?view=yco&day=0","yco_movie")
+  - node_array = fetch_html_nodes("http://www.suntheatre.com.au/component/yco?view=yco&day=" + "#{offset}","yco_movie")
   - node_array.each do |node|
     .inset{:style=>"margin-bottom:16px;"}
       = node.to_s
