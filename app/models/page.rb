@@ -14,6 +14,10 @@ class Page
   key :wiki, Boolean, :default => false
   key :language, String
   key :adult_content, Boolean, :default => false
+  
+  key :scrape, Boolean, :default => false
+  key :scrape_url, String
+  key :scrape_id, Integer
 
   key :hide, Boolean, :default => false
 
