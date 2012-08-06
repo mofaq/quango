@@ -156,13 +156,13 @@
 
     .light.inset{:style=>"height:60px;width:456px;border-radius:8px"}
       .label{:style=>"margin:16px 16px 0;float:left; width:210px;font-weight:bold;line-height:30px;"}
-        = "Try before you buy! >>"
+        = "Administer your MOFAQ >>"
       .inner-button{:style=>"float:right;width:168px;font-size:0.8em;"}
-        = link_to 'Activate Free Trial', add_trial_subscription_path(@group), :style=>"color:#{current_group.text_colour};font-size:1.3em;", :class => "inner-button-link"
+        = link_to 'My Settings', add_trial_subscription_path(@group), :style=>"color:#{current_group.text_colour};font-size:1.3em;", :class => "inner-button-link"
     .clear
 
     .dor{:style=>"height:3em;line-height:3em;"}
-      = "<b>Or simply...</b>"
+      = "<b>When you are happy...</b>"
 
 
     -content_for :after_form do

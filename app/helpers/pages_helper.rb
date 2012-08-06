@@ -6,6 +6,6 @@ module PagesHelper
   end
 
   def scrape(page)
-    return Nokogiri::HTML(open(page.scrape_url)).at_css("body").to_html
+    return Nokogiri::HTML(open(page.scrape_url)).at_css(page.scrape_id.to_s).to_html
   end
 end

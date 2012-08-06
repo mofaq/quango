@@ -29,6 +29,19 @@ class ListingsController < ApplicationController
     end
   end
 
+  def nearest
+
+    @listing = Listing.first
+    #@list_members = @listing.list_members.split(',')
+
+
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @listing }
+    end
+  end
+
   # GET /listings/new
   # GET /listings/new.xml
   def new

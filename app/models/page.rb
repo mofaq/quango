@@ -17,7 +17,7 @@ class Page
   
   key :scrape, Boolean, :default => false
   key :scrape_url, String
-  key :scrape_id, Integer
+  key :scrape_id, String
 
   key :hide, Boolean, :default => false
 

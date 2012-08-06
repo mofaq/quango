@@ -16,9 +16,12 @@
       &= page_title
 
     = render :partial => "shared/layout/meta"
-    = yield :head
 
     = render :partial => "shared/layout/css_mobile"
+
+    = yield :head
+
+
 
     = javascript_include_merged :mobile
     = yield :custom_javascript

@@ -3,6 +3,12 @@
 
 require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 
+module Rake
+  module DSL
+  end
+end
+
+
 #include Rake::DSL
 
 #require 'rake/dsl_definition'

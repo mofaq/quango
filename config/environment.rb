@@ -53,7 +53,7 @@ Rails::Initializer.run do |config|
   config.gem "semantic_extraction"
   config.gem "unidecode"
 
-  config.gem "rake", :version => '0.8.7'
+  config.gem "rake", :version => '0.9.2.2'
 
   config.gem "google_maps_geocoder", :version => "~> 0.1.1"
 

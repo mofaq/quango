@@ -17,7 +17,7 @@
                 = link_to "?", "#{item_path(item.doctype_id.to_s,item)}",:style=>"color:#{current_group.text_colour}"
 
             %td
-              .question-title{:style=>"margin:8px 8px 4px 8px; background:#{current_group.secondary}"}
+              .question-title{:style=>"margin:8px 8px 4px 8px"}
                 = link_to item.title, "#{item_path(item.doctype_id.to_s,item)}", :title => truncate(strip_tags(item.body), :length => 88), :style=>""
 
 

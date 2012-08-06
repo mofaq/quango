@@ -6,7 +6,9 @@ ActionController::Routing::Routes.draw do |map|
 
   #map.resources :images
 
+  map.location_finder '/listings/nearest', :controller => 'listings', :action => 'nearest'
   map.resources :listings, :member => {:move => :post}
+  
 
   map.oauth_authorize '/oauth/start', :controller => 'oauth', :action => 'start'
   map.oauth_callback '/oauth/callback', :controller => 'oauth', :action => 'callback'

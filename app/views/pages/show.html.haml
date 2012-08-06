@@ -66,8 +66,10 @@
       -#= "#{@page.custom_helper_ref.to_s}"
       = render :partial => "#{@page.custom_helper_ref.to_s}", :locals => {:custom_helper_var => @page.custom_helper_var}
   - if @page.scrape
-    .container
+    .container{:style=>"width:480px;padding:16px;"}
+      -#= @page.inspect()
       = scrape(@page)
+
   - else
 
     .container.markdown
