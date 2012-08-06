@@ -29,7 +29,7 @@
               = link_to "#{current_group.action_button_text}","#{current_group.action_button_link}", :style=>"color:#{current_group.text_colour};font-size:25px;letter-spacing:-2px;"
           .clear
 
-    -if current_user.owner_of?(current_group) && current_group.welcome_directory?
+    -if current_group.welcome_directory?
       %div.container{:style=>"margin:0;padding:8px 0 8px 0;width:464px;"}
         .inset{:style=>"margin:0;background:#{current_group.primary};"}
           -if !current_group.action_button_note.empty?
