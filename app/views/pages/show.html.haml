@@ -41,8 +41,8 @@
 
 -content_for :main do
 
-  .container{:style=>"height:48px;width:480px;padding:16px;"}
-    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
+  .container{:style=>"height:48px;width:464px;padding:16px 32px 0 16px;"}
+    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}
       .light                              
         .subheading.left
           ="#{@page.title}"
@@ -66,7 +66,7 @@
       -#= "#{@page.custom_helper_ref.to_s}"
       = render :partial => "#{@page.custom_helper_ref.to_s}", :locals => {:custom_helper_var => @page.custom_helper_var}
   - if @page.scrape
-    .container{:style=>"width:480px;padding:16px;"}
+    .container{:style=>"width:464px;padding:16px 32px 0 16px;"}
       -#= @page.inspect()
       = scrape(@page)
 
@@ -87,8 +87,8 @@
 
 
 
-  .space
-    = "&nbsp;"
+  .clear
+
 
 
 
