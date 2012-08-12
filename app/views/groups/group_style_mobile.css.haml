@@ -17,7 +17,7 @@
 \.expand{margin:4px 0 4px 0;float:right;;line-height:36px;height:36px;width:36px;border-radius:12px 0 0 12px ;
 \-webkit-box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
 \-moz-box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
-
+\box-shadow:1px 1px 2px #{stop3}, -2px -2px 2px #{stop2};
 border-top: 1px solid #{stop3};
 /*border-left: 1px solid #{stop3};*/
 border-bottom: 1px solid #{stop2};
@@ -160,24 +160,31 @@ color:#{stop5};
 border-radius:8px;
 }
 
+
+
 \.inset{
 border-top:1px solid #{stop1};
 border-left:1px solid #{stop1};
-border-bottom:1px solid #{stop4};
-border-right:1px solid #{stop4};
+border-bottom:1px solid #{stop1};
+border-right:1px solid #{stop1};
 margin-top:4px;
-\-webkit-box-shadow:1px 1px 0 #{stop4}, -1px -1px 0 #{stop1};
-\-moz-box-shadow:1px 1px 0 #{stop4}, -1px -1px 0 #{stop1};
-
-border-radius:8px;
+\-webkit-box-shadow:1px 1px 2px #{stop2}, -1px -1px 2px #{stop2};
+\-moz-box-shadow:1px 1px 2px #{stop2}, -1px -1px 2px #{stop2};
+box-shadow:1px 1px 2px #{stop2}, -1px -1px 2px #{stop2};
+border-radius:3px;
 padding: 8px;
 background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}),  color-stop(100%,#{stop3})); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* Chrome10+,Safari5.1+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop3}),  color-stop(100%,#{stop2})); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #{stop3} 0%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
 background: -o-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* IE10+ */
 background: linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop3}',GradientType=0 ); /* IE6-9 */
+}
+
+\.logo-inner{
+
+cursor:pointer;
 }
 
 \.outset{
@@ -202,7 +209,7 @@ border-radius:8px;
 \.fold-icon-open{height:64px;width:64px;background-image:url(/images/blank_icxon_o.png);float:left;margin:8px 0 0 16px;}
 
 
-\#header{cursor:pointer;}
+
 
 
 
@@ -325,10 +332,21 @@ margin:0;
 border-top: 1px solid #{stop1};
 background: #{stop2}; /* Old browsers */
 margin:0;
-background:-webkit-gradient(linear,left top,left bottom,from(#{stop2}),to(#{stop3}));
-background:-moz-linear-gradient(top,#{stop2},#{stop3});
-filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,endColorstr='#{stop3}',startColorstr='#{stop2}');
 /*border-radius:0 0 16px 16px ;*/
+cursor:pointer;
+
+background: #{stop1}; /* Old browsers */
+background: -webkit-gradient(linear, left top, left bottom, from(#{stop2}), to(100%,#{stop3})); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #{stop2},#{stop3}); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop2}, #{stop3}); /* FF3.6+ */
+background: -o-linear-gradient(top, #{stop2},#{stop3}); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #{stop2},#{stop3}); /* IE10+ */
+background: linear-gradient(top, #{stop2},#{stop3}); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop3}',GradientType=0 ); /* IE6-9 */
+
+
+
+
 }
 
 
@@ -504,31 +522,33 @@ cursor:pointer;
 text-shadow:-1px -1px 2px #{stop2},1px 1px 2px #{stop3};
 font-size:1.2em;
 padding:4px 16px;margin:0;
-border-radius: 8px;
+border-radius: 3px;
 color:white;
 font-weight:bold;
-\-webkit-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
-\-moz-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
+\-webkit-box-shadow:1px 1px 4px #{stop1}, -1px -1px 4px #{stop1};
+\-moz-box-shadow:1px 1px 4px #{stop1}, -1px -1px 4px #{stop1};
 
 border-top: 1px solid #{stop1};
 border-left: 1px solid #{stop1};
-border-bottom: 1px solid #{stop4};
-border-right: 1px solid #{stop4};
+border-bottom: 1px solid #{stop1};
+border-right: 1px solid #{stop1};
 
 height:48px;
 line-height:36px;
 
 
-background: #{stop1}; /* Old browsers */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop3}), color-stop(51%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
+background: #{stop2}; /* Old browsers */
 
-background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop3} 50%,#{stop2} 51%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
-background: -moz-linear-gradient(top, #{stop2} 0%,#{stop3} 50%,#{stop2} 51%,#{stop1} 100%); /* FF3.6+ */
+- if true
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop3}), color-stop(51%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
 
-background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
-background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop1}',GradientType=0 ); /* IE6-9 */
+  background: -webkit-linear-gradient(top, #{stop1} 0%,#{stop2} 50%,#{stop1} 51%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
+  background: -moz-linear-gradient(top, #{stop2} 0%,#{stop3} 50%,#{stop2} 51%,#{stop1} 100%); /* FF3.6+ */
+
+  background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* IE10+ */
+  background: linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop1}',GradientType=0 ); /* IE6-9 */
 }
 
 \.inner-button-alt{
@@ -536,16 +556,16 @@ cursor:pointer;
 text-shadow:-1px -1px 1px #{stop1},1px 1px 1px #{stop2};
 font-size:1.2em;
 padding:4px 16px;margin:0;
-border-radius: 8px;
+border-radius: 3px;
 color:white;
 font-weight:bold;
-\-webkit-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
-\-moz-box-shadow:1px 1px 1px #{stop4}, -1px -1px 1px #{stop2};
+\-webkit-box-shadow:1px 1px 4px #{stop1}, -1px -1px 1px #{stop1};
+\-moz-box-shadow:1px 1px 4px #{stop1}, -1px -1px 1px #{stop1};
 
-border-top: 1px solid #{stop1};
-border-left: 1px solid #{stop1};
-border-bottom: 1px solid #{stop4};
-border-right: 1px solid #{stop4};
+border-top: 1px solid #{stop3};
+border-left: 1px solid #{stop3};
+border-bottom: 1px solid #{stop3};
+border-right: 1px solid #{stop3};
 
 height:48px;
 
@@ -554,7 +574,7 @@ height:48px;
 background: #{stop1}; /* Old browsers */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop3}), color-stop(51%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
 
-background: -webkit-linear-gradient(top, #{stop1} 0%,#{stop3} 50%,#{stop2} 51%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
+background: -webkit-linear-gradient(top, #{stop1} 0%,#{stop2} 50%,#{stop1} 51%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */
 background: -moz-linear-gradient(top, #{stop2} 0%,#{stop3} 50%,#{stop2} 51%,#{stop1} 100%); /* FF3.6+ */
 
 background: -o-linear-gradient(top, #{stop2} 0%,#{stop1} 50%,#{stop3} 51%,#{stop1} 100%); /* Opera 11.10+ */
@@ -762,6 +782,7 @@ border-bottom: 1px solid #{stop2};
 border-right: 1px solid #{stop2};
 
 \-webkit-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
+\-moz-box-shadow:1px 1px 1px #{stop3}, -1px -1px 1px #{stop1};
 
 background: #{alt1}; /* Old browsers */
 background: -moz-linear-gradient(top, #{alt1} 0%, #{alt2} 50%, #{alt3} 60%, #{alt1} 100%); /* FF3.6+ */
@@ -790,7 +811,7 @@ border-radius: 8px;
 color:white;
 font-weight:bold;
 \-webkit-box-shadow:0 0 8px black;
-
+\-moz-box-shadow:0 0 8px black;
 border: 1px outset #{stop4};
 text-shadow: -1px -1px 1px black;
 height:2em;
@@ -874,6 +895,7 @@ border-radius: 4px;
 color:white;
 font-weight:bold;
 \-webkit-box-shadow:0 0 8px black;
+\-moz-box-shadow:0 0 8px black;
 
 border: 1px outset #{stop4};
 text-shadow: -1px -1px 1px black;
@@ -912,12 +934,7 @@ border-right: 1px solid #{stop2};
 }
 
 
-\.logo-inner{
-border-top: 1px solid #{stop3};
-border-left: 1px solid #{stop3};
-border-bottom: 1px solid #{stop2};
-border-right: 1px solid #{stop2};
-}
+
 
 
 

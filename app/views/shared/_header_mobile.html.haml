@@ -21,7 +21,7 @@
       -# header_image = expired_header1.url
       -# header_image = base_header2.url
 
-    #header.darkish{:style=>"padding-top:16px;height:148px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
+    #header{:style=>"padding-top:16px;height:148px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
       .logo-inner.inset{:style=>"margin:0 16px 0 16px;width:446px;height:120px;background-image:url(#{header_image});border-radius:0;"}
 
@@ -52,7 +52,7 @@
   - else
 
     #header.light-down{:style=>"padding-top:16px;padding-bottom:4px;height:156px", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
-      .logo-inner.inset{:style=>"margin:0 16px 0 16px;width:464px;height:128px"}
+      .logo-inner.inset{:style=>"margin:0 16px 0 16px;width:446px;height:128px;border-radius:0;"}
         .container{:style => "padding:0 16px;float:left;z-index:2;position:absolute;top:32px;left:0px;"}
           .logo-mobile
             .name
