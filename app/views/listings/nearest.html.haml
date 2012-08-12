@@ -1,0 +1,157 @@
+-content_for :custom_javascript do
+
+  %script{:src=>'http://maps.googleapis.com/maps/api/js?key=AIzaSyAlzkt8p7MDY0igloVFWD1-kQ2wYynxLgs&sensor=true', :type=>'text/javascript'}
+  %script{:src=>'http://www.google.com/jsapi', :type=>'text/javascript'}
+
+
+
+  :javascript
+
+
+    function myLocation(){
+
+
+      var loc = {};
+      var geocoder = new google.maps.Geocoder();
+      if(google.loader.ClientLocation) {
+          loc.lat = google.loader.ClientLocation.latitude;
+          loc.lng = google.loader.ClientLocation.longitude;
+
+          var latlng = new google.maps.LatLng(loc.lat, loc.lng);
+          geocoder.geocode({'latLng': latlng}, function(results, status) {
+              if(status == google.maps.GeocoderStatus.OK) {
+                  alert(results[0]['formatted_address']);
+              };
+          });
+      }
+
+
+      if(google.loader.ClientLocation)
+      {
+          visitor_lat = google.loader.ClientLocation.latitude;
+          visitor_lon = google.loader.ClientLocation.longitude;
+          visitor_city = google.loader.ClientLocation.address.city;
+          visitor_region = google.loader.ClientLocation.address.region;
+          visitor_country = google.loader.ClientLocation.address.country;
+          visitor_countrycode = google.loader.ClientLocation.address.country_code;
+      }
+      else
+      {
+          // ClientLocation not found or not populated
+          // so perform error handling
+          alert('foo');
+
+      }
+
+
+    
+      alert('lat:' + visitor_lat + '&amp; lng:' + visitor_lon);
+
+
+    }
+
+    var counter = 1
+
+    function createMap1(geo1) {
+      var options1 = {
+        center: geo1,
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControl: true,
+        panControl: false,
+        streetViewControl: false,
+        mapTypeControl: false
+      };
+      var canvas1 = document.getElementById('map_canvas1');
+      var map1 =  new google.maps.Map(canvas1,options1);
+      //map1.panBy(-100,-100);
+      //map1.panBy(100,100);
+
+      var marker1 = new google.maps.Marker({
+        position: geo1,
+        map: map1,
+        title: "Stuff marker"
+      });
+
+      var overlay1 = new google.maps.InfoWindow({
+        content: "x"
+      });
+      //open(map1,marker1);
+      return map1;
+    }
+    function initMap1() {
+      var map1 = null;
+      var geo1 = new google.maps.LatLng(google.loader.ClientLocation.latitude,google.loader.ClientLocation.longitude);
+      var address1 = null;
+
+
+      map1 = createMap1(geo1);
+    }
+
+
+-content_for :main do
+
+  .container{:style=>"width:464px;padding:16px;"}
+    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
+      = "my location is:"
+      .user-lat{:style=>"float:right;width:128px;"}
+        = "user lat"
+      .user-long{:style=>"float:right;width:128px;"}
+        = "user long"
+      %button{:onclick=>"javascript:myLocation();",:style=>"float:left;"}
+        = " Test"
+
+      %button{:onclick=>"javascript:initMap1();",:style=>"float:left;"}
+        = " Map"
+
+
+    .clear
+
+    .map.inset{:id => "map_canvas1", :style=>"width:448px; height:64px; border-radius:0;margin:0;"}
+
+    .clear
+
+  .container{:style=>"height:48px;width:464px;padding:16px;"}
+    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
+      .light                              
+        .subheading.left
+          ="#{@listing.name}"
+
+        - if logged_in?
+          - if current_user.mod_of?(current_group)
+            .subheading.right
+              %ul.right{:style=>"list-style-type:none; display:inline;"}
+                %li{:style=>"display:inline"}
+                  = link_to "Edit", edit_listing_path(@listing), :class => "inner-button", :style=>"height:1.5em;"
+        -else
+          .subheading.right
+            %ul.right{:style=>"list-style-type:none; display:inline;"}
+              %li{:style=>"display:inline"}
+                = link_to "Back", listings_path, :class => "inner-button", :style=>"height:1.5em;"
+
+
+    .note.hidden
+      = "#{@listing.description}"
+
+    %p{:style=>"width:464px;margin:16px 0;"}
+      - @list_members = @listing.list_members.split(',')
+      - counter = 0
+
+      - @list_members.each do |list_member|
+        - counter = counter + 1
+
+
+        = render :partial => "listing", :locals => {:list_member => list_member}
+
+        - if false
+          .frame.inset
+            = counter
+            = "."
+            = list_member
+
+  .clear
+  .spacer
+    = "&nbsp;"
+
+
+

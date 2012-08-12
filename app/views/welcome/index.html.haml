@@ -29,51 +29,53 @@
               = link_to "#{current_group.action_button_text}","#{current_group.action_button_link}", :style=>"color:#{current_group.text_colour};font-size:25px;letter-spacing:-2px;"
           .clear
 
-    -if current_group.welcome_directory?
-      %div.container{:style=>"margin:0;padding:8px 0 8px 0;width:464px;"}
-        .inset{:style=>"margin:0;background:#{current_group.primary};"}
-          -if !current_group.action_button_note.empty?
-            .note{:style=>"text-align:center; "}
-              = "#{current_group.action_button_note}"
-          .empty{:style=>"margin:0 auto;width:480px;"}
-            .inner-button.submit{:style=>"text-align:center;margin:8px 40px; width:400px;height:48px;line-height:48px;"}
-              = link_to "&#9755 Find my nearest",location_finder_path, :style=>"color:#{current_group.text_colour};font-size:25px;letter-spacing:-2px;"
-          .clear
+
+    -if false
+      -if current_group.welcome_directory?
+        %div.container{:style=>"margin:0;padding:8px 0 8px 0;width:464px;"}
+          .inset{:style=>"margin:0;background:#{current_group.primary};"}
+            -if !current_group.action_button_note.empty?
+              .note{:style=>"text-align:center; "}
+                = "#{current_group.action_button_note}"
+            .empty{:style=>"margin:0 auto;width:480px;"}
+              .inner-button.submit{:style=>"text-align:center;margin:8px 40px; width:400px;height:48px;line-height:48px;"}
+                = link_to "&#9755 Find my nearest",location_finder_path, :style=>"color:#{current_group.text_colour};font-size:25px;letter-spacing:-2px;"
+            .clear
 
 
     %dl.accordian#slider
 
       -if current_group.welcome_pages?
-        %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+        %dt.container{:style=>"padding:16px 0 0 0;"}
+          %div.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
             = "#{current_group.welcome_pages_heading}"
             -#= link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
 
 
 
-        %dd.container{:style=>"width:464px;padding:0;"}
+        %dd.container{:style=>"padding:0;"}
           = render :partial => "mobile_pages"
           .clear
 
 
 
 
-      %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-        %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+      %dt.container{:style=>"padding:16px 0 0 0;"}
+        %div.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
           = "Contact Details"
           -#= link_to "Contact Details","#",:class=>"inner-button-link"
 
-      %dd.container{:style=>"width:464px;padding:0;"}
+      %dd.container{:style=>"padding:0;"}
         = render :partial => "mobile_about"
         .clear
 
 
       -if current_group.welcome_reviews?
-        %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+        %dt.container{:style=>"padding:16px 0 0 0;"}
+          %div.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
             = "Our reviews"
 
-        %dd.container{:style=>"width:464px;padding:0;"}
+        %dd.container{:style=>"padding:0;"}
           = render :partial => "mobile_reviews"
           .clear
 
@@ -83,43 +85,43 @@
 
 
       -if current_group.welcome_faq?
-        %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+        %dt.container{:style=>"padding:16px 0 0 0;"}
+          %div.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
             = "#{current_group.quick_create_heading}"
             -#= link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
 
 
 
-        %dd.container{:style=>"width:464px;padding:0;"}
+        %dd.container{:style=>"padding:0;"}
           = render :partial => "mobile_faq"
           .clear
 
       -if current_group.welcome_directory?
-        %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-          %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+        %dt.container{:style=>"padding:16px 0 0 0;"}
+          %div.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
             = "#{current_group.welcome_directory_heading}"
             -#= link_to "#{current_group.welcome_directory_heading}","#",:class=>"inner-button-link"
 
 
-        %dd.container{:style=>"width:464px;padding:0;"}
+        %dd.container{:style=>"padding:0;"}
           = render :partial => "mobile_directory"
           .clear
 
       -if current_group.welcome_locations != false
         -if current_group.locations.count > 1
 
-          %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-            %button.inner-button{:style=>"width:464px;height:58px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;",:id=>"loc-dropdown"}
+          %dt.container{:style=>"padding:16px 0 0 0;"}
+            %div.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;",:id=>"loc-dropdown"}
               = link_to "Locations", "#",:class=>"inner-button-link"
               -#= link_to "Locations","#", :onclick=>"initMaps();",:class => "inner-button-link",:style=>"width:480px;height:32px;"
-          %dd.container{:style=>"width:464px;padding:0;min-height:440px;"}
+          %dd.container{:style=>"padding:0;min-height:440px;"}
             = render :partial => "locations/locations_map", :locals => {:expanded => false}
           .clear
 
         -else
 
-          %dt.container{:style=>"width:464px;padding:16px 0 0 0;"}
-            %button.inner-button{:onclick=>"initMap();",:style=>"width:464px;height:58px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+          %dt.container{:style=>"padding:16px 0 0 0;"}
+            %div.inner-button{:onclick=>"initMap();",:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
               = "Location"
               -#= link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
 

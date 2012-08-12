@@ -92,7 +92,7 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page.safe_update(%w[hide custom_helper custom_helper_ref custom_helper_var
-                          title body tags language adult_content css js scrape scrape_url scrape_id
+                          title body tags language adult_content css js scrape scrape_url scrape_id redirect redirect_url
                         ], params[:page])
     @page.updated_by = current_user
 

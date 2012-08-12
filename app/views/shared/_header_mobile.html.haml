@@ -23,7 +23,9 @@
 
     #header.darkish{:style=>"padding-top:16px;height:148px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
-      .logo-inner.inset{:style=>"margin:0 16px 0 16px;width:446px;height:120px;background-image:url(#{header_image});"}
+      .logo-inner.inset{:style=>"margin:0 16px 0 16px;width:446px;height:120px;background-image:url(#{header_image});border-radius:0;"}
+
+        -#%img{:src=>"#{header_image}",:height=>"120px",:width=>"446px"}
 
         - if current_group.logo_only? && current_group.text_only?
 

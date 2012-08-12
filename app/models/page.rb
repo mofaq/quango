@@ -15,6 +15,11 @@ class Page
   key :language, String
   key :adult_content, Boolean, :default => false
   
+
+  key :redirect, Boolean, :default => false
+  key :redirect_url, String
+
+
   key :scrape, Boolean, :default => false
   key :scrape_url, String
   key :scrape_id, String

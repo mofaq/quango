@@ -7,7 +7,7 @@
   = ""
 
 -content_for :main do
-  #main-index
+  .container{:style=>"padding:0 16px 32px 16px;"}
 
     - form_for(@page, :url => page_path(@page), :html => {:class => "form"}) do |f|
       =render :partial => "form", :locals => {:f => f}
@@ -20,3 +20,17 @@
         = f.submit t('scaffold.update')
         = t("global.or")
         = link_to t('scaffold.cancel'), page_path(@page), :class => "button cancel"
+
+
+
+
+-content_for :javascript_init do
+
+
+
+
+  :javascript
+
+
+    var slider1=new accordion.slider("slider1");
+    slider1.init("slider");

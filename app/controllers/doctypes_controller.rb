@@ -1,6 +1,6 @@
 class DoctypesController < ApplicationController
   before_filter :set_active_doctype
-  #before_filter :login_required
+  before_filter :login_required
   #before_filter :check_permissions
   #layout "manage"
 
