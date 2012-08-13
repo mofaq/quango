@@ -52,6 +52,13 @@
           -@pages.each do |page|
             %tr
               %td
+
+              -form_tag move_page_path(page) do
+                %td.order
+                  = submit_tag("up", :name=>"move_to", :value => "up")
+                %td.order 
+                  = submit_tag("down", :name=>"move_to", :value => "down")
+
                 = "&#9650;"
                 = "&#9660;"
               %td

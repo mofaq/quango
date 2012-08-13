@@ -53,6 +53,10 @@
         = f.label :scrape_id, "External ID", :class => "label"
         = f.text_field :scrape_id, :class => "text_field_mobile_edit"
 
+      .group
+        = f.label :scrape_domain, "Base domain ( for link parsing )", :class => "label"
+        = f.text_field :scrape_domain, :class => "text_field_mobile_edit"
+
 
     %dt.container{:style=>"width:446px;padding:16px 0 0 0;"}
       %div.inner-button{:style=>"width:446px;text-align:left;font-size:27px;line-height:48px;font-weight:bold;letter-spacing:-1px;"}
@@ -71,6 +75,8 @@
         = f.label :custom_helper_var, "Custom helper var", :class => "label"
         = f.text_field :custom_helper_var, :class => "text_field_mobile_edit"
   
+
+
 
     %dt.container{:style=>"width:446px;padding:16px 0 0 0;"}
       %div.inner-button{:style=>"width:446px;text-align:left;font-size:27px;line-height:48px;font-weight:bold;letter-spacing:-1px;"}

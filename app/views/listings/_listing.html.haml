@@ -6,7 +6,7 @@
 - if listings_member.default_header
   - header = Header.find(listings_member.default_header)
   - base_header = header.header.process(:thumb,header.header_cropping)
-  - base_header1 = base_header.process(:thumb,"256x")
+  - base_header1 = base_header.process(:thumb,"200x")
   - base_header2 = base_header1.encode(:png, '-quality 80')
   - header_image = base_header2.url
 
@@ -15,8 +15,8 @@
 .frame.inset{:style=>"margin-bottom:8px;"}
 
   - if header_image
-    .left
-      = link_to image_tag(header_image), domain_url(:custom => listings_member.domain)
+    .inset.left{:style=>"margin:0;padding:0"}
+      = link_to image_tag(header_image), domain_url(:custom => listings_member.domain),:style=>"border:0"
 
   - else
     .left
@@ -28,7 +28,7 @@
       -#= listings_member.group_city
     %h3{:style=>"height:20px;width:240px;font-size:14px;overflow:hidden;"}
       = link_to h(listings_member.display_name), domain_url(:custom => listings_member.domain)
-    -if current_user
+    -if false
       -if current_user.owner_of?(current_group)
         %p
           = "Lat:" && listings_member.group_latitude.to_s
@@ -38,7 +38,7 @@
 
 - else
   .clear
-  = listings_member.default_header
+  -#= listings_member.default_header
   .clear
 
   -#{:style => "background-image:url(#{background_group_path(group)})"}

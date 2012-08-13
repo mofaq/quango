@@ -92,7 +92,7 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page.safe_update(%w[hide custom_helper custom_helper_ref custom_helper_var
-                          title body tags language adult_content css js scrape scrape_url scrape_id redirect redirect_url
+                          title body tags language adult_content css js scrape scrape_url scrape_id scrape_domain redirect redirect_url
                         ], params[:page])
     @page.updated_by = current_user
 
@@ -141,6 +141,18 @@ class PagesController < ApplicationController
       render :text => ""
     end
   end
+
+  def move
+    @group = current_group
+    @pages = current_group.pages
+    page = @pages.find_by_slug_or_id(params[:id])
+    #doctype = Doctype.find_by_slug_or_id(params[:id])
+
+    page.move_to(params[:move_to])
+
+    redirect_to pages_path
+  end
+
 
   protected
   def check_page_permissions
