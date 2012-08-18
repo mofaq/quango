@@ -1,11 +1,12 @@
+
+
 -content_for :main do
 
 
   .container{:style=>"height:48px;width:464px;padding:16px;"}
-    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
-      .light                              
-        %h2.left
-          ="Our locations"
+    .inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}                          
+      .subheading.left
+        = "Our locations"
 
   .container{:style=>"width:464px;"}
     - current_group.locations.each do |location|

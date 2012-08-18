@@ -1,24 +1,26 @@
+
+
 -content_for :main do
+
   .container{:style=>"height:48px;width:464px;padding:16px;"}
-    .outset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;background:#{current_group.secondary};"}
-      .light                              
-        .subheading.left
-          ="#{@location.name}"
+    .inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}                          
+      .subheading.left
+        ="#{@location.name}"
 
-        .subheading.right
-          %ul.right{:style=>"list-style-type:none; display:inline;"}
-            %li{:style=>"display:inline"}
-              = link_to "Back", locations_path, :class=>"inner-button"
+      .subheading.right
+        %ul.right{:style=>"list-style-type:none; display:inline;"}
+          %li{:style=>"display:inline"}
+            = link_to "Back", locations_path, :class=>"inner-button"
 
-        - if logged_in?
-          - if current_user.mod_of?(current_group)
-            .subheading.right
-              %ul.right{:style=>"list-style-type:none; display:inline;"}
-                %li{:style=>"display:inline"}
-                  = link_to "Delete", location_path(@location), :confirm => "Are you sure?", :method => :delete
+      - if logged_in?
+        - if current_user.mod_of?(current_group)
+          .subheading.right
+            %ul.right{:style=>"list-style-type:none; display:inline;"}
+              %li{:style=>"display:inline"}
+                = link_to "Delete", location_path(@location), :confirm => "Are you sure?", :method => :delete
 
-                %li{:style=>"display:inline"}
-                  = link_to "Edit", edit_location_path(@location), :class => "inner-button", :style=>"height:1.5em;"
+              %li{:style=>"display:inline"}
+                = link_to "Edit", edit_location_path(@location), :class => "inner-button", :style=>"height:1.5em;"
 
         -# else
 

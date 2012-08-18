@@ -14,6 +14,7 @@ class PagesController < ApplicationController
       options[:wiki] = true
     end
 
+    @group = current_group
     @pages = current_group.pages.paginate(options)
 
     set_page_title("System Pages") # TODO: i18n
