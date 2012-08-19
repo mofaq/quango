@@ -11,6 +11,7 @@ class Page
   key :_id, String
   key :title, String
   key :body, String
+  key :show_body,  Boolean, :default => true
   key :wiki, Boolean, :default => false
   key :language, String
   key :adult_content, Boolean, :default => false

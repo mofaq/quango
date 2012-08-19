@@ -1,0 +1,120 @@
+
+
+
+
+
+.container{:style=>"height:48px;width:464px;padding:4px 16px 16px 16px;"}
+  .inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}                          
+    .subheading.left
+      ="Pages Section"
+    .subheading.right
+      .inner-button{:style=>"line-height:22px;height:22px;margin:8px 0;"}
+        = link_to "Preview", pages_path,:style=>"color:white;"
+
+.container{:style=>"padding:16px;width:464px;"}
+
+  %table{:cellspacing=>"0",:style=>"width:100%;margin:0 0 16px 0;"}
+    %tr
+      %th{:colspan=>"2"}
+        = "Order"
+      %th
+        = "Title"
+      %th
+        = "Type"
+      %th
+        = "Actions"
+
+    -@pages.each do |page|
+      %tr{:style=>"padding:4px;border:1px solid black;"}
+        -form_tag move_page_path(page) do
+          %td
+            = submit_tag("up", :name=>"move_to", :value => "&#9650;",:class=>"inner-button",:style=>"line-height:22px;height:32px;padding:4px;")
+          %td
+            = submit_tag("down", :name=>"move_to", :value => "&#9660;",:class=>"inner-button",:style=>"line-height:22px;height:32px;padding:4px;")
+
+
+        %td{:style=>"width:100%;"}
+          = link_to h(page.title), page_path(page),:style=>"color:white;font-size:110%;font-weight:bold;"
+        %td
+          - if page.hide?
+            = "&#10754;"
+          - if page.redirect?
+            = "&#9902;"
+        %td
+          -if logged_in? && current_user.can_edit_wiki_post_on?(current_group)
+            =link_to t("scaffold.edit"), edit_page_path(page)
+            -if current_user.mod_of?(current_group)
+              .box.left
+                =link_to "[X]", page_path(page.id), :class => "important", :method => :delete, :confirm => t("scaffold.sure", :model => t("activerecord.models.page"))
+
+  .inner-button.submit{:style=>"text-align:center;width:276px;height:40px;"}
+    = link_to "Add page", new_page_path,:style=>"color:white;"
+
+
+  .clear
+.container{:style=>"height:48px;s"}
+  .inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}                          
+    .subheading.left
+      ="Section Settings"
+
+.container
+  #accordion{:style=>"padding:0 0 32px 0"}
+    %dl.accordian#slider
+
+      %dt
+        %div.inner-button{:style=>"text-align:left;font-size:27px;line-height:48px;font-weight:bold;letter-spacing:-1px;"}
+          = "General Settings"
+          .right
+            = ""
+
+      %dd
+        -form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
+          = f.error_messages
+          - source = domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
+          - source = source << "&mobile=true"
+
+          .group
+
+            = f.check_box :welcome_pages, :class => "check_box"
+            = f.label :welcome_pages, "Show this section on welcome page"
+
+
+          .group
+            .note
+              = "Heading"
+            = f.text_field :welcome_pages_heading, :class=> "text_field_mobile_edit"
+
+
+          .group
+            %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
+              = "Save"
+          .clear
+
+
+      %dt
+        %div.inner-button{:style=>"text-align:left;font-size:27px;line-height:48px;font-weight:bold;letter-spacing:-1px;"}
+          = "Action Buttons"
+          .right
+            = ""
+
+      %dd
+        = "Actions"
+
+
+- content_for :javascript_init do
+
+
+
+
+  :javascript
+
+
+    var slider1=new accordion.slider("slider1");
+    slider1.init("slider");
+
+
+
+
+
+
+

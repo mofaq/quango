@@ -5,10 +5,20 @@
 
   - current_group.pages.each do |page|
     - if page.hide != true
-      .inner-button-alt{:style=>"margin-bottom:12px;", :onclick=>"window.location='#{page_path(page)}'"}
-        .star{:style=>"margin-top:2px;font-size:200%;float:right;"}
-          = "&#X2799;"
-        = link_to "#{page.title}",page_path(page),:class=>"inner-button-link",:style=>"font-size:25px;font-size:25px;line-height:46px;"
+      - if page.redirect == true
+        .inner-button{:style=>"margin-bottom:12px;", :onclick=>"window.location='#{page.redirect_url}'"}
+          .star{:style=>"margin-top:4px;font-size:200%;float:right;"}
+            = "&#X279C;"
+          = link_to "#{page.title}", page.redirect_url, :class=>"inner-button-link",:style=>"font-size:25px;line-height:46px;"
+
+
+      - else
+
+        .inner-button{:style=>"margin-bottom:12px;", :onclick=>"window.location='#{page_path(page)}'"}
+          .star{:style=>"margin-top:4px;font-size:200%;float:right;"}
+            = "&#X279C;"
+          = link_to "#{page.title}",page_path(page),:class=>"inner-button-link",:style=>"font-size:25px;line-height:46px;"
+
 
   %hr
 

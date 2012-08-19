@@ -151,7 +151,7 @@ class PagesController < ApplicationController
 
     page.move_to(params[:move_to])
 
-    redirect_to pages_path
+    redirect_to pages_path + "?edit=true"
   end
 
 

@@ -5,38 +5,6 @@
   -if current_group.has_custom_js && @page.has_js?
     %script{:src => js_page_path(@page), :type => "text/javascript"}
 
--content_for :subtabs do
-  %h1.navtitle.title
-    &= @page.title
-
--content_for :sidebar do
-
-  #sidebar-inner
-
-
-    = render :partial => "shared/signup_button", :locals => {:width => "wide"}
-
-    .block
-      %h3
-        = h(current_group.about_label)
-      .content
-        .markdown
-          = "#{current_group.description}"
-
-    = render :partial => "shared/community_sponsor", :locals => {:width => "wide"}
-
-    -if (logged_in? && current_user.can_edit_wiki_post_on?(current_group) )
-      .block
-        %h3
-          = "Admin" 
-        .content
-          %ul.navigation
-            %li
-              = link_to t("pages.actions.create_page"), new_page_path
-            %li
-              = link_to t("pages.actions.edit_page"), edit_page_path(@page)
-            %li
-              = link_to t("pages.actions.list_pages"), pages_path
 
 
 -content_for :main do
@@ -55,26 +23,11 @@
             - if logged_in?
               - if current_user.mod_of?(current_group)
                 %li{:style=>"display:inline"}
-                  = link_to "Delete", page_path(@page), :confirm => "Are you sure?", :method => :delete
-                %li{:style=>"display:inline"}
                   = link_to "Edit", edit_page_path(@page), :class => "inner-button", :style=>"height:1.5em;"
 
 
-
-  - if @page.custom_helper == true
-    .container{:style=>"width:464px;padding:16px;"}
-      -#= "#{@page.custom_helper_ref.to_s}"
-      = render :partial => "#{@page.custom_helper_ref.to_s}", :locals => {:custom_helper_var => @page.custom_helper_var}
-  - if @page.scrape == true
-    .container{:style=>"width:464px;padding:16px 0;"}
-      -#= @page.inspect()
-      = scrape(@page)
-
-  - else
-
+  - if @page.show_body == true
     .container.markdown
-      %h1
-        = @page.title
 
       -if safe_page?(@page)
         -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
@@ -82,6 +35,19 @@
       -else
         .container{:style=>"width:480px;padding:16px;"}
           = markdown(@page.body)
+
+  - if @page.custom_helper == true
+    .container{:style=>"width:464px;padding:16px;"}
+      -#= "#{@page.custom_helper_ref.to_s}"
+      = render :partial => "#{@page.custom_helper_ref.to_s}", :locals => {:custom_helper_var => @page.custom_helper_var}
+
+  - if @page.scrape == true
+    .container{:style=>"width:464px;padding:16px 0;"}
+      -#= @page.inspect()
+      = scrape(@page)
+
+
+
 
 
 
