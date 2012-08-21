@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     @group = current_group
     @pages = current_group.pages.paginate(options)
 
-    set_page_title("System Pages") # TODO: i18n
+    set_page_title(@group.welcome_pages_heading) # TODO: i18n
 
     respond_to do |format|
       format.html # index.html.haml

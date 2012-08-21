@@ -173,18 +173,19 @@ border-left:1px solid #{stop1};
 border-bottom:1px solid #{stop1};
 border-right:1px solid #{stop1};
 margin-top:4px;
-\-webkit-box-shadow:1px 1px 2px #{stop2}, -1px -1px 2px #{stop2};
-\-moz-box-shadow:1px 1px 2px #{stop2}, -1px -1px 2px #{stop2};
-box-shadow:1px 1px 2px #{stop2}, -1px -1px 2px #{stop2};
+\-webkit-box-shadow:1px 1px 3px #{stop4}, -1px -1px 2px #{stop2};
+\-moz-box-shadow:1px 1px 3px #{stop4}, -1px -1px 2px #{stop2};
+box-shadow:1px 1px 3px #{stop4}, -1px -1px 2px #{stop2};
 border-radius:3px;
 padding: 8px;
-background: -moz-linear-gradient(top, #{stop2} 0%, #{stop3} 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop3}),  color-stop(100%,#{stop2})); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #{stop3} 0%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* IE10+ */
-background: linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop3}',GradientType=0 ); /* IE6-9 */
+- if true
+  background: -moz-linear-gradient(top, #{stop3} 0%, #{stop2} 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop3}),  color-stop(100%,#{stop2})); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #{stop3} 0%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* IE10+ */
+  background: linear-gradient(top, #{stop2} 0%,#{stop3} 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop2}', endColorstr='#{stop3}',GradientType=0 ); /* IE6-9 */
 }
 
 \.logo-inner{
@@ -526,29 +527,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{stop1}', en
 color:#{stop5};
 }
 
+\.star{font-weight:normal;}
+
 \.inner-button{
 cursor:pointer;
-text-shadow:-1px -1px 2px #{stop2},1px 1px 2px #{stop3};
-font-size:1.2em;
+text-shadow:-1px -1px 0px #{stop2},1px 1px 0px #{stop1};
+font-size:28px;
+letter-spacing:-1px;
 padding:4px 16px;margin:0;
-border-radius: 3px;
+border-radius: 6px;
 color:white;
 font-weight:bold;
-\-webkit-box-shadow:1px 1px 4px #{stop1}, -1px -1px 4px #{stop1};
-\-moz-box-shadow:1px 1px 4px #{stop1}, -1px -1px 4px #{stop1};
 
-border-top: 1px solid #{stop3};
-border-left: 1px solid #{stop3};
-border-bottom: 1px solid #{stop3};
-border-right: 1px solid #{stop3};
+border-top: 4px solid #{stop1};
+border-left: 4px solid #{stop1};
+border-bottom: 4px solid #{stop1};
+border-right: 4px solid #{stop1};
 
 height:48px;
-line-height:36px;
+line-height:48px;
 
 
 background: #{stop2}; /* Old browsers */
+background: -webkit-linear-gradient(top, #{stop2} 0%,#{stop2} 11%,#{stop1} 11%,#{stop2} 100%); /* Chrome10+,Safari5.1+ */
+background: -moz-linear-gradient(top, #{stop2} 0%,#{stop2} 11%,#{stop1} 11%,#{stop2} 100%,#{stop1} 100%); /* FF3.6+ */
 
-- if true
+- if false
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{stop2}), color-stop(49%,#{stop3}), color-stop(51%,#{stop2}), color-stop(100%,#{stop1})); /* Chrome,Safari4+ */
 
   background: -webkit-linear-gradient(top, #{stop1} 0%,#{stop2} 50%,#{stop1} 51%,#{stop1} 100%); /* Chrome10+,Safari5.1+ */

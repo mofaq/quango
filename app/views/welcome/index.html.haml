@@ -46,8 +46,8 @@
     %dl.accordian#slider
 
       -if current_group.welcome_pages?
-        %dt.container{:style=>"padding:16px 0 0 0;"}
-          .inset.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+        %dt.container{:style=>"padding:12px 0 0 0;"}
+          .inset.inner-button
             = "#{current_group.welcome_pages_heading}"
             -#= link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
 
@@ -60,8 +60,8 @@
 
 
 
-      %dt.container{:style=>"padding:16px 0 0 0;"}
-        .inset.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+      %dt.container{:style=>"padding:12px 0 0 0;"}
+        .inset.inner-button
           = "Contact Details"
           -#= link_to "Contact Details","#",:class=>"inner-button-link"
 
@@ -71,8 +71,8 @@
 
 
       -if current_group.welcome_reviews?
-        %dt.container{:style=>"padding:16px 0 0 0;"}
-          .inset.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+        %dt.container{:style=>"padding:12px 0 0 0;"}
+          .inset.inner-button
             = "Our reviews"
 
         %dd.container{:style=>"padding:0;"}
@@ -85,8 +85,8 @@
 
 
       -if current_group.welcome_faq?
-        %dt.container{:style=>"padding:16px 0 0 0;"}
-          .inset.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+        %dt.container{:style=>"padding:12px 0 0 0;"}
+          .inset.inner-button
             = "#{current_group.quick_create_heading}"
             -#= link_to "#{current_group.quick_create_heading}","#",:class=>"inner-button-link"
 
@@ -97,8 +97,8 @@
           .clear
 
       -if current_group.welcome_directory?
-        %dt.container{:style=>"padding:16px 0 0 0;"}
-          .inset.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
+        %dt.container{:style=>"padding:12px 0 0 0;"}
+          .inset.inner-button
             = "#{current_group.welcome_directory_heading}"
             -#= link_to "#{current_group.welcome_directory_heading}","#",:class=>"inner-button-link"
 
@@ -110,7 +110,7 @@
       -if current_group.welcome_locations != false
         -if current_group.locations.count > 1
 
-          %dt.container{:style=>"padding:16px 0 0 0;"}
+          %dt.container{:style=>"padding:12px 0 0 0;"}
             .inset.inner-button{:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;",:id=>"loc-dropdown"}
               = link_to "Locations", "#",:class=>"inner-button-link"
               -#= link_to "Locations","#", :onclick=>"initMaps();",:class => "inner-button-link",:style=>"width:480px;height:32px;"
@@ -120,7 +120,7 @@
 
         -else
 
-          %dt.container{:style=>"padding:16px 0 0 0;"}
+          %dt.container{:style=>"padding:12px 0 0 0;"}
             .inset.inner-button{:onclick=>"initMap();",:style=>"line-height:48px;text-align:left;font-size:27px;font-weight:bold;letter-spacing:-1px;"}
               = "Location"
               -#= link_to "Location","#",:onclick=>"initMap();",:class => "inner-button-link"
