@@ -19,11 +19,11 @@
         .subheading.right
           %ul.right{:style=>"list-style-type:none; display:inline;"}
             %li{:style=>"display:inline"}
-              = link_to "#{current_group.welcome_pages_heading}", pages_path, :class => "inner-button", :style=>"height:1.5em;"
+              = link_to "#{current_group.welcome_pages_heading}", pages_path, :class => "inner-button", :style=>"height:1.5em;font-size:80%;"
             - if logged_in?
               - if current_user.mod_of?(current_group)
                 %li{:style=>"display:inline"}
-                  = link_to "Edit", edit_page_path(@page), :class => "inner-button", :style=>"height:1.5em;"
+                  = link_to "Edit", edit_page_path(@page), :class => "inner-button", :style=>"height:1.5em;font-size:80%;"
 
 
   - if @page.show_body == true
