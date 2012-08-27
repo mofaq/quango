@@ -2,7 +2,7 @@ var accordion=function(){
 	var tm=sp=10;
 	function slider(n){this.nm=n; this.arr=[]}
 	slider.prototype.init=function(t,c,k){
-		var a,h,s,l,i; a=document.getElementById(t); this.sl=k?k:'';
+		var a,h,s,l,i; a=document.getElementById(t); this.sl=k?k:'egg';
 		h=a.getElementsByTagName('dt'); s=a.getElementsByTagName('dd'); this.l=h.length;
 		for(i=0;i<this.l;i++){var d=h[i]; this.arr[i]=d; d.onclick=new Function(this.nm+'.pro(this)'); if(c==i){d.className=this.sl}}
 		l=s.length;

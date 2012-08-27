@@ -8,7 +8,7 @@
     - if current_group.default_header
       - header = Header.find(current_group.default_header)
       - base_header = header.header.process(:thumb,header.header_cropping)
-      - base_header1 = base_header.process(:thumb,"464x139")
+      - base_header1 = base_header.process(:thumb,"456x137")
       - base_header2 = base_header1.encode(:png, '-quality 80')
       - header_image = base_header2.url
 
@@ -23,7 +23,7 @@
 
     #header{:style=>"padding-top:16px;height:148px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
-      .logo-inner.inset{:style=>"margin:0 16px 0 16px;width:446px;height:120px;background-image:url(#{header_image});border-radius:0;"}
+      .logo-inner.inset-border{:style=>"margin:0 16px 0 16px;width:440px;height:121px;background-image:url(#{header_image});"}
 
         -#%img{:src=>"#{header_image}",:height=>"120px",:width=>"446px"}
 
@@ -52,7 +52,7 @@
   - else
 
     #header.light-down{:style=>"padding-top:16px;padding-bottom:4px;height:156px", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
-      .logo-inner.inset-border{:style=>"margin:0 16px 0 16px;width:446px;height:128px;border-radius:0;"}
+      .logo-inner.inset-border{:style=>"margin:0 16px 0 16px;width:440px;height:128px;"}
         .container{:style => "padding:0 16px;float:left;z-index:2;position:absolute;top:32px;left:0px;"}
           .logo-mobile
             .name

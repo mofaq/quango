@@ -38,22 +38,22 @@
               = "&#x271A;"
             = link_to "Account holder","#3",:class=>"inner-button-link"
 
-        %dd
-          .darkish.inset{:style=>"margin-bottom:16px"}
+        %dd{:style=>"margin-bottom:16px"}
+          .inset-border
             %ul.mobile
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Add User",new_user_path(:owner=>true), :style=>"color:#{current_group.text_colour};"
               %li.hidden
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Account Holder Details", "?tab=account_details",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Change password", "?tab=account_password",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Subscriptions", "?tab=account_subscriptions",:style=>"color:white;margin-right:16px;"
                   
         %a{:name=>"2"}
@@ -64,39 +64,39 @@
             = link_to "MOFAQ Settings","#2",:class=>"inner-button-link"
 
 
-        %dd
-          .darkish.inset{:style=>"margin-bottom:16px"}
+        %dd{:style=>"margin-bottom:16px"}
+          .inset-border
             %ul.mobile
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "General Settings", "?tab=group_settings",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Header Images", "/headers",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Colour Wheel", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
                   
               %li.hidden
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Background Colours", "?tab=background_colours",:style=>"color:white;margin-right:16px;"
                   
               %li.hidden
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "FAQ Configuration", "?tab=group_faq_configuration",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Action Button", "?tab=group_action_button",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Mobile Redirection", "?tab=group_redirect",:style=>"color:white;margin-right:16px;"
                   
 
-              %li.hidden
+              %li.hidden{:style=>"margin-bottom:12px;"}
                 .inset.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;margin:4px 8px;"}
                   = link_to "Messaging", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   
@@ -113,47 +113,47 @@
               = "&#x271A;"
             = link_to "Advanced","#4",:class=>"inner-button-link"
 
-        %dd
-          .inset{:style=>"margin-bottom:16px"}
+        %dd{:style=>"margin-bottom:16px;margin-top:16px;"}
+          .inset-border
             %ul.mobile
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Domain name", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Google analytics", "?tab=group_analytics",:style=>"color:white;margin-right:16px;"
                   
 
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Custom Stylesheet", "?tab=group_stylesheets",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Group Hierarchies", "?tab=group_hierarchy",:style=>"color:white;margin-right:16px;"
                   
 
               %li
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Locations (Business+)", "/locations",:style=>"color:white;margin-right:16px;"
                   
 
               %li{:style=>"display:none"}
-                .inset.inner-button
+                .inset.inner-button{:style=>"margin-bottom:12px;"}
                   = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   
 
 
     -if current_group.users.count.to_i < 2
-      .container{:style=>"height:137px;margin:0 0 32px 0;padding:0 16px;width:456px;background:#{current_group.secondary};"}
-        .container.inset{:style=>"padding:16px;"}
-          .note{:style=>"text-align:center; margin:0 0 16px 0;"}
-            = "This site does not yet have an account holder..."
-          .empty{:style=>"margin:0 auto;width:446px;"}
-            .inner-button.submit{:style=>"text-align:center;margin:0 32px; width:356px;height:56px;line-height:56px;"}
-              = link_to "Add account holder",new_user_path(:owner=>true), :style=>"color:#{current_group.text_colour};"
-          .clear
+
+      .inset-border.container{:style=>"width:438px;padding:16px;"}
+        .note{:style=>"text-align:center; margin:0 0 16px 0;"}
+          = "This site does not yet have an account holder..."
+        .empty{:style=>"margin:0 auto;width:446px;"}
+          .inner-button.submit{:style=>"text-align:center;margin:0 32px; width:356px;height:56px;line-height:56px;"}
+            = link_to "Add account holder",new_user_path(:owner=>true), :style=>"color:#{current_group.text_colour};"
+        .clear
 
 - else
   .container{:style=>"padding-top:16px;"}
