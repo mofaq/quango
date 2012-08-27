@@ -2,7 +2,7 @@
 
 .something{:style=>"height:4px;background:#{current_group.primary_dark};"}
 
-.fade-out.footer-mobile{:style=>"width:480px;padding:16px;margin:0 0 0 0;font-size:0.8em;border-radius:16px 16px 0 0;"}
+.fade-out.footer-mobile{:style=>"width:464px;padding:16px 32px 16px 16px;margin:0 0 0 0;font-size:0.8em;border-radius:12px 12px 0 0;"}
 
   -if current_user
 
@@ -12,7 +12,7 @@
       .left{:style=>"width:50%; font-weight:bold;line-height:48px;letter-spacing:-1px;"}
         = "Every business needs a mobile website"
       .right
-        %button.inner-button{:onclick=>"window.location=\'#{new_group_path}/?mobile=true\'",:style=>"width:200px;"}
+        .inset.inner-button{:onclick=>"window.location=\'#{new_group_path}/?mobile=true\'",:style=>"width:156px;"}
           = "Free Trial"
 
     -if current_user.owner_of?(current_group)
@@ -22,7 +22,7 @@
       .footer{:style=>"margin-top:16px;"}
 
         .right
-          %button.inner-button{:onclick=>"window.location=\'#{manage_properties_path}\'",:style=>"width:200px;"}
+          .inset.inner-button{:onclick=>"window.location=\'#{manage_properties_path}\'",:style=>"width:156px;"}
             = "Settings"
         .right
           = render :partial => "shared/quick_create_button"

@@ -4,20 +4,20 @@
 
 
 
-.inset.container{:style=>"padding:0;margin:16px 0;"}
-  .container{:style=>"padding:0;margin:0;"}
-    .holder{:style=>"padding:16px;"}
-      %h1
-        = "#{current_group.display_name}"
-      -if current_group.strapline != ""
-        = "#{current_group.strapline}" 
+.inset-border
 
-  .left{:style=>"margin-left:16px;width:198px;"}
+  .holder{:style=>"padding:8px;"}
+    %h1
+      = "#{current_group.display_name}"
+    -if current_group.strapline != ""
+      = "#{current_group.strapline}" 
+
+  .left{:style=>"margin-left:8px;width:198px;"}
     %h2
       = "About"
     = current_group.description
 
-  .right{:style=>"margin-right:16px;width:192px;"}
+  .right{:style=>"margin-right:8px;width:192px;"}
 
     -if current_group.locations.count > 1
 

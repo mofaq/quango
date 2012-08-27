@@ -2,102 +2,102 @@
 
 - if @subscription
   -content_for :after_form do
-    .container{:style=>"margin:0 0 8px 0;"}
-      %h1
-        = "Settings"
-      %h3
-        = "Please choose from the options below"
+    .container{:style=>"height:48px;width:464px;padding:4px 16px 16px 16px;"}
+      .inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}                          
+        .subheading.left
+          = "Settings"
+
 
 
     -# TODO: This is a bit of a hack really, will figure out a more elegant way later
     .container
-      .inner-button
+      .inset.inner-button{:style=>"margin-bottom:12px;"}
+        .star{:style=>"margin-top:2px;float:right;"}
+          = "&#x2022;"
         = link_to "Contact Details","?tab=group_description",:class=>"inner-button-link"
 
     .container
-      .inner-button
+      .inset.inner-button{:style=>"margin-bottom:12px;"}
+        .star{:style=>"margin-top:2px;float:right;"}
+          = "&#x2022;"
         = link_to "Address","?tab=group_address",:class=>"inner-button-link"
 
     .container
-      .inner-button
+      .inset.inner-button{:style=>"margin-bottom:12px;"}
+        .star{:style=>"margin-top:2px;float:right;"}
+          = "&#x2022;"
         = link_to "Static Pages", pages_path+'?edit=true',:style=>"color:white;margin-right:16px;"
 
     #accordion
       %dl.accordian#slider
 
-
-            
-
-
-
         %a{:name=>"3"}
-        %dt.container
-          .inner-button
+        %dt{:style=>"padding:0"}
+          .inset.inner-button{:style=>"margin-bottom:12px;"}
+            .star{:style=>"margin-top:2px;font-size:110%;float:right;"}
+              = "&#x271A;"
             = link_to "Account holder","#3",:class=>"inner-button-link"
 
-        %dd.container{:style=>"width:448px;padding:0;"}
+        %dd
           .darkish.inset{:style=>"margin-bottom:16px"}
             %ul.mobile
               %li
-                .inner-button{:style=>"text-align:center;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Add User",new_user_path(:owner=>true), :style=>"color:#{current_group.text_colour};"
               %li.hidden
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Account Holder Details", "?tab=account_details",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Change password", "?tab=account_password",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Subscriptions", "?tab=account_subscriptions",:style=>"color:white;margin-right:16px;"
                   
-
-
         %a{:name=>"2"}
-        %dt.container
-          .inner-button
+        %dt{:style=>"padding:0"}
+          .inset.inner-button{:style=>"margin-bottom:12px;"}
+            .star{:style=>"margin-top:2px;font-size:110%;float:right;"}
+              = "&#x271A;"
             = link_to "MOFAQ Settings","#2",:class=>"inner-button-link"
 
 
-        %dd.container{:style=>"width:448px;padding:0;"}
+        %dd
           .darkish.inset{:style=>"margin-bottom:16px"}
             %ul.mobile
               %li
-                .inner-button
+                .inset.inner-button
                   = link_to "General Settings", "?tab=group_settings",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inner-button
+                .inset.inner-button
                   = link_to "Header Images", "/headers",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inner-button
+                .inset.inner-button
                   = link_to "Colour Wheel", "?tab=colour_wheel",:style=>"color:white;margin-right:16px;"
                   
               %li.hidden
-                .inner-button
+                .inset.inner-button
                   = link_to "Background Colours", "?tab=background_colours",:style=>"color:white;margin-right:16px;"
                   
               %li.hidden
-                .inner-button
+                .inset.inner-button
                   = link_to "FAQ Configuration", "?tab=group_faq_configuration",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inner-button
+                .inset.inner-button
                   = link_to "Action Button", "?tab=group_action_button",:style=>"color:white;margin-right:16px;"
                   
               %li
-
-
-              %li
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Mobile Redirection", "?tab=group_redirect",:style=>"color:white;margin-right:16px;"
                   
 
               %li.hidden
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;margin:4px 8px;"}
+                .inset.inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;margin:4px 8px;"}
                   = link_to "Messaging", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   
 
@@ -107,44 +107,46 @@
 
 
         %a{:name=>"4"}
-        %dt.container{:style=>"width:464px;padding:8px 0;"}
-          .inner-button
+        %dt{:style=>"padding:0"}
+          .inset.inner-button
+            .star{:style=>"margin-top:2px;font-size:110%;float:right;"}
+              = "&#x271A;"
             = link_to "Advanced","#4",:class=>"inner-button-link"
 
-        %dd.container{:style=>"width:448px;padding:0;"}
-          .darkish.inset{:style=>"margin-bottom:16px"}
+        %dd
+          .inset{:style=>"margin-bottom:16px"}
             %ul.mobile
               %li
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Domain name", "?tab=mobile_domain",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Google analytics", "?tab=group_analytics",:style=>"color:white;margin-right:16px;"
                   
 
               %li
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Custom Stylesheet", "?tab=group_stylesheets",:style=>"color:white;margin-right:16px;"
                   
               %li
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Group Hierarchies", "?tab=group_hierarchy",:style=>"color:white;margin-right:16px;"
                   
 
               %li
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;margin:4px 8px;font-size:1.5em;"}
+                .inset.inner-button
                   = link_to "Locations (Business+)", "/locations",:style=>"color:white;margin-right:16px;"
                   
 
               %li{:style=>"display:none"}
-                .inner-button{:style=>"text-align:right;width:424px;height:56px;line-height:32px;font-size:1.5em; margin:4px 8px;"}
+                .inset.inner-button
                   = link_to "Google maps", "?tab=google_maps",:style=>"color:white;margin-right:16px;"
                   
 
 
     -if current_group.users.count.to_i < 2
-      .container{:style=>"height:137px;margin:0;padding:0 16px;width:456px;background:#{current_group.secondary};"}
+      .container{:style=>"height:137px;margin:0 0 32px 0;padding:0 16px;width:456px;background:#{current_group.secondary};"}
         .container.inset{:style=>"padding:16px;"}
           .note{:style=>"text-align:center; margin:0 0 16px 0;"}
             = "This site does not yet have an account holder..."
@@ -159,8 +161,8 @@
     .light.inset{:style=>"height:60px;width:456px;border-radius:8px"}
       .label{:style=>"margin:16px 16px 0;float:left; width:210px;font-weight:bold;line-height:30px;"}
         = "Administer your MOFAQ >>"
-      .inner-button{:style=>"float:right;width:168px;font-size:0.8em;"}
-        = link_to 'My Settings', add_trial_subscription_path(@group), :style=>"color:#{current_group.text_colour};font-size:1.3em;", :class => "inner-button-link"
+      .inner-button-alt{:style=>"float:right;"}
+        = link_to 'My Settings', add_trial_subscription_path(@group), :style=>"color:#{current_group.text_colour}"
     .clear
 
     .dor{:style=>"height:3em;line-height:3em;"}
@@ -176,7 +178,7 @@
 
               - form_tag "/subscriptions/add_pending" do
 
-                .inner-button.submit{:style=>"text-transform:none;width:436px;height:56px;", :action => :submit}
+                .inner-button.submit{:style=>"text-transform:none;", :action => :submit}
                   = " Buy subscription"
 
 

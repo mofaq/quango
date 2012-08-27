@@ -18,12 +18,14 @@
 
         .subheading.right
           %ul.right{:style=>"list-style-type:none; display:inline;"}
-            %li{:style=>"display:inline"}
-              = link_to "#{current_group.welcome_pages_heading}", pages_path, :class => "inner-button", :style=>"height:1.5em;font-size:80%;"
+            %li{:style=>"display:block"}
+              .inner-button-alt
+                = link_to "#{current_group.welcome_pages_heading}", pages_path
             - if logged_in?
               - if current_user.mod_of?(current_group)
-                %li{:style=>"display:inline"}
-                  = link_to "Edit", edit_page_path(@page), :class => "inner-button", :style=>"height:1.5em;font-size:80%;"
+                %li{:style=>"display:block"}
+                  .inner-button-alt
+                    = link_to "Edit", edit_page_path(@page), :style => "color:white;"
 
 
   - if @page.show_body == true
@@ -33,8 +35,7 @@
         -body = current_group.wysiwyg_editor ? CGI.unescapeHTML(@page.body) : @page.body
         = RDiscount.new(render_page_links(body)).to_html
       -else
-        .container{:style=>"width:480px;padding:16px;"}
-          = markdown(@page.body)
+        = markdown(@page.body)
 
   - if @page.custom_helper == true
     .container{:style=>"width:464px;padding:16px;"}

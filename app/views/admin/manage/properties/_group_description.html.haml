@@ -1,42 +1,39 @@
 .container
-  .heading
-    = "Company description"
-  .note
-    = "Your company description appears in the About section of your MOFAQ homepage"
+  .inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}                          
+    .subheading.left
+      = "Company Details"
+  -#.note
+    -#= "Your company description appears in the About section of your MOFAQ homepage"
 
 
   -# Just do Australia for now - internationalize later
-  .about
-    .inset
-      .mobile-form{:style=>"padding:0px 16px"}
 
-        .group
-          .note
-            = "Name"
-          = f.text_field :display_name, :class=> "text_field_mobile_edit", :style => "font-size:1em"
-        .group
-          .note
-            = "Strapline"
-          = f.text_field :strapline, :class=> "text_field_mobile_edit", :style => "font-size:1em"
+.mobile-form{:style=>"padding:0px 16px"}
 
-        .group
-          .note
-            = "Description"
-          = f.text_area :description, :class=> "text_area_mobile_edit", :style => "height:128px;font-size:1em"
+  .group
+    .note
+      = "Name"
+    = f.text_field :display_name, :class=> "text_field_mobile_edit", :style => "font-size:1em"
+  .group
+    .note
+      = "Strapline"
+    = f.text_field :strapline, :class=> "text_field_mobile_edit", :style => "font-size:1em"
 
-        .group
-          = f.check_box :show_hours, :class => "left"
-          .note
-            = "Opening hours"
-          = f.text_field :group_hours, :class=> "text_field_mobile_edit"
+  .group
+    .note
+      = "Description"
+    = f.text_area :description, :class=> "text_area_mobile_edit", :style => "height:128px;font-size:1em"
 
-        .group
-          %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
-            = "Save"
+  .group
+    = f.check_box :show_hours, :class => "left"
+    .note
+      = "Opening hours"
+    = f.text_field :group_hours, :class=> "text_field_mobile_edit"
 
-      .clear
+  .group
+    %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}
+      = "Save"
 
-  .tips
-    %ul
-      %li
-        = "How to write a great company description"
+.clear
+
+

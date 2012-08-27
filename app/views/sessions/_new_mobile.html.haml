@@ -1,52 +1,56 @@
 
 -content_for :main do
 
-  .container{:style=>"border-top:1px solid #{current_group.primary};"}
-    .heading{:style=>"height:32px;line-height:32px;padding:16px 0 16px;"}
-      = "Login to your MOFAQ account"
+  .container{:style=>"height:48px;width:464px;padding:12px 16px;"}
+    .inset{:style=>"height:48px;line-height:48px;padding:0 16px;margin:0;"}                          
+      .subheading.left
+        = "Login to your account"
 
   .container{:style=>"padding-bottom:16px;"}
 
 
-    .dark.inset{:style=>"padding:16px;"}
+    .inset-border{:style=>"padding:16px;"}
 
 
       -form_for :user, resource, :url => session_path(resource_name), :html => {:class => "form"} do |f|
         .form
           .group{:style=>"font-weight:bold;"}
             = "Email"
-            = f.text_field :email, :class => "text_field_mobile"
+            = f.text_field :email, :class => "text_field_mobile inset"
           .clear
 
           .group{:style=>"font-weight:bold;"}
             = "Password"
-            = f.password_field :password, :class => "text_field_mobile"
+            = f.password_field :password, :class => "inset text_field_mobile"
           .clear
 
-          -if devise_mapping.rememberable?
+          -#if devise_mapping.rememberable?
+          - if false
             .group
               .remember{:style=>"height:24px;line-height:24px;float:left;color:white"}
                 =f.check_box :remember_me, :style=>"font-size:14px;padding:2px"
                 =f.label :remember_me, "Remember me?"
-
-
-          .group{:style=>"font-weight:bold;"}
-            %button.inner-button.submit
-              = "Login"
-
             .clear
-          .container.left
-            = render :partial => "shared/devise_links"
+
+          = render :partial => "shared/devise_links"
+
+          .group{:style=>"margin:12px 0;"}
+            %button.inner-button.submit{:style=>"width:256px;"}
+              = "Login"
 
           .clear
 
 
 
-        .after_form
-          .heading{:style=>"margin-top:8px;margin-bottom:8px;background:0;border:0"}
+        .clear
+
+
+
+        .after_form{:style=>"padding:32px 0 32px 0;"}
+          .subheading
             = "Don't have an account yet?"
           .center
-            %button.inner-button{:style=>"text-align:right;width:442px;height:56px;line-height:32px;margin-bottom:16px;font-size:1.5em;"}
+            .inset.inner-button-alt
               = link_to "Create y<u>our</u> account now...", "/users/new",:style=>"color:white;margin-right:16px;"
           .note{:style=>"margin-top:8px;width:200px;color:white; font-size:12px; line-height:12px;float:left "}
             = "Creating an account is free."
