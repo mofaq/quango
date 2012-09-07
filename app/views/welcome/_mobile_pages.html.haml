@@ -8,7 +8,7 @@
       - if page.redirect == true
         .inner-button{:style=>"margin-bottom:12px;", :onclick=>"window.location='#{page.redirect_url}'"}
           .star{:style=>"margin-top:4px;float:right;"}
-            = "&#X279C;"
+            = "&#10140;"
           = link_to "#{page.title}", page.redirect_url, :class=>"inner-button-link",:style=>"font-size:80%;"
 
 
@@ -16,7 +16,7 @@
 
         .inner-button{:style=>"margin-bottom:12px;", :onclick=>"window.location='#{page_path(page)}'"}
           .star{:style=>"margin-top:4px;float:right;"}
-            = "&#X279C;"
+            = "&#10140;"
           = link_to "#{page.title}",page_path(page),:class=>"inner-button-link",:style=>"font-size:80%;"
 
 
