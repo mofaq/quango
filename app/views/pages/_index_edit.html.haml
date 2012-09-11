@@ -84,6 +84,17 @@
               = "Heading"
             = f.text_field :welcome_pages_heading, :class=> "text_field_mobile_edit"
 
+          .group
+
+            = f.check_box :welcome_pages_index, :class => "check_box"
+            = f.label :welcome_pages, "Show the index on welcome page"
+
+
+          .group
+            .note
+              = "Index Heading"
+            = f.text_field :welcome_pages_index_heading, :class=> "text_field_mobile_edit"
+
 
           .group
             %button.inner-button.submit.right{:style=>"margin:0 0 32px;"}

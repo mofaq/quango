@@ -79,6 +79,8 @@ class Group
   key :welcome_faq, Boolean, :default => true
   key :welcome_pages, Boolean, :default => false
   key :welcome_pages_heading, String, :default => "Our pages"
+  key :welcome_pages_index, Boolean, :default => false
+  key :welcome_pages_index_heading, String, :default => "All pages"
   key :welcome_locations, Boolean, :default => true
   key :welcome_directory, Boolean, :default => false
   key :welcome_directory_heading, String, :default => "Directory"

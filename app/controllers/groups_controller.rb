@@ -250,7 +250,7 @@ class GroupsController < ApplicationController
       @group[:tertiary_backup] = nil
       @group[:text_colour_backup] = nil
     end
-    @group.safe_update(%w[group_website_label welcome_pages_heading welcome_pages welcome_reviews show_hours client_type primary_dark_backup primary_backup secondary_backup tertiary_backup text_colour_backup show_facebook group_facebook
+    @group.safe_update(%w[group_website_label welcome_pages_index welcome_pages_index_heading welcome_pages_heading welcome_pages welcome_reviews show_hours client_type primary_dark_backup primary_backup secondary_backup tertiary_backup text_colour_backup show_facebook group_facebook
                           group_type name name_highlight name_link name_highlight_link disable_signups client_type action_button action_button_link action_button_text action_button_note action_button_tel welcome_faq welcome_locations welcome_directory welcome_directory_heading welcome_directory_content is_directory
                           other_groups_facebook other_groups_linkedin other_groups_twitter other_groups_google group_analytics
                           group_hours group_address_i group_address_ii group_city group_state group_region group_postcode group_phone group_fax group_place_reference
