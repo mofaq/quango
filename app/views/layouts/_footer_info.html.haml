@@ -1,32 +1,46 @@
 
 
-.container{:style=>"width:480px;padding:4px 0;margin:0 16px 32px 16px;font-size:0.7em;border:0;"}
-
+.container
   .footer
     .left{:style=>"width:100%;"}
       .left
-        = link_to "MOFAQ", "#{current_group.group_type}", :title => "Every business needs a mobile FAQ", :style=>"color:white;float:left;padding:2px 0;font-size:10px;font-weight:bold;letter-spacing:-1px;"
+        = link_to "NETMOBILITY", "http://netmobility.com.au", :title => "Mobile Website Solutions", :style=>"color:white;float:left;padding:2px 0;font-size:10px;font-weight:bold;letter-spacing:-1px;"
 
+        - if current_group.client_type == "business+"
+          = "<a href='http://netmobility.com.au/mobile-website/products/business-plus' style='text-transform:uppercase;color:#{current_group.secondary};border-radius:2px;padding: 2px 0 ;letter-spacing:-1px;font-size:10px;font-weight:bold;float:left;text-decoration:none' title='Mobile Website Products: Business Plus'>#{current_group.client_type}</a>"
 
-        = "<span style='text-transform:uppercase;color:#{current_group.secondary};border-radius:2px;padding: 2px 0 ;letter-spacing:-1px;font-size:10px;font-weight:bold;float:left;'>#{current_group.client_type}</span>"
+        - else
+
+          = "<a href='http://netmobility.com.au/mobile-website/products/#{current_group.client_type}' style='text-transform:uppercase;color:#{current_group.secondary};border-radius:2px;padding: 2px 0 ;letter-spacing:-1px;font-size:10px;font-weight:bold;float:left;text-decoration:none' title='Mobile Website Products: #{current_group.client_type}'>#{current_group.client_type}</a>"
       .right
         .small{:style=>"color:gainsboro;letter-spacing:-1px;font-size:10px;font-weight:bold;"}
           = AppConfig.version.to_s + " BETA"
 
     .left{:style=>"width:100%; border-top:1px solid #{current_group.primary};padding:2px 0;letter-spacing:-1px;font-size:10px;font-weight:bold;"}
-      .left{:style=>"color:#{current_group.tertiary;}"}
+      -#.left{:style=>"color:#{current_group.tertiary;}"}
+        -#= "<span style='padding-left:2px;color:#{current_group.tertiary}'>the mobile website company</span>"
+
+      .right{:style=>"height:28px;"}
+        -if !logged_in?
+          .entry
+            %span{:style=>"font-size:11px;height:28px;line-height:28px;"}
+              = link_to "LOGIN", new_user_session_path, :style => "font-weight:bold;color:white;text-decoration:none", :title => "Login to access settings"
 
 
-        = "<span style='padding-left:2px;color:#{current_group.tertiary}'>the mobile website company</span>"
-        -#= "<a href='http://mocomm.co' style='border-radius:2px;border:1px solid #{current_group.primary};color:white;padding:0 4px ;letter-spacing:-1px;font-size:10px;font-weight:bold;float:left;' title='moCOMM.CO : the mobile commerce company'><small>M</small>MOCOMM</a> &sdot; the mobile commerce company</br>"
+      -if logged_in?
 
-      .right
-        .small{:style=>"color:#{current_group.tertiary};letter-spacing:-1px;font-size:10px;font-weight:bold;text-transform:lowercase;"}
-          -#= "LONDON &sdot; MELBOURNE &sdot; SYDNEY &sdot; OTTAWA &sdot; viligili"
+        .entry.right
+          %span{:style=>"font-size:11px;height:28px;line-height:28px;"}        
+            =link_to "LOGOUT", destroy_user_session_path, :style => "font-weight:bold;color:white;text-decoration:none", :title => "Logout", :confirm => 'Are you sure you want to log out..?'
 
+        .entry.right
+          - if current_user.display_name?
+            - real_name = "#{current_user.display_name}"
+          - else
+            - real_name = "#{current_user.first_name} #{current_user.last_name}"
 
-    .right{:style=>"display:none"}
-      = "<a style='border-radius:2px;background-color: #{current_group.secondary};color:white;padding:0 4px;letter-spacing:-1px;font-size:10px;font-weight:normal;'>BETA</a>"
+          %span{:style=>"font-size:11px;height:28px;line-height:28px;"}    
+            = link_to real_name.upcase, "#", :style => "font-weight:bold;color:white;text-decoration:none; margin-right:8px; padding-right:8px;border-right:1px solid white;"
 
 
 

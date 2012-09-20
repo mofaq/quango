@@ -4,22 +4,14 @@
 
 .fade-out.footer-mobile{:style=>"width:464px;padding:16px 32px 16px 16px;margin:0 0 0 0;font-size:0.8em;border-radius:12px 12px 0 0;"}
 
+
+
   -if current_user
-
-
-
-    .footer
-      .left{:style=>"width:50%; font-weight:bold;line-height:48px;letter-spacing:-1px;"}
-        = "Every business needs a mobile website"
-      .right
-        .inset.inner-button{:onclick=>"window.location=\'#{new_group_path}/?mobile=true\'",:style=>"width:156px;"}
-          = "Free Trial"
-
     -if current_user.owner_of?(current_group)
       .clear
 
 
-      .footer{:style=>"margin-top:16px;"}
+      .footer
 
         .right
           .inset.inner-button{:onclick=>"window.location=\'#{manage_properties_path}\'",:style=>"width:156px;"}
