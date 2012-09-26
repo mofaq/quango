@@ -23,9 +23,9 @@
 
     #header{:style=>"padding-top:16px;height:148px; /*background-size:512px 136px*/;background-repeat:no-repeat", :onclick=>"window.location=(\'#{domain_url(:custom => current_group.domain)}\')"}
 
-      .logo-inner.inset-border{:style=>"margin:0 16px 0 16px;width:448px;height:121px;background-image:url(#{header_image});"}
+      .logo-inner{:style=>"margin:0 16px 0 16px;width:448px;height:121px;background-image:url();"}
 
-        -#%img{:src=>"#{header_image}",:height=>"120px",:width=>"446px"}
+        %img{:src=>"#{header_image}",:width=>"448px"}
 
         - if current_group.logo_only? && current_group.text_only?
 

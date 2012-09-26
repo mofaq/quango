@@ -4,7 +4,7 @@
 
 
 
-.inset-border
+.inset-border-alt2{:style=>"padding:16px;margin-top:0;border-top:0"}
 
   .holder{:style=>"padding:8px;"}
     %h1
@@ -17,7 +17,7 @@
       = "About"
     = current_group.description
 
-  .right{:style=>"margin-right:8px;width:192px;"}
+  .inset-border-alt.right{:style=>"margin-right:8px;width:192px;"}
 
     -if current_group.locations.count > 1
 
@@ -26,12 +26,11 @@
       
       - @group.locations.each do |location|
         .group
-          .inner-button.submit{:style=>"margin:8px 8px;width:148px;text-align:center;line-height:32px;height:32px;font-size:16px;"}
+          .inner-button.submit{:style=>"margin:8px 8px 0 0;width:148px;line-height:32px;height:32px;font-size:16px;"}
             = link_to location.name, location_path(location), :style=>"color:#{current_group.text_colour};"
-      .seperator{:style=>"color:#{current_group.primary};height:4px;margin:8px 0;"}
-      .note{:style=>"color:#{current_group.tertiary};"}
-        %button.inner-button{:style=>"margin:8px 8px;width:182px;text-align:center;line-height:32px;height:42px;font-size:16px;"}
-          = link_to "Locations",locations_path, :style=>"color:white;"
+      .clear
+      .inner-button{:style=>"margin:8px 8px 0 0;width:148px;line-height:32px;height:32px;font-size:16px;"}
+        = link_to "Locations",locations_path, :style=>"color:white;"
 
 
     -else

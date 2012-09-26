@@ -1,17 +1,19 @@
 - expanded = local_assigns[:expanded]
 
-.frame
-  .inset{:style=>"padding:8px;border-radius:8px;margin-top:8px;border-top:1px solid #{current_group.tertiary};border-left:1px solid #{current_group.tertiary};border-bottom:1px solid #{current_group.primary};border-right:1px solid #{current_group.primary};"}
-    .note{:style=>"padding:8px;font-weight:bold;"}
-      = "#{current_group.welcome_directory_content}"
-      -#= @items.inspect
-
-    - current_group.listings.each do |listing|
-      .inner-button-alt{:style=>"margin-bottom:8px;", :onclick=>"window.location='#{listing_path(listing)}'"}
-        = link_to "#{listing.name}",listing_path(listing),:class=>"inner-button-link"
+.inset-border-alt2{:style=>"padding:16px;margin-top:0;border-top:0"}
 
 
 
+  - current_group.listings.each do |listing|
+    .inset.inner-button.submit{:style=>"width:384px;margin-bottom:8px;", :onclick=>"window.location='#{listing_path(listing)}'"}
+      .star{:style=>"margin-top:0px;float:right;"}
+        = "&#10140;"
+      = link_to "#{listing.name}",listing_path(listing),:class=>"inner-button-link",:style=>"font-size:80%;"
+
+  .clear
+  .note{:style=>"padding:8px;font-weight:bold;"}
+    = "#{current_group.welcome_directory_content}"
+    -#= @items.inspect
 .clear
 
 
