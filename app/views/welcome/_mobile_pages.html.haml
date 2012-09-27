@@ -19,15 +19,17 @@
             = "&#10140;"
           = link_to "#{page.title}",page_path(page),:class=>"inner-button-link",:style=>"font-size:80%;"
 
-  - if current_group.welcome_pages_index != false
-    .clear
 
+
+  - if current_group.welcome_pages_index != false
+
+    .clear
     .inset.inner-button{:style=>"margin-top:12px", :onclick=>"window.location='#{pages_path}'"}
       .star{:style=>"margin-top:2px;font-size:110%;float:right;"}
         = "&#X2798;"
       = link_to "#{current_group.welcome_pages_index_heading}",pages_path,:class=>"inner-button-link",:style=>"font-size:80%;"
 
-
+  .clear
 
 .clear
 
