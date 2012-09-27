@@ -40,7 +40,7 @@
       = link_to "#{location.alt_button_text}","#{location.alt_button_link}",:style=>"color:#{current_group.text_colour};"
   - else
     .inner-button.submit{:style=>"width:174px;height:48px;font-size:0.9em;letter-spacing:-1px;text-align:center;margin:4px 0;line-height:48px;"}
-      = link_to "More +","location_path(location)",:style=>"color:#{current_group.text_colour};"
+      = link_to "More +",location_path(location),:style=>"color:#{current_group.text_colour};"
     .clear
 
 
