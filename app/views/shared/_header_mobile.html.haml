@@ -9,7 +9,7 @@
       - header = Header.find(current_group.default_header)
       - base_header = header.header.process(:thumb,header.header_cropping)
       - base_header1 = base_header.process(:thumb,"512x")
-      - base_header2 = base_header1.encode(:jpg, '-quality 80')
+      - base_header2 = base_header1.encode(:jpg, '-quality 83')
       - header_image = base_header2.url
 
 
